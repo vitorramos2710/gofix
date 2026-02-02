@@ -3,8 +3,40 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GO FIX TODAY — Mobile Hybrid & EV Battery Repair | Southern California</title>
-<meta name="description" content="Professional hybrid and EV battery repair in Southern California. Mobile service, same-day repairs starting at $399. 3-month warranty. Serving LA to Orange County." />
+<title>Mobile Hybrid Battery Repair $399+ | Go Fix Today | Orange County & LA</title>
+<meta name="description" content="Same-day mobile hybrid battery repair in Orange County & LA. ASE certified techs come to you. From $399, 3-month warranty. Call (714) 703-9021 now." />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.gofixtoday.com/" />
+<meta property="og:title" content="Mobile Hybrid Battery Repair | Go Fix Today" />
+<meta property="og:description" content="Same-day mobile hybrid battery repair. We come to you. From $399. Call (714) 703-9021" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://www.gofixtoday.com/" />
+<meta property="twitter:title" content="Mobile Hybrid Battery Repair | Go Fix Today" />
+<meta property="twitter:description" content="Same-day mobile hybrid battery repair. We come to you. From $399. Call (714) 703-9021" />
+
+<!-- Structured Data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Go Fix Today",
+  "description": "Mobile hybrid and EV battery repair service",
+  "telephone": "+17147039021",
+  "priceRange": "$399-$999",
+  "areaServed": [
+    {"@type": "City", "name": "Los Angeles"},
+    {"@type": "City", "name": "Irvine"},
+    {"@type": "City", "name": "Anaheim"},
+    {"@type": "City", "name": "Long Beach"}
+  ],
+  "openingHours": "Mo-Sa 07:00-19:00"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -20,6 +52,7 @@
     --accent: #c8f542;
     --accent-lo: rgba(200,245,66,0.1);
     --accent-glow: rgba(200,245,66,0.25);
+    --whatsapp: #25d366;
     --max: 1100px;
   }
 
@@ -78,6 +111,9 @@
     padding: 9px 20px;
     border-radius: 7px;
     transition: box-shadow .25s;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
   .nav-cta:hover { box-shadow: 0 0 18px var(--accent-glow); }
 
@@ -116,15 +152,17 @@
     align-items: center;
   }
 
-  /* Buttons */
+  /* Buttons - Touch-friendly (min 44px height) */
   .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     padding: 14px 28px;
+    min-height: 48px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
@@ -133,17 +171,24 @@
     white-space: nowrap;
   }
   .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
   .btn-primary {
     background: var(--accent);
     color: #0a0a0a;
   }
   .btn-primary:hover { box-shadow: 0 6px 24px var(--accent-glow); }
+  .btn-whatsapp {
+    background: var(--whatsapp);
+    color: #fff;
+  }
+  .btn-whatsapp:hover { box-shadow: 0 6px 24px rgba(37,211,102,0.3); }
   .btn-ghost {
     background: transparent;
     color: var(--text);
     border: 1px solid var(--border);
   }
   .btn-ghost:hover { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.04); }
+  .btn svg { flex-shrink: 0; }
 
   /* Trust pills */
   .trust-pills {
@@ -203,6 +248,12 @@
     color: #fff;
   }
   .stat-val .accent { color: var(--accent); }
+  .hero-box-ctas {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
   /* Sections */
   .section { padding: 96px 24px; }
@@ -358,6 +409,7 @@
     margin-top: 24px;
     width: 100%;
     padding: 12px;
+    min-height: 44px;
     border-radius: 7px;
     border: 1px solid var(--border);
     background: transparent;
@@ -376,6 +428,15 @@
     font-weight: 600;
   }
   .p-card--pop .p-btn:hover { box-shadow: 0 4px 18px var(--accent-glow); }
+
+  /* Section CTA row */
+  .section-cta {
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
   /* Why Us */
   .why-grid {
@@ -532,6 +593,12 @@
     margin-bottom: 12px;
   }
   .coverage-note p:last-of-type { margin-bottom: 0; }
+  .coverage-ctas {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
   /* FAQ */
   .faq-list { margin-top: 40px; max-width: 720px; }
@@ -552,6 +619,7 @@
     align-items: center;
     gap: 16px;
     transition: color .2s;
+    min-height: 44px;
   }
   .faq-btn:hover { color: var(--accent); }
   .faq-btn .icon {
@@ -640,6 +708,7 @@
     .hero { padding: 56px 20px 48px; }
     .city-list { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .section { padding: 64px 20px; }
   }
 </style>
 </head>
@@ -655,7 +724,7 @@
       <a href="#why">Why Us</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
-      <a href="tel:+13105551234" class="nav-cta">📞 Call Now</a>
+      <a href="tel:+17147039021" class="nav-cta">📞 Call Now</a>
     </div>
   </div>
 </nav>
@@ -666,8 +735,14 @@
     <h1>Mobile hybrid battery repair.<br><span class="accent">Done today.</span></h1>
     <p>We come to your home or office in Southern California. No towing. No dealership wait. Same-day repairs starting at $399.</p>
     <div class="hero-cta-row">
-      <a href="tel:+13105551234" class="btn btn-primary">📞 Call (310) 555-1234</a>
-      <a href="#how" class="btn btn-ghost">See how it works</a>
+      <a href="tel:+17147039021" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call (714) 703-9021
+      </a>
+      <a href="https://wa.me/17147039021" class="btn btn-whatsapp" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px; height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
     </div>
     <div class="trust-pills">
       <span class="pill"><span class="dot"></span> ASE Certified Techs</span>
@@ -699,7 +774,16 @@
       <span class="stat-label">Avg. Service Time</span>
       <span class="stat-val"><span class="accent">~1 hour</span></span>
     </div>
-    <a href="tel:+13105551234" class="btn btn-primary" style="margin-top:22px; width:100%; justify-content:center;">📞 Book Now — (310) 555-1234</a>
+    <div class="hero-box-ctas">
+      <a href="tel:+17147039021" class="btn btn-primary" style="width:100%;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call (714) 703-9021
+      </a>
+      <a href="https://wa.me/17147039021" class="btn btn-whatsapp" style="width:100%;" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px; height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
   </div>
 </section>
 
@@ -713,7 +797,7 @@
       <div class="step-card">
         <div class="step-num">01</div>
         <h3>Book & Schedule</h3>
-        <p>Call or book online. Give us your car's make, model, and symptoms. We get a technician scheduled same-day or next-day at your location.</p>
+        <p>Call or text. Give us your car's make, model, and symptoms. We get a technician scheduled same-day or next-day at your location.</p>
       </div>
       <div class="step-card">
         <div class="step-num">02</div>
@@ -777,6 +861,17 @@
         <button class="p-btn">Get a Quote</button>
       </div>
 
+    </div>
+
+    <div class="section-cta">
+      <a href="tel:+17147039021" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call (714) 703-9021
+      </a>
+      <a href="https://wa.me/17147039021" class="btn btn-whatsapp" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px; height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Text on WhatsApp
+      </a>
     </div>
   </div>
 </section>
@@ -861,11 +956,17 @@
   <div class="cta-band-inner">
     <div>
       <h2>Ready to get your hybrid fixed today?</h2>
-      <p>Call us or book online. We'll confirm your appointment and have a tech at your door — fast.</p>
+      <p>Call us or text on WhatsApp. We'll confirm your appointment and have a tech at your door — fast.</p>
     </div>
     <div class="cta-band-actions">
-      <a href="tel:+13105551234" class="btn btn-primary">📞 Call (310) 555-1234</a>
-      <a href="#services" class="btn btn-ghost">View Pricing</a>
+      <a href="tel:+17147039021" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call (714) 703-9021
+      </a>
+      <a href="https://wa.me/17147039021" class="btn btn-whatsapp" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px; height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
     </div>
   </div>
 </section>
@@ -895,7 +996,16 @@
         <h3>Not in the list above?</h3>
         <p>We may still be able to reach you. Give us a call and we'll confirm whether your location is covered. We're expanding our service area regularly.</p>
         <p>Most of the time, if you're within 40 miles of central LA, we can get to you.</p>
-        <a href="tel:+13105551234" class="btn btn-primary" style="margin-top:18px;">📞 Call (310) 555-1234</a>
+        <div class="coverage-ctas">
+          <a href="tel:+17147039021" class="btn btn-primary" style="width:100%;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call (714) 703-9021
+          </a>
+          <a href="https://wa.me/17147039021" class="btn btn-whatsapp" style="width:100%;" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px; height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -989,7 +1099,8 @@
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="tel:+13105551234">(310) 555-1234</a>
+      <a href="tel:+17147039021">(714) 703-9021</a>
+      <a href="https://wa.me/17147039021" target="_blank">WhatsApp</a>
       <a href="mailto:hello@gofixtoday.com">hello@gofixtoday.com</a>
       <a href="#">Mon–Sat, 7am – 7pm</a>
       <a href="#">Southern California</a>
@@ -997,7 +1108,7 @@
   </div>
   <div class="footer-bottom">
     <p>© 2025 Go Fix Today. All rights reserved.</p>
-    <span class="phone">📞 (310) 555-1234</span>
+    <span class="phone">📞 (714) 703-9021</span>
   </div>
 </footer>
 
