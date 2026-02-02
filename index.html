@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GO FIX TODAY — Mobile Hybrid & EV Battery Repair | Southern California</title>
+<meta name="description" content="Professional hybrid and EV battery repair in Southern California. Mobile service, same-day repairs starting at $399. 3-month warranty. Serving LA to Orange County." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e8e8;
+    --text-dim: #777;
+    --accent: #c8f542;
+    --accent-lo: rgba(200,245,66,0.1);
+    --accent-glow: rgba(200,245,66,0.25);
+    --max: 1100px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta {
+    background: var(--accent);
+    color: #0a0a0a !important;
+    font-weight: 600 !important;
+    padding: 9px 20px;
+    border-radius: 7px;
+    transition: box-shadow .25s;
+  }
+  .nav-cta:hover { box-shadow: 0 0 18px var(--accent-glow); }
+
+  /* HERO */
+  .hero {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 80px 24px 72px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-left h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+  .hero-left h1 .accent { color: var(--accent); }
+  .hero-left p {
+    margin-top: 20px;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+  .hero-cta-row {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .25s;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+  }
+  .btn-primary:hover { box-shadow: 0 6px 24px var(--accent-glow); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.04); }
+
+  /* Trust pills */
+  .trust-pills {
+    margin-top: 28px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+  .pill .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* Hero box */
+  .hero-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+  }
+  .hero-box-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-row:last-of-type { border-bottom: none; }
+  .stat-label { font-size: 0.88rem; color: var(--text-dim); font-weight: 300; }
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff;
+  }
+  .stat-val .accent { color: var(--accent); }
+
+  /* Sections */
+  .section { padding: 96px 24px; }
+  .section-inner { max-width: var(--max); margin: 0 auto; }
+  .section-alt { background: var(--surface); }
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+  .label::before { content: ''; width: 22px; height: 1px; background: var(--accent); }
+  .sec-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .sec-desc {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    font-weight: 300;
+    max-width: 500px;
+    margin-top: 12px;
+    line-height: 1.7;
+  }
+
+  /* Steps */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .step-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 26px;
+  }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--accent-lo);
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+  .step-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .step-card p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* Pricing */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 48px;
+  }
+  .p-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .p-card--pop { border-color: rgba(200,245,66,0.3); }
+  .pop-badge {
+    display: none;
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #0a0a0a;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 0 0 7px 7px;
+  }
+  .p-card--pop .pop-badge { display: block; }
+  .p-type {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .p-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .p-price {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .p-price sup { font-size: 1.1rem; font-weight: 500; color: var(--text-dim); vertical-align: super; }
+  .p-price sub { font-size: 0.75rem; font-weight: 400; color: var(--text-dim); }
+  .p-features {
+    list-style: none;
+    margin: 22px 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .p-features li {
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+  .ck {
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    background: var(--accent-lo);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .ck svg { width: 10px; height: 10px; stroke: var(--accent); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .p-btn {
+    margin-top: 24px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .p-btn:hover { border-color: rgba(200,245,66,0.3); color: var(--accent); background: var(--accent-lo); }
+  .p-card--pop .p-btn {
+    background: var(--accent);
+    color: #0a0a0a;
+    border-color: transparent;
+    font-weight: 600;
+  }
+  .p-card--pop .p-btn:hover { box-shadow: 0 4px 18px var(--accent-glow); }
+
+  /* Why Us */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .why-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px 24px;
+  }
+  .why-icon {
+    width: 44px; height: 44px;
+    background: var(--accent-lo);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .why-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .why-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .why-card p {
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* Reviews */
+  .reviews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 48px;
+  }
+  .review-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 22px;
+  }
+  .stars { color: var(--accent); font-size: 0.82rem; letter-spacing: 2px; margin-bottom: 14px; }
+  .review-card blockquote {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .reviewer { display: flex; align-items: center; gap: 10px; }
+  .reviewer-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--accent);
+  }
+  .reviewer-name { font-size: 0.82rem; color: #fff; font-weight: 500; }
+  .reviewer-car { font-size: 0.72rem; color: var(--text-dim); margin-top: 1px; }
+
+  /* CTA Band */
+  .cta-band {
+    background: linear-gradient(135deg, #141a05 0%, #0f1206 40%, var(--bg) 100%);
+    border-top: 1px solid rgba(200,245,66,0.1);
+    border-bottom: 1px solid rgba(200,245,66,0.1);
+  }
+  .cta-band-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 64px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .cta-band h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    color: #fff;
+    letter-spacing: -0.02em;
+    max-width: 460px;
+  }
+  .cta-band p {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    font-weight: 300;
+    margin-top: 10px;
+    max-width: 420px;
+    line-height: 1.6;
+  }
+  .cta-band-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Coverage */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+    align-items: start;
+  }
+  .city-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .city {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-size: 0.84rem;
+    color: var(--text);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .city .pin { color: var(--accent); font-size: 0.75rem; }
+  .coverage-note {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 28px;
+  }
+  .coverage-note h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .coverage-note p {
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .coverage-note p:last-of-type { margin-bottom: 0; }
+
+  /* FAQ */
+  .faq-list { margin-top: 40px; max-width: 720px; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+    padding: 18px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: color .2s;
+  }
+  .faq-btn:hover { color: var(--accent); }
+  .faq-btn .icon {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    transition: transform .3s, color .2s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-btn .icon { transform: rotate(45deg); color: var(--accent); }
+  .faq-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease, padding .3s;
+  }
+  .faq-item.open .faq-body { max-height: 160px; padding-bottom: 18px; }
+  .faq-body p {
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 64px 24px 36px;
+  }
+  .footer-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-brand .logo { display: inline-block; margin-bottom: 12px; }
+  .footer-brand p {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 260px;
+  }
+  .footer-col h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-decoration: none;
+    margin-bottom: 9px;
+    transition: color .2s;
+  }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom {
+    max-width: var(--max);
+    margin: 44px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-bottom p { font-size: 0.72rem; color: var(--text-dim); font-weight: 300; }
+  .footer-bottom .phone { color: var(--accent); font-weight: 500; font-size: 0.78rem; }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .steps, .pricing-grid, .why-grid, .reviews { grid-template-columns: 1fr; max-width: 520px; }
+    .coverage-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .cta-band-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .nav-links { display: none; }
+    .hero { padding: 56px 20px 48px; }
+    .city-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-wrap">
+    <a href="#" class="logo">GO <span>FIX</span> TODAY</a>
+    <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="tel:+13105551234" class="nav-cta">📞 Call Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <h1>Mobile hybrid battery repair.<br><span class="accent">Done today.</span></h1>
+    <p>We come to your home or office in Southern California. No towing. No dealership wait. Same-day repairs starting at $399.</p>
+    <div class="hero-cta-row">
+      <a href="tel:+13105551234" class="btn btn-primary">📞 Call (310) 555-1234</a>
+      <a href="#how" class="btn btn-ghost">See how it works</a>
+    </div>
+    <div class="trust-pills">
+      <span class="pill"><span class="dot"></span> ASE Certified Techs</span>
+      <span class="pill"><span class="dot"></span> 3-Month Warranty</span>
+      <span class="pill"><span class="dot"></span> Same-Day Service</span>
+      <span class="pill"><span class="dot"></span> LA to Orange County</span>
+    </div>
+  </div>
+
+  <div class="hero-box">
+    <div class="hero-box-title">Quick Price Estimate</div>
+    <div class="stat-row">
+      <span class="stat-label">Mobile Diagnostic</span>
+      <span class="stat-val"><span class="accent">$99</span></span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Battery Repair</span>
+      <span class="stat-val">from <span class="accent">$399</span></span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Full Replacement</span>
+      <span class="stat-val">from <span class="accent">$999</span></span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Warranty</span>
+      <span class="stat-val"><span class="accent">3 months</span></span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">Avg. Service Time</span>
+      <span class="stat-val"><span class="accent">~1 hour</span></span>
+    </div>
+    <a href="tel:+13105551234" class="btn btn-primary" style="margin-top:22px; width:100%; justify-content:center;">📞 Book Now — (310) 555-1234</a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="section section-alt">
+  <div class="section-inner">
+    <div class="label">How It Works</div>
+    <h2 class="sec-title">Three simple steps</h2>
+    <p class="sec-desc">No paperwork. No waiting rooms. We handle everything from start to finish — at your door.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Book & Schedule</h3>
+        <p>Call or book online. Give us your car's make, model, and symptoms. We get a technician scheduled same-day or next-day at your location.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>On-Site Repair</h3>
+        <p>Our certified tech arrives with all parts and tools. Diagnose, repair, or replace your hybrid battery right where your car is parked — no garage needed.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Test & Go</h3>
+        <p>Full system test and a road check before we leave. Your repair comes with a 3-month warranty on parts and labor. Drive off with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="label">Services & Pricing</div>
+    <h2 class="sec-title">Transparent pricing. No surprises.</h2>
+    <p class="sec-desc">All prices include the mobile visit, diagnosis, and parts. We confirm the final cost before any work starts.</p>
+    <div class="pricing-grid">
+
+      <div class="p-card">
+        <div class="p-type">Diagnosis</div>
+        <h3>Mobile Diagnostic</h3>
+        <div class="p-price"><sup>$</sup>99</div>
+        <ul class="p-features">
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Full hybrid battery diagnostic</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Written repair estimate</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>$99 credit if you book a repair</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Covers LA & Orange County</li>
+        </ul>
+        <button class="p-btn">Get Diagnostic</button>
+      </div>
+
+      <div class="p-card p-card--pop">
+        <span class="pop-badge">MOST POPULAR</span>
+        <div class="p-type">Battery Repair</div>
+        <h3>Hybrid Battery Repair</h3>
+        <div class="p-price"><sup>$</sup>399<sub>+</sub></div>
+        <ul class="p-features">
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Module repair & rebalancing</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>All major hybrids supported</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>3-month parts & labor warranty</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Full road test before we leave</li>
+        </ul>
+        <button class="p-btn">Book Repair</button>
+      </div>
+
+      <div class="p-card">
+        <div class="p-type">Replacement</div>
+        <h3>Full Battery Replacement</h3>
+        <div class="p-price"><sup>$</sup>999<sub>+</sub></div>
+        <ul class="p-features">
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>New or remanufactured battery pack</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Toyota, Honda, Lexus & more</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Old battery recycled — no charge</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Extended warranty available</li>
+        </ul>
+        <button class="p-btn">Get a Quote</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="section section-alt">
+  <div class="section-inner">
+    <div class="label">Why Go Fix Today</div>
+    <h2 class="sec-title">Why customers choose us</h2>
+    <p class="sec-desc">We're not a dealership. We're specialists who come to you — certified, insured, and honest about pricing.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>ASE Certified & Insured</h3>
+        <p>Every technician is ASE-certified with hands-on hybrid experience. We carry full commercial insurance — your car is covered.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Same-Day Availability</h3>
+        <p>Most repairs done in under 2 hours. We stock parts for the most common hybrids in SoCal so we're ready when you call.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Price Match Guarantee</h3>
+        <p>Find a lower price for the same job from another certified shop? We match it. No questions, no hassle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+  <div class="section-inner">
+    <div class="label">Reviews</div>
+    <h2 class="sec-title">What customers are saying</h2>
+    <div class="reviews">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Tech showed up on time, had my Prius running like new in under an hour. Saved me $2,000 vs the dealership. Absolutely worth it."</blockquote>
+        <div class="reviewer">
+          <div class="reviewer-avatar">MR</div>
+          <div>
+            <div class="reviewer-name">Maria Rodriguez</div>
+            <div class="reviewer-car">2018 Toyota Prius — Los Angeles</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I was stuck on the 405 and they dispatched someone in 30 minutes. Professional, fast, and the price was exactly what they quoted."</blockquote>
+        <div class="reviewer">
+          <div class="reviewer-avatar">JC</div>
+          <div>
+            <div class="reviewer-name">James Chen</div>
+            <div class="reviewer-car">2020 Honda Insight — Irvine</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Super knowledgeable team. They showed me the diagnostics, explained everything clearly, and fixed it same day. Using them again for sure."</blockquote>
+        <div class="reviewer">
+          <div class="reviewer-avatar">SK</div>
+          <div>
+            <div class="reviewer-name">Sarah Kim</div>
+            <div class="reviewer-car">2016 Toyota Camry Hybrid — Pasadena</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div>
+      <h2>Ready to get your hybrid fixed today?</h2>
+      <p>Call us or book online. We'll confirm your appointment and have a tech at your door — fast.</p>
+    </div>
+    <div class="cta-band-actions">
+      <a href="tel:+13105551234" class="btn btn-primary">📞 Call (310) 555-1234</a>
+      <a href="#services" class="btn btn-ghost">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage" class="section section-alt">
+  <div class="section-inner">
+    <div class="label">Service Area</div>
+    <h2 class="sec-title">We cover all of Southern California</h2>
+    <p class="sec-desc">From downtown LA to the Orange County coast — if you're in our zone, we come to you.</p>
+    <div class="coverage-grid">
+      <div class="city-list">
+        <div class="city"><span class="pin">📍</span> Los Angeles</div>
+        <div class="city"><span class="pin">📍</span> Santa Monica</div>
+        <div class="city"><span class="pin">📍</span> Pasadena</div>
+        <div class="city"><span class="pin">📍</span> Long Beach</div>
+        <div class="city"><span class="pin">📍</span> Burbank</div>
+        <div class="city"><span class="pin">📍</span> Glendale</div>
+        <div class="city"><span class="pin">📍</span> Irvine</div>
+        <div class="city"><span class="pin">📍</span> Anaheim</div>
+        <div class="city"><span class="pin">📍</span> Newport Beach</div>
+        <div class="city"><span class="pin">📍</span> Costa Mesa</div>
+        <div class="city"><span class="pin">📍</span> Torrance</div>
+        <div class="city"><span class="pin">📍</span> Culver City</div>
+      </div>
+      <div class="coverage-note">
+        <h3>Not in the list above?</h3>
+        <p>We may still be able to reach you. Give us a call and we'll confirm whether your location is covered. We're expanding our service area regularly.</p>
+        <p>Most of the time, if you're within 40 miles of central LA, we can get to you.</p>
+        <a href="tel:+13105551234" class="btn btn-primary" style="margin-top:18px;">📞 Call (310) 555-1234</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="section-inner">
+    <div class="label">FAQ</div>
+    <h2 class="sec-title">Common questions</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>What vehicles do you service?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>We service all major hybrids and plug-in hybrids: Toyota Prius (all gens), Camry Hybrid, Honda Insight, Honda Civic Hybrid, Lexus hybrids, Ford Fusion Hybrid, and more. Call us with your specific model to confirm.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>How long does a repair take?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Most repairs are done in 1–2 hours on-site. Some complex replacements may take up to 3 hours. We'll give you an accurate time estimate before we start.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>Do I need to be home during the repair?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>No. We just need access to your vehicle and a flat surface. Leave keys with a neighbor or a lockbox. We'll let you know when it's done.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>What does the 3-month warranty cover?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Our 3-month warranty covers all parts and labor from the repair. If anything goes wrong related to the work we did, we fix it at no cost — including a return mobile visit.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>Can you come to my workplace?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Absolutely. Home, office, parking garage — anywhere in our service area. Just make sure there's enough space for our van to work comfortably.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>How do I know if my battery needs repair?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Watch for: hybrid battery warning light, big drop in MPG, car running on engine only, or trouble starting. Book a $99 diagnostic and we'll give you a clear answer.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">GO <span>FIX</span> TODAY</a>
+      <p>Professional mobile hybrid & EV battery repair in Southern California. Same-day service, certified techs, and a warranty you can count on.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Mobile Diagnostic</a>
+      <a href="#">Battery Repair</a>
+      <a href="#">Battery Replacement</a>
+      <a href="#">EV Charging</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Careers</a>
+      <a href="#">Service Areas</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+13105551234">(310) 555-1234</a>
+      <a href="mailto:hello@gofixtoday.com">hello@gofixtoday.com</a>
+      <a href="#">Mon–Sat, 7am – 7pm</a>
+      <a href="#">Southern California</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Go Fix Today. All rights reserved.</p>
+    <span class="phone">📞 (310) 555-1234</span>
+  </div>
+</footer>
+
+<script>
+  function faq(btn) {
+    var item = btn.parentElement;
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    if (!open) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
