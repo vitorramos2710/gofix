@@ -466,32 +466,35 @@
   </div>
 </div>
 <script>
-  // Tracks clicks on tel: and sms: links as GA4 events (requires gtag already installed)
-  document.addEventListener('click', function (e) {
-    const link = e.target.closest('a');
-    if (!link) return;
+  function faq(btn) {
+    var item = btn.parentElement;
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    if (!open) item.classList.add('open');
+  }
 
-    const href = (link.getAttribute('href') || '').toLowerCase();
-    const text = (link.textContent || '').trim();
-
-    if (href.startsWith('sms:')) {
+  function openCall() {
+    try {
       if (typeof gtag === 'function') {
-        gtag('event', 'click_text', {
-          link_url: link.getAttribute('href'),
-          link_text: text
-        });
+        gtag('event', 'click_call', { method: 'button', phone: '+17147039021' });
       }
-    }
+    } catch (e) {}
+    // pequeno delay para garantir envio do evento antes de abrir o discador
+    setTimeout(function() {
+      window.location.href = "tel:+17147039021";
+    }, 150);
+  }
 
-    if (href.startsWith('tel:')) {
+  function openText() {
+    try {
       if (typeof gtag === 'function') {
-        gtag('event', 'click_call', {
-          link_url: link.getAttribute('href'),
-          link_text: text
-        });
+        gtag('event', 'click_text', { method: 'button', phone: '+17147039021' });
       }
-    }
-  });
+    } catch (e) {}
+    setTimeout(function() {
+      window.location.href = "sms:+17147039021";
+    }, 150);
+  }
 </script>
 </body>
 </html>
