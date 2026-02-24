@@ -22,7 +22,6 @@
 
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
     --bg: #0a0a0a;
     --surface: #111;
@@ -34,7 +33,6 @@
     --accent-glow: rgba(200,245,66,0.25);
     --max: 1100px;
   }
-
   html { scroll-behavior: smooth; }
   body {
     font-family: 'DM Sans', sans-serif;
@@ -45,7 +43,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* NAV */
   nav {
     position: sticky;
     top: 0;
@@ -94,7 +91,6 @@
   }
   .nav-cta:hover { box-shadow: 0 0 18px var(--accent-glow); }
 
-  /* HERO */
   .hero {
     max-width: var(--max);
     margin: 0 auto;
@@ -139,7 +135,6 @@
     align-items: center;
   }
 
-  /* Buttons */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -161,7 +156,6 @@
   .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .btn-ghost:hover { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.04); }
 
-  /* Trust pills */
   .trust-pills {
     margin-top: 22px;
     display: flex;
@@ -187,7 +181,6 @@
     flex-shrink: 0;
   }
 
-  /* Hero box */
   .hero-box {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -234,7 +227,6 @@
     line-height: 1.5;
   }
 
-  /* Sections */
   .section { padding: 96px 24px; }
   .section-inner { max-width: var(--max); margin: 0 auto; }
   .section-alt { background: var(--surface); }
@@ -267,7 +259,6 @@
     line-height: 1.7;
   }
 
-  /* Steps */
   .steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -302,7 +293,6 @@
     line-height: 1.6;
   }
 
-  /* Pricing */
   .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -407,7 +397,6 @@
   }
   .p-card--pop .p-btn:hover { box-shadow: 0 4px 18px var(--accent-glow); }
 
-  /* Coverage */
   .coverage-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -455,7 +444,6 @@
   }
   .coverage-note p:last-of-type { margin-bottom: 0; }
 
-  /* FAQ */
   .faq-list { margin-top: 40px; max-width: 720px; }
   .faq-item { border-bottom: 1px solid var(--border); }
   .faq-btn {
@@ -496,7 +484,6 @@
     line-height: 1.7;
   }
 
-  /* Footer */
   footer {
     border-top: 1px solid var(--border);
     padding: 64px 24px 36px;
@@ -549,7 +536,6 @@
   .footer-bottom p { font-size: 0.72rem; color: var(--text-dim); font-weight: 300; }
   .footer-bottom .phone { color: var(--accent); font-weight: 600; font-size: 0.78rem; }
 
-  /* Sticky mobile CTA */
   .sticky-cta {
     position: fixed;
     left: 0; right: 0; bottom: 0;
@@ -589,7 +575,6 @@
   }
   .sticky-btn.primary:hover { box-shadow: 0 6px 20px var(--accent-glow); }
 
-  /* Responsive */
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; gap: 40px; }
     .steps, .pricing-grid { grid-template-columns: 1fr; max-width: 560px; }
@@ -609,7 +594,6 @@
 
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-wrap">
     <a href="#" class="logo">GO <span>FIX</span> TODAY</a>
@@ -618,12 +602,11 @@
       <a href="#services">Services</a>
       <a href="#coverage">Service Area</a>
       <a href="#faq">FAQ</a>
-      <a href="tel:+17147039021" class="nav-cta js-call">📞 Call Now</a>
+      <a href="tel:+16574782947" class="nav-cta js-call">📞 Call Now</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <h1>Mobile hybrid battery repair.<br><span class="accent">Done today.</span></h1>
@@ -639,8 +622,8 @@
     </p>
 
     <div class="hero-cta-row">
-      <a href="tel:+17147039021" class="btn btn-primary js-call">📞 Call (714) 703-9021</a>
-      <a href="sms:+17147039021" class="btn btn-ghost js-text">💬 Text Us</a>
+      <a href="tel:+16574782947" class="btn btn-primary js-call">📞 Call (657) 478-2947</a>
+      <a href="sms:+16574782947" class="btn btn-ghost js-text">💬 Text Us</a>
       <a href="#services" class="btn btn-ghost">View pricing</a>
     </div>
 
@@ -677,13 +660,13 @@
       <span class="stat-val"><span class="accent">~1 hour</span></span>
     </div>
 
-    <a href="tel:+17147039021" class="btn btn-primary js-call" style="margin-top:18px; width:100%; justify-content:center;">
-      📞 Book Now — (714) 703-9021
+    <a href="tel:+16574782947" class="btn btn-primary js-call" style="margin-top:18px; width:100%; justify-content:center;">
+      📞 Book Now — (657) 478-2947
     </a>
-    <a href="sms:+17147039021" class="btn btn-ghost js-text" style="margin-top:10px; width:100%; justify-content:center;">
+    <a href="sms:+16574782947" class="btn btn-ghost js-text" style="margin-top:10px; width:100%; justify-content:center;">
       💬 Text Us
     </a>
-    <a href="https://wa.me/17147039021" class="btn btn-ghost" style="margin-top:10px; width:100%; justify-content:center;">
+    <a href="https://wa.me/16574782947" class="btn btn-ghost" style="margin-top:10px; width:100%; justify-content:center;">
       🟢 WhatsApp (optional)
     </a>
 
@@ -693,7 +676,6 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section id="how" class="section section-alt">
   <div class="section-inner">
     <div class="label">How It Works</div>
@@ -720,7 +702,6 @@
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="services" class="section">
   <div class="section-inner">
     <div class="label">Services & Pricing</div>
@@ -775,7 +756,6 @@
   </div>
 </section>
 
-<!-- COVERAGE -->
 <section id="coverage" class="section section-alt">
   <div class="section-inner">
     <div class="label">Service Area</div>
@@ -805,13 +785,12 @@
         <h3>Not listed?</h3>
         <p>Text your <strong>city or ZIP</strong>. If it’s within our route range today, we’ll fit you in.</p>
         <p>We prioritize OC/South Bay/Long Beach for fastest same-day response — but we can often serve much of Greater LA/OC depending on the schedule.</p>
-        <a href="sms:+17147039021" class="btn btn-primary js-text" style="margin-top:18px;">💬 Text (714) 703-9021</a>
+        <a href="sms:+16574782947" class="btn btn-primary js-text" style="margin-top:18px;">💬 Text (657) 478-2947</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq" class="section">
   <div class="section-inner">
     <div class="label">FAQ</div>
@@ -858,7 +837,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -882,8 +860,8 @@
 
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="tel:+17147039021" class="js-call">(714) 703-9021</a>
-      <a href="sms:+17147039021" class="js-text">Text Us</a>
+      <a href="tel:+16574782947" class="js-call">(657) 478-2947</a>
+      <a href="sms:+16574782947" class="js-text">Text Us</a>
       <a href="mailto:hello@gofixtoday.com">hello@gofixtoday.com</a>
       <a href="#">Mon–Sat, 7am – 7pm</a>
       <a href="#">OC / South Bay / Long Beach</a>
@@ -892,23 +870,23 @@
 
   <div class="footer-bottom">
     <p>© 2026 Go Fix Today. All rights reserved.</p>
-    <span class="phone">📞 (714) 703-9021</span>
+    <span class="phone">📞 (657) 478-2947</span>
   </div>
 </footer>
 
-<!-- Sticky mobile CTA bar -->
 <div class="sticky-cta" aria-label="Quick actions">
   <div class="sticky-cta-inner">
-    <a class="sticky-btn primary js-call" href="tel:+17147039021">📞 Call</a>
-    <a class="sticky-btn js-text" href="sms:+17147039021">💬 Text</a>
+    <a class="sticky-btn primary js-call" href="tel:+16574782947">📞 Call</a>
+    <a class="sticky-btn js-text" href="sms:+16574782947">💬 Text</a>
     <a class="sticky-btn" href="#quote">⚡ Quote</a>
   </div>
 </div>
 
 <script>
-  const PHONE_E164 = "+17147039021";
-  const PHONE_SMS  = "sms:+17147039021";
-  const PHONE_TEL  = "tel:+17147039021";
+  // Phone constants
+  const PHONE_E164 = "+16574782947";
+  const PHONE_SMS  = "sms:+16574782947";
+  const PHONE_TEL  = "tel:+16574782947";
 
   function faq(btn) {
     var item = btn.parentElement;
