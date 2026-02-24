@@ -465,6 +465,33 @@
     <a class="sticky-btn" href="#quote">⚡ Quote</a>
   </div>
 </div>
+<script>
+  // Tracks clicks on tel: and sms: links as GA4 events (requires gtag already installed)
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('a');
+    if (!link) return;
 
+    const href = (link.getAttribute('href') || '').toLowerCase();
+    const text = (link.textContent || '').trim();
+
+    if (href.startsWith('sms:')) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'click_text', {
+          link_url: link.getAttribute('href'),
+          link_text: text
+        });
+      }
+    }
+
+    if (href.startsWith('tel:')) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'click_call', {
+          link_url: link.getAttribute('href'),
+          link_text: text
+        });
+      }
+    }
+  });
+</script>
 </body>
 </html>
