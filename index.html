@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>GO FIX TODAY — Mobile Hybrid Battery Repair | OC + South Bay + Long Beach</title>
+<meta name="description" content="Mobile hybrid battery repair across Orange County, South Bay, and Long Beach. Same-day when available. $99 diagnostic credited toward repair. Call or text now." />
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGZXG0GKDM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-CGZXG0GKDM');
 </script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>GO FIX TODAY — Mobile Hybrid Battery Repair | OC + South Bay + Long Beach</title>
-<meta name="description" content="Mobile hybrid battery repair in Orange County, South Bay, and Long Beach. Same-day service. $99 diagnostic (credited toward repair). Call or text now." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,6 +45,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* NAV */
   nav {
     position: sticky;
     top: 0;
@@ -93,6 +94,7 @@
   }
   .nav-cta:hover { box-shadow: 0 0 18px var(--accent-glow); }
 
+  /* HERO */
   .hero {
     max-width: var(--max);
     margin: 0 auto;
@@ -119,13 +121,25 @@
     max-width: 520px;
     line-height: 1.7;
   }
+  .micro-note {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+  .micro-note strong { color: #fff; font-weight: 500; }
+
   .hero-cta-row {
-    margin-top: 28px;
+    margin-top: 26px;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     align-items: center;
   }
+
+  /* Buttons */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -144,14 +158,16 @@
   .btn:hover { transform: translateY(-1px); }
   .btn-primary { background: var(--accent); color: #0a0a0a; }
   .btn-primary:hover { box-shadow: 0 6px 24px var(--accent-glow); }
-  .btn-ghost {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .btn-ghost:hover { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.04); }
 
-  .trust-pills { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+  /* Trust pills */
+  .trust-pills {
+    margin-top: 22px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
   .pill {
     display: inline-flex;
     align-items: center;
@@ -164,17 +180,14 @@
     color: var(--text-dim);
     font-weight: 400;
   }
-  .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-
-  .micro-note {
-    margin-top: 14px;
-    font-size: 0.82rem;
-    color: var(--text-dim);
-    font-weight: 300;
-    max-width: 520px;
+  .pill .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
   }
-  .micro-note strong { color: #fff; font-weight: 500; }
 
+  /* Hero box */
   .hero-box {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -186,7 +199,7 @@
     font-weight: 700;
     font-size: 1.1rem;
     color: #fff;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border);
   }
@@ -206,9 +219,13 @@
   }
   .stat-row:last-of-type { border-bottom: none; }
   .stat-label { font-size: 0.88rem; color: var(--text-dim); font-weight: 300; }
-  .stat-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; color: #fff; }
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff;
+  }
   .stat-val .accent { color: var(--accent); }
-
   .tiny-disclaimer {
     margin-top: 12px;
     font-size: 0.78rem;
@@ -217,6 +234,7 @@
     line-height: 1.5;
   }
 
+  /* Sections */
   .section { padding: 96px 24px; }
   .section-inner { max-width: var(--max); margin: 0 auto; }
   .section-alt { background: var(--surface); }
@@ -244,13 +262,164 @@
     color: var(--text-dim);
     font-size: 0.95rem;
     font-weight: 300;
-    max-width: 560px;
+    max-width: 520px;
     margin-top: 12px;
     line-height: 1.7;
   }
 
-  .coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; align-items: start; }
-  .city-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  /* Steps */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .step-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 26px;
+  }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--accent-lo);
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+  .step-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .step-card p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* Pricing */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 48px;
+  }
+  .p-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .p-card--pop { border-color: rgba(200,245,66,0.3); }
+  .pop-badge {
+    display: none;
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #0a0a0a;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 0 0 7px 7px;
+  }
+  .p-card--pop .pop-badge { display: block; }
+  .p-type {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .p-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .p-price {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .p-price sup { font-size: 1.1rem; font-weight: 500; color: var(--text-dim); vertical-align: super; }
+  .p-price sub { font-size: 0.75rem; font-weight: 400; color: var(--text-dim); }
+  .p-features {
+    list-style: none;
+    margin: 22px 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .p-features li {
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+  .ck {
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    background: var(--accent-lo);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .ck svg { width: 10px; height: 10px; stroke: var(--accent); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .p-btn {
+    margin-top: 24px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .p-btn:hover { border-color: rgba(200,245,66,0.3); color: var(--accent); background: var(--accent-lo); }
+  .p-card--pop .p-btn {
+    background: var(--accent);
+    color: #0a0a0a;
+    border-color: transparent;
+    font-weight: 700;
+  }
+  .p-card--pop .p-btn:hover { box-shadow: 0 4px 18px var(--accent-glow); }
+
+  /* Coverage */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+    align-items: start;
+  }
+  .city-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
   .city {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -286,11 +455,101 @@
   }
   .coverage-note p:last-of-type { margin-bottom: 0; }
 
-  footer { border-top: 1px solid var(--border); padding: 64px 24px 36px; }
-  .footer-bottom { max-width: var(--max); margin: 44px auto 0; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  /* FAQ */
+  .faq-list { margin-top: 40px; max-width: 720px; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+    padding: 18px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: color .2s;
+  }
+  .faq-btn:hover { color: var(--accent); }
+  .faq-btn .icon {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    transition: transform .3s, color .2s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-btn .icon { transform: rotate(45deg); color: var(--accent); }
+  .faq-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease, padding .3s;
+  }
+  .faq-item.open .faq-body { max-height: 220px; padding-bottom: 18px; }
+  .faq-body p {
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 64px 24px 36px;
+  }
+  .footer-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-brand .logo { display: inline-block; margin-bottom: 12px; }
+  .footer-brand p {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  .footer-col h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-decoration: none;
+    margin-bottom: 9px;
+    transition: color .2s;
+  }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom {
+    max-width: var(--max);
+    margin: 44px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
   .footer-bottom p { font-size: 0.72rem; color: var(--text-dim); font-weight: 300; }
   .footer-bottom .phone { color: var(--accent); font-weight: 600; font-size: 0.78rem; }
 
+  /* Sticky mobile CTA */
   .sticky-cta {
     position: fixed;
     left: 0; right: 0; bottom: 0;
@@ -323,17 +582,25 @@
     color: #fff;
     background: rgba(255,255,255,0.03);
   }
-  .sticky-btn.primary { background: var(--accent); color: #0a0a0a; border-color: transparent; }
+  .sticky-btn.primary {
+    background: var(--accent);
+    color: #0a0a0a;
+    border-color: transparent;
+  }
   .sticky-btn.primary:hover { box-shadow: 0 6px 20px var(--accent-glow); }
 
+  /* Responsive */
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; gap: 40px; }
+    .steps, .pricing-grid { grid-template-columns: 1fr; max-width: 560px; }
     .coverage-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
     .nav-links { display: none; }
     .hero { padding: 56px 20px 48px; }
     .city-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
     .sticky-cta { display: block; }
     body { padding-bottom: 74px; }
   }
@@ -342,16 +609,21 @@
 
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-wrap">
     <a href="#" class="logo">GO <span>FIX</span> TODAY</a>
     <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#services">Services</a>
       <a href="#coverage">Service Area</a>
-      <a href="tel:+17147039021" class="nav-cta">📞 Call Now</a>
+      <a href="#faq">FAQ</a>
+      <a href="tel:+17147039021" class="nav-cta js-call">📞 Call Now</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <h1>Mobile hybrid battery repair.<br><span class="accent">Done today.</span></h1>
@@ -367,9 +639,9 @@
     </p>
 
     <div class="hero-cta-row">
-      <a href="tel:+17147039021" class="btn btn-primary">📞 Call (714) 703-9021</a>
-      <a href="sms:+17147039021" class="btn btn-ghost">💬 Text Us</a>
-      <a href="#coverage" class="btn btn-ghost">See coverage</a>
+      <a href="tel:+17147039021" class="btn btn-primary js-call">📞 Call (714) 703-9021</a>
+      <a href="sms:+17147039021" class="btn btn-ghost js-text">💬 Text Us</a>
+      <a href="#services" class="btn btn-ghost">View pricing</a>
     </div>
 
     <div class="trust-pills">
@@ -400,12 +672,19 @@
       <span class="stat-label">Warranty</span>
       <span class="stat-val"><span class="accent">3 months</span></span>
     </div>
+    <div class="stat-row">
+      <span class="stat-label">Avg. Service Time</span>
+      <span class="stat-val"><span class="accent">~1 hour</span></span>
+    </div>
 
-    <a href="tel:+17147039021" class="btn btn-primary" style="margin-top:18px; width:100%; justify-content:center;">
+    <a href="tel:+17147039021" class="btn btn-primary js-call" style="margin-top:18px; width:100%; justify-content:center;">
       📞 Book Now — (714) 703-9021
     </a>
-    <a href="sms:+17147039021" class="btn btn-ghost" style="margin-top:10px; width:100%; justify-content:center;">
+    <a href="sms:+17147039021" class="btn btn-ghost js-text" style="margin-top:10px; width:100%; justify-content:center;">
       💬 Text Us
+    </a>
+    <a href="https://wa.me/17147039021" class="btn btn-ghost" style="margin-top:10px; width:100%; justify-content:center;">
+      🟢 WhatsApp (optional)
     </a>
 
     <div class="tiny-disclaimer">
@@ -414,6 +693,89 @@
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section id="how" class="section section-alt">
+  <div class="section-inner">
+    <div class="label">How It Works</div>
+    <h2 class="sec-title">Three simple steps</h2>
+    <p class="sec-desc">No paperwork. No waiting rooms. We handle everything from start to finish — at your door.</p>
+
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Call / Text to Schedule</h3>
+        <p>Tell us your make, model, mileage, and symptoms. We confirm your location and book the earliest available slot.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>On-Site Diagnostic</h3>
+        <p>We run a hybrid battery diagnostic and explain the results clearly. If it’s battery-related, we walk you through options and pricing.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Repair / Replace + Test</h3>
+        <p>We complete the repair, run post-tests, and do a short road check. Service includes a 3-month warranty on parts and labor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="label">Services & Pricing</div>
+    <h2 class="sec-title">Transparent pricing. No surprises.</h2>
+    <p class="sec-desc">We confirm the final cost before any work starts. $99 diagnostic is credited toward repair if you proceed.</p>
+
+    <div class="pricing-grid">
+      <div class="p-card">
+        <div class="p-type">Step 1</div>
+        <h3>Mobile Diagnostic</h3>
+        <div class="p-price"><sup>$</sup>99</div>
+        <ul class="p-features">
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Hybrid battery diagnostic + symptoms check</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Clear explanation + written estimate</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><strong>$99 credited</strong> if you book a repair</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>OC / South Bay / Long Beach</li>
+        </ul>
+        <button class="p-btn" onclick="openText()">Text to Book Diagnostic</button>
+      </div>
+
+      <div class="p-card p-card--pop">
+        <span class="pop-badge">MOST POPULAR</span>
+        <div class="p-type">Step 2</div>
+        <h3>Hybrid Battery Repair</h3>
+        <div class="p-price"><sup>$</sup>399<sub>+</sub></div>
+        <ul class="p-features">
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Module repair + rebalancing (when eligible)</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Best value option when repairable</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>3-month parts & labor warranty</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Post-test + road check</li>
+        </ul>
+        <button class="p-btn" onclick="openCall()">Call to Book Repair</button>
+      </div>
+
+      <div class="p-card">
+        <div class="p-type">Step 2</div>
+        <h3>Full Replacement (Rebuilt Pack)</h3>
+        <div class="p-price"><sup>$</sup>999<sub>+</sub></div>
+        <ul class="p-features">
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Rebuilt hybrid battery pack (as needed)</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Faster turnaround vs dealership</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Core handled responsibly (when applicable)</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Extended warranty options available</li>
+        </ul>
+        <button class="p-btn" onclick="openText()">Text for a Quote</button>
+      </div>
+    </div>
+
+    <div class="tiny-disclaimer" style="margin-top:18px;">
+      We currently service hybrids and plug-in hybrids. We do not provide pure EV/Tesla battery work.
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
 <section id="coverage" class="section section-alt">
   <div class="section-inner">
     <div class="label">Service Area</div>
@@ -424,7 +786,6 @@
 
     <div class="coverage-grid">
       <div class="city-list">
-        <!-- Priority cities (you listed) -->
         <div class="city"><span class="pin">📍</span> Torrance</div>
         <div class="city"><span class="pin">📍</span> Long Beach</div>
         <div class="city"><span class="pin">📍</span> Huntington Beach</div>
@@ -432,7 +793,6 @@
         <div class="city"><span class="pin">📍</span> Buena Park</div>
         <div class="city"><span class="pin">📍</span> Garden Grove</div>
 
-        <!-- Strong nearby cities (still good lead quality) -->
         <div class="city"><span class="pin">📍</span> Anaheim</div>
         <div class="city"><span class="pin">📍</span> Santa Ana</div>
         <div class="city"><span class="pin">📍</span> Irvine</div>
@@ -445,27 +805,111 @@
         <h3>Not listed?</h3>
         <p>Text your <strong>city or ZIP</strong>. If it’s within our route range today, we’ll fit you in.</p>
         <p>We prioritize OC/South Bay/Long Beach for fastest same-day response — but we can often serve much of Greater LA/OC depending on the schedule.</p>
-        <a href="sms:+17147039021" class="btn btn-primary" style="margin-top:18px;">💬 Text (714) 703-9021</a>
+        <a href="sms:+17147039021" class="btn btn-primary js-text" style="margin-top:18px;">💬 Text (714) 703-9021</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="section-inner">
+    <div class="label">FAQ</div>
+    <h2 class="sec-title">Common questions</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>What vehicles do you service?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>We service major hybrids and plug-in hybrids (Toyota, Lexus, Honda, Ford and more). We do not currently provide pure EV/Tesla battery work.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>Is the $99 diagnostic credited?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Yes. If you proceed with a repair during your visit (or schedule the repair with us), we apply the $99 diagnostic toward the final bill.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>How long does a repair take?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Most services are completed in about 1–2 hours on-site. We’ll give a time estimate before starting.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">
+          <span>What does the warranty cover?</span><span class="icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Our 3-month warranty covers parts and labor related to the work performed. If an issue is related to our service, we’ll make it right.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">GO <span>FIX</span> TODAY</a>
+      <p>Mobile hybrid battery repair across OC/South Bay/Long Beach. Same-day service, transparent pricing, and a warranty you can count on.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Mobile Diagnostic</a>
+      <a href="#services">Hybrid Battery Repair</a>
+      <a href="#services">Rebuilt Pack Replacement</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#how">How It Works</a>
+      <a href="#coverage">Service Area</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+17147039021" class="js-call">(714) 703-9021</a>
+      <a href="sms:+17147039021" class="js-text">Text Us</a>
+      <a href="mailto:hello@gofixtoday.com">hello@gofixtoday.com</a>
+      <a href="#">Mon–Sat, 7am – 7pm</a>
+      <a href="#">OC / South Bay / Long Beach</a>
+    </div>
+  </div>
+
   <div class="footer-bottom">
-    <p>© 2025 Go Fix Today. All rights reserved.</p>
+    <p>© 2026 Go Fix Today. All rights reserved.</p>
     <span class="phone">📞 (714) 703-9021</span>
   </div>
 </footer>
 
+<!-- Sticky mobile CTA bar -->
 <div class="sticky-cta" aria-label="Quick actions">
   <div class="sticky-cta-inner">
-    <a class="sticky-btn primary" href="tel:+17147039021">📞 Call</a>
-    <a class="sticky-btn" href="sms:+17147039021">💬 Text</a>
+    <a class="sticky-btn primary js-call" href="tel:+17147039021">📞 Call</a>
+    <a class="sticky-btn js-text" href="sms:+17147039021">💬 Text</a>
     <a class="sticky-btn" href="#quote">⚡ Quote</a>
   </div>
 </div>
+
 <script>
+  const PHONE_E164 = "+17147039021";
+  const PHONE_SMS  = "sms:+17147039021";
+  const PHONE_TEL  = "tel:+17147039021";
+
   function faq(btn) {
     var item = btn.parentElement;
     var open = item.classList.contains('open');
@@ -473,28 +917,51 @@
     if (!open) item.classList.add('open');
   }
 
-  function openCall() {
-    try {
-      if (typeof gtag === 'function') {
-        gtag('event', 'click_call', { method: 'button', phone: '+17147039021' });
+  // Robust tracking helper (works better on iPhone/Safari)
+  function trackAndGo(eventName, url, meta) {
+    meta = meta || {};
+    if (typeof gtag === 'function') {
+      try {
+        gtag('event', eventName, Object.assign({}, meta, {
+          event_callback: function() {
+            window.location.href = url;
+          },
+          event_timeout: 2000
+        }));
+      } catch (e) {
+        window.location.href = url;
       }
-    } catch (e) {}
-    // pequeno delay para garantir envio do evento antes de abrir o discador
-    setTimeout(function() {
-      window.location.href = "tel:+17147039021";
-    }, 150);
+    } else {
+      window.location.href = url;
+    }
+  }
+
+  function openCall() {
+    trackAndGo('click_call', PHONE_TEL, { method: 'button', phone: PHONE_E164 });
   }
 
   function openText() {
-    try {
-      if (typeof gtag === 'function') {
-        gtag('event', 'click_text', { method: 'button', phone: '+17147039021' });
-      }
-    } catch (e) {}
-    setTimeout(function() {
-      window.location.href = "sms:+17147039021";
-    }, 150);
+    trackAndGo('click_text', PHONE_SMS, { method: 'button', phone: PHONE_E164 });
   }
+
+  // Track clicks on ANY tel:/sms: links too (anchors, sticky buttons, etc.)
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a');
+    if (!a) return;
+
+    const href = (a.getAttribute('href') || '').toLowerCase();
+
+    if (href.startsWith('tel:')) {
+      e.preventDefault();
+      trackAndGo('click_call', a.getAttribute('href'), { method: 'link', phone: PHONE_E164 });
+    }
+
+    if (href.startsWith('sms:')) {
+      e.preventDefault();
+      trackAndGo('click_text', a.getAttribute('href'), { method: 'link', phone: PHONE_E164 });
+    }
+  }, true);
 </script>
+
 </body>
 </html>
