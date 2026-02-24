@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>GO FIX TODAY — Mobile Hybrid Battery Repair | Orange County, CA</title>
-<meta name="description" content="Mobile hybrid battery repair in Orange County, CA. Same-day service. $99 diagnostic (credited toward repair). Transparent pricing, 3-month warranty. Call or text now." />
+<title>GO FIX TODAY — Mobile Hybrid Battery Repair | OC + South Bay + Long Beach</title>
+<meta name="description" content="Mobile hybrid battery repair in Orange County, South Bay, and Long Beach. Same-day service. $99 diagnostic (credited toward repair). Call or text now." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +36,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* NAV */
   nav {
     position: sticky;
     top: 0;
@@ -85,7 +84,6 @@
   }
   .nav-cta:hover { box-shadow: 0 0 18px var(--accent-glow); }
 
-  /* HERO */
   .hero {
     max-width: var(--max);
     margin: 0 auto;
@@ -119,8 +117,6 @@
     flex-wrap: wrap;
     align-items: center;
   }
-
-  /* Buttons */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -137,10 +133,7 @@
     white-space: nowrap;
   }
   .btn:hover { transform: translateY(-1px); }
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0a0a;
-  }
+  .btn-primary { background: var(--accent); color: #0a0a0a; }
   .btn-primary:hover { box-shadow: 0 6px 24px var(--accent-glow); }
   .btn-ghost {
     background: transparent;
@@ -149,13 +142,7 @@
   }
   .btn-ghost:hover { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.04); }
 
-  /* Trust pills */
-  .trust-pills {
-    margin-top: 24px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+  .trust-pills { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
   .pill {
     display: inline-flex;
     align-items: center;
@@ -168,12 +155,7 @@
     color: var(--text-dim);
     font-weight: 400;
   }
-  .pill .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
+  .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
   .micro-note {
     margin-top: 14px;
@@ -184,7 +166,6 @@
   }
   .micro-note strong { color: #fff; font-weight: 500; }
 
-  /* Hero box */
   .hero-box {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -216,12 +197,7 @@
   }
   .stat-row:last-of-type { border-bottom: none; }
   .stat-label { font-size: 0.88rem; color: var(--text-dim); font-weight: 300; }
-  .stat-val {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: #fff;
-  }
+  .stat-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; color: #fff; }
   .stat-val .accent { color: var(--accent); }
 
   .tiny-disclaimer {
@@ -232,7 +208,6 @@
     line-height: 1.5;
   }
 
-  /* Sections */
   .section { padding: 96px 24px; }
   .section-inner { max-width: var(--max); margin: 0 auto; }
   .section-alt { background: var(--surface); }
@@ -265,277 +240,8 @@
     line-height: 1.7;
   }
 
-  /* Steps */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 48px;
-  }
-  .step-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 32px 26px;
-  }
-  .step-num {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 2.4rem;
-    color: var(--accent-lo);
-    line-height: 1;
-    margin-bottom: 18px;
-  }
-  .step-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    color: #fff;
-    margin-bottom: 8px;
-  }
-  .step-card p {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  /* Pricing */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 48px;
-  }
-  .p-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 32px 24px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .p-card--pop { border-color: rgba(200,245,66,0.3); }
-  .pop-badge {
-    display: none;
-    position: absolute;
-    top: -1px; left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent);
-    color: #0a0a0a;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    padding: 4px 14px;
-    border-radius: 0 0 7px 7px;
-  }
-  .p-card--pop .pop-badge { display: block; }
-  .p-type {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 10px;
-  }
-  .p-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: #fff;
-    margin-bottom: 14px;
-  }
-  .p-price {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 2.4rem;
-    color: #fff;
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-  .p-price sup { font-size: 1.1rem; font-weight: 500; color: var(--text-dim); vertical-align: super; }
-  .p-price sub { font-size: 0.75rem; font-weight: 400; color: var(--text-dim); }
-  .p-features {
-    list-style: none;
-    margin: 22px 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .p-features li {
-    font-size: 0.84rem;
-    color: var(--text-dim);
-    font-weight: 300;
-    display: flex;
-    align-items: flex-start;
-    gap: 9px;
-  }
-  .ck {
-    flex-shrink: 0;
-    width: 16px; height: 16px;
-    background: var(--accent-lo);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1px;
-  }
-  .ck svg { width: 10px; height: 10px; stroke: var(--accent); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-  .p-btn {
-    margin-top: 24px;
-    width: 100%;
-    padding: 12px;
-    border-radius: 7px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all .2s;
-  }
-  .p-btn:hover { border-color: rgba(200,245,66,0.3); color: var(--accent); background: var(--accent-lo); }
-  .p-card--pop .p-btn {
-    background: var(--accent);
-    color: #0a0a0a;
-    border-color: transparent;
-    font-weight: 700;
-  }
-  .p-card--pop .p-btn:hover { box-shadow: 0 4px 18px var(--accent-glow); }
-
-  .pricing-note {
-    margin-top: 18px;
-    font-size: 0.82rem;
-    color: var(--text-dim);
-    font-weight: 300;
-    max-width: 720px;
-    line-height: 1.6;
-  }
-  .pricing-note strong { color: #fff; font-weight: 500; }
-
-  /* Why Us */
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 48px;
-  }
-  .why-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 30px 24px;
-  }
-  .why-icon {
-    width: 44px; height: 44px;
-    background: var(--accent-lo);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-  }
-  .why-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .why-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    color: #fff;
-    margin-bottom: 8px;
-  }
-  .why-card p {
-    font-size: 0.84rem;
-    color: var(--text-dim);
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  /* Reviews */
-  .reviews {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 48px;
-  }
-  .review-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 22px;
-  }
-  .stars { color: var(--accent); font-size: 0.82rem; letter-spacing: 2px; margin-bottom: 14px; }
-  .review-card blockquote {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    font-weight: 300;
-    line-height: 1.7;
-    font-style: italic;
-    margin-bottom: 20px;
-  }
-  .reviewer { display: flex; align-items: center; gap: 10px; }
-  .reviewer-avatar {
-    width: 34px; height: 34px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 0.78rem;
-    color: var(--accent);
-  }
-  .reviewer-name { font-size: 0.82rem; color: #fff; font-weight: 500; }
-  .reviewer-car { font-size: 0.72rem; color: var(--text-dim); margin-top: 1px; }
-
-  /* CTA Band */
-  .cta-band {
-    background: linear-gradient(135deg, #141a05 0%, #0f1206 40%, var(--bg) 100%);
-    border-top: 1px solid rgba(200,245,66,0.1);
-    border-bottom: 1px solid rgba(200,245,66,0.1);
-  }
-  .cta-band-inner {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 64px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .cta-band h2 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
-    color: #fff;
-    letter-spacing: -0.02em;
-    max-width: 520px;
-  }
-  .cta-band p {
-    color: var(--text-dim);
-    font-size: 0.92rem;
-    font-weight: 300;
-    margin-top: 10px;
-    max-width: 520px;
-    line-height: 1.6;
-  }
-  .cta-band-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-
-  /* Coverage */
-  .coverage-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    margin-top: 48px;
-    align-items: start;
-  }
-  .city-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
+  .coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; align-items: start; }
+  .city-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .city {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -571,101 +277,11 @@
   }
   .coverage-note p:last-of-type { margin-bottom: 0; }
 
-  /* FAQ */
-  .faq-list { margin-top: 40px; max-width: 720px; }
-  .faq-item { border-bottom: 1px solid var(--border); }
-  .faq-btn {
-    width: 100%;
-    background: none;
-    border: none;
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-align: left;
-    padding: 18px 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    transition: color .2s;
-  }
-  .faq-btn:hover { color: var(--accent); }
-  .faq-btn .icon {
-    font-size: 1.1rem;
-    color: var(--text-dim);
-    transition: transform .3s, color .2s;
-    flex-shrink: 0;
-  }
-  .faq-item.open .faq-btn .icon { transform: rotate(45deg); color: var(--accent); }
-  .faq-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .35s ease, padding .3s;
-  }
-  .faq-item.open .faq-body { max-height: 220px; padding-bottom: 18px; }
-  .faq-body p {
-    font-size: 0.84rem;
-    color: var(--text-dim);
-    font-weight: 300;
-    line-height: 1.7;
-  }
-
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 64px 24px 36px;
-  }
-  .footer-grid {
-    max-width: var(--max);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    gap: 40px;
-  }
-  .footer-brand .logo { display: inline-block; margin-bottom: 12px; }
-  .footer-brand p {
-    font-size: 0.78rem;
-    color: var(--text-dim);
-    font-weight: 300;
-    line-height: 1.6;
-    max-width: 320px;
-  }
-  .footer-col h4 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 0.75rem;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 16px;
-  }
-  .footer-col a {
-    display: block;
-    color: var(--text-dim);
-    font-size: 0.8rem;
-    font-weight: 300;
-    text-decoration: none;
-    margin-bottom: 9px;
-    transition: color .2s;
-  }
-  .footer-col a:hover { color: var(--accent); }
-  .footer-bottom {
-    max-width: var(--max);
-    margin: 44px auto 0;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  footer { border-top: 1px solid var(--border); padding: 64px 24px 36px; }
+  .footer-bottom { max-width: var(--max); margin: 44px auto 0; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
   .footer-bottom p { font-size: 0.72rem; color: var(--text-dim); font-weight: 300; }
   .footer-bottom .phone { color: var(--accent); font-weight: 600; font-size: 0.78rem; }
 
-  /* Sticky mobile CTA */
   .sticky-cta {
     position: fixed;
     left: 0; right: 0; bottom: 0;
@@ -698,58 +314,42 @@
     color: #fff;
     background: rgba(255,255,255,0.03);
   }
-  .sticky-btn.primary {
-    background: var(--accent);
-    color: #0a0a0a;
-    border-color: transparent;
-  }
-  .sticky-btn:hover { border-color: rgba(255,255,255,0.22); }
+  .sticky-btn.primary { background: var(--accent); color: #0a0a0a; border-color: transparent; }
   .sticky-btn.primary:hover { box-shadow: 0 6px 20px var(--accent-glow); }
 
-  /* Responsive */
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; gap: 40px; }
-    .steps, .pricing-grid, .why-grid, .reviews { grid-template-columns: 1fr; max-width: 560px; }
     .coverage-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .cta-band-inner { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 560px) {
     .nav-links { display: none; }
     .hero { padding: 56px 20px 48px; }
     .city-list { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
     .sticky-cta { display: block; }
-    body { padding-bottom: 74px; } /* space for sticky bar */
+    body { padding-bottom: 74px; }
   }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-wrap">
     <a href="#" class="logo">GO <span>FIX</span> TODAY</a>
     <div class="nav-links">
-      <a href="#how">How It Works</a>
-      <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
+      <a href="#coverage">Service Area</a>
       <a href="tel:+17147039021" class="nav-cta">📞 Call Now</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <h1>Mobile hybrid battery repair.<br><span class="accent">Done today.</span></h1>
 
     <p>
-      We come to your home or office in <strong>Orange County</strong> (and nearby cities).
-      No towing. No dealership wait. Same-day service.
+      We come to your home or office across <strong>Orange County</strong>, <strong>South Bay</strong>, and <strong>Long Beach</strong>.
+      Same-day service when available.
     </p>
 
     <p class="micro-note">
@@ -760,22 +360,20 @@
     <div class="hero-cta-row">
       <a href="tel:+17147039021" class="btn btn-primary">📞 Call (714) 703-9021</a>
       <a href="sms:+17147039021" class="btn btn-ghost">💬 Text Us</a>
-      <a href="#services" class="btn btn-ghost">View pricing</a>
+      <a href="#coverage" class="btn btn-ghost">See coverage</a>
     </div>
 
     <div class="trust-pills">
-      <span class="pill"><span class="dot"></span> ASE Certified Techs</span>
+      <span class="pill"><span class="dot"></span> Same-Day (when available)</span>
+      <span class="pill"><span class="dot"></span> OC + South Bay + Long Beach</span>
       <span class="pill"><span class="dot"></span> 3-Month Warranty</span>
-      <span class="pill"><span class="dot"></span> Same-Day Service</span>
-      <span class="pill"><span class="dot"></span> Orange County + Nearby</span>
+      <span class="pill"><span class="dot"></span> ASE Certified Techs</span>
     </div>
   </div>
 
   <div class="hero-box" id="quote">
     <div class="hero-box-title">Quick Price Estimate</div>
-    <div class="hero-box-sub">
-      Fast, transparent, and confirmed before any work starts.
-    </div>
+    <div class="hero-box-sub">Fast, transparent, and confirmed before any work starts.</div>
 
     <div class="stat-row">
       <span class="stat-label">Mobile Diagnostic</span>
@@ -793,19 +391,12 @@
       <span class="stat-label">Warranty</span>
       <span class="stat-val"><span class="accent">3 months</span></span>
     </div>
-    <div class="stat-row">
-      <span class="stat-label">Avg. Service Time</span>
-      <span class="stat-val"><span class="accent">~1 hour</span></span>
-    </div>
 
     <a href="tel:+17147039021" class="btn btn-primary" style="margin-top:18px; width:100%; justify-content:center;">
       📞 Book Now — (714) 703-9021
     </a>
     <a href="sms:+17147039021" class="btn btn-ghost" style="margin-top:10px; width:100%; justify-content:center;">
       💬 Text Us
-    </a>
-    <a href="https://wa.me/17147039021" class="btn btn-ghost" style="margin-top:10px; width:100%; justify-content:center;">
-      🟢 WhatsApp (optional)
     </a>
 
     <div class="tiny-disclaimer">
@@ -814,320 +405,50 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how" class="section section-alt">
-  <div class="section-inner">
-    <div class="label">How It Works</div>
-    <h2 class="sec-title">Three simple steps</h2>
-    <p class="sec-desc">No paperwork. No waiting rooms. We handle everything from start to finish — at your door.</p>
-
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h3>Call / Text to Schedule</h3>
-        <p>Tell us your make, model, mileage, and symptoms. We’ll confirm your location and book the earliest same-day slot.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h3>On-Site Diagnostic</h3>
-        <p>We run a hybrid battery diagnostic and explain the results clearly. If it’s battery-related, we walk you through options and pricing.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h3>Repair / Replace + Test</h3>
-        <p>We complete the repair, run post-tests, and do a short road check. Your service includes a 3-month warranty on parts and labor.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="services" class="section">
-  <div class="section-inner">
-    <div class="label">Services & Pricing</div>
-    <h2 class="sec-title">Transparent pricing. No surprises.</h2>
-    <p class="sec-desc">We confirm the final cost before any work starts. $99 diagnostic is credited toward repair if you proceed.</p>
-
-    <div class="pricing-grid">
-
-      <div class="p-card">
-        <div class="p-type">Step 1</div>
-        <h3>Mobile Diagnostic</h3>
-        <div class="p-price"><sup>$</sup>99</div>
-        <ul class="p-features">
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Hybrid battery diagnostic + symptoms check</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Clear explanation + written estimate</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><strong>$99 credited</strong> if you book a repair</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Orange County + nearby cities</li>
-        </ul>
-        <button class="p-btn" onclick="openText()">Text to Book Diagnostic</button>
-      </div>
-
-      <div class="p-card p-card--pop">
-        <span class="pop-badge">MOST POPULAR</span>
-        <div class="p-type">Step 2</div>
-        <h3>Hybrid Battery Repair</h3>
-        <div class="p-price"><sup>$</sup>399<sub>+</sub></div>
-        <ul class="p-features">
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Module repair + rebalancing (when eligible)</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Best value option when repairable</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>3-month parts & labor warranty</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Post-test + road check</li>
-        </ul>
-        <button class="p-btn" onclick="openCall()">Call to Book Repair</button>
-      </div>
-
-      <div class="p-card">
-        <div class="p-type">Step 2</div>
-        <h3>Full Replacement (Rebuilt Pack)</h3>
-        <div class="p-price"><sup>$</sup>999<sub>+</sub></div>
-        <ul class="p-features">
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Rebuilt hybrid battery pack (as needed)</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Faster turnaround vs dealership</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Core handled responsibly (when applicable)</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Extended warranty options available</li>
-        </ul>
-        <button class="p-btn" onclick="openText()">Text for a Quote</button>
-      </div>
-
-    </div>
-
-    <div class="pricing-note">
-      <strong>Important:</strong> “From” pricing depends on make/model, mileage, and battery condition.
-      We always confirm the final price before work starts. We currently focus on hybrids & plug-in hybrids (no pure EV/Tesla battery work).
-    </div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section id="why" class="section section-alt">
-  <div class="section-inner">
-    <div class="label">Why Go Fix Today</div>
-    <h2 class="sec-title">Why customers choose us</h2>
-    <p class="sec-desc">We’re mobile, fast, and transparent. Certified techs, clear diagnostics, and pricing confirmed before we start.</p>
-
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Certified & Insured</h3>
-        <p>Experienced hybrid technicians and commercial insurance coverage for peace of mind.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3>Fast Response</h3>
-        <p>Same-day availability when possible. We confirm ETA and keep you updated.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <h3>Transparent Pricing</h3>
-        <p>You see results first. We confirm the final cost before any work begins.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews" class="section">
-  <div class="section-inner">
-    <div class="label">Reviews</div>
-    <h2 class="sec-title">What customers are saying</h2>
-
-    <div class="reviews">
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Tech showed up on time and explained everything clearly. Fast service and no dealership hassle."</blockquote>
-        <div class="reviewer">
-          <div class="reviewer-avatar">MR</div>
-          <div>
-            <div class="reviewer-name">Maria R.</div>
-            <div class="reviewer-car">Orange County</div>
-          </div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Quick diagnostic, honest recommendation, and same-day repair. Smooth experience."</blockquote>
-        <div class="reviewer">
-          <div class="reviewer-avatar">JC</div>
-          <div>
-            <div class="reviewer-name">James C.</div>
-            <div class="reviewer-car">Irvine</div>
-          </div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"They showed the results, gave options, and confirmed the final price before starting. Great service."</blockquote>
-        <div class="reviewer">
-          <div class="reviewer-avatar">SK</div>
-          <div>
-            <div class="reviewer-name">Sarah K.</div>
-            <div class="reviewer-car">Anaheim</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BAND -->
-<section class="cta-band">
-  <div class="cta-band-inner">
-    <div>
-      <h2>Ready to get your hybrid fixed today?</h2>
-      <p>Call or text now. We’ll confirm your vehicle, location, and the earliest available slot.</p>
-    </div>
-    <div class="cta-band-actions">
-      <a href="tel:+17147039021" class="btn btn-primary">📞 Call (714) 703-9021</a>
-      <a href="sms:+17147039021" class="btn btn-ghost">💬 Text Us</a>
-      <a href="#services" class="btn btn-ghost">View Pricing</a>
-    </div>
-  </div>
-</section>
-
-<!-- COVERAGE -->
 <section id="coverage" class="section section-alt">
   <div class="section-inner">
     <div class="label">Service Area</div>
-    <h2 class="sec-title">Orange County + nearby cities</h2>
-    <p class="sec-desc">We primarily serve Orange County. If you’re nearby, text us your city/ZIP and we’ll confirm availability.</p>
+    <h2 class="sec-title">We serve the region — priority cities below</h2>
+    <p class="sec-desc">
+      Fastest response is usually in these cities, but we can often reach nearby areas too. Text your ZIP to confirm availability today.
+    </p>
 
     <div class="coverage-grid">
       <div class="city-list">
+        <!-- Priority cities (you listed) -->
+        <div class="city"><span class="pin">📍</span> Torrance</div>
+        <div class="city"><span class="pin">📍</span> Long Beach</div>
+        <div class="city"><span class="pin">📍</span> Huntington Beach</div>
+        <div class="city"><span class="pin">📍</span> Fullerton</div>
+        <div class="city"><span class="pin">📍</span> Buena Park</div>
+        <div class="city"><span class="pin">📍</span> Garden Grove</div>
+
+        <!-- Strong nearby cities (still good lead quality) -->
         <div class="city"><span class="pin">📍</span> Anaheim</div>
         <div class="city"><span class="pin">📍</span> Santa Ana</div>
         <div class="city"><span class="pin">📍</span> Irvine</div>
         <div class="city"><span class="pin">📍</span> Costa Mesa</div>
-        <div class="city"><span class="pin">📍</span> Newport Beach</div>
-        <div class="city"><span class="pin">📍</span> Huntington Beach</div>
-        <div class="city"><span class="pin">📍</span> Garden Grove</div>
-        <div class="city"><span class="pin">📍</span> Fullerton</div>
-        <div class="city"><span class="pin">📍</span> Orange</div>
-        <div class="city"><span class="pin">📍</span> Tustin</div>
-        <div class="city"><span class="pin">📍</span> Fountain Valley</div>
         <div class="city"><span class="pin">📍</span> Westminster</div>
+        <div class="city"><span class="pin">📍</span> Cypress</div>
       </div>
 
       <div class="coverage-note">
-        <h3>Not in the list above?</h3>
-        <p>Text us your city or ZIP and we’ll confirm whether we can reach you today.</p>
-        <p>We prioritize Orange County for fastest response times.</p>
+        <h3>Not listed?</h3>
+        <p>Text your <strong>city or ZIP</strong>. If it’s within our route range today, we’ll fit you in.</p>
+        <p>We prioritize OC/South Bay/Long Beach for fastest same-day response — but we can often serve much of Greater LA/OC depending on the schedule.</p>
         <a href="sms:+17147039021" class="btn btn-primary" style="margin-top:18px;">💬 Text (714) 703-9021</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="section">
-  <div class="section-inner">
-    <div class="label">FAQ</div>
-    <h2 class="sec-title">Common questions</h2>
-
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-btn" onclick="faq(this)">
-          <span>What vehicles do you service?</span><span class="icon">+</span>
-        </button>
-        <div class="faq-body">
-          <p>We service hybrids and plug-in hybrids from major brands (Toyota, Lexus, Honda, Ford and more). We do not currently provide pure EV/Tesla battery work.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="faq(this)">
-          <span>Is the $99 diagnostic credited?</span><span class="icon">+</span>
-        </button>
-        <div class="faq-body">
-          <p>Yes. If you proceed with a repair during your visit (or schedule the repair with us), we apply the $99 diagnostic toward the final bill.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="faq(this)">
-          <span>How long does a repair take?</span><span class="icon">+</span>
-        </button>
-        <div class="faq-body">
-          <p>Most services are completed in about 1–2 hours on-site. We’ll give a time estimate before starting.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="faq(this)">
-          <span>What does the warranty cover?</span><span class="icon">+</span>
-        </button>
-        <div class="faq-body">
-          <p>Our 3-month warranty covers parts and labor related to the work performed. If an issue is related to our service, we’ll make it right.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="faq(this)">
-          <span>Can you come to my workplace?</span><span class="icon">+</span>
-        </button>
-        <div class="faq-body">
-          <p>Yes. Home, office, or parking structure — as long as we have access to the vehicle and enough working space.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="faq(this)">
-          <span>How do I know if my hybrid battery is failing?</span><span class="icon">+</span>
-        </button>
-        <div class="faq-body">
-          <p>Common signs include warning lights, MPG drop, reduced performance, or engine running more often. Book a diagnostic and we’ll confirm what’s happening.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="#" class="logo">GO <span>FIX</span> TODAY</a>
-      <p>Mobile hybrid battery repair in Orange County, CA. Same-day service, transparent pricing, and a warranty you can count on.</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Services</h4>
-      <a href="#services">Mobile Diagnostic</a>
-      <a href="#services">Hybrid Battery Repair</a>
-      <a href="#services">Full Replacement</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="#why">Why Us</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#coverage">Service Area</a>
-      <a href="#faq">FAQ</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <a href="tel:+17147039021">(714) 703-9021</a>
-      <a href="sms:+17147039021">Text Us</a>
-      <a href="mailto:hello@gofixtoday.com">hello@gofixtoday.com</a>
-      <a href="#">Mon–Sat, 7am – 7pm</a>
-      <a href="#">Orange County, CA</a>
-    </div>
-  </div>
-
   <div class="footer-bottom">
     <p>© 2025 Go Fix Today. All rights reserved.</p>
     <span class="phone">📞 (714) 703-9021</span>
   </div>
 </footer>
 
-<!-- Sticky mobile CTA bar -->
 <div class="sticky-cta" aria-label="Quick actions">
   <div class="sticky-cta-inner">
     <a class="sticky-btn primary" href="tel:+17147039021">📞 Call</a>
@@ -1135,18 +456,6 @@
     <a class="sticky-btn" href="#quote">⚡ Quote</a>
   </div>
 </div>
-
-<script>
-  function faq(btn) {
-    var item = btn.parentElement;
-    var open = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
-    if (!open) item.classList.add('open');
-  }
-
-  function openCall() { window.location.href = "tel:+17147039021"; }
-  function openText() { window.location.href = "sms:+17147039021"; }
-</script>
 
 </body>
 </html>
