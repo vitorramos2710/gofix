@@ -327,17 +327,17 @@
 </style>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGZXG0GKDM"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
+  // Google Ads destination
+  gtag('config', 'AW-17973103075');
+
   // GA4
   gtag('config', 'G-CGZXG0GKDM');
-
-  // Google Ads
-  gtag('config', 'AW-17973103075');
 </script>
 
 </head>
@@ -429,7 +429,6 @@
   </div>
 </section>
 
-<!-- Placeholder sections (kept from your file) -->
 <section id="services" class="section">
   <div class="section-inner">
     <div class="label">Services</div>
@@ -469,39 +468,38 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="#" class="logo">GO <span>FIX</span> TODAY</a>
-      <p>Mobile hybrid battery repair across Southern California. Same-day service, transparent pricing, and warranty coverage.</p>
+      <p>Professional mobile hybrid & EV battery repair in Southern California. Same-day service, certified techs, and a warranty you can count on.</p>
     </div>
-
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Mobile Diagnostic</a>
+      <a href="#">Battery Repair</a>
+      <a href="#">Battery Replacement</a>
+      <a href="#">EV Charging</a>
+    </div>
     <div class="footer-col">
       <h4>Company</h4>
-      <a href="#how">How It Works</a>
-      <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#">About Us</a>
+      <a href="#">Careers</a>
+      <a href="#">Service Areas</a>
+      <a href="#">Blog</a>
     </div>
-
-    <div class="footer-col">
-      <h4>Service Area</h4>
-      <a href="#">Orange County</a>
-      <a href="#">Long Beach</a>
-      <a href="#">South Bay</a>
-      <a href="#">Greater LA</a>
-    </div>
-
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="tel:+16574782947" class="js-call">(657) 478-2947</a>
       <a href="sms:+16574782947" class="js-text">Text Us</a>
       <a href="mailto:hello@gofixtoday.com">hello@gofixtoday.com</a>
+      <a href="#">Mon–Sat, 7am – 7pm</a>
+      <a href="#">Southern California</a>
     </div>
   </div>
-
   <div class="footer-bottom">
-    <p>© 2026 Go Fix Today. All rights reserved.</p>
+    <p>© 2025 Go Fix Today. All rights reserved.</p>
     <span class="phone">📞 (657) 478-2947</span>
   </div>
 </footer>
@@ -509,11 +507,19 @@
 <script>
   const PHONE_E164 = "+16574782947";
 
+  function faq(btn) {
+    var item = btn.parentElement;
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    if (!open) item.classList.add('open');
+  }
+
   function trackAndGo(eventName, url, meta) {
     meta = meta || {};
-    if (typeof gtag === "function") {
+    if (typeof gtag === 'function') {
       try {
-        gtag("event", eventName, Object.assign({}, meta, {
+        gtag('event', eventName, Object.assign({}, meta, {
+          phone: PHONE_E164,
           event_callback: function() { window.location.href = url; },
           event_timeout: 2000
         }));
@@ -525,18 +531,18 @@
     }
   }
 
-  // Track any tel: / sms: clicks site-wide
-  document.addEventListener("click", function(e) {
-    const a = e.target.closest("a");
+  // Track any tel:/sms: clicks site-wide (better for Safari/iPhone)
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a');
     if (!a) return;
-    const href = (a.getAttribute("href") || "");
-    if (href.startsWith("tel:")) {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('tel:')) {
       e.preventDefault();
-      trackAndGo("click_call", href, { phone: PHONE_E164, method: "link" });
+      trackAndGo('click_call', href, { method: 'link' });
     }
-    if (href.startsWith("sms:")) {
+    if (href.startsWith('sms:')) {
       e.preventDefault();
-      trackAndGo("click_text", href, { phone: PHONE_E164, method: "link" });
+      trackAndGo('click_text', href, { method: 'link' });
     }
   }, true);
 </script>
