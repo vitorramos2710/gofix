@@ -7,15 +7,15 @@
   <title>GO FIX TODAY — Mobile Hybrid Battery Repair (SoCal)</title>
   <meta name="description" content="Mobile hybrid battery diagnostics, repair & replacement in Southern California. Same-day service. Text us for a fast quote." />
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17973103075');
+  </script>
 
-  gtag('config', 'AW-17973103075');
-</script>
   <style>
     :root{
       --bg:#0b0b0b;
@@ -44,7 +44,6 @@
     a{ color:inherit; text-decoration:none; }
     .wrap{ max-width:var(--max); margin:0 auto; padding: 26px 18px 64px; }
 
-    /* Top bar */
     .top{
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; padding: 6px 0 16px;
@@ -72,7 +71,6 @@
     }
     .dot{ width:8px; height:8px; border-radius:99px; background: var(--accent); display:inline-block; }
 
-    /* Hero */
     .hero{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -147,7 +145,6 @@
       color: var(--muted2);
     }
 
-    /* Right card */
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
       border:1px solid var(--line);
@@ -182,7 +179,6 @@
     .row .val.ac{ color: var(--accent); }
     .row .val.mini{ font-size: 16px; color: var(--accent); }
 
-    /* Sections */
     .section{
       margin-top: 28px;
       padding: 18px;
@@ -428,53 +424,41 @@
       return typeof window.gtag === 'function';
     }
 
+    // IMPORTANT: This must match your Google Ads "Contact (3)" conversion label shown in your screenshot.
+    const SEND_TO_CONTACT = "AW-17973103075/hPknCN7J5IEcEOOTn_pC";
+
     function trackTextConversion(e){
-      // Fires GA4 + Google Ads conversion, then continues to SMS app.
       if(!e) return;
       try {
         const href = e.currentTarget.getAttribute('href');
 
         if (safeGtag()) {
-          // GA4 event
-          gtag('event', 'click_text', { method: 'sms', page_location: window.location.href });
-
-          // Google Ads conversion (Request quote)
+          // Google Ads conversion: Contact (3)
           gtag('event', 'conversion', {
-            'send_to': 'AW-17973103075/n-p4CLao5oAcEOOTn_pC',
+            'send_to': SEND_TO_CONTACT,
             'value': 1.0,
             'currency': 'USD'
           });
         }
 
-        // give a tiny moment for events to queue, then proceed
+        // give a tiny moment for the event to queue, then proceed to SMS
         e.preventDefault();
         setTimeout(() => { window.location.href = href; }, 220);
 
       } catch(err) {
-        // If anything fails, just continue to SMS
+        // If anything fails, continue to SMS
       }
     }
 
     function trackCallClick(e){
-      if(!e) return;
-      try {
-        const href = e.currentTarget.getAttribute('href');
-        if (safeGtag()) {
-          gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
-        }
-        // Let default behavior occur
-      } catch(err) {}
+      // Do NOT count as conversion (you said call is secondary).
+      // Keep it simple to avoid mixing goals.
+      return;
     }
 
     function trackWhatsappClick(e){
-      if(!e) return;
-      try {
-        const href = e.currentTarget.getAttribute('href');
-        if (safeGtag()) {
-          gtag('event', 'click_whatsapp', { method: 'whatsapp', page_location: window.location.href });
-        }
-        // Let default occur
-      } catch(err) {}
+      // Do NOT count as conversion.
+      return;
     }
   </script>
 </body>
