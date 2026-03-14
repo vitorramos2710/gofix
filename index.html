@@ -7,7 +7,7 @@
   <title>GO FIX TODAY — Mobile Hybrid Battery Repair (SoCal)</title>
   <meta name="description" content="Mobile hybrid battery diagnostics, repair & replacement in Southern California. Same-day service. Text us for a fast quote." />
 
-  <!-- Google tag (gtag.js) - Google Ads -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -44,6 +44,7 @@
     a{ color:inherit; text-decoration:none; }
     .wrap{ max-width:var(--max); margin:0 auto; padding: 26px 18px 64px; }
 
+    /* Top bar */
     .top{
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; padding: 6px 0 16px;
@@ -69,8 +70,10 @@
       font-size: 13px;
       color: var(--muted);
     }
+    .pillLink:hover{ background: rgba(255,255,255,.07); }
     .dot{ width:8px; height:8px; border-radius:99px; background: var(--accent); display:inline-block; }
 
+    /* Hero */
     .hero{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -131,6 +134,7 @@
       background: rgba(255,255,255,.06);
       border-color: var(--line);
       color: #fff;
+      min-width: 220px;
     }
     .btn-secondary:hover{ background: rgba(255,255,255,.09); }
     .btn-whatsapp{
@@ -139,12 +143,21 @@
       color:#dfffee;
       min-width: 200px;
     }
+    .btn-instagram{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
+      color:#fff;
+      min-width: 200px;
+    }
+    .btn-instagram:hover{ background: rgba(255,255,255,.09); }
+
     .smallNote{
       margin-top: 10px;
       font-size: 13px;
       color: var(--muted2);
     }
 
+    /* Right card */
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
       border:1px solid var(--line);
@@ -179,6 +192,7 @@
     .row .val.ac{ color: var(--accent); }
     .row .val.mini{ font-size: 16px; color: var(--accent); }
 
+    /* Sections */
     .section{
       margin-top: 28px;
       padding: 18px;
@@ -271,6 +285,9 @@
         <span class="pill"><span class="dot"></span> Same-Day Service</span>
         <span class="pill"><span class="dot"></span> 3-Month Warranty</span>
         <span class="pill"><span class="dot"></span> Orange County + South Bay</span>
+        <a class="pill pillLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">
+          <span class="dot"></span> @gofixtoday
+        </a>
       </div>
     </div>
 
@@ -307,6 +324,14 @@
              href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20hybrid%20battery.%20Car%3A%20____%20Year%3A%20____%20Symptoms%3A%20____%20City%3A%20____"
              onclick="trackWhatsappClick(event)">
             WhatsApp
+          </a>
+
+          <!-- Instagram -->
+          <a class="btn btn-instagram"
+             href="https://instagram.com/gofixtoday"
+             target="_blank" rel="noopener"
+             onclick="trackInstagramClick(event)">
+            Instagram @gofixtoday
           </a>
         </div>
 
@@ -361,13 +386,42 @@
         <div class="box">
           <div class="n">02</div>
           <div class="t">On-Site Repair</div>
-          <div class="d">We diagnose and fix on-site. No towing, no dealership waits.</div>
+          <div class="d">We arrive with tools + parts. Diagnose, repair, or replace where the car is parked.</div>
         </div>
         <div class="box">
           <div class="n">03</div>
           <div class="t">Test & Go</div>
-          <div class="d">We test before leaving. You get a clear explanation + warranty info.</div>
+          <div class="d">We test on-site before leaving. Clear explanation + warranty info.</div>
         </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sectionTitle">What we fix</div>
+      <h2>Common symptoms</h2>
+
+      <div class="grid3">
+        <div class="box"><div class="t">Hybrid System Warning</div><div class="d">Warning lights, “Check Hybrid System”, loss of power.</div></div>
+        <div class="box"><div class="t">Poor MPG / Battery Weak</div><div class="d">MPG drops, battery swings fast, frequent engine cycling.</div></div>
+        <div class="box"><div class="t">Won’t Start / Ready Light</div><div class="d">Car won’t go “READY” or starts inconsistently.</div></div>
+      </div>
+
+      <div class="smallNote" style="margin-top:12px;">
+        Not sure? Text your symptoms — we’ll tell you what’s likely and what it costs.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sectionTitle">Social proof</div>
+      <h2>Follow our work</h2>
+      <div style="color: var(--muted); line-height: 1.6; font-size: 15px; max-width: 70ch;">
+        We post repairs, before/after, and tips on Instagram.
+        If you want to see real jobs and results, follow <b>@gofixtoday</b>.
+      </div>
+      <div class="ctaRow" style="margin-top:14px;">
+        <a class="btn btn-instagram" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">
+          Open Instagram @gofixtoday
+        </a>
       </div>
     </div>
 
@@ -382,7 +436,7 @@
         </details>
         <details>
           <summary>Why is texting the main option?</summary>
-          <p>Text gives the key details upfront (car/year/symptoms/city) so we can reply with an accurate quote + ETA faster.</p>
+          <p>Text gives us the key details upfront (car/year/symptoms/city) so we can reply with a fast accurate quote and ETA.</p>
         </details>
         <details>
           <summary>How fast can you come?</summary>
@@ -394,9 +448,11 @@
     <footer>
       <div>© <span id="y"></span> GO FIX TODAY</div>
       <div>
-        Prefer texting? <a class="mutedLink"
+        <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">Instagram</a>
+        •
+        <a class="mutedLink"
           href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20hybrid%20battery.%0ACar%3A%20____%0AYear%3A%20____%0ASymptoms%3A%20____%0ACity%3A%20____"
-          onclick="trackTextConversion(event)">Text us</a>.
+          onclick="trackTextConversion(event)">Text us</a>
       </div>
     </footer>
 
@@ -409,32 +465,36 @@
       return typeof window.gtag === 'function';
     }
 
-    // ✅ PRIMARY conversion: Contact (4) - fires on Text click
+    // Contact(4) conversion label (from your Google Ads snippet)
+    const ADS_SEND_TO_CONTACT4 = 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC';
+
     function trackTextConversion(e){
       if(!e) return;
-      const href = e.currentTarget.getAttribute('href');
-
       try {
+        const href = e.currentTarget.getAttribute('href');
+
         if (safeGtag()) {
-          // Helpful event (optional)
+          // GA4-style event name (optional; ok even if you don't use GA4)
           gtag('event', 'click_text', { method: 'sms', page_location: window.location.href });
 
-          // ✅ Google Ads conversion for Contact (4)
-        }gtag('event', 'conversion', {
-  'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
-  'value': 1.0,
-  'currency': 'USD'
-});
+          // Google Ads conversion: Contact(4)
+          gtag('event', 'conversion', {
+            'send_to': ADS_SEND_TO_CONTACT4,
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
 
-        // small delay to queue events, then open SMS
         e.preventDefault();
-        setTimeout(() => { window.location.href = href; }, 250);
+        setTimeout(() => { window.location.href = href; }, 220);
+
       } catch(err) {
         // fail open
       }
     }
 
     function trackCallClick(e){
+      if(!e) return;
       try {
         if (safeGtag()) {
           gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
@@ -443,9 +503,19 @@
     }
 
     function trackWhatsappClick(e){
+      if(!e) return;
       try {
         if (safeGtag()) {
           gtag('event', 'click_whatsapp', { method: 'whatsapp', page_location: window.location.href });
+        }
+      } catch(err) {}
+    }
+
+    function trackInstagramClick(e){
+      if(!e) return;
+      try {
+        if (safeGtag()) {
+          gtag('event', 'click_instagram', { method: 'instagram', page_location: window.location.href });
         }
       } catch(err) {}
     }
