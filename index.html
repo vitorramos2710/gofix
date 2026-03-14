@@ -420,12 +420,11 @@
           gtag('event', 'click_text', { method: 'sms', page_location: window.location.href });
 
           // ✅ Google Ads conversion for Contact (4)
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
-            'value': 1.0,
-            'currency': 'USD'
-          });
-        }
+        }gtag('event', 'conversion', {
+  'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
+  'value': 1.0,
+  'currency': 'USD'
+});
 
         // small delay to queue events, then open SMS
         e.preventDefault();
