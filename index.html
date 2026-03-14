@@ -7,7 +7,7 @@
   <title>GO FIX TODAY — Mobile Hybrid Battery Repair (SoCal)</title>
   <meta name="description" content="Mobile hybrid battery diagnostics, repair & replacement in Southern California. Same-day service. Text us for a fast quote." />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) - Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -302,7 +302,7 @@
             Call (657) 478-2947
           </a>
 
-          <!-- Optional WhatsApp -->
+          <!-- WhatsApp -->
           <a class="btn btn-whatsapp"
              href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20hybrid%20battery.%20Car%3A%20____%20Year%3A%20____%20Symptoms%3A%20____%20City%3A%20____"
              onclick="trackWhatsappClick(event)">
@@ -361,28 +361,13 @@
         <div class="box">
           <div class="n">02</div>
           <div class="t">On-Site Repair</div>
-          <div class="d">Our tech arrives with tools and parts. Diagnose, repair, or replace right where the car is parked.</div>
+          <div class="d">We diagnose and fix on-site. No towing, no dealership waits.</div>
         </div>
         <div class="box">
           <div class="n">03</div>
           <div class="t">Test & Go</div>
-          <div class="d">We test on-site before leaving. You get a clear explanation + warranty info.</div>
+          <div class="d">We test before leaving. You get a clear explanation + warranty info.</div>
         </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="sectionTitle">What we fix</div>
-      <h2>Common symptoms</h2>
-
-      <div class="grid3">
-        <div class="box"><div class="t">Hybrid System Warning</div><div class="d">Warning lights, “Check Hybrid System”, loss of power.</div></div>
-        <div class="box"><div class="t">Poor MPG / Battery Weak</div><div class="d">MPG drops, battery swings fast, frequent engine cycling.</div></div>
-        <div class="box"><div class="t">Won’t Start / Ready Light</div><div class="d">Car won’t go “READY” or starts inconsistently.</div></div>
-      </div>
-
-      <div class="smallNote" style="margin-top:12px;">
-        Not sure? Text your symptoms — we’ll tell you what’s likely and what it costs.
       </div>
     </div>
 
@@ -397,7 +382,7 @@
         </details>
         <details>
           <summary>Why is texting the main option?</summary>
-          <p>Text gives us the key details upfront (car/year/symptoms/city) so we can reply with the fastest accurate quote and ETA.</p>
+          <p>Text gives the key details upfront (car/year/symptoms/city) so we can reply with an accurate quote + ETA faster.</p>
         </details>
         <details>
           <summary>How fast can you come?</summary>
@@ -424,41 +409,46 @@
       return typeof window.gtag === 'function';
     }
 
-    // IMPORTANT: This must match your Google Ads "Contact (3)" conversion label shown in your screenshot.
-    const SEND_TO_CONTACT = "AW-17973103075/hPknCN7J5IEcEOOTn_pC";
-
+    // ✅ PRIMARY conversion: Contact (4) - fires on Text click
     function trackTextConversion(e){
       if(!e) return;
-      try {
-        const href = e.currentTarget.getAttribute('href');
+      const href = e.currentTarget.getAttribute('href');
 
+      try {
         if (safeGtag()) {
-          // Google Ads conversion: Contact (3)
+          // Helpful event (optional)
+          gtag('event', 'click_text', { method: 'sms', page_location: window.location.href });
+
+          // ✅ Google Ads conversion for Contact (4)
           gtag('event', 'conversion', {
-            'send_to': SEND_TO_CONTACT,
+            'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
             'value': 1.0,
             'currency': 'USD'
           });
         }
 
-        // give a tiny moment for the event to queue, then proceed to SMS
+        // small delay to queue events, then open SMS
         e.preventDefault();
-        setTimeout(() => { window.location.href = href; }, 220);
-
+        setTimeout(() => { window.location.href = href; }, 250);
       } catch(err) {
-        // If anything fails, continue to SMS
+        // fail open
       }
     }
 
     function trackCallClick(e){
-      // Do NOT count as conversion (you said call is secondary).
-      // Keep it simple to avoid mixing goals.
-      return;
+      try {
+        if (safeGtag()) {
+          gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
+        }
+      } catch(err) {}
     }
 
     function trackWhatsappClick(e){
-      // Do NOT count as conversion.
-      return;
+      try {
+        if (safeGtag()) {
+          gtag('event', 'click_whatsapp', { method: 'whatsapp', page_location: window.location.href });
+        }
+      } catch(err) {}
     }
   </script>
 </body>
