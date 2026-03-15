@@ -31,6 +31,7 @@
       --radius: 22px;
       --max: 1120px;
     }
+
     *{ box-sizing:border-box; }
     body{
       margin:0;
@@ -42,22 +43,23 @@
       letter-spacing: -0.2px;
     }
     a{ color:inherit; text-decoration:none; }
-    .wrap{ max-width:var(--max); margin:0 auto; padding: 26px 18px 64px; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 22px 16px 64px; }
 
     /* Top bar */
     .top{
       display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding: 6px 0 16px;
+      gap:12px; padding: 6px 0 14px;
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing: .6px;
+      font-weight:900; letter-spacing: .6px;
       text-transform: uppercase;
       font-size: 18px;
     }
     .brand .go{ color:#fff; }
     .brand .fix{ color: var(--accent); }
     .brand .today{ color:#fff; opacity:.92; }
+
     .top .mini{
       display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
     }
@@ -69,32 +71,41 @@
       border-radius: 999px;
       font-size: 13px;
       color: var(--muted);
+      white-space:nowrap;
     }
-    .pillLink:hover{ background: rgba(255,255,255,.07); }
     .dot{ width:8px; height:8px; border-radius:99px; background: var(--accent); display:inline-block; }
+
+    @media (max-width: 700px){
+      .top{ align-items:flex-start; }
+      .top .mini{ gap:10px; }
+      .pill{ padding: 9px 11px; font-size: 12.5px; }
+    }
 
     /* Hero */
     .hero{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
+      gap: 16px;
       align-items: stretch;
-      margin-top: 10px;
+      margin-top: 6px;
     }
     @media (max-width: 900px){
       .hero{ grid-template-columns: 1fr; }
     }
+
     .heroLeft{
-      padding: 24px 10px 0;
+      padding: 18px 6px 0;
     }
+
     h1{
       margin:0;
-      font-size: clamp(42px, 6vw, 72px);
+      font-size: clamp(40px, 6vw, 74px);
       line-height: .96;
       letter-spacing: -1.2px;
-      font-weight: 900;
+      font-weight: 950;
     }
     .h-accent{ color: var(--accent); }
+
     .sub{
       margin-top: 16px;
       color: var(--muted);
@@ -102,13 +113,15 @@
       line-height: 1.55;
       max-width: 60ch;
     }
+
     .ctaRow{
-      margin-top: 22px;
+      margin-top: 20px;
       display:flex;
       gap: 12px;
       flex-wrap:wrap;
       align-items:center;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -116,12 +129,12 @@
       gap:10px;
       padding: 16px 18px;
       border-radius: 16px;
-      font-weight: 800;
+      font-weight: 900;
       border: 1px solid transparent;
       cursor:pointer;
       user-select:none;
       transition: transform .08s ease, filter .15s ease, background .15s ease;
-      min-width: 260px;
+      min-width: 240px;
     }
     .btn:active{ transform: translateY(1px); }
     .btn-primary{
@@ -134,27 +147,37 @@
       background: rgba(255,255,255,.06);
       border-color: var(--line);
       color: #fff;
-      min-width: 220px;
     }
     .btn-secondary:hover{ background: rgba(255,255,255,.09); }
-    .btn-whatsapp{
-      background: rgba(41,211,125,.14);
-      border-color: rgba(41,211,125,.25);
-      color:#dfffee;
-      min-width: 200px;
+
+    /* Mobile-first: make CTAs full width on small screens */
+    @media (max-width: 700px){
+      .heroLeft{ padding: 12px 2px 0; }
+      .ctaRow{ gap: 10px; }
+      .btn{ width:100%; min-width:unset; }
     }
-    .btn-instagram{
-      background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.14);
-      color:#fff;
-      min-width: 200px;
-    }
-    .btn-instagram:hover{ background: rgba(255,255,255,.09); }
 
     .smallNote{
       margin-top: 10px;
       font-size: 13px;
       color: var(--muted2);
+      line-height: 1.45;
+    }
+
+    /* Discreet links (WhatsApp / Instagram) */
+    .auxLinks{
+      margin-top: 12px;
+      display:flex;
+      gap: 14px;
+      flex-wrap:wrap;
+      align-items:center;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .auxLinks a{
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     /* Right card */
@@ -187,14 +210,14 @@
       background: rgba(0,0,0,.25);
       border: 1px solid rgba(255,255,255,.06);
     }
-    .row .label{ color: var(--muted); font-weight:650; }
-    .row .val{ color: #fff; font-weight:900; font-size: 18px; }
+    .row .label{ color: var(--muted); font-weight:700; }
+    .row .val{ color: #fff; font-weight:950; font-size: 18px; }
     .row .val.ac{ color: var(--accent); }
     .row .val.mini{ font-size: 16px; color: var(--accent); }
 
     /* Sections */
     .section{
-      margin-top: 28px;
+      margin-top: 26px;
       padding: 18px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
@@ -204,7 +227,7 @@
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight:900;
+      font-weight:950;
       letter-spacing:.18em;
       text-transform:uppercase;
       color: var(--accent);
@@ -213,7 +236,7 @@
     }
     .section h2{
       margin:0 0 8px;
-      font-size: 34px;
+      font-size: 32px;
       letter-spacing: -0.8px;
     }
     .grid3{
@@ -223,6 +246,7 @@
       margin-top: 14px;
     }
     @media (max-width: 900px){ .grid3{ grid-template-columns:1fr; } }
+
     .box{
       padding: 16px;
       border-radius: 18px;
@@ -230,13 +254,13 @@
       background: rgba(0,0,0,.22);
     }
     .box .n{
-      font-weight: 900;
+      font-weight: 950;
       color: rgba(200,245,66,.35);
       font-size: 28px;
       margin-bottom: 6px;
     }
-    .box .t{ font-weight: 900; margin-bottom: 6px; }
-    .box .d{ color: var(--muted); line-height: 1.5; font-size: 14px; }
+    .box .t{ font-weight: 950; margin-bottom: 6px; }
+    .box .d{ color: var(--muted); line-height: 1.55; font-size: 14px; }
 
     .faq{
       display:grid;
@@ -251,7 +275,7 @@
     }
     summary{
       cursor:pointer;
-      font-weight: 850;
+      font-weight: 900;
       color:#f2f2f2;
     }
     details p{
@@ -260,16 +284,40 @@
       margin: 10px 0 2px;
       font-size: 14px;
     }
+
     footer{
-      margin-top: 28px;
+      margin-top: 26px;
       color: var(--muted2);
       font-size: 13px;
       display:flex;
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding-top: 16px;
     }
     .mutedLink{ color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Optional: tiny sticky hint on mobile (no extra buttons) */
+    .stickyHint{
+      display:none;
+    }
+    @media (max-width: 700px){
+      .stickyHint{
+        display:block;
+        position: sticky;
+        bottom: 10px;
+        margin-top: 18px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,.08);
+        background: rgba(0,0,0,.35);
+        backdrop-filter: blur(10px);
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+      .stickyHint b{ color:#fff; }
+    }
   </style>
 </head>
 
@@ -285,9 +333,6 @@
         <span class="pill"><span class="dot"></span> Same-Day Service</span>
         <span class="pill"><span class="dot"></span> 3-Month Warranty</span>
         <span class="pill"><span class="dot"></span> Prius Focus</span>
-        <a class="pill pillLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">
-          <span class="dot"></span> @gofixtoday
-        </a>
       </div>
     </div>
 
@@ -318,35 +363,25 @@
              onclick="trackCallClick(event)">
             Call (657) 478-2947
           </a>
-
-          <!-- WhatsApp -->
-          <a class="btn btn-whatsapp"
-             href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20Prius%20hybrid%20battery.%20Prius%20Model%3A%20____%20Year%3A%20____%20Symptoms%3A%20____%20City%3A%20____"
-             onclick="trackWhatsappClick(event)">
-            WhatsApp
-          </a>
-
-          <!-- Instagram -->
-          <a class="btn btn-instagram"
-             href="https://instagram.com/gofixtoday"
-             target="_blank" rel="noopener"
-             onclick="trackInstagramClick(event)">
-            Instagram @gofixtoday
-          </a>
         </div>
 
         <div class="smallNote">
-          Text: <b>Prius model + year + symptoms + city</b>. We reply fast.
+          Fastest response: text <b>Prius model + year + symptoms + city</b>.
         </div>
 
-        <!-- Clean proof (single line) -->
-        <div class="smallNote" style="margin-top:14px;">
-          Real repairs posted on Instagram:
-          <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">
-            @gofixtoday
-          </a>
+        <!-- Discreet proof / optional channels (NOT big buttons) -->
+        <div class="auxLinks">
+          <span>Optional:</span>
+          <a href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20Prius%20hybrid%20battery.%20Prius%20Model%3A%20____%20Year%3A%20____%20Symptoms%3A%20____%20City%3A%20____"
+             onclick="trackWhatsappClick(event)">WhatsApp</a>
+          <a href="https://instagram.com/gofixtoday"
+             target="_blank" rel="noopener"
+             onclick="trackInstagramClick(event)">Instagram @gofixtoday</a>
         </div>
 
+        <div class="stickyHint">
+          Tip: send <b>model + year + city</b> and we reply with <b>ETA + quote</b>.
+        </div>
       </div>
 
       <div class="card">
@@ -375,14 +410,9 @@
           </div>
         </div>
 
-        <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.5;">
+        <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.55;">
           Serving: Anaheim, Fullerton, Buena Park, Garden Grove, Huntington Beach, Long Beach, Torrance + nearby.
-          (Text your city — we’ll confirm.)
-        </div>
-
-        <!-- Micro-proof (clean, inside card) -->
-        <div style="margin-top:10px; color: var(--muted2); font-size: 13px; line-height: 1.5;">
-          Prius Gen 2 / Gen 3 focus • Same-day when available • 3-month warranty
+          Text your city to confirm availability.
         </div>
       </div>
     </div>
@@ -395,12 +425,12 @@
         <div class="box">
           <div class="n">01</div>
           <div class="t">Text to Book</div>
-          <div class="d">Send Prius model, year, symptoms, and city. We reply with price range + ETA.</div>
+          <div class="d">Send: Prius model, year, symptoms, and city. We reply with price range + ETA.</div>
         </div>
         <div class="box">
           <div class="n">02</div>
           <div class="t">On-Site Repair</div>
-          <div class="d">We arrive with tools + parts. Diagnose, repair, or replace where the car is parked.</div>
+          <div class="d">We arrive with tools and parts. Diagnose, repair, or replace where the car is parked.</div>
         </div>
         <div class="box">
           <div class="n">03</div>
@@ -412,12 +442,12 @@
 
     <div class="section">
       <div class="sectionTitle">What we fix</div>
-      <h2>Common symptoms</h2>
+      <h2>Common Prius symptoms</h2>
 
       <div class="grid3">
-        <div class="box"><div class="t">Hybrid System Warning</div><div class="d">Warning lights, “Check Hybrid System”, loss of power.</div></div>
+        <div class="box"><div class="t">Hybrid System Warning</div><div class="d">“Check Hybrid System”, warning lights, loss of power.</div></div>
         <div class="box"><div class="t">Poor MPG / Battery Weak</div><div class="d">MPG drops, battery swings fast, frequent engine cycling.</div></div>
-        <div class="box"><div class="t">Won’t Start / Ready Light</div><div class="d">Car won’t go “READY” or starts inconsistently.</div></div>
+        <div class="box"><div class="t">Won’t Start / No READY</div><div class="d">Car won’t go “READY” or starts inconsistently.</div></div>
       </div>
 
       <div class="smallNote" style="margin-top:12px;">
@@ -431,12 +461,12 @@
 
       <div class="faq">
         <details>
-          <summary>Do you work on Teslas / EVs?</summary>
-          <p>No. We focus on hybrid battery systems (Prius and similar hybrids). Text your car model and we’ll confirm.</p>
+          <summary>Do you work on Teslas?</summary>
+          <p>No. We focus on Prius hybrid battery systems. Text your exact model and we’ll confirm.</p>
         </details>
         <details>
           <summary>Why is texting the main option?</summary>
-          <p>Text gives us the key details upfront (Prius model/year/symptoms/city) so we can reply with a fast accurate quote and ETA.</p>
+          <p>Text gives us the key details upfront so we can reply fast with an accurate quote and ETA.</p>
         </details>
         <details>
           <summary>How fast can you come?</summary>
@@ -448,11 +478,8 @@
     <footer>
       <div>© <span id="y"></span> GO FIX TODAY</div>
       <div>
-        <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">Instagram</a>
-        •
-        <a class="mutedLink"
-          href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20Prius%20hybrid%20battery.%0APrius%20Model%3A%20____%0AYear%3A%20____%0ASymptoms%3A%20____%0ACity%3A%20____"
-          onclick="trackTextConversion(event)">Text us</a>
+        Proof & updates: <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">@gofixtoday</a>
+        · Alt contact: <a class="mutedLink" href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20Prius%20hybrid%20battery.%20Prius%20Model%3A%20____%20Year%3A%20____%20Symptoms%3A%20____%20City%3A%20____" onclick="trackWhatsappClick(event)">WhatsApp</a>
       </div>
     </footer>
 
@@ -465,17 +492,18 @@
       return typeof window.gtag === 'function';
     }
 
-    // Contact(4) conversion label (keep this as your PRIMARY in Google Ads)
-    const ADS_SEND_TO_CONTACT4 = 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC';
-
     function trackTextConversion(e){
       if(!e) return;
       try {
         const href = e.currentTarget.getAttribute('href');
 
         if (safeGtag()) {
+          // GA4 event
+          gtag('event', 'click_text', { method: 'sms', page_location: window.location.href });
+
+          // Google Ads conversion (current snippet you were using)
           gtag('event', 'conversion', {
-            'send_to': ADS_SEND_TO_CONTACT4,
+            'send_to': 'AW-17973103075/n-p4CLao5oAcEOOTn_pC',
             'value': 1.0,
             'currency': 'USD'
           });
@@ -483,11 +511,11 @@
 
         e.preventDefault();
         setTimeout(() => { window.location.href = href; }, 220);
-
       } catch(err) {}
     }
 
     function trackCallClick(e){
+      if(!e) return;
       try {
         if (safeGtag()) {
           gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
@@ -496,6 +524,7 @@
     }
 
     function trackWhatsappClick(e){
+      if(!e) return;
       try {
         if (safeGtag()) {
           gtag('event', 'click_whatsapp', { method: 'whatsapp', page_location: window.location.href });
@@ -504,6 +533,7 @@
     }
 
     function trackInstagramClick(e){
+      if(!e) return;
       try {
         if (safeGtag()) {
           gtag('event', 'click_instagram', { method: 'instagram', page_location: window.location.href });
