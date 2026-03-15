@@ -75,13 +75,7 @@
     }
     .dot{ width:8px; height:8px; border-radius:99px; background: var(--accent); display:inline-block; }
 
-    @media (max-width: 700px){
-      .top{ align-items:flex-start; }
-      .top .mini{ gap:10px; }
-      .pill{ padding: 9px 11px; font-size: 12.5px; }
-    }
-
-    /* Hero */
+    /* HERO */
     .hero{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -92,7 +86,6 @@
     @media (max-width: 900px){
       .hero{ grid-template-columns: 1fr; }
     }
-
     .heroLeft{
       padding: 18px 6px 0;
     }
@@ -114,8 +107,18 @@
       max-width: 60ch;
     }
 
+    /* Mobile trustline (replaces pills) */
+    .trustLine{
+      display:none;
+      margin-top: 10px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      line-height: 1.4;
+      opacity: .9;
+    }
+
     .ctaRow{
-      margin-top: 20px;
+      margin-top: 18px;
       display:flex;
       gap: 12px;
       flex-wrap:wrap;
@@ -150,13 +153,6 @@
     }
     .btn-secondary:hover{ background: rgba(255,255,255,.09); }
 
-    /* Mobile-first: make CTAs full width on small screens */
-    @media (max-width: 700px){
-      .heroLeft{ padding: 12px 2px 0; }
-      .ctaRow{ gap: 10px; }
-      .btn{ width:100%; min-width:unset; }
-    }
-
     .smallNote{
       margin-top: 10px;
       font-size: 13px;
@@ -164,7 +160,6 @@
       line-height: 1.45;
     }
 
-    /* Discreet links (WhatsApp / Instagram) */
     .auxLinks{
       margin-top: 12px;
       display:flex;
@@ -298,25 +293,17 @@
     }
     .mutedLink{ color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
 
-    /* Optional: tiny sticky hint on mobile (no extra buttons) */
-    .stickyHint{
-      display:none;
-    }
+    /* Mobile-first adjustments */
     @media (max-width: 700px){
-      .stickyHint{
-        display:block;
-        position: sticky;
-        bottom: 10px;
-        margin-top: 18px;
-        padding: 10px 12px;
-        border-radius: 14px;
-        border: 1px solid rgba(255,255,255,.08);
-        background: rgba(0,0,0,.35);
-        backdrop-filter: blur(10px);
-        color: var(--muted);
-        font-size: 12.5px;
-      }
-      .stickyHint b{ color:#fff; }
+      /* Hide pills on mobile for clean look */
+      .top .mini{ display:none; }
+
+      .heroLeft{ padding: 12px 2px 0; }
+      .ctaRow{ gap: 10px; }
+      .btn{ width:100%; min-width:unset; }
+
+      /* Show trustline on mobile */
+      .trustLine{ display:block; }
     }
   </style>
 </head>
@@ -329,6 +316,7 @@
         <span class="go">GO</span><span class="fix">FIX</span><span class="today">TODAY</span>
       </div>
 
+      <!-- Desktop only (hidden on mobile) -->
       <div class="mini">
         <span class="pill"><span class="dot"></span> Same-Day Service</span>
         <span class="pill"><span class="dot"></span> 3-Month Warranty</span>
@@ -347,6 +335,11 @@
         <div class="sub">
           Same-day service in Southern California. No towing, no dealership wait.
           Text your <b>Prius model + year + city</b> for a fast quote & ETA.
+        </div>
+
+        <!-- Mobile-only cleaner replacement -->
+        <div class="trustLine">
+          Same-day service • 3-month warranty • Prius focus
         </div>
 
         <div class="ctaRow">
@@ -369,7 +362,7 @@
           Fastest response: text <b>Prius model + year + symptoms + city</b>.
         </div>
 
-        <!-- Discreet proof / optional channels (NOT big buttons) -->
+        <!-- Discreet proof / optional channels -->
         <div class="auxLinks">
           <span>Optional:</span>
           <a href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20Prius%20hybrid%20battery.%20Prius%20Model%3A%20____%20Year%3A%20____%20Symptoms%3A%20____%20City%3A%20____"
@@ -377,10 +370,6 @@
           <a href="https://instagram.com/gofixtoday"
              target="_blank" rel="noopener"
              onclick="trackInstagramClick(event)">Instagram @gofixtoday</a>
-        </div>
-
-        <div class="stickyHint">
-          Tip: send <b>model + year + city</b> and we reply with <b>ETA + quote</b>.
         </div>
       </div>
 
@@ -478,8 +467,10 @@
     <footer>
       <div>© <span id="y"></span> GO FIX TODAY</div>
       <div>
-        Proof & updates: <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">@gofixtoday</a>
-        · Alt contact: <a class="mutedLink" href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20Prius%20hybrid%20battery.%20Prius%20Model%3A%20____%20Year%3A%20____%20Symptoms%3A%20____%20City%3A%20____" onclick="trackWhatsappClick(event)">WhatsApp</a>
+        Proof & updates:
+        <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagramClick(event)">@gofixtoday</a>
+        · Alt contact:
+        <a class="mutedLink" href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20Prius%20hybrid%20battery.%20Prius%20Model%3A%20____%20Year%3A%20____%20Symptoms%3A%20____%20City%3A%20____" onclick="trackWhatsappClick(event)">WhatsApp</a>
       </div>
     </footer>
 
@@ -501,7 +492,7 @@
           // GA4 event
           gtag('event', 'click_text', { method: 'sms', page_location: window.location.href });
 
-          // Google Ads conversion (current snippet you were using)
+          // Google Ads conversion (your current SMS conversion)
           gtag('event', 'conversion', {
             'send_to': 'AW-17973103075/n-p4CLao5oAcEOOTn_pC',
             'value': 1.0,
