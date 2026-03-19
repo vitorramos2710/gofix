@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>GO FIX TODAY — Mobile Prius Hybrid Battery Repair (SoCal)</title>
-  <meta name="description" content="Mobile Prius hybrid battery diagnostics, repair & replacement in Southern California. Same-day service. Text for a fast quote & ETA." />
+  <meta name="description" content="Mobile Prius hybrid battery diagnostics, repair & replacement in Southern California. Same-day options. Text for a fast quote." />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
@@ -19,358 +19,370 @@
   <style>
     :root{
       --bg:#0b0b0b;
+      --panel:#121212;
+      --panel2:#0f0f0f;
       --text:#f2f2f2;
       --muted:#a7a7a7;
       --muted2:#7f7f7f;
       --line:rgba(255,255,255,.08);
-      --accent:#C8F542;
+      --accent:#C8F542; /* neon */
       --accent2:#29d37d;
       --shadow: 0 22px 80px rgba(0,0,0,.55);
       --radius: 22px;
       --max: 1120px;
     }
-
     *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      background:
-        radial-gradient(1000px 600px at 30% -10%, rgba(200,245,66,.10), transparent 55%),
-        radial-gradient(900px 540px at 90% 10%, rgba(41,211,125,.08), transparent 55%),
-        var(--bg);
+      background: radial-gradient(1000px 600px at 30% -10%, rgba(200,245,66,.10), transparent 55%),
+                  radial-gradient(900px 540px at 90% 10%, rgba(41,211,125,.10), transparent 55%),
+                  var(--bg);
       color:var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      letter-spacing:-0.2px;
+      letter-spacing: -0.2px;
     }
     a{ color:inherit; text-decoration:none; }
-    .wrap{ max-width:var(--max); margin:0 auto; padding: 22px 16px 64px; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 22px 18px 70px; }
 
     /* Top bar */
     .top{
       display:flex; align-items:flex-start; justify-content:space-between;
-      gap:12px; padding:6px 0 14px;
+      gap:12px; padding: 6px 0 10px;
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:900; letter-spacing:.6px;
-      text-transform:uppercase; font-size:18px; white-space:nowrap;
-    }
-    .brand .fix{ color:var(--accent); }
-
-    /* Desktop chips only */
-    .chips{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center;
-    }
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      border-radius:999px;
-      font-size:13px;
-      color:var(--muted);
+      font-weight:900; letter-spacing: .6px;
+      text-transform: uppercase;
+      font-size: 18px;
       white-space:nowrap;
-      line-height:1;
+      padding-top:6px;
     }
-    .dot{ width:8px; height:8px; border-radius:99px; background:var(--accent); display:inline-block; }
-    .chipLink:hover{ background: rgba(255,255,255,.07); }
+    .brand .go{ color:#fff; }
+    .brand .fix{ color: var(--accent); }
+    .brand .today{ color:#fff; opacity:.92; }
 
-    @media (max-width:640px){
-      .chips{ display:none; } /* keep mobile clean */
+    .chips{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+      max-width: 560px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      white-space:nowrap;
+    }
+    .dot{ width:8px; height:8px; border-radius:99px; background: var(--accent); display:inline-block; }
+
+    /* MOBILE: chips viram “scroll horizontal” para não ficar zoado */
+    @media (max-width: 720px){
+      .top{ align-items:center; }
+      .chips{
+        flex-wrap:nowrap;
+        overflow:auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 62vw;
+        padding-bottom: 2px;
+      }
+      .chips::-webkit-scrollbar{ display:none; }
     }
 
     /* Hero */
     .hero{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
-      margin-top:6px;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 12px;
     }
-    @media (max-width:900px){
-      .hero{ grid-template-columns:1fr; }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
     }
-    .heroLeft{ padding:18px 4px 0; }
-
+    .heroLeft{
+      padding: 18px 6px 0;
+    }
     h1{
       margin:0;
-      font-size: clamp(40px, 7vw, 74px);
-      line-height:.97;
-      letter-spacing:-1.2px;
-      font-weight:950;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .96;
+      letter-spacing: -1.2px;
+      font-weight: 950;
     }
-    .h-accent{ color:var(--accent); }
-
+    .h-accent{ color: var(--accent); }
     .sub{
-      margin-top:14px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.55;
-      max-width:62ch;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 62ch;
     }
 
     .ctaRow{
-      margin-top:20px;
+      margin-top: 18px;
       display:flex;
-      gap:12px;
+      gap: 12px;
       flex-wrap:wrap;
       align-items:center;
     }
-
-    /* Mobile-first buttons */
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding:16px 18px;
-      border-radius:16px;
-      font-weight:900;
-      border:1px solid transparent;
+      padding: 16px 18px;
+      border-radius: 18px;
+      font-weight: 900;
+      border: 1px solid transparent;
       cursor:pointer;
       user-select:none;
       transition: transform .08s ease, filter .15s ease, background .15s ease;
-      width:100%;
-      max-width:420px;
+      min-width: 260px;
     }
     .btn:active{ transform: translateY(1px); }
     .btn-primary{
-      background:var(--accent);
+      background: var(--accent);
       color:#0b0b0b;
       box-shadow: 0 18px 60px rgba(200,245,66,.16);
     }
-    .btn-primary:hover{ filter:brightness(1.03); }
+    .btn-primary:hover{ filter: brightness(1.03); }
     .btn-secondary{
-      background:rgba(255,255,255,.06);
-      border-color:var(--line);
-      color:#fff;
+      background: rgba(255,255,255,.06);
+      border-color: var(--line);
+      color: #fff;
+      min-width: 240px;
     }
-    .btn-secondary:hover{ background:rgba(255,255,255,.09); }
-    .btn-tertiary{
-      background:rgba(255,255,255,.03);
-      border-color:rgba(255,255,255,.10);
-      color:#e6e6e6;
-    }
-    .btn-tertiary:hover{ background:rgba(255,255,255,.06); }
+    .btn-secondary:hover{ background: rgba(255,255,255,.09); }
 
-    /* WhatsApp-style only used inside Cells section */
-    .btn-whatsapp{
-      background: rgba(41,211,125,.14);
-      border-color: rgba(41,211,125,.25);
-      color: #dfffee;
-    }
-    .btn-whatsapp:hover{ background: rgba(41,211,125,.18); }
-
-    @media (min-width:680px){
-      .btn{ width:auto; min-width:260px; max-width:none; }
+    /* Mobile: botões full width */
+    @media (max-width: 520px){
+      .btn{ width:100%; min-width: unset; }
     }
 
     .smallNote{
-      margin-top:10px;
-      font-size:13px;
-      color:var(--muted2);
-      line-height:1.45;
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted2);
     }
 
     /* Right card */
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
       border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
       overflow:hidden;
       position:relative;
     }
     .card h3{
-      margin:0 0 12px;
-      font-size:18px;
+      margin: 0 0 10px;
+      font-size: 18px;
       letter-spacing:-.3px;
-      color:#e9e9e9;
+      color: #e9e9e9;
     }
-    .priceGrid{ display:grid; gap:10px; margin-top:6px; }
+    .priceGrid{
+      display:grid;
+      gap: 10px;
+      margin-top: 6px;
+    }
     .row{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:14px 12px;
-      border-radius:14px;
+      padding: 14px 12px;
+      border-radius: 14px;
       background: rgba(0,0,0,.25);
       border: 1px solid rgba(255,255,255,.06);
     }
-    .row .label{ color:var(--muted); font-weight:750; }
-    .row .val{ color:#fff; font-weight:950; font-size:18px; }
-    .row .val.ac{ color:var(--accent); }
-    .row .val.mini{ font-size:16px; color:var(--accent); }
+    .row .label{ color: var(--muted); font-weight:650; }
+    .row .val{ color: #fff; font-weight:900; font-size: 18px; }
+    .row .val.ac{ color: var(--accent); }
+    .row .val.mini{ font-size: 16px; color: var(--accent); }
 
     /* Sections */
     .section{
-      margin-top:26px;
-      padding:18px;
-      border-radius:var(--radius);
-      border:1px solid var(--line);
+      margin-top: 26px;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
       background: rgba(255,255,255,.02);
     }
     .sectionTitle{
-      display:flex; align-items:center; gap:10px;
-      font-weight:950;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
       letter-spacing:.18em;
       text-transform:uppercase;
-      color:var(--accent);
-      font-size:12px;
-      margin-bottom:10px;
+      color: var(--accent);
+      font-size: 12px;
+      margin-bottom: 10px;
     }
     .section h2{
       margin:0 0 8px;
-      font-size:32px;
-      letter-spacing:-0.8px;
+      font-size: 32px;
+      letter-spacing: -0.8px;
     }
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:14px;
+      gap: 12px;
+      margin-top: 14px;
     }
-    @media (max-width:900px){ .grid3{ grid-template-columns:1fr; } }
-
+    @media (max-width: 900px){ .grid3{ grid-template-columns:1fr; } }
     .box{
-      padding:16px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.08);
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
       background: rgba(0,0,0,.22);
     }
     .box .n{
-      font-weight:950;
+      font-weight: 900;
       color: rgba(200,245,66,.35);
-      font-size:28px;
-      margin-bottom:6px;
+      font-size: 28px;
+      margin-bottom: 6px;
     }
-    .box .t{ font-weight:950; margin-bottom:6px; }
-    .box .d{ color:var(--muted); line-height:1.55; font-size:14px; }
+    .box .t{ font-weight: 900; margin-bottom: 6px; }
+    .box .d{ color: var(--muted); line-height: 1.5; font-size: 14px; }
 
     /* Cells section */
-    #cells{ scroll-margin-top: 14px; }
-    .cellsHeader{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .cellsHeader p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.55;
-      max-width: 72ch;
-    }
-    .miniPills{ display:flex; gap:8px; flex-wrap:wrap; }
-    .miniPills .chip{ padding:9px 10px; font-size:12px; }
-
-    .cellsGrid{
+    .cellsWrap{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:14px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 12px;
     }
-    @media (max-width:900px){ .cellsGrid{ grid-template-columns:1fr; } }
-
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:10px;
-      margin-top:12px;
-    }
-    @media (max-width:640px){ .gallery{ grid-template-columns:1fr; } }
-
-    .imgCard{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
+    @media (max-width: 900px){ .cellsWrap{ grid-template-columns:1fr; } }
+    .cellsCard{
+      border:1px solid rgba(255,255,255,.08);
       background: rgba(0,0,0,.22);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .cellsCard h3{
+      margin:0 0 8px;
+      font-size: 18px;
+      letter-spacing:-.3px;
+    }
+    .cellsMeta{
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.5;
+    }
+    .cellsBadges{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .badge{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      color: #d8d8d8;
+      font-size: 12px;
+      white-space:nowrap;
+    }
+    .cellsPrice{
+      margin-top: 12px;
+      display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+    }
+    .cellsPrice .big{
+      font-size: 34px; font-weight: 950; color: var(--accent);
+      letter-spacing: -0.6px;
+    }
+    .cellsPrice .small{
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .cellsCtas{
+      margin-top: 14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .btn-cells{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      font-weight: 900;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      min-width: 240px;
+    }
+    .btn-cells.primary{
+      background: rgba(41,211,125,.14);
+      border-color: rgba(41,211,125,.25);
+      color:#dfffee;
+    }
+    @media (max-width: 520px){
+      .btn-cells{ width:100%; min-width: unset; }
+    }
+    .imgMock{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      padding: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 220px;
       overflow:hidden;
-      min-height: 150px;
       position:relative;
     }
-    .imgCard img{
+    .imgMock .hint{
+      color: var(--muted2);
+      font-size: 13px;
+      text-align:center;
+      max-width: 40ch;
+      line-height:1.45;
+    }
+    .imgMock img{
       width:100%;
-      height: 180px;
-      object-fit: cover;
-      display:block;
-      background: rgba(255,255,255,.03);
+      height:auto;
+      border-radius: 14px;
+      display:none; /* você pode trocar p/ display:block quando colocar a imagem real */
     }
-    .imgCaption{
-      padding:12px;
-      color: var(--muted);
-      font-size:13px;
-      line-height:1.4;
-    }
-
-    .priceTable{
-      display:grid;
-      gap:10px;
-      margin-top:10px;
-    }
-    .priceRow{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:14px 12px;
-      border-radius:14px;
-      background: rgba(0,0,0,.25);
-      border: 1px solid rgba(255,255,255,.06);
-    }
-    .priceRow .left{ color:var(--muted); font-weight:750; }
-    .priceRow .right{ color:#fff; font-weight:950; }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-      font-size:12px;
-      line-height:1;
-    }
-    .badge b{ color:#fff; }
 
     /* FAQ */
-    .faq{ display:grid; gap:10px; margin-top:10px; }
+    .faq{
+      display:grid;
+      gap:10px;
+      margin-top: 10px;
+    }
     details{
       border:1px solid rgba(255,255,255,.08);
       background: rgba(0,0,0,.20);
-      border-radius:16px;
-      padding:12px 14px;
+      border-radius: 16px;
+      padding: 12px 14px;
     }
-    summary{ cursor:pointer; font-weight:900; color:#f2f2f2; }
-    details p{ color:var(--muted); line-height:1.55; margin:10px 0 2px; font-size:14px; }
+    summary{
+      cursor:pointer;
+      font-weight: 850;
+      color:#f2f2f2;
+    }
+    details p{
+      color: var(--muted);
+      line-height:1.55;
+      margin: 10px 0 2px;
+      font-size: 14px;
+    }
 
-    /* Footer */
     footer{
-      margin-top:26px;
-      color:var(--muted2);
-      font-size:13px;
+      margin-top: 28px;
+      color: var(--muted2);
+      font-size: 13px;
       display:flex;
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
-      padding-top:8px;
-      border-top:1px solid rgba(255,255,255,.06);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 16px;
     }
-    .mutedLink{ color:var(--muted); text-decoration: underline; text-underline-offset:3px; }
-    .footerRow{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-    .miniBtn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color:#eaeaea;
-      font-weight:800;
-    }
-    .miniBtn:hover{ background: rgba(255,255,255,.07); }
+    .mutedLink{ color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+    .footerLinks{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
   </style>
 </head>
 
@@ -379,59 +391,47 @@
 
     <div class="top">
       <div class="brand">
-        <span>GO</span><span class="fix">FIX</span><span>TODAY</span>
+        <span class="go">GO</span><span class="fix">FIX</span><span class="today">TODAY</span>
       </div>
 
-      <!-- Desktop only -->
-      <div class="chips" aria-hidden="true">
-        <span class="chip"><span class="dot"></span> Same-Day Options</span>
-        <span class="chip"><span class="dot"></span> 3-Month Warranty</span>
-        <span class="chip"><span class="dot"></span> Prius Focus</span>
-        <a class="chip chipLink" href="#cells" onclick="trackAnchor(event,'cells_nav')">
-          <span class="dot"></span> Cells / Modules
-        </a>
+      <div class="chips" aria-label="highlights">
+        <span class="pill"><span class="dot"></span> Same-Day Options</span>
+        <span class="pill"><span class="dot"></span> 3-Month Warranty</span>
+        <span class="pill"><span class="dot"></span> Prius Focus</span>
       </div>
     </div>
 
-    <!-- HERO (REPAIR) -->
     <div class="hero">
       <div class="heroLeft">
         <h1>
           Mobile Prius<br/>
-          hybrid battery<br/>
-          <span class="h-accent">repair.</span>
+          hybrid battery repair.<br/>
+          <span class="h-accent">Fast. Transparent. Mobile.</span>
         </h1>
 
         <div class="sub">
-          Same-day service in Southern California. No towing, no dealership wait.
-          Text your <b>Prius year + city</b> and we’ll reply with a fast quote & ETA.
+          We come to you in Southern California. No towing. No dealership wait.
+          <b>Text</b> for a quick quote and ETA.
         </div>
 
         <div class="ctaRow">
-          <!-- SMS (PRIMARY) - SHORT message -->
+          <!-- TEXT (PRIMARY) -->
           <a class="btn btn-primary"
-             href="sms:+16574782947?&body=Hi%20-%20Prius%20battery%20help.%20Year%3A%20__%20City%3A%20__%20Symptoms%3A%20__"
-             onclick="trackContact(event)">
+             href="sms:+16574782947?&body=Hi!%20Prius%20battery%20help.%20Year%3F%20City%3F%20What%20happened%3F"
+             onclick="trackPrimaryTextConversion(event)">
             Text (657) 478-2947
           </a>
 
           <!-- CALL (SECONDARY) -->
           <a class="btn btn-secondary"
              href="tel:+16574782947"
-             onclick="trackCall(event)">
+             onclick="trackCallClick(event)">
             Call (657) 478-2947
-          </a>
-
-          <!-- Cells shortcut -->
-          <a class="btn btn-tertiary"
-             href="#cells"
-             onclick="trackAnchor(event,'cells_cta')">
-            Need Cells/Modules? Tap here
           </a>
         </div>
 
         <div class="smallNote">
-          Keep it simple: <b>Year + City + Symptoms</b>. We’ll ask follow-up questions if needed.
+          Keep it simple: <b>Year + City + What happened</b>. We reply fast.
         </div>
       </div>
 
@@ -461,14 +461,12 @@
           </div>
         </div>
 
-        <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.55;">
+        <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.5;">
           Serving: Anaheim, Fullerton, Buena Park, Garden Grove, Huntington Beach, Long Beach, Torrance + nearby.
-          (Text your city to confirm.)
         </div>
       </div>
     </div>
 
-    <!-- HOW IT WORKS -->
     <div class="section">
       <div class="sectionTitle">How it works</div>
       <h2>Three simple steps</h2>
@@ -476,235 +474,191 @@
       <div class="grid3">
         <div class="box">
           <div class="n">01</div>
-          <div class="t">Text</div>
-          <div class="d">Send Year + City + Symptoms. We reply with quote + ETA.</div>
+          <div class="t">Text to Book</div>
+          <div class="d">Text Year + City + what happened. We reply with price range + ETA.</div>
         </div>
         <div class="box">
           <div class="n">02</div>
-          <div class="t">On-Site</div>
-          <div class="d">We come to the car. Diagnose, repair, or replace (no towing).</div>
+          <div class="t">On-Site Service</div>
+          <div class="d">We arrive with tools and parts. Diagnose, repair, or replace where the car is parked.</div>
         </div>
         <div class="box">
           <div class="n">03</div>
           <div class="t">Test & Go</div>
-          <div class="d">We test before leaving. Clear explanation + warranty info.</div>
+          <div class="d">We test before leaving. You get a clear explanation + warranty info.</div>
         </div>
       </div>
     </div>
 
-    <!-- CELLS / MODULES -->
     <div class="section" id="cells">
-      <div class="sectionTitle">Cells / Modules</div>
-
-      <div class="cellsHeader">
-        <div>
-          <h2>Prius Battery Modules (NiMH)</h2>
-          <p>
-            Want to rebuild a Prius pack? We sell <b>tested</b>, <b>matched</b> Prius NiMH modules for Gen2 / Gen3.
-            Pickup in SoCal. Reserve by text or WhatsApp.
-          </p>
-        </div>
-
-        <div class="miniPills" aria-hidden="true">
-          <span class="chip"><span class="dot"></span> Tested</span>
-          <span class="chip"><span class="dot"></span> Matched Sets</span>
-          <span class="chip"><span class="dot"></span> SoCal Pickup</span>
-        </div>
-      </div>
-
-      <!-- Gallery -->
-      <div class="gallery">
-        <div class="imgCard">
-          <img src="cells-1.jpg" alt="Prius NiMH battery modules - photo 1" />
-          <div class="imgCaption">Real Prius NiMH modules (cells). Tested before pickup.</div>
-        </div>
-        <div class="imgCard">
-          <img src="cells-2.jpg" alt="Prius battery module set - photo 2" />
-          <div class="imgCaption">Matched modules available for multi-module purchases.</div>
-        </div>
-        <div class="imgCard">
-          <img src="cells-3.jpg" alt="Hybrid battery module testing - photo 3" />
-          <div class="imgCaption">Quick pickup coordination by text.</div>
-        </div>
-      </div>
-
-      <div class="cellsGrid">
-        <!-- Pricing / checkout-like -->
-        <div class="box">
-          <div class="t">Pricing</div>
-          <div class="d">Clear pricing helps reduce back-and-forth. Update anytime.</div>
-
-          <div class="priceTable">
-            <div class="priceRow">
-              <div class="left">Single module</div>
-              <div class="right">$35</div>
-            </div>
-            <div class="priceRow">
-              <div class="left">10-pack</div>
-              <div class="right">$320</div>
-            </div>
-            <div class="priceRow">
-              <div class="left">Full set (28 modules)</div>
-              <div class="right">$840</div>
-            </div>
+      <div class="sectionTitle">DIY option</div>
+      <h2>Need Prius battery cells?</h2>
+      <div class="cellsWrap">
+        <div class="cellsCard">
+          <h3>Reconditioned NiMH Cells (Ready to install)</h3>
+          <div class="cellsMeta">
+            Tested & matched. Local pickup available. If you want us to install, we can do that too.
           </div>
 
-          <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="badge">📍 <b>Pickup</b> SoCal</span>
-            <span class="badge">⚡ <b>Fast</b> response</span>
-            <span class="badge">🧰 <b>Shops</b> welcome</span>
+          <div class="cellsBadges">
+            <span class="badge">✅ Tested & matched</span>
+            <span class="badge">🛡️ 90-day warranty</span>
+            <span class="badge">⚡ Same-day pickup (when available)</span>
           </div>
 
-          <div class="smallNote" style="margin-top:10px;">
-            Prices are for pickup. Bulk pricing available for shops — text your weekly volume.
+          <div class="cellsPrice">
+            <div class="big">$45</div>
+            <div class="small">per cell (typical) • ask for current stock</div>
           </div>
-        </div>
 
-        <!-- Reserve flow -->
-        <div class="box">
-          <div class="t">Reserve Now</div>
-          <div class="d">No checkout yet — reserve by message and we confirm stock + pickup time.</div>
-
-          <div class="ctaRow" style="margin-top:12px;">
-            <!-- SMS reserve -->
-            <a class="btn btn-primary"
-               href="sms:+16574782947?&body=Hi%20-%20I%20want%20Prius%20modules.%20Qty%3A%20__%20Prius%20Year%3A%20__%20City%3A%20__"
-               onclick="trackContact(event)">
-              Text to Reserve
+          <div class="cellsCtas">
+            <a class="btn-cells primary"
+               href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20want%20Prius%20battery%20cells.%20How%20many%20in%20stock%20and%20pickup%20today%3F"
+               onclick="trackCellsWhatsapp(event)">
+              WhatsApp: Buy Cells
             </a>
-
-            <!-- WhatsApp reserve (creative redirect) -->
-            <a class="btn btn-whatsapp"
-               href="https://wa.me/16574782947?text=Hi%20-%20I%20want%20Prius%20modules.%20Qty%3A%20__%20Prius%20Year%3A%20__%20City%3A%20__"
-               onclick="trackWhatsappContact(event)">
-              Reserve on WhatsApp
+            <a class="btn-cells"
+               href="sms:+16574782947?&body=Hi!%20I%20want%20Prius%20battery%20cells.%20How%20many%20in%20stock%20and%20pickup%20today%3F"
+               onclick="trackCellsSms(event)">
+              Text: Ask Stock
             </a>
           </div>
 
           <div class="smallNote">
-            Message format: <b>Qty + Prius year + city</b>. That’s it.
-          </div>
-
-          <div class="smallNote" style="margin-top:10px;">
-            Need full mobile service instead? Scroll up and use the main “Text” button.
+            If you’re not sure how many cells you need, text “Prius gen + issue” and we’ll guide you.
           </div>
         </div>
-      </div>
 
-      <div class="smallNote" style="margin-top:12px;">
-        Tip: If you want this to feel even more like “checkout”, we can add quantity buttons and a “Reserve total” calculator — still without payments.
+        <div class="imgMock" aria-label="battery cell image">
+          <!--
+            Você pode colocar sua imagem aqui depois:
+            1) Faça upload no repo e use src="cells-hero.png"
+            2) Depois mude img display:none -> display:block e remova o hint.
+          -->
+          <div class="hint">
+            Add a clean product photo here (cells/modules).<br/>
+            Keep it simple — one hero image converts best.
+          </div>
+          <img src="cells-hero.png" alt="Prius NiMH battery cell/module" />
+        </div>
       </div>
     </div>
 
-    <!-- FAQ -->
     <div class="section">
       <div class="sectionTitle">FAQ</div>
       <h2>Quick answers</h2>
 
       <div class="faq">
         <details>
-          <summary>Do you ship modules?</summary>
-          <p>Right now we focus on SoCal pickup. If you need shipping, message your ZIP + quantity and we’ll confirm options.</p>
+          <summary>Do you work on Teslas?</summary>
+          <p>No. We focus on hybrid systems (Prius and similar). Text your model and we’ll confirm.</p>
         </details>
         <details>
-          <summary>Do you work on Teslas / EV batteries?</summary>
-          <p>No. Prius NiMH only (Gen2/Gen3 modules) + Prius hybrid battery service.</p>
+          <summary>How fast can you come?</summary>
+          <p>Often same-day depending on distance and schedule. Text your city and we’ll confirm.</p>
         </details>
         <details>
-          <summary>Why keep messages short?</summary>
-          <p>Short messages convert better. We’ll ask follow-up questions after you send the basics.</p>
+          <summary>Do you sell cells only?</summary>
+          <p>Yes. If you prefer DIY, we can sell tested cells. Or we can install for you.</p>
         </details>
       </div>
     </div>
 
-    <!-- Footer (discreet social) -->
     <footer>
       <div>© <span id="y"></span> GO FIX TODAY</div>
-      <div class="footerRow">
-        <a class="miniBtn" href="#cells" onclick="trackAnchor(event,'cells_footer')">Cells / Modules</a>
-        <a class="miniBtn" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" onclick="trackInstagram(event)">Instagram @gofixtoday</a>
-        <a class="miniBtn" href="https://wa.me/16574782947?text=Hi%20-%20Prius%20battery%20help.%20Year%3A%20__%20City%3A%20__" onclick="trackWhatsapp(event)">WhatsApp</a>
+
+      <div class="footerLinks">
+        <a class="mutedLink" href="#cells">Battery Cells</a>
+        <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noreferrer" onclick="trackInstagram(event)">Instagram @gofixtoday</a>
+        <a class="mutedLink"
+           href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20I%20need%20help%20with%20my%20Prius%20battery.%20Year%3F%20City%3F%20What%20happened%3F"
+           target="_blank" rel="noreferrer"
+           onclick="trackFooterWhatsapp(event)">
+          WhatsApp
+        </a>
       </div>
     </footer>
+
   </div>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-    function safeGtag(){ return typeof window.gtag === 'function'; }
 
-    // Google Ads conversion: Contact (4)
-    const CONTACT4_SEND_TO = 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC';
-
-    function fireContactConversion(callback){
-      try{
-        if(!safeGtag()) { if(callback) callback(); return; }
-        let done = false;
-        const go = () => { if(done) return; done = true; if(callback) callback(); };
-
-        gtag('event', 'conversion', {
-          send_to: CONTACT4_SEND_TO,
-          value: 1.0,
-          currency: 'USD',
-          event_callback: go
-        });
-
-        // fallback
-        setTimeout(go, 1200);
-      }catch(err){
-        if(callback) callback();
-      }
+    function safeGtag() {
+      return typeof window.gtag === 'function';
     }
 
-    // Use this for SMS “contact intent”
-    function trackContact(e){
-      if(!e) return;
-      const href = e.currentTarget.getAttribute('href');
-      e.preventDefault();
-      fireContactConversion(() => { window.location.href = href; });
+    // PRIMARY conversion = Contact (4)
+    // send_to = AW-17973103075/HcX2CNuTk4gcEOOTn_pC
+    function fireContact4Conversion(){
+      if (!safeGtag()) return;
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
+        'value': 1.0,
+        'currency': 'USD'
+      });
     }
 
-    // WhatsApp reserve/contact intent
-    function trackWhatsappContact(e){
+    function trackPrimaryTextConversion(e){
       if(!e) return;
-      const href = e.currentTarget.getAttribute('href');
-      e.preventDefault();
-      try{
-        if(safeGtag()){
-          gtag('event', 'click_whatsapp', { method:'whatsapp', page_location: window.location.href });
+      try {
+        const href = e.currentTarget.getAttribute('href');
+
+        if (safeGtag()) {
+          gtag('event', 'click_text', { method: 'sms', page_location: window.location.href });
+          fireContact4Conversion();
         }
-      }catch(err){}
-      fireContactConversion(() => { window.location.href = href; });
+
+        e.preventDefault();
+        setTimeout(() => { window.location.href = href; }, 220);
+      } catch(err) {}
     }
 
-    function trackCall(e){
+    function trackCallClick(e){
+      if(!e) return;
+      try {
+        if (safeGtag()) {
+          gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
+        }
+      } catch(err) {}
+    }
+
+    function trackCellsWhatsapp(e){
+      if(!e) return;
       try{
-        if(safeGtag()){
-          gtag('event', 'click_call', { method:'tel', page_location: window.location.href });
+        if (safeGtag()) {
+          gtag('event', 'click_cells_whatsapp', { page_location: window.location.href });
+          // opcional: contar como conversão também (se quiser)
+          // fireContact4Conversion();
         }
       }catch(err){}
     }
 
-    function trackWhatsapp(e){
+    function trackCellsSms(e){
+      if(!e) return;
       try{
-        if(safeGtag()){
-          gtag('event', 'click_whatsapp', { method:'whatsapp', page_location: window.location.href });
+        const href = e.currentTarget.getAttribute('href');
+        if (safeGtag()) {
+          gtag('event', 'click_cells_sms', { page_location: window.location.href });
+          // opcional: contar como conversão também
+          // fireContact4Conversion();
         }
+        e.preventDefault();
+        setTimeout(() => { window.location.href = href; }, 220);
       }catch(err){}
     }
 
     function trackInstagram(e){
+      if(!e) return;
       try{
-        if(safeGtag()){
-          gtag('event', 'click_instagram', { method:'instagram', page_location: window.location.href });
-        }
+        if (safeGtag()) gtag('event', 'click_instagram', { page_location: window.location.href });
       }catch(err){}
     }
 
-    function trackAnchor(e, name){
+    function trackFooterWhatsapp(e){
+      if(!e) return;
       try{
-        if(safeGtag()){
-          gtag('event', 'anchor_click', { anchor: name || 'anchor', page_location: window.location.href });
-        }
+        if (safeGtag()) gtag('event', 'click_footer_whatsapp', { page_location: window.location.href });
       }catch(err){}
     }
   </script>
