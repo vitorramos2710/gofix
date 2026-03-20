@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>GO FIX TODAY — Mobile Prius Hybrid Battery Repair (SoCal)</title>
-  <meta name="description" content="Mobile Prius hybrid battery diagnostics, repair & replacement in Southern California. Same-day service. Text for a fast quote." />
+  <meta name="description" content="Mobile Prius hybrid battery repair in Southern California. Text for a fast quote & ETA." />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
@@ -19,7 +19,6 @@
   <style>
     :root{
       --bg:#0b0b0b;
-      --panel:#121212;
       --text:#f2f2f2;
       --muted:#a7a7a7;
       --muted2:#7f7f7f;
@@ -33,9 +32,10 @@
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      background: radial-gradient(1000px 600px at 30% -10%, rgba(200,245,66,.10), transparent 55%),
-                  radial-gradient(900px 540px at 90% 10%, rgba(200,245,66,.07), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1000px 600px at 30% -10%, rgba(200,245,66,.10), transparent 55%),
+        radial-gradient(900px 540px at 90% 10%, rgba(200,245,66,.06), transparent 55%),
+        var(--bg);
       color:var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       letter-spacing: -0.2px;
@@ -50,22 +50,18 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:950; letter-spacing: .6px;
-      text-transform: uppercase;
-      font-size: 18px;
-      white-space: nowrap;
+      font-weight:950; letter-spacing:.6px;
+      text-transform:uppercase; font-size:18px; white-space:nowrap;
     }
-    .brand .go{ color:#fff; }
     .brand .fix{ color: var(--accent); }
-    .brand .today{ color:#fff; opacity:.92; }
 
     /* Hero */
     .hero{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.1fr .9fr;
       gap: 18px;
       align-items: stretch;
-      margin-top: 6px;
+      margin-top: 8px;
     }
     @media (max-width: 900px){ .hero{ grid-template-columns:1fr; } }
 
@@ -73,59 +69,19 @@
 
     h1{
       margin:0;
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: .98;
-      letter-spacing: -1.1px;
-      font-weight: 950;
+      font-size: clamp(46px, 7vw, 84px); /* bigger */
+      line-height: .96;
+      letter-spacing: -1.2px;
+      font-weight: 980;
     }
     .h-accent{ color: var(--accent); }
 
     .sub{
-      margin-top: 14px;
+      margin-top: 12px;
       color: var(--muted);
       font-size: 16px;
       line-height: 1.55;
       max-width: 64ch;
-    }
-
-    /* NEW: Trust badges (mobile-first, clean, larger) */
-    .trustRow{
-      margin-top: 14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: #dcdcdc;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: -0.1px;
-    }
-    .badgeDot{
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(200,245,66,.10);
-      flex: 0 0 auto;
-    }
-
-    @media (max-width: 520px){
-      .badge{
-        width: 100%;
-        justify-content:flex-start;
-        padding: 14px 14px;
-        border-radius: 16px;
-        font-size: 15px;
-      }
     }
 
     .ctaRow{
@@ -135,7 +91,6 @@
       flex-wrap:wrap;
       align-items:center;
     }
-
     .btn{
       display:inline-flex;
       align-items:center;
@@ -167,10 +122,16 @@
     }
     .btn-secondary:hover{ background: rgba(255,255,255,.09); }
 
+    @media (max-width: 520px){
+      .btn{ width:100%; min-width: unset; }
+      .sub{ font-size: 15px; }
+    }
+
     .smallNote{
       margin-top: 10px;
       font-size: 13px;
       color: var(--muted2);
+      line-height: 1.45;
     }
 
     /* Right card */
@@ -181,7 +142,6 @@
       box-shadow: var(--shadow);
       padding: 18px;
       overflow:hidden;
-      position:relative;
     }
     .card h3{
       margin: 0 0 12px;
@@ -189,7 +149,7 @@
       letter-spacing:-.3px;
       color: #e9e9e9;
     }
-    .priceGrid{ display:grid; gap: 10px; margin-top: 6px; }
+    .priceGrid{ display:grid; gap: 10px; }
     .row{
       display:flex; justify-content:space-between; align-items:center;
       padding: 14px 12px;
@@ -204,7 +164,7 @@
 
     /* Sections */
     .section{
-      margin-top: 26px;
+      margin-top: 24px;
       padding: 18px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
@@ -221,7 +181,7 @@
     }
     .section h2{
       margin:0 0 8px;
-      font-size: 32px;
+      font-size: 30px;
       letter-spacing: -0.8px;
     }
 
@@ -232,7 +192,6 @@
       margin-top: 14px;
     }
     @media (max-width: 900px){ .grid3{ grid-template-columns:1fr; } }
-
     .box{
       padding: 16px;
       border-radius: 18px;
@@ -248,7 +207,7 @@
     .box .t{ font-weight: 950; margin-bottom: 6px; }
     .box .d{ color: var(--muted); line-height: 1.5; font-size: 14px; }
 
-    /* CELLS: simplified (less info, cleaner) */
+    /* Cells (clean) */
     .cellsGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -260,16 +219,14 @@
 
     .cellsImgWrap{ position:relative; }
     .cellsImg{
-      width: 100%;
+      width:100%;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.18);
       display:block;
       object-fit: cover;
-      max-height: 360px;
+      max-height: 340px;
+      background: rgba(0,0,0,.18);
     }
-    @media (max-width: 520px){ .cellsImg{ max-height: 320px; } }
-
     .priceBadge{
       position:absolute;
       top: 12px;
@@ -281,16 +238,13 @@
       font-weight: 950;
       color: var(--accent);
       backdrop-filter: blur(8px);
-      letter-spacing: .2px;
     }
-
     .cellsCard{
       border:1px solid rgba(255,255,255,.08);
       background: rgba(0,0,0,.22);
       border-radius: 18px;
       padding: 16px;
     }
-
     .cellsHeadline{
       font-weight: 950;
       font-size: 18px;
@@ -303,38 +257,15 @@
       line-height: 1.5;
       margin-bottom: 12px;
     }
-
     .cellsBullets{
-      display:grid;
-      gap: 10px;
-      margin: 12px 0 0;
-      padding: 0;
-      list-style: none;
+      margin: 0;
+      padding-left: 18px;
       color: var(--muted);
       font-size: 14px;
-      line-height: 1.45;
+      line-height: 1.5;
     }
-    .cellsBullets li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .check{
-      width: 18px;
-      height: 18px;
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      flex: 0 0 auto;
-      margin-top: 1px;
-      color: var(--accent);
-      font-weight: 950;
-      font-size: 12px;
-    }
-    .cellsBullets b{ color:#fff; font-weight:850; }
+    .cellsBullets li{ margin: 6px 0; }
+    .cellsBullets b{ color:#fff; }
 
     /* FAQ */
     .faq{
@@ -382,7 +313,7 @@
 
     <div class="top">
       <div class="brand">
-        <span class="go">GO</span><span class="fix">FIX</span><span class="today">TODAY</span>
+        <span>GO</span><span class="fix">FIX</span><span>TODAY</span>
       </div>
     </div>
 
@@ -390,31 +321,22 @@
       <div class="heroLeft">
         <h1>
           Mobile Prius<br/>
-          hybrid battery repair.<br/>
-          <span class="h-accent">Fast. Transparent. Mobile.</span>
+          Hybrid Battery Repair<br/>
+          <span class="h-accent">in SoCal.</span>
         </h1>
 
         <div class="sub">
-          Same-day service in Southern California. No towing, no dealership wait.
+          No towing. No dealership wait.
           Text your <b>Prius year + city</b> for a fast quote & ETA.
         </div>
 
-        <!-- NEW: big clean trust badges (this fixes your mobile complaint) -->
-        <div class="trustRow" aria-label="Trust badges">
-          <span class="badge"><span class="badgeDot"></span> Same-day service</span>
-          <span class="badge"><span class="badgeDot"></span> 3-month warranty</span>
-          <span class="badge"><span class="badgeDot"></span> Prius focus</span>
-        </div>
-
         <div class="ctaRow">
-          <!-- TEXT (PRIMARY) -->
           <a class="btn btn-primary"
              href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20Prius%20battery%20help.%20Year%3A%20____%20City%3A%20____%20Issue%3A%20____"
              onclick="trackTextConversion(event)">
             Text (657) 478-2947
           </a>
 
-          <!-- CALL (SECONDARY) -->
           <a class="btn btn-secondary"
              href="tel:+16574782947"
              onclick="trackCallClick(event)">
@@ -423,13 +345,12 @@
         </div>
 
         <div class="smallNote">
-          Keep it simple: <b>Year + City + Issue</b>. We reply fast.
+          Keep it simple: <b>Year + City + Issue</b>.
         </div>
       </div>
 
       <div class="card">
         <h3>Quick Price Estimate</h3>
-
         <div class="priceGrid">
           <div class="row">
             <div class="label">Mobile Diagnostic</div>
@@ -448,9 +369,8 @@
             <div class="val mini">3 months</div>
           </div>
         </div>
-
         <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.5;">
-          Serving: Anaheim, Fullerton, Buena Park, Garden Grove, Huntington Beach, Long Beach, Torrance + nearby.
+          Serving OC + South Bay (Anaheim, Fullerton, Buena Park, Garden Grove, Huntington Beach, Long Beach, Torrance).
         </div>
       </div>
     </div>
@@ -462,18 +382,18 @@
       <div class="grid3">
         <div class="box">
           <div class="n">01</div>
-          <div class="t">Text to Book</div>
-          <div class="d">Send year + city + issue. We reply with price range + ETA.</div>
+          <div class="t">Text</div>
+          <div class="d">Send year + city + issue. We reply fast.</div>
         </div>
         <div class="box">
           <div class="n">02</div>
-          <div class="t">On-Site Service</div>
-          <div class="d">We arrive with tools & parts. Diagnose, repair, or replace on-site.</div>
+          <div class="t">We come to you</div>
+          <div class="d">On-site diagnostics and repair/replacement.</div>
         </div>
         <div class="box">
           <div class="n">03</div>
-          <div class="t">Test & Go</div>
-          <div class="d">We test before leaving. Clear explanation + warranty details.</div>
+          <div class="t">Done</div>
+          <div class="d">Tested on-site. Warranty details provided.</div>
         </div>
       </div>
     </div>
@@ -500,13 +420,13 @@
         <div class="cellsCard">
           <div class="cellsHeadline">Order by text</div>
           <div class="cellsMini">
-            Text your <b>Prius year</b> + <b>quantity</b> + <b>pickup city</b>. We confirm availability fast.
+            Text your <b>Prius year</b>, <b>quantity</b>, and <b>pickup city</b>.
           </div>
 
           <ul class="cellsBullets">
-            <li><span class="check">✓</span><span><b>$35 per cell</b> (reconditioned, install-ready)</span></li>
-            <li><span class="check">✓</span><span><b>Pickup in SoCal</b> (fast turnaround)</span></li>
-            <li><span class="check">✓</span><span><b>Installation available</b> (ask by text)</span></li>
+            <li><b>$35 per cell</b> (reconditioned)</li>
+            <li><b>Pickup in SoCal</b></li>
+            <li><b>Install available</b> (ask by text)</li>
           </ul>
 
           <div class="ctaRow" style="margin-top:14px;">
@@ -518,12 +438,11 @@
           </div>
 
           <div class="smallNote" style="margin-top:10px;">
-            If you’re unsure about quantity, text your Prius year and symptoms.
+            Not sure how many? Text your Prius year + symptoms.
           </div>
         </div>
       </div>
 
-      <!-- Short clean FAQ only (no overload) -->
       <div class="faq">
         <details>
           <summary>Compatible with my Prius?</summary>
@@ -558,36 +477,31 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    function safeGtag() {
-      return typeof window.gtag === 'function';
-    }
+    function safeGtag(){ return typeof window.gtag === 'function'; }
 
     function trackTextConversion(e){
       if(!e) return;
-      try {
+      try{
         const href = e.currentTarget.getAttribute('href');
-
         if (safeGtag()) {
-          // Google Ads conversion: Contact (4)
           gtag('event', 'conversion', {
             'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
             'value': 1.0,
             'currency': 'USD'
           });
         }
-
         e.preventDefault();
         setTimeout(() => { window.location.href = href; }, 220);
-      } catch(err) {}
+      }catch(err){}
     }
 
     function trackCallClick(e){
       if(!e) return;
-      try {
+      try{
         if (safeGtag()) {
           gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
         }
-      } catch(err) {}
+      }catch(err){}
     }
   </script>
 </body>
