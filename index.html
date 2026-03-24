@@ -4,600 +4,656 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>GO FIX TODAY — Older Toyota & Lexus Hybrid Battery Repair</title>
+  <title>GO FIX TODAY — Mobile Hybrid Battery Repair for Older Toyota & Lexus NiMH Models (SoCal)</title>
   <meta
     name="description"
-    content="Mobile hybrid battery repair for select older Toyota and Lexus NiMH hybrid models in Southern California."
+    content="Mobile hybrid battery repair for select older Toyota and Lexus models with NiMH batteries in Southern California. Text for a fast fit check, quote & ETA."
   />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17973103075');
+  </script>
+
   <style>
-    :root {
-      --bg: #0b0f14;
-      --card: #121821;
-      --card-2: #0f141c;
-      --text: #f5f7fb;
-      --muted: #aab4c3;
-      --line: rgba(255,255,255,0.08);
-      --green: #72f1b8;
-      --green-2: #49d49b;
-      --danger: #ff8f8f;
-      --warning: #ffd166;
-      --shadow: 0 12px 30px rgba(0,0,0,0.25);
-      --radius: 18px;
-      --max: 1100px;
+    :root{
+      --bg:#0b0b0b;
+      --text:#f2f2f2;
+      --muted:#a7a7a7;
+      --muted2:#7f7f7f;
+      --line:rgba(255,255,255,.08);
+      --accent:#C8F542;
+      --shadow: 0 22px 80px rgba(0,0,0,.55);
+      --radius: 22px;
+      --max: 1120px;
     }
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
       background:
-        radial-gradient(circle at top right, rgba(114,241,184,0.06), transparent 24%),
+        radial-gradient(1000px 600px at 30% -10%, rgba(200,245,66,.10), transparent 55%),
+        radial-gradient(900px 540px at 90% 10%, rgba(200,245,66,.06), transparent 55%),
         var(--bg);
-      color: var(--text);
-      line-height: 1.45;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      letter-spacing: -0.2px;
     }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 22px 16px 64px; }
 
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
-
-    .container {
-      width: min(calc(100% - 24px), var(--max));
-      margin: 0 auto;
+    /* Top */
+    .top{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding: 6px 0 10px;
     }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(11,15,20,0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:950; letter-spacing:.6px;
+      text-transform:uppercase; font-size:18px; white-space:nowrap;
     }
+    .brand .fix{ color: var(--accent); }
 
-    .topbar-inner {
-      min-height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 8px;
     }
+    @media (max-width: 900px){ .hero{ grid-template-columns:1fr; } }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-    }
+    .heroLeft{ padding: 18px 6px 0; }
 
-    .brand-badge {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(180deg, var(--green), var(--green-2));
-      color: #07110c;
-      font-weight: 900;
-    }
-
-    .top-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 16px;
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
       border-radius: 999px;
-      font-weight: 800;
-      font-size: 14px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: .2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(180deg, var(--green), var(--green-2));
-      color: #07110c;
-      box-shadow: 0 10px 24px rgba(73,212,155,0.22);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.03);
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .hero {
-      padding: 22px 0 18px;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      border:1px solid rgba(200,245,66,.14);
+      background: rgba(200,245,66,.07);
+      color: var(--accent);
       font-size: 12px;
-      color: var(--green);
-      background: rgba(114,241,184,0.08);
-      border: 1px solid rgba(114,241,184,0.16);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: clamp(30px, 8vw, 54px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      margin: 0 0 12px;
-    }
-
-    .hero-sub {
-      font-size: 15px;
-      color: var(--muted);
-      margin: 0 0 16px;
-    }
-
-    .filter-box {
-      background: rgba(255,209,102,0.08);
-      border: 1px solid rgba(255,209,102,0.18);
-      color: #ffe5a0;
-      border-radius: 16px;
-      padding: 12px 14px;
-      font-size: 14px;
-      font-weight: 700;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
       margin-bottom: 14px;
     }
 
-    .bullets {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 16px;
+    h1{
+      margin:0;
+      font-size: clamp(42px, 6.5vw, 80px);
+      line-height: .96;
+      letter-spacing: -1.2px;
+      font-weight: 980;
+    }
+    .h-accent{ color: var(--accent); }
+
+    .sub{
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 64ch;
     }
 
-    .bullet {
+    .fitNote{
+      margin-top: 14px;
       padding: 12px 14px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(200,245,66,.10);
+      background: rgba(255,255,255,.035);
+      color: #e6e6e6;
       font-size: 14px;
+      line-height: 1.5;
+    }
+    .fitNote b{ color: var(--accent); }
+
+    .ctaRow{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      font-weight: 950;
+      border: 1px solid transparent;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .08s ease, filter .15s ease, background .15s ease;
+      min-width: 260px;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{
+      background: var(--accent);
+      color:#0b0b0b;
+      box-shadow: 0 18px 60px rgba(200,245,66,.16);
+    }
+    .btn-primary:hover{ filter: brightness(1.03); }
+
+    .btn-secondary{
+      background: rgba(255,255,255,.06);
+      border-color: var(--line);
+      color: #fff;
+      min-width: 220px;
+    }
+    .btn-secondary:hover{ background: rgba(255,255,255,.09); }
+
+    @media (max-width: 520px){
+      .btn{ width:100%; min-width: unset; }
+      .sub{ font-size: 15px; }
     }
 
-    .bullet strong {
-      color: var(--green);
+    .smallNote{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted2);
+      line-height: 1.45;
     }
 
-    .cta-stack {
-      display: grid;
-      gap: 10px;
-    }
-
-    .quick-models,
-    .section-card,
-    .price-card,
-    .faq-card,
-    .form-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
+    /* Right card */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
+      padding: 18px;
+      overflow:hidden;
     }
-
-    .section {
-      padding: 12px 0;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin: 0 0 8px;
-      letter-spacing: -0.03em;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      font-size: 14px;
-      margin: 0 0 14px;
-    }
-
-    .model-grid,
-    .symptom-grid,
-    .price-grid,
-    .faq-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .model-item,
-    .symptom-item {
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .model-item small,
-    .symptom-item small {
-      display: block;
-      color: var(--muted);
-      font-weight: 500;
-      margin-top: 4px;
-    }
-
-    .price-title {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .price-value {
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 6px;
-    }
-
-    .price-note {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .price-highlight {
-      border-color: rgba(114,241,184,0.22);
-    }
-
-    .split {
-      display: grid;
-      gap: 12px;
-    }
-
-    .mini-title {
-      font-size: 16px;
-      font-weight: 800;
-      margin: 0 0 8px;
-    }
-
-    .checklist,
-    .simple-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .checklist li,
-    .simple-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-    }
-
-    .checklist li:last-child,
-    .simple-list li:last-child {
-      border-bottom: none;
-    }
-
-    .checklist li::before {
-      content: "✓";
-      color: var(--green);
-      font-weight: 900;
-      margin-right: 10px;
-    }
-
-    .simple-list li::before {
-      content: "•";
-      color: var(--green);
-      font-weight: 900;
-      margin-right: 10px;
-    }
-
-    .form-grid {
-      display: grid;
-      gap: 10px;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      color: var(--text);
-      padding: 14px;
-      font: inherit;
-      min-height: 50px;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    details {
-      border-bottom: 1px solid var(--line);
-      padding: 14px 0;
-    }
-
-    details:last-child { border-bottom: none; }
-
-    summary {
-      list-style: none;
-      cursor: pointer;
-      font-weight: 800;
-      font-size: 15px;
-      position: relative;
-      padding-right: 24px;
-    }
-
-    summary::-webkit-details-marker { display: none; }
-
-    summary::after {
-      content: "+";
-      position: absolute;
-      right: 0;
-      top: 0;
-      color: var(--green);
+    .card h3{
+      margin: 0 0 12px;
       font-size: 18px;
-      font-weight: 900;
+      letter-spacing:-.3px;
+      color: #e9e9e9;
     }
-
-    details[open] summary::after { content: "–"; }
-
-    details p {
-      color: var(--muted);
-      font-size: 14px;
-      margin: 10px 0 0;
+    .priceGrid{ display:grid; gap: 10px; }
+    .row{
+      display:flex; justify-content:space-between; align-items:center;
+      padding: 14px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.06);
     }
+    .row .label{ color: var(--muted); font-weight:750; }
+    .row .val{ color: #fff; font-weight:950; font-size: 18px; }
+    .row .val.ac{ color: var(--accent); }
+    .row .val.mini{ font-size: 16px; color: var(--accent); }
 
-    .sticky-mobile-bar {
-      position: sticky;
-      bottom: 0;
-      z-index: 120;
-      background: rgba(11,15,20,0.95);
-      border-top: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-    }
-
-    .sticky-mobile-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      width: min(100%, 680px);
-      margin: 0 auto;
-    }
-
-    .footer {
-      padding: 22px 0 90px;
+    .cardTiny{
+      margin-top:14px;
+      padding: 12px 13px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
       color: var(--muted);
       font-size: 13px;
-      text-align: center;
+      line-height: 1.5;
+    }
+    .cardTiny b{ color:#fff; }
+
+    /* Sections */
+    .section{
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.02);
+    }
+    .sectionTitle{
+      display:flex; align-items:center; gap:10px;
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: var(--accent);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .section h2{
+      margin:0 0 8px;
+      font-size: 30px;
+      letter-spacing: -0.8px;
     }
 
-    @media (min-width: 860px) {
-      .hero-wrap,
-      .split,
-      .price-grid,
-      .model-grid,
-      .symptom-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 900px){ .grid3{ grid-template-columns:1fr; } }
 
-      .hero {
-        padding-top: 32px;
-      }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 900px){ .grid2{ grid-template-columns:1fr; } }
 
-      .hero-sub {
-        font-size: 17px;
-      }
+    .box{
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.22);
+    }
+    .box .n{
+      font-weight: 950;
+      color: rgba(200,245,66,.35);
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .box .t{ font-weight: 950; margin-bottom: 6px; }
+    .box .d{ color: var(--muted); line-height: 1.5; font-size: 14px; }
+
+    .pillGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    @media (max-width: 900px){ .pillGrid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width: 560px){ .pillGrid{ grid-template-columns:1fr; } }
+
+    .pill{
+      padding: 14px 14px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.24);
+      border: 1px solid rgba(255,255,255,.07);
+      font-weight: 900;
+      color: #fff;
+    }
+    .pill span{
+      display:block;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 13px;
+      margin-top: 4px;
+      line-height: 1.45;
     }
 
-    @media (max-width: 640px) {
-      .top-actions .btn-secondary {
-        display: none;
-      }
+    /* Cells (clean) */
+    .cellsGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+      align-items: start;
     }
+    @media (max-width: 900px){ .cellsGrid{ grid-template-columns: 1fr; } }
+
+    .cellsImgWrap{ position:relative; }
+    .cellsImg{
+      width:100%;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      display:block;
+      object-fit: cover;
+      max-height: 340px;
+      background: rgba(0,0,0,.18);
+    }
+    .priceBadge{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(11,11,11,.82);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-weight: 950;
+      color: var(--accent);
+      backdrop-filter: blur(8px);
+    }
+    .cellsCard{
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.22);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .cellsHeadline{
+      font-weight: 950;
+      font-size: 18px;
+      margin: 0 0 10px;
+      letter-spacing: -0.2px;
+    }
+    .cellsMini{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .cellsBullets{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .cellsBullets li{ margin: 6px 0; }
+    .cellsBullets b{ color:#fff; }
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      gap:10px;
+      margin-top: 14px;
+    }
+    details{
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.20);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      color:#f2f2f2;
+      letter-spacing: -0.2px;
+    }
+    details p{
+      color: var(--muted);
+      line-height:1.55;
+      margin: 10px 0 2px;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 26px;
+      color: var(--muted2);
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding-top: 16px;
+    }
+    .mutedLink{ color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
   </style>
 </head>
+
 <body>
+  <div class="wrap">
 
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a href="#" class="brand">
-        <div class="brand-badge">GF</div>
-        <div>GO FIX TODAY</div>
-      </a>
-
-      <div class="top-actions">
-        <a class="btn btn-secondary" href="tel:+17145555555">Call</a>
-        <a class="btn btn-primary" href="#quote">Get Quote</a>
+    <div class="top">
+      <div class="brand">
+        <span>GO</span><span class="fix">FIX</span><span>TODAY</span>
       </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-card">
-          <div class="eyebrow">Older NiMH Hybrids Only • Mobile Service</div>
+    <div class="hero">
+      <div class="heroLeft">
+        <div class="eyebrow">Mobile Service • Older NiMH Hybrids • SoCal</div>
 
-          <h1>Older Toyota & Lexus Hybrid Battery Repair</h1>
+        <h1>
+          Mobile Hybrid Battery Repair<br/>
+          for <span class="h-accent">Older Prius + Select Toyota/Lexus</span><br/>
+          in SoCal.
+        </h1>
 
-          <p class="hero-sub">
-            We service <strong>select older Toyota and Lexus hybrid models with NiMH batteries</strong> in Southern California.
-            Not all hybrids qualify.
-          </p>
+        <div class="sub">
+          No towing. No dealership wait.
+          We service <b>select older Toyota and Lexus hybrid models with NiMH batteries</b>.
+          Text your <b>year + model + city + issue</b> for a fast fit check, quote & ETA.
+        </div>
 
-          <div class="filter-box">
-            We do <strong>not</strong> service every Toyota or Lexus hybrid. Send your year + model first.
-          </div>
+        <div class="fitNote">
+          <b>Important:</b> We do <b>not</b> service every Toyota or Lexus hybrid.
+          We focus on <b>older supported NiMH battery systems</b> only.
+        </div>
 
-          <div class="bullets">
-            <div class="bullet"><strong>Repair, reconditioning, or replacement</strong> depending on the battery condition</div>
-            <div class="bullet"><strong>Mobile service</strong> in LA + Orange County</div>
-            <div class="bullet"><strong>Fast fit check</strong> before booking</div>
-          </div>
+        <div class="ctaRow">
+          <a class="btn btn-primary"
+             href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20need%20hybrid%20battery%20help.%20Year%3A%20____%20Model%3A%20____%20City%3A%20____%20Issue%3A%20____"
+             onclick="trackTextConversion(event)">
+            Text (657) 478-2947
+          </a>
 
-          <div class="cta-stack">
-            <a class="btn btn-primary" href="#quote">Check My Model</a>
-            <a class="btn btn-secondary" href="sms:+17145555555">Text Year + Model</a>
-          </div>
+          <a class="btn btn-secondary"
+             href="tel:+16574782947"
+             onclick="trackCallClick(event)">
+            Call (657) 478-2947
+          </a>
+        </div>
+
+        <div class="smallNote">
+          Keep it simple: <b>Year + Model + City + Issue</b>.
         </div>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="quick-models">
-          <h2>Common Supported Models</h2>
-          <p class="section-copy">Older supported NiMH models only. Exact fit confirmed by year, trim, or VIN.</p>
-
-          <div class="model-grid">
-            <div class="model-item">Toyota Prius <small>most common</small></div>
-            <div class="model-item">Prius C / Prius V <small>select years</small></div>
-            <div class="model-item">Camry Hybrid <small>older supported models</small></div>
-            <div class="model-item">Avalon Hybrid <small>select older models</small></div>
-            <div class="model-item">Highlander Hybrid <small>select years</small></div>
-            <div class="model-item">Lexus CT 200h <small>common supported model</small></div>
+      <div class="card">
+        <h3>Quick Price Estimate</h3>
+        <div class="priceGrid">
+          <div class="row">
+            <div class="label">Mobile Diagnostic</div>
+            <div class="val ac">$99</div>
           </div>
+          <div class="row">
+            <div class="label">Battery Repair</div>
+            <div class="val">from <span class="ac">$399</span></div>
+          </div>
+          <div class="row">
+            <div class="label">Full Replacement</div>
+            <div class="val">from <span class="ac">$999</span></div>
+          </div>
+          <div class="row">
+            <div class="label">Warranty</div>
+            <div class="val mini">3 months</div>
+          </div>
+        </div>
+
+        <div class="cardTiny">
+          <b>Common supported models:</b><br/>
+          Prius, Prius c, Prius v, Camry Hybrid, Lexus CT 200h, and select older Toyota/Lexus hybrids.<br/><br/>
+          <b>Text your year + model first</b> to confirm fit.
+        </div>
+
+        <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.5;">
+          Serving OC + South Bay (Anaheim, Fullerton, Buena Park, Garden Grove, Huntington Beach, Long Beach, Torrance).
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section">
-      <div class="container split">
-        <div class="section-card">
-          <h2>Common Battery Symptoms</h2>
-          <div class="symptom-grid">
-            <div class="symptom-item">Check Hybrid System <small>warning lights or errors</small></div>
-            <div class="symptom-item">Low MPG <small>fuel economy dropped</small></div>
-            <div class="symptom-item">Loss of power <small>weak acceleration or hesitation</small></div>
-            <div class="symptom-item">Battery gauge swings <small>charge changes too fast</small></div>
-          </div>
+    <div class="section">
+      <div class="sectionTitle">Supported models</div>
+      <h2>Focused on older NiMH hybrid systems</h2>
+
+      <div class="sub" style="margin-top:8px;">
+        We keep the offer narrow on purpose to avoid unsupported jobs and bad-fit quotes.
+      </div>
+
+      <div class="pillGrid">
+        <div class="pill">Prius<span>Most common fit</span></div>
+        <div class="pill">Prius c<span>Select supported years</span></div>
+        <div class="pill">Prius v<span>Select supported years</span></div>
+        <div class="pill">Camry Hybrid<span>Older supported NiMH models</span></div>
+        <div class="pill">Lexus CT 200h<span>Common supported Lexus model</span></div>
+        <div class="pill">Other older hybrids<span>Confirm by year / model first</span></div>
+      </div>
+
+      <div class="smallNote" style="margin-top:14px;">
+        Not every year qualifies. <b>2016+ and newer hybrids may require confirmation first</b>.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sectionTitle">How it works</div>
+      <h2>Three simple steps</h2>
+
+      <div class="grid3">
+        <div class="box">
+          <div class="n">01</div>
+          <div class="t">Text</div>
+          <div class="d">Send year + model + city + issue. We reply fast and confirm fit first.</div>
+        </div>
+        <div class="box">
+          <div class="n">02</div>
+          <div class="t">We come to you</div>
+          <div class="d">On-site diagnostics and repair/replacement for supported older NiMH hybrids.</div>
+        </div>
+        <div class="box">
+          <div class="n">03</div>
+          <div class="t">Done</div>
+          <div class="d">Tested on-site. Warranty details provided after service.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sectionTitle">Common problems</div>
+      <h2>Typical hybrid battery symptoms</h2>
+
+      <div class="grid2">
+        <div class="box">
+          <div class="t">Battery warning / Check Hybrid System</div>
+          <div class="d">Dashboard warnings, hybrid fault messages, or battery-related alerts.</div>
+        </div>
+        <div class="box">
+          <div class="t">Low MPG / weak performance</div>
+          <div class="d">Car feels slower, battery gauge swings too fast, or fuel economy drops.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="cells">
+      <div class="sectionTitle">DIY option</div>
+      <h2>Reconditioned NiMH Battery Cells</h2>
+
+      <div class="sub" style="margin-top:8px;">
+        Need individual cells for a Prius pack? Quick local pickup in SoCal.
+      </div>
+
+      <div class="cellsGrid">
+        <div class="cellsImgWrap">
+          <div class="priceBadge">$35 / cell</div>
+          <img
+            class="cellsImg"
+            src="reconditioned-toyota-hybrid-battery-cell-module-1200x789.webp"
+            alt="Reconditioned Toyota hybrid battery cell module"
+            loading="lazy"
+          />
         </div>
 
-        <div class="section-card">
-          <h2>What We Do</h2>
-          <ul class="simple-list">
-            <li>Mobile diagnostic</li>
-            <li>Hybrid battery repair</li>
-            <li>NiMH battery reconditioning</li>
-            <li>Full replacement when needed</li>
+        <div class="cellsCard">
+          <div class="cellsHeadline">Order by text</div>
+          <div class="cellsMini">
+            Text your <b>Prius year</b>, <b>quantity</b>, and <b>pickup city</b>.
+          </div>
+
+          <ul class="cellsBullets">
+            <li><b>$35 per cell</b> (reconditioned)</li>
+            <li><b>Pickup in SoCal</b></li>
+            <li><b>Install available</b> (ask by text)</li>
           </ul>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="price-grid">
-          <div class="price-card">
-            <div class="price-title">Diagnostic</div>
-            <div class="price-value">$99</div>
-            <div class="price-note">For qualified serviceable vehicles in our area.</div>
+          <div class="ctaRow" style="margin-top:14px;">
+            <a class="btn btn-primary"
+               href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20want%20battery%20cells.%20Prius%20year%3A%20____%20Qty%3A%20____%20City%3A%20____"
+               onclick="trackTextConversion(event)">
+              Text to buy cells
+            </a>
           </div>
 
-          <div class="price-card price-highlight">
-            <div class="price-title">Battery Repair</div>
-            <div class="price-value">From $399</div>
-            <div class="price-note">For qualifying older NiMH battery issues.</div>
-          </div>
-
-          <div class="price-card">
-            <div class="price-title">Replacement</div>
-            <div class="price-value">From $999</div>
-            <div class="price-note">Quoted after model and battery confirmation.</div>
+          <div class="smallNote" style="margin-top:10px;">
+            Not sure how many? Text your Prius year + symptoms.
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="quote">
-      <div class="container">
-        <div class="form-card">
-          <h2>Check If Your Hybrid Qualifies</h2>
-          <p class="section-copy">Send your info first so we can filter unsupported hybrids and quote faster.</p>
-
-          <form class="form-grid" action="#" method="post">
-            <input type="text" name="year" placeholder="Year (ex: 2012)" />
-            <select name="make">
-              <option value="">Make</option>
-              <option>Toyota</option>
-              <option>Lexus</option>
-            </select>
-            <input type="text" name="model" placeholder="Model (ex: Prius)" />
-            <input type="text" name="zip" placeholder="ZIP Code" />
-            <textarea name="issue" placeholder="What issue is the car having?"></textarea>
-            <input type="text" name="phone" placeholder="Best phone number" />
-            <button class="btn btn-primary" type="submit">Request Quote</button>
-          </form>
-        </div>
+      <div class="faq">
+        <details>
+          <summary>Compatible with my Prius?</summary>
+          <p>Text your Prius year and we’ll confirm compatibility before pickup.</p>
+        </details>
+        <details>
+          <summary>Do you ship?</summary>
+          <p>We prioritize local pickup. If you need shipping, text your ZIP and we’ll confirm options.</p>
+        </details>
+        <details>
+          <summary>Can you install?</summary>
+          <p>Yes — mobile install depending on location and schedule. Text your city.</p>
+        </details>
       </div>
-    </section>
+    </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="faq-card">
-          <h2>FAQ</h2>
+    <div class="section">
+      <div class="sectionTitle">FAQ</div>
+      <h2>Before you text</h2>
 
-          <details open>
-            <summary>Do you service every Toyota or Lexus hybrid?</summary>
-            <p>No. We focus on select older NiMH hybrid models only.</p>
-          </details>
-
-          <details>
-            <summary>How do I know if my car qualifies?</summary>
-            <p>Send your year, make, model, and symptoms. VIN helps if you have it.</p>
-          </details>
-
-          <details>
-            <summary>Do you work on newer lithium hybrid batteries?</summary>
-            <p>No. This page is specifically for older supported NiMH hybrid systems.</p>
-          </details>
-
-          <details>
-            <summary>Can you come to me?</summary>
-            <p>Yes, for qualified jobs in LA and Orange County service areas.</p>
-          </details>
-        </div>
+      <div class="faq">
+        <details open>
+          <summary>Do you service every Toyota or Lexus hybrid?</summary>
+          <p>No. We focus on select older Toyota and Lexus hybrid models with supported NiMH battery systems.</p>
+        </details>
+        <details>
+          <summary>What should I send for a quote?</summary>
+          <p>Text your year, model, city, and issue. That helps us confirm fit and quote faster.</p>
+        </details>
+        <details>
+          <summary>Do you work on newer lithium hybrids?</summary>
+          <p>Not as a general offer. This page is specifically for older supported NiMH hybrid systems.</p>
+        </details>
       </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-      <div class="container">
-        GO FIX TODAY • Older Toyota & Lexus NiMH Hybrid Battery Specialists • Southern California
+    <footer>
+      <div>© <span id="y"></span> GO FIX TODAY</div>
+      <div>
+        <a class="mutedLink" href="#cells">Battery Cells</a>
+        &nbsp;•&nbsp;
+        <a class="mutedLink"
+           href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20question%20about%20hybrid%20battery%20service."
+           target="_blank" rel="noopener">WhatsApp</a>
+        &nbsp;•&nbsp;
+        <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener">Instagram @gofixtoday</a>
       </div>
     </footer>
-  </main>
 
-  <div class="sticky-mobile-bar">
-    <div class="sticky-mobile-inner">
-      <a class="btn btn-secondary" href="tel:+17145555555">Call Now</a>
-      <a class="btn btn-primary" href="sms:+17145555555">Text Year + Model</a>
-    </div>
   </div>
 
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function safeGtag(){ return typeof window.gtag === 'function'; }
+
+    function trackTextConversion(e){
+      if(!e) return;
+      try{
+        const href = e.currentTarget.getAttribute('href');
+        if (safeGtag()) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
+        e.preventDefault();
+        setTimeout(() => { window.location.href = href; }, 220);
+      }catch(err){}
+    }
+
+    function trackCallClick(e){
+      if(!e) return;
+      try{
+        if (safeGtag()) {
+          gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
+        }
+      }catch(err){}
+    }
+  </script>
 </body>
 </html>
