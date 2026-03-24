@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>GO FIX TODAY — Mobile Hybrid Battery Repair for Older Toyota & Lexus NiMH Models (SoCal)</title>
+  <title>GO FIX TODAY — Mobile Hybrid Battery Repair for Prius + Select Toyota/Lexus in LA + Orange County</title>
   <meta
     name="description"
-    content="Mobile hybrid battery repair for select older Toyota and Lexus models with NiMH batteries in Southern California. Text for a fast fit check, quote & ETA."
+    content="Mobile hybrid battery repair for select older Prius and Toyota/Lexus NiMH hybrid models in Los Angeles and Orange County. Text for a fast fit check, quote & ETA."
   />
 
   <!-- Google tag (gtag.js) -->
@@ -46,7 +46,6 @@
     a{ color:inherit; text-decoration:none; }
     .wrap{ max-width:var(--max); margin:0 auto; padding: 22px 16px 64px; }
 
-    /* Top */
     .top{
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; padding: 6px 0 10px;
@@ -58,7 +57,6 @@
     }
     .brand .fix{ color: var(--accent); }
 
-    /* Hero */
     .hero{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -88,10 +86,11 @@
 
     h1{
       margin:0;
-      font-size: clamp(42px, 6.5vw, 80px);
-      line-height: .96;
-      letter-spacing: -1.2px;
+      font-size: clamp(36px, 5.7vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -1px;
       font-weight: 980;
+      max-width: 11ch;
     }
     .h-accent{ color: var(--accent); }
 
@@ -100,7 +99,14 @@
       color: var(--muted);
       font-size: 16px;
       line-height: 1.55;
-      max-width: 64ch;
+      max-width: 62ch;
+    }
+
+    .serviceArea{
+      margin-top: 10px;
+      color: #e5e5e5;
+      font-size: 14px;
+      font-weight: 800;
     }
 
     .fitNote{
@@ -124,9 +130,10 @@
     }
     .btn{
       display:inline-flex;
+      flex-direction:column;
       align-items:center;
       justify-content:center;
-      gap:10px;
+      gap:4px;
       padding: 16px 18px;
       border-radius: 16px;
       font-weight: 950;
@@ -135,6 +142,7 @@
       user-select:none;
       transition: transform .08s ease, filter .15s ease, background .15s ease;
       min-width: 260px;
+      text-align:center;
     }
     .btn:active{ transform: translateY(1px); }
 
@@ -153,9 +161,21 @@
     }
     .btn-secondary:hover{ background: rgba(255,255,255,.09); }
 
+    .btnMain{
+      font-size: 16px;
+      line-height: 1.1;
+    }
+    .btnSub{
+      font-size: 13px;
+      opacity: .82;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
     @media (max-width: 520px){
       .btn{ width:100%; min-width: unset; }
       .sub{ font-size: 15px; }
+      h1{ max-width:none; }
     }
 
     .smallNote{
@@ -165,7 +185,6 @@
       line-height: 1.45;
     }
 
-    /* Right card */
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
       border:1px solid var(--line);
@@ -205,7 +224,6 @@
     }
     .cardTiny b{ color:#fff; }
 
-    /* Sections */
     .section{
       margin-top: 24px;
       padding: 18px;
@@ -285,7 +303,6 @@
       line-height: 1.45;
     }
 
-    /* Cells (clean) */
     .cellsGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -345,7 +362,6 @@
     .cellsBullets li{ margin: 6px 0; }
     .cellsBullets b{ color:#fff; }
 
-    /* FAQ */
     .faq{
       display:grid;
       gap:10px;
@@ -370,7 +386,6 @@
       font-size: 14px;
     }
 
-    /* Footer */
     footer{
       margin-top: 26px;
       color: var(--muted2);
@@ -397,18 +412,22 @@
 
     <div class="hero">
       <div class="heroLeft">
-        <div class="eyebrow">Mobile Service • Older NiMH Hybrids • SoCal</div>
+        <div class="eyebrow">Mobile Service • LA + Orange County • Older NiMH Hybrids</div>
 
         <h1>
-          Mobile Hybrid Battery Repair<br/>
-          for <span class="h-accent">Older Prius + Select Toyota/Lexus</span><br/>
-          in SoCal.
+          Mobile Hybrid Battery Repair for
+          <span class="h-accent">Prius + Select Toyota/Lexus</span>
+          in LA + Orange County.
         </h1>
 
         <div class="sub">
           No towing. No dealership wait.
           We service <b>select older Toyota and Lexus hybrid models with NiMH batteries</b>.
           Text your <b>year + model + city + issue</b> for a fast fit check, quote & ETA.
+        </div>
+
+        <div class="serviceArea">
+          Serving Los Angeles + Orange County
         </div>
 
         <div class="fitNote">
@@ -420,13 +439,15 @@
           <a class="btn btn-primary"
              href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20need%20hybrid%20battery%20help.%20Year%3A%20____%20Model%3A%20____%20City%3A%20____%20Issue%3A%20____"
              onclick="trackTextConversion(event)">
-            Text (657) 478-2947
+            <span class="btnMain">Click Here to Text</span>
+            <span class="btnSub">(657) 478-2947</span>
           </a>
 
           <a class="btn btn-secondary"
              href="tel:+16574782947"
              onclick="trackCallClick(event)">
-            Call (657) 478-2947
+            <span class="btnMain">Click Here to Call</span>
+            <span class="btnSub">(657) 478-2947</span>
           </a>
         </div>
 
@@ -463,7 +484,7 @@
         </div>
 
         <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.5;">
-          Serving OC + South Bay (Anaheim, Fullerton, Buena Park, Garden Grove, Huntington Beach, Long Beach, Torrance).
+          Serving Los Angeles + Orange County, including Anaheim, Fullerton, Buena Park, Garden Grove, Huntington Beach, Long Beach, Torrance and nearby areas.
         </div>
       </div>
     </div>
@@ -497,7 +518,7 @@
       <div class="grid3">
         <div class="box">
           <div class="n">01</div>
-          <div class="t">Text</div>
+          <div class="t">Text us first</div>
           <div class="d">Send year + model + city + issue. We reply fast and confirm fit first.</div>
         </div>
         <div class="box">
@@ -534,7 +555,7 @@
       <h2>Reconditioned NiMH Battery Cells</h2>
 
       <div class="sub" style="margin-top:8px;">
-        Need individual cells for a Prius pack? Quick local pickup in SoCal.
+        Need individual cells for a Prius pack? Quick local pickup in LA + Orange County.
       </div>
 
       <div class="cellsGrid">
@@ -556,7 +577,7 @@
 
           <ul class="cellsBullets">
             <li><b>$35 per cell</b> (reconditioned)</li>
-            <li><b>Pickup in SoCal</b></li>
+            <li><b>Pickup in LA + Orange County</b></li>
             <li><b>Install available</b> (ask by text)</li>
           </ul>
 
@@ -564,7 +585,8 @@
             <a class="btn btn-primary"
                href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20want%20battery%20cells.%20Prius%20year%3A%20____%20Qty%3A%20____%20City%3A%20____"
                onclick="trackTextConversion(event)">
-              Text to buy cells
+              <span class="btnMain">Click Here to Text</span>
+              <span class="btnSub">Buy Cells</span>
             </a>
           </div>
 
