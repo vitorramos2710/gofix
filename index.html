@@ -3,952 +3,688 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoFix Today | Mobile Hybrid Battery Repair</title>
-  <meta name="description" content="Mobile Prius and hybrid battery repair in Orange County and Los Angeles. Clean diagnostics, battery replacement, select Lexus hybrid service, and hybrid battery cell solutions." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <title>GO FIX TODAY — Mobile Prius Hybrid Battery Repair (SoCal)</title>
+  <meta name="description" content="Mobile Prius and select Lexus hybrid battery repair in Southern California. Text for a fast quote, ETA, or battery cell availability." />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'AW-17973103075');
+  </script>
+
   <style>
-    :root {
-      --bg: #f6f7f8;
-      --surface: #ffffff;
-      --surface-2: #f0f3f1;
-      --text: #0f1720;
-      --muted: #5c6773;
-      --line: #e3e7eb;
-      --primary: #7fd39a;
-      --primary-dark: #163524;
-      --card-shadow: 0 10px 30px rgba(15, 23, 32, 0.06);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --max: 1200px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #fbfbfc 0%, #f4f6f7 100%);
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-      background: rgba(251, 251, 252, 0.84);
-      border-bottom: 1px solid rgba(227, 231, 235, 0.9);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 78px;
-      gap: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      font-size: 1.05rem;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #94e0ad 0%, #4f9967 100%);
-      box-shadow: inset 0 1px 1px rgba(255,255,255,0.45), 0 8px 20px rgba(79, 153, 103, 0.25);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      transition: 0.2s ease;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(15, 23, 32, 0.14);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      background: #121d28;
-    }
-
-    .btn-secondary {
-      background: #fff;
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      background: #fafafa;
-    }
-
-    .hero {
-      padding: 42px 0 26px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .hero-main,
-    .hero-side,
-    .panel,
-    .section-card,
-    .cta-banner,
-    .faq-wrap {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(227, 231, 235, 0.95);
-      box-shadow: var(--card-shadow);
-      border-radius: var(--radius-xl);
-    }
-
-    .hero-main {
-      padding: 38px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      inset: auto -60px -60px auto;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(127,211,154,0.22) 0%, rgba(127,211,154,0) 70%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 999px;
-      background: #effaf2;
-      color: #1f5b38;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border: 1px solid rgba(127,211,154,0.45);
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 4.7rem);
-      line-height: 0.96;
-      letter-spacing: -0.06em;
-      max-width: 780px;
-      margin-bottom: 18px;
-    }
-
-    .hero p.lead {
-      max-width: 650px;
-      font-size: 1.06rem;
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 26px;
-    }
-
-    .metric-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .metric {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 18px;
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.15rem;
-      margin-bottom: 4px;
-      letter-spacing: -0.03em;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .hero-side {
-      padding: 22px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .side-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, #ffffff 0%, #f8faf8 100%);
-      padding: 20px;
-    }
-
-    .side-card h3 {
-      font-size: 1.05rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
-    }
-
-    .side-card p,
-    .side-card li {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .side-list {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .side-list li {
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .section {
-      padding: 28px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 20px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.7rem, 3vw, 2.8rem);
-      letter-spacing: -0.05em;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .section-head p {
-      max-width: 640px;
-      color: var(--muted);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .section-card {
-      padding: 24px;
-    }
-
-    .section-card h3 {
-      font-size: 1.1rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
-    }
-
-    .section-card p {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .service-card {
-      background: linear-gradient(180deg, #ffffff 0%, #f7faf7 100%);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      padding: 28px;
-      box-shadow: var(--card-shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #7fd39a 0%, #ccefd7 100%);
-    }
-
-    .service-card h3 {
-      font-size: clamp(1.45rem, 2vw, 2rem);
-      letter-spacing: -0.05em;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      margin-bottom: 18px;
-      max-width: 620px;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: #f4f7f5;
-      border: 1px solid var(--line);
-      font-size: 0.9rem;
-      color: #30404d;
-    }
-
-    .service-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .panel {
-      padding: 28px;
-    }
-
-    .panel h3 {
-      font-size: 1.25rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-    }
-
-    .panel p,
-    .panel li {
-      color: var(--muted);
-    }
-
-    .panel ul {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .panel ul li {
-      border-top: 1px solid var(--line);
-      padding-top: 12px;
-    }
-
-    .areas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .areas span {
-      border: 1px solid var(--line);
-      background: #fff;
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: #46515d;
-      font-size: 0.92rem;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .step {
-      background: rgba(255,255,255,0.92);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      box-shadow: var(--card-shadow);
-    }
-
-    .step-index {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #effaf2;
-      color: #1f5b38;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .step h4 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .cta-banner {
-      margin-top: 28px;
-      padding: 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .cta-banner h3 {
-      font-size: clamp(1.5rem, 2.5vw, 2.3rem);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      margin-bottom: 10px;
-    }
-
-    .cta-banner p {
-      color: var(--muted);
-      max-width: 700px;
-    }
-
-    .faq-wrap {
-      padding: 16px;
-    }
-
-    details {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: #fff;
-      padding: 18px 18px;
-    }
-
-    details + details {
-      margin-top: 12px;
-    }
-
-    summary {
-      list-style: none;
-      cursor: pointer;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    details p {
-      color: var(--muted);
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    footer {
-      padding: 34px 0 56px;
-      color: var(--muted);
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-      border-top: 1px solid var(--line);
-      padding-top: 20px;
-    }
-
-    .mobile-bar {
-      display: none;
-      position: fixed;
-      bottom: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(calc(100% - 20px), 620px);
-      background: rgba(18, 29, 40, 0.96);
-      border-radius: 18px;
-      padding: 10px;
-      z-index: 60;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.22);
-      gap: 10px;
-    }
-
-    .mobile-bar .btn {
-      flex: 1;
-      min-height: 46px;
-    }
-
-    .mobile-bar .btn-primary {
-      background: #fff;
-      color: var(--text);
-      box-shadow: none;
-    }
-
-    .mobile-bar .btn-secondary {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.12);
-      color: #fff;
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .service-grid,
-      .split,
-      .grid-3,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .metric-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 840px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-main,
-      .hero-side,
-      .section-card,
-      .service-card,
-      .panel,
-      .cta-banner {
-        padding: 22px;
-      }
-
-      .cta-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .mobile-bar {
-        display: flex;
-      }
-
-      body {
-        padding-bottom: 88px;
-      }
-    }
+    :root{
+      --bg:#0b0b0b;
+      --bg-2:#101010;
+      --text:#f2f2f2;
+      --muted:#a7a7a7;
+      --muted2:#7f7f7f;
+      --line:rgba(255,255,255,.08);
+      --line-2:rgba(255,255,255,.12);
+      --accent:#C8F542;
+      --accent-soft:rgba(200,245,66,.12);
+      --shadow:0 22px 80px rgba(0,0,0,.55);
+      --radius:22px;
+      --radius-sm:16px;
+      --max:1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background:
+        radial-gradient(1000px 600px at 30% -10%, rgba(200,245,66,.10), transparent 55%),
+        radial-gradient(900px 540px at 90% 10%, rgba(200,245,66,.06), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      letter-spacing:-0.2px;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:22px 16px 64px; }
+
+    .top{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:6px 0 10px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:950; letter-spacing:.6px;
+      text-transform:uppercase; font-size:18px; white-space:nowrap;
+    }
+    .brand .fix{ color:var(--accent); }
+    .topLinks{
+      display:flex; gap:18px; align-items:center;
+      color:var(--muted); font-size:14px;
+    }
+    .topLinks a:hover{ color:#fff; }
+    @media (max-width: 760px){ .topLinks{ display:none; } }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:8px;
+    }
+    @media (max-width: 900px){ .hero{ grid-template-columns:1fr; } }
+
+    .heroLeft{ padding:18px 6px 0; }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:999px;
+      border:1px solid rgba(200,245,66,.18);
+      background:rgba(200,245,66,.06);
+      color:var(--accent); font-size:12px; font-weight:900;
+      text-transform:uppercase; letter-spacing:.16em;
+      margin-bottom:14px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(46px, 7vw, 84px);
+      line-height:.96;
+      letter-spacing:-1.2px;
+      font-weight:980;
+    }
+    .h-accent{ color:var(--accent); }
+
+    .sub{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.55;
+      max-width:64ch;
+    }
+
+    .ctaRow{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:16px 18px;
+      border-radius:16px;
+      font-weight:950;
+      border:1px solid transparent;
+      cursor:pointer;
+      user-select:none;
+      transition:transform .08s ease, filter .15s ease, background .15s ease;
+      min-width:240px;
+    }
+    .btn:active{ transform:translateY(1px); }
+    .btn-primary{
+      background:var(--accent);
+      color:#0b0b0b;
+      box-shadow:0 18px 60px rgba(200,245,66,.16);
+    }
+    .btn-primary:hover{ filter:brightness(1.03); }
+    .btn-secondary{
+      background:rgba(255,255,255,.06);
+      border-color:var(--line);
+      color:#fff;
+      min-width:220px;
+    }
+    .btn-secondary:hover{ background:rgba(255,255,255,.09); }
+    @media (max-width: 520px){
+      .btn{ width:100%; min-width:unset; }
+      .sub{ font-size:15px; }
+    }
+
+    .smallNote{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted2);
+      line-height:1.45;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%; height:1px;
+      background:linear-gradient(90deg, rgba(200,245,66,.7), rgba(200,245,66,0));
+    }
+    .card h3{
+      margin:0 0 12px;
+      font-size:18px;
+      letter-spacing:-.3px;
+      color:#e9e9e9;
+    }
+    .priceGrid{ display:grid; gap:10px; }
+    .row{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:14px 12px;
+      border-radius:14px;
+      background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .row .label{ color:var(--muted); font-weight:750; }
+    .row .val{ color:#fff; font-weight:950; font-size:18px; }
+    .row .val.ac{ color:var(--accent); }
+    .row .val.mini{ font-size:16px; color:var(--accent); }
+
+    .quickLinks{
+      margin-top:14px;
+      display:grid; gap:10px;
+    }
+    .quickLink{
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.025);
+      color:#d9d9d9;
+      font-weight:800;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .quickLink span:last-child{ color:var(--accent); }
+
+    .section{
+      margin-top:24px;
+      padding:18px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      scroll-margin-top: 24px;
+    }
+    .sectionTitle{
+      display:flex; align-items:center; gap:10px;
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--accent);
+      font-size:12px;
+      margin-bottom:10px;
+    }
+    .section h2{
+      margin:0 0 8px;
+      font-size:30px;
+      letter-spacing:-0.8px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .grid3{ grid-template-columns:1fr; } }
+    .box{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.22);
+    }
+    .box .n{
+      font-weight:950;
+      color:rgba(200,245,66,.35);
+      font-size:28px;
+      margin-bottom:6px;
+    }
+    .box .t{ font-weight:950; margin-bottom:6px; }
+    .box .d{ color:var(--muted); line-height:1.5; font-size:14px; }
+
+    .serviceSplit{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width: 900px){ .serviceSplit{ grid-template-columns:1fr; } }
+    .serviceCard{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(0,0,0,.22), rgba(255,255,255,.02));
+      position:relative;
+      overflow:hidden;
+    }
+    .serviceCard::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%; height:2px;
+      background:linear-gradient(90deg, var(--accent), rgba(200,245,66,0));
+    }
+    .serviceCard h3{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-0.5px;
+    }
+    .serviceCard p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14px;
+    }
+    .tagRow{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:14px;
+    }
+    .tag{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:#d8d8d8;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .cellsGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+      align-items:start;
+    }
+    @media (max-width: 900px){ .cellsGrid{ grid-template-columns:1fr; } }
+    .cellsImgWrap{ position:relative; }
+    .cellsImg{
+      width:100%;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      display:block;
+      object-fit:cover;
+      max-height:340px;
+      background:rgba(0,0,0,.18);
+    }
+    .priceBadge{
+      position:absolute;
+      top:12px;
+      right:12px;
+      background:rgba(11,11,11,.82);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      padding:10px 12px;
+      font-weight:950;
+      color:var(--accent);
+      backdrop-filter:blur(8px);
+    }
+    .cellsCard{
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.22);
+      border-radius:18px;
+      padding:16px;
+    }
+    .cellsHeadline{
+      font-weight:950;
+      font-size:18px;
+      margin:0 0 10px;
+      letter-spacing:-0.2px;
+    }
+    .cellsMini{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+      margin-bottom:12px;
+    }
+    .cellsBullets{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+    .cellsBullets li{ margin:6px 0; }
+    .cellsBullets b{ color:#fff; }
+
+    .faq{ display:grid; gap:10px; margin-top:14px; }
+    details{
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.20);
+      border-radius:16px;
+      padding:12px 14px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color:#f2f2f2;
+      letter-spacing:-0.2px;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      color:var(--muted);
+      line-height:1.55;
+      margin:10px 0 2px;
+      font-size:14px;
+    }
+
+    .footerCta{
+      margin-top:24px;
+      padding:18px;
+      border-radius:var(--radius);
+      border:1px solid var(--line-2);
+      background:linear-gradient(180deg, rgba(200,245,66,.08), rgba(255,255,255,.02));
+      display:flex; justify-content:space-between; gap:16px; align-items:center; flex-wrap:wrap;
+    }
+    .footerCta h3{ margin:0 0 8px; font-size:26px; letter-spacing:-0.8px; }
+    .footerCta p{ margin:0; color:var(--muted); }
+
+    footer{
+      margin-top:26px;
+      color:var(--muted2);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      border-top:1px solid rgba(255,255,255,.06);
+      padding-top:16px;
+    }
+    .mutedLink{ color:var(--muted); text-decoration:underline; text-underline-offset:3px; }
   </style>
 </head>
-<body>
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#top" class="brand">
-        <span class="brand-mark"></span>
-        <span>GoFix Today</span>
-      </a>
 
-      <nav class="nav-links">
-        <a href="#services">Services</a>
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <div class="brand">
+        <span>GO</span><span class="fix">FIX</span><span>TODAY</span>
+      </div>
+      <div class="topLinks">
         <a href="#lexus">Lexus</a>
         <a href="#cells">Cells</a>
-        <a href="#areas">Areas</a>
         <a href="#faq">FAQ</a>
-      </nav>
-
-      <div class="nav-cta">
-        <a href="tel:7299701980" class="btn btn-secondary">Call</a>
-        <a href="#contact" class="btn btn-primary">Get a Quote</a>
       </div>
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-main">
-          <div class="eyebrow">Mobile hybrid battery service for Prius and select Lexus models</div>
-          <h1>Clean mobile hybrid battery repair built for real conversion.</h1>
-          <p class="lead">
-            GoFix Today helps drivers with mobile Prius and hybrid battery diagnostics, repair, module-level solutions, and replacement planning. Fast response, direct communication, and a cleaner service flow from first message to final quote.
-          </p>
+    <div class="hero">
+      <div class="heroLeft">
+        <div class="eyebrow">Mobile hybrid battery service in Southern California</div>
 
-          <div class="hero-actions">
-            <a href="tel:7299701980" class="btn btn-primary">Call now</a>
-            <a href="#contact" class="btn btn-secondary">Text for a quote</a>
-          </div>
+        <h1>
+          Mobile Prius<br/>
+          Hybrid Battery Repair<br/>
+          <span class="h-accent">with a cleaner path to quote.</span>
+        </h1>
 
-          <div class="metric-row">
-            <div class="metric">
-              <strong>Mobile first</strong>
-              <span>Service designed for on-site diagnosis and battery-related repair.</span>
-            </div>
-            <div class="metric">
-              <strong>Prius focused</strong>
-              <span>Built around the most common NiMH hybrid battery service demand.</span>
-            </div>
-            <div class="metric">
-              <strong>Select Lexus</strong>
-              <span>Additional support for compatible Lexus hybrid NiMH systems.</span>
-            </div>
-          </div>
+        <div class="sub">
+          No towing. No dealership wait. Text your <b>year + city + issue</b> for a fast quote and ETA. Built to convert for Prius first, with room to test select Lexus hybrid battery and battery cell offers in a more premium, focused way.
         </div>
 
-        <aside class="hero-side">
-          <div class="side-card">
-            <h3>What this page is built to do</h3>
-            <p>
-              This landing structure is intentionally modular. You can send ads directly to Prius, Lexus, or Cells sections without rebuilding the whole site each time.
-            </p>
-            <ul class="side-list">
-              <li><strong>Prius core:</strong> high-intent mobile repair and replacement demand.</li>
-              <li><strong>Lexus section:</strong> a cleaner niche angle for select NiMH hybrid models.</li>
-              <li><strong>Cells section:</strong> module-level and battery cell intent with a separate message.</li>
-            </ul>
-          </div>
+        <div class="ctaRow">
+          <a class="btn btn-primary"
+             href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20Prius%20battery%20help.%20Year%3A%20____%20City%3A%20____%20Issue%3A%20____"
+             onclick="trackTextConversion(event)">
+            Text (657) 478-2947
+          </a>
 
-          <div class="side-card">
-            <h3>Best use for ads</h3>
-            <p>
-              Keep Prius and general hybrid repair as the main acquisition angle, then test Lexus and Cells with smaller, more controlled ad groups.
-            </p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Main service focus</h2>
-            <p>
-              The main landing structure should stay sharp and commercial: mobile diagnosis, hybrid battery repair, replacement guidance, and a direct path to call or text.
-            </p>
-          </div>
+          <a class="btn btn-secondary"
+             href="tel:+16574782947"
+             onclick="trackCallClick(event)">
+            Call (657) 478-2947
+          </a>
         </div>
 
-        <div class="grid-3">
-          <article class="section-card">
-            <h3>Mobile diagnosis</h3>
-            <p>
-              On-site evaluation for hybrid battery related symptoms, warning lights, drivability issues, and system behavior before replacement decisions are made.
-            </p>
-          </article>
-          <article class="section-card">
-            <h3>Battery repair and replacement</h3>
-            <p>
-              Repair-first positioning when possible, with replacement direction when the battery condition, modules, or overall pack performance make that the better route.
-            </p>
-          </article>
-          <article class="section-card">
-            <h3>Fast quote path</h3>
-            <p>
-              Clear conversion structure for calls, texts, and fast qualification based on year, model, symptoms, and battery type.
-            </p>
-          </article>
+        <div class="smallNote">
+          Best message format: <b>Year + City + Issue</b>. This keeps qualification fast and helps quote accuracy.
         </div>
       </div>
-    </section>
 
-    <section class="section" id="prius">
-      <div class="container service-grid">
-        <article class="service-card">
-          <h3>Prius and hybrid battery repair</h3>
+      <div class="card">
+        <h3>Quick Price Estimate</h3>
+        <div class="priceGrid">
+          <div class="row">
+            <div class="label">Mobile Diagnostic</div>
+            <div class="val ac">$99</div>
+          </div>
+          <div class="row">
+            <div class="label">Battery Repair</div>
+            <div class="val">from <span class="ac">$399</span></div>
+          </div>
+          <div class="row">
+            <div class="label">Full Replacement</div>
+            <div class="val">from <span class="ac">$999</span></div>
+          </div>
+          <div class="row">
+            <div class="label">Warranty</div>
+            <div class="val mini">3 months</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.5;">
+          Serving OC + South Bay with a mobile-first model. Fast qualification, direct contact, and cleaner conversion paths for repair, Lexus hybrid battery service, and cells.
+        </div>
+
+        <div class="quickLinks">
+          <a class="quickLink" href="#lexus"><span>Select Lexus hybrid service</span><span>View</span></a>
+          <a class="quickLink" href="#cells"><span>Battery cells and modules</span><span>View</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sectionTitle">How it works</div>
+      <h2>Three simple steps</h2>
+
+      <div class="grid3">
+        <div class="box">
+          <div class="n">01</div>
+          <div class="t">Text</div>
+          <div class="d">Send year + city + issue. We reply fast with the next step.</div>
+        </div>
+        <div class="box">
+          <div class="n">02</div>
+          <div class="t">We come to you</div>
+          <div class="d">On-site diagnostics and repair or replacement depending on battery condition.</div>
+        </div>
+        <div class="box">
+          <div class="n">03</div>
+          <div class="t">Done</div>
+          <div class="d">Vehicle is tested on-site and warranty details are provided when applicable.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sectionTitle">Main conversion lanes</div>
+      <h2>One page, multiple high-intent paths</h2>
+      <div class="sub" style="margin-top:8px; max-width: 72ch;">
+        The site stays premium and clean, but each section is intentionally separated so ads can point to the most relevant conversion path instead of sending all traffic to the same generic message.
+      </div>
+
+      <div class="serviceSplit">
+        <div class="serviceCard">
+          <h3>Prius-first repair lane</h3>
           <p>
-            This is still the core growth lane. Keep Google Ads, call-to-action, and positioning centered on Prius and high-intent hybrid battery repair queries. It is the cleanest and most scalable starting point.
+            This remains the main offer and the clearest acquisition angle: mobile Prius and hybrid battery diagnostics, repair, and replacement with a faster quote path.
           </p>
-          <div class="pill-row">
-            <span class="pill">Prius battery repair</span>
-            <span class="pill">Hybrid battery replacement</span>
-            <span class="pill">Mobile service</span>
-            <span class="pill">NiMH focused</span>
+          <div class="tagRow">
+            <span class="tag">Prius battery repair</span>
+            <span class="tag">Hybrid battery replacement</span>
+            <span class="tag">Mobile service</span>
+            <span class="tag">Near me intent</span>
           </div>
-          <div class="service-actions">
-            <a href="tel:7299701980" class="btn btn-primary">Call for Prius service</a>
-            <a href="#contact" class="btn btn-secondary">Request a quote</a>
-          </div>
-        </article>
+        </div>
 
-        <article class="service-card" id="lexus">
+        <div class="serviceCard" id="lexus">
           <h3>Select Lexus hybrid battery service</h3>
           <p>
-            We also service select Lexus hybrid models that use NiMH battery systems. This section is intentionally separated so you can send Lexus-specific ads directly here and test a cleaner niche angle with less noise.
+            We also work on select Lexus hybrid models that use compatible NiMH battery systems. This section is intentionally separate so Lexus-specific traffic can land in a more relevant, premium environment.
           </p>
-          <div class="pill-row">
-            <span class="pill">CT hybrid battery service</span>
-            <span class="pill">Select NX hybrid support</span>
-            <span class="pill">Select RX hybrid support</span>
-            <span class="pill">Compatibility confirmed by year and model</span>
+          <div class="tagRow">
+            <span class="tag">Select Lexus hybrids</span>
+            <span class="tag">NiMH battery systems</span>
+            <span class="tag">Model confirmation by text</span>
+            <span class="tag">Niche traffic test</span>
           </div>
-          <div class="service-actions">
-            <a href="tel:7299701980" class="btn btn-primary">Call for Lexus hybrid service</a>
-            <a href="#contact" class="btn btn-secondary">Check Lexus compatibility</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="cells">
-      <div class="container split">
-        <article class="panel">
-          <h3>Hybrid battery cells and module-level solutions</h3>
-          <p>
-            This section is designed for a different type of lead. Some people search for full repair, some search specifically for cells or module-level battery solutions. That intent should have its own message and its own conversion path.
-          </p>
-          <ul>
-            <li><strong>Separate angle:</strong> built for ads or traffic focused on cells, modules, and targeted battery-level repair.</li>
-            <li><strong>Cleaner qualification:</strong> filters users who already understand the problem and are searching deeper into the battery itself.</li>
-            <li><strong>Better testing:</strong> lets you measure whether cell-related traffic converts differently from standard repair traffic.</li>
-          </ul>
-          <div class="service-actions" style="margin-top:20px;">
-            <a href="tel:7299701980" class="btn btn-primary">Ask about cells</a>
-            <a href="#contact" class="btn btn-secondary">Get cell-related support</a>
-          </div>
-        </article>
-
-        <article class="panel">
-          <h3>How to position the Cells section</h3>
-          <p>
-            Keep the message specific and technical enough to feel credible, but still clear enough for a regular customer to understand. This is where you test a more specialized conversion path without polluting the main Prius angle.
-          </p>
-          <div class="areas">
-            <span>Battery modules</span>
-            <span>Cell-level issues</span>
-            <span>Pack condition review</span>
-            <span>Hybrid diagnostics</span>
-            <span>Targeted repair path</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Why this structure is stronger</h2>
-            <p>
-              The point is not to make the site larger just for aesthetics. The point is to create clean conversion lanes. One visual system, multiple intent-specific entry points.
-            </p>
+          <div class="ctaRow" style="margin-top:16px;">
+            <a class="btn btn-primary"
+               href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20Lexus%20hybrid%20battery%20help.%20Year%3A%20____%20Model%3A%20____%20City%3A%20____%20Issue%3A%20____"
+               onclick="trackTextConversion(event)">
+              Text about Lexus service
+            </a>
           </div>
         </div>
-
-        <div class="steps">
-          <article class="step">
-            <div class="step-index">01</div>
-            <h4>Search intent enters cleanly</h4>
-            <p>Prius traffic, Lexus traffic, and Cells traffic each land closer to what they were actually searching for.</p>
-          </article>
-          <article class="step">
-            <div class="step-index">02</div>
-            <h4>Copy feels more specialized</h4>
-            <p>The page reads as more relevant, which helps both trust and conversion rate.</p>
-          </article>
-          <article class="step">
-            <div class="step-index">03</div>
-            <h4>Tracking becomes cleaner</h4>
-            <p>You can later measure which section and which intent creates better leads and better jobs.</p>
-          </article>
-          <article class="step">
-            <div class="step-index">04</div>
-            <h4>Expansion stays controlled</h4>
-            <p>You can add new niches without destroying the clarity of the main offer.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="areas">
-      <div class="container split">
-        <article class="panel">
-          <h3>Service area</h3>
-          <p>
-            Mobile service can be positioned around Orange County and Los Angeles first, then expanded with more detail later. Keep this section clean and confident without overexplaining operations.
-          </p>
-          <div class="areas">
-            <span>Orange County</span>
-            <span>Los Angeles</span>
-            <span>Anaheim</span>
-            <span>Fullerton</span>
-            <span>Garden Grove</span>
-            <span>Santa Ana</span>
-            <span>Long Beach</span>
-            <span>Torrance</span>
-          </div>
-        </article>
-
-        <article class="panel" id="contact">
-          <h3>Fast contact path</h3>
-          <p>
-            This section should remain direct. The goal is simple: reduce friction and get the lead to call or text with model, year, symptoms, and location.
-          </p>
-          <ul>
-            <li><strong>Phone:</strong> 729-970-1980</li>
-            <li><strong>Best message to send:</strong> year, model, warning light or battery issue, and city.</li>
-            <li><strong>Primary CTA:</strong> call now or text for fast quote.</li>
-          </ul>
-          <div class="service-actions" style="margin-top:20px;">
-            <a href="tel:7299701980" class="btn btn-primary">Call now</a>
-            <a href="sms:7299701980" class="btn btn-secondary">Text now</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="container">
-        <div class="cta-banner">
-          <div>
-            <h3>Built for better ad-to-page alignment.</h3>
-            <p>
-              Keep the Prius lane strong, test Lexus with a niche section, test Cells with a more technical angle, and improve conversion without cluttering the whole experience.
-            </p>
-          </div>
-          <div class="service-actions">
-            <a href="tel:7299701980" class="btn btn-primary">Start with a call</a>
-            <a href="#lexus" class="btn btn-secondary">View Lexus section</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>FAQ</h2>
-            <p>
-              Keep this part short, clean, and conversion-friendly. Enough clarity to reduce hesitation, not so much text that it slows the page down.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq-wrap">
-          <details>
-            <summary>Do you only work on Prius?</summary>
-            <p>
-              Prius is the main service focus, but we also work on select hybrid battery systems beyond Prius, including select Lexus hybrid models with compatible NiMH battery setups.
-            </p>
-          </details>
-          <details>
-            <summary>Can I contact you about Lexus hybrid battery service?</summary>
-            <p>
-              Yes. Send your Lexus year and model first so compatibility can be confirmed before quoting or scheduling.
-            </p>
-          </details>
-          <details>
-            <summary>Do you also handle battery cells or module-level issues?</summary>
-            <p>
-              Yes. We can discuss cell-level and module-related battery issues depending on the vehicle, symptoms, and battery condition.
-            </p>
-          </details>
-          <details>
-            <summary>How should I request a quote?</summary>
-            <p>
-              The fastest path is to call or text with your year, model, city, and the exact problem you are seeing.
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <strong style="color: var(--text);">GoFix Today</strong><br>
-        <span>Mobile hybrid battery repair and diagnostics.</span>
-      </div>
-      <div>
-        <span>Phone: 729-970-1980</span>
       </div>
     </div>
-  </footer>
 
-  <div class="mobile-bar">
-    <a href="tel:7299701980" class="btn btn-primary">Call</a>
-    <a href="sms:7299701980" class="btn btn-secondary">Text</a>
+    <div class="section" id="cells">
+      <div class="sectionTitle">Cells</div>
+      <h2>Reconditioned NiMH Battery Cells</h2>
+
+      <div class="sub" style="margin-top:8px;">
+        A separate section for buyers looking specifically for cells, modules, or a more targeted battery-level solution.
+      </div>
+
+      <div class="cellsGrid">
+        <div class="cellsImgWrap">
+          <div class="priceBadge">$35 / cell</div>
+          <img
+            class="cellsImg"
+            src="reconditioned-toyota-hybrid-battery-cell-module-1200x789.webp"
+            alt="Reconditioned Toyota hybrid battery cell module"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="cellsCard">
+          <div class="cellsHeadline">Order by text</div>
+          <div class="cellsMini">
+            Text your <b>Prius year</b>, <b>quantity</b>, and <b>pickup city</b>. This keeps the cell section separate from the main repair section so traffic can be tested independently.
+          </div>
+
+          <ul class="cellsBullets">
+            <li><b>$35 per cell</b> (reconditioned)</li>
+            <li><b>Pickup in SoCal</b></li>
+            <li><b>Install available</b> on request</li>
+            <li><b>Built for a separate ad angle</b> if you want to test battery cell demand directly</li>
+          </ul>
+
+          <div class="ctaRow" style="margin-top:14px;">
+            <a class="btn btn-primary"
+               href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20want%20battery%20cells.%20Prius%20year%3A%20____%20Qty%3A%20____%20City%3A%20____"
+               onclick="trackTextConversion(event)">
+              Text to buy cells
+            </a>
+          </div>
+
+          <div class="smallNote" style="margin-top:10px;">
+            Not sure how many you need? Text your Prius year and symptoms first.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Compatible with my Prius?</summary>
+          <p>Text your Prius year and we’ll confirm compatibility before pickup.</p>
+        </details>
+        <details>
+          <summary>Do you also service Lexus hybrid batteries?</summary>
+          <p>Yes, for select compatible Lexus hybrid models. Text your year and model first so we can confirm the battery type and service fit.</p>
+        </details>
+        <details>
+          <summary>Can you install?</summary>
+          <p>Yes — mobile install depending on vehicle, city, and schedule. Text first for the fastest answer.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="footerCta">
+      <div>
+        <h3>Built to convert by section, not by clutter.</h3>
+        <p>
+          Keep the Prius lane as the main revenue driver, then test Lexus and Cells as cleaner secondary offers with more specific traffic.
+        </p>
+      </div>
+      <div class="ctaRow" style="margin-top:0;">
+        <a class="btn btn-primary"
+           href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20need%20help.%20Year%3A%20____%20Model%3A%20____%20City%3A%20____%20Issue%3A%20____"
+           onclick="trackTextConversion(event)">
+          Get a fast quote
+        </a>
+      </div>
+    </div>
+
+    <div class="section" id="faq">
+      <div class="sectionTitle">FAQ</div>
+      <h2>Quick answers</h2>
+      <div class="faq">
+        <details>
+          <summary>Do you only work on Prius?</summary>
+          <p>Prius is the main focus, but we also support select Lexus hybrid battery systems that fit our compatible NiMH service range.</p>
+        </details>
+        <details>
+          <summary>Why separate Lexus and Cells into their own sections?</summary>
+          <p>Because they represent different intent. A person searching Prius battery repair is different from someone searching Lexus hybrid support or individual battery cells.</p>
+        </details>
+        <details>
+          <summary>How do I get the fastest quote?</summary>
+          <p>Text your year, model, city, and exact issue. That gives the fastest path to a clear answer.</p>
+        </details>
+      </div>
+    </div>
+
+    <footer>
+      <div>© <span id="y"></span> GO FIX TODAY</div>
+      <div>
+        <a class="mutedLink" href="#lexus">Lexus</a>
+        &nbsp;•&nbsp;
+        <a class="mutedLink" href="#cells">Battery Cells</a>
+        &nbsp;•&nbsp;
+        <a class="mutedLink"
+           href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20question%20about%20hybrid%20battery%20service."
+           target="_blank" rel="noopener">WhatsApp</a>
+        &nbsp;•&nbsp;
+        <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener">Instagram @gofixtoday</a>
+      </div>
+    </footer>
+
   </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function safeGtag(){ return typeof window.gtag === 'function'; }
+
+    function trackTextConversion(e){
+      if(!e) return;
+      try{
+        const href = e.currentTarget.getAttribute('href');
+        if (safeGtag()) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
+        e.preventDefault();
+        setTimeout(() => { window.location.href = href; }, 220);
+      }catch(err){}
+    }
+
+    function trackCallClick(e){
+      if(!e) return;
+      try{
+        if (safeGtag()) {
+          gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
+        }
+      }catch(err){}
+    }
+  </script>
 </body>
 </html>
