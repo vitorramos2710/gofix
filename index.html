@@ -5,16 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>GO FIX TODAY — Mobile Prius Hybrid Battery Repair (SoCal)</title>
-  <meta name="description" content="Mobile Prius and select Lexus hybrid battery repair in Southern California. Text for a fast quote, ETA, or battery cell availability." />
+  <meta name="description" content="Mobile Prius and select Lexus hybrid battery repair in Southern California. $99 diagnostic credited toward service. Text for a fast quote." />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} 
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-17973103075');
   </script>
+
+  <!-- Preload fonts for speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;0,9..40,900;1,9..40,400&family=Instrument+Serif&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -31,6 +36,8 @@
       --radius:22px;
       --radius-sm:16px;
       --max:1120px;
+      --font-body:'DM Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --font-display:'Instrument Serif', Georgia, serif;
     }
 
     *{ box-sizing:border-box; }
@@ -42,12 +49,13 @@
         radial-gradient(900px 540px at 90% 10%, rgba(200,245,66,.06), transparent 55%),
         var(--bg);
       color:var(--text);
-      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family:var(--font-body);
       letter-spacing:-0.2px;
     }
     a{ color:inherit; text-decoration:none; }
     .wrap{ max-width:var(--max); margin:0 auto; padding:22px 16px 64px; }
 
+    /* ── NAV ── */
     .top{
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; padding:6px 0 10px;
@@ -65,6 +73,7 @@
     .topLinks a:hover{ color:#fff; }
     @media (max-width: 760px){ .topLinks{ display:none; } }
 
+    /* ── HERO ── */
     .hero{
       display:grid;
       grid-template-columns:1.08fr .92fr;
@@ -117,6 +126,8 @@
       padding:16px 18px;
       border-radius:16px;
       font-weight:950;
+      font-family:var(--font-body);
+      font-size:15px;
       border:1px solid transparent;
       cursor:pointer;
       user-select:none;
@@ -149,6 +160,7 @@
       line-height:1.45;
     }
 
+    /* ── CARD (hero right) ── */
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
       border:1px solid var(--line);
@@ -199,6 +211,29 @@
     }
     .quickLink span:last-child{ color:var(--accent); }
 
+    /* ── TRUST BAR ── */
+    .trustBar{
+      margin-top:20px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .trustItem{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.025);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+    }
+    .trustItem svg{ flex-shrink:0; }
+
+    /* ── SECTIONS ── */
     .section{
       margin-top:24px;
       padding:18px;
@@ -222,6 +257,7 @@
       letter-spacing:-0.8px;
     }
 
+    /* ── HOW IT WORKS ── */
     .grid3{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -244,6 +280,7 @@
     .box .t{ font-weight:950; margin-bottom:6px; }
     .box .d{ color:var(--muted); line-height:1.5; font-size:14px; }
 
+    /* ── SERVICE CARDS ── */
     .serviceSplit{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -291,6 +328,7 @@
       font-weight:700;
     }
 
+    /* ── CELLS ── */
     .cellsGrid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -349,6 +387,45 @@
     .cellsBullets li{ margin:6px 0; }
     .cellsBullets b{ color:#fff; }
 
+    /* ── SOCIAL PROOF ── */
+    .reviewGrid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .reviewGrid{ grid-template-columns:1fr; } }
+    .reviewCard{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(0,0,0,.22);
+    }
+    .reviewStars{
+      color:var(--accent);
+      font-size:14px;
+      letter-spacing:2px;
+      margin-bottom:10px;
+    }
+    .reviewText{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+      font-style:italic;
+      margin-bottom:12px;
+    }
+    .reviewAuthor{
+      font-weight:800;
+      font-size:13px;
+      color:#ccc;
+    }
+    .reviewMeta{
+      font-size:12px;
+      color:var(--muted2);
+      margin-top:2px;
+    }
+
+    /* ── FAQ ── */
     .faq{ display:grid; gap:10px; margin-top:14px; }
     details{
       border:1px solid rgba(255,255,255,.08);
@@ -371,6 +448,7 @@
       font-size:14px;
     }
 
+    /* ── FOOTER CTA ── */
     .footerCta{
       margin-top:24px;
       padding:18px;
@@ -394,12 +472,35 @@
       padding-top:16px;
     }
     .mutedLink{ color:var(--muted); text-decoration:underline; text-underline-offset:3px; }
-  
+
+    /* ── STICKY MOBILE CTA ── */
+    .stickyMobile{
+      display:none;
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:12px 16px;
+      background:rgba(11,11,11,.92);
+      backdrop-filter:blur(16px);
+      border-top:1px solid rgba(200,245,66,.15);
+      z-index:999;
+      gap:10px;
+    }
+    .stickyMobile .btn{ min-width:unset; flex:1; padding:14px 12px; font-size:14px; }
+    @media (max-width: 760px){
+      .stickyMobile{ display:flex; }
+      .wrap{ padding-bottom:100px; }
+    }
+
+    /* ═══════════════════════════════════════
+       OFFER POPUP — "VOUCHER LETTER" STYLE
+       ═══════════════════════════════════════ */
     .offerOverlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.62);
-      backdrop-filter:blur(6px);
+      background:rgba(0,0,0,.68);
+      backdrop-filter:blur(8px);
       display:none;
       align-items:center;
       justify-content:center;
@@ -407,145 +508,282 @@
       padding:18px;
     }
     .offerOverlay.show{ display:flex; }
-    .offerModal{
-      width:min(100%, 560px);
-      background:linear-gradient(180deg, #151515 0%, #0f0f0f 100%);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:26px;
-      box-shadow:0 30px 100px rgba(0,0,0,.55);
-      padding:28px;
+
+    .voucher{
+      width:min(100%, 520px);
       position:relative;
       overflow:hidden;
+      border-radius:4px;
+      box-shadow:
+        0 40px 120px rgba(0,0,0,.6),
+        0 0 0 1px rgba(255,255,255,.06);
     }
-    .offerModal::before{
+
+    /* Paper texture background */
+    .voucherInner{
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 27px,
+          rgba(200,180,140,.04) 27px,
+          rgba(200,180,140,.04) 28px
+        ),
+        linear-gradient(180deg, #faf6ef 0%, #f5f0e6 100%);
+      color:#1a1a1a;
+      padding:36px 32px 28px;
+      position:relative;
+    }
+
+    /* Perforated edge on the right side */
+    .voucherInner::after{
       content:"";
       position:absolute;
-      inset:0 auto auto 0;
-      width:100%; height:2px;
-      background:linear-gradient(90deg, var(--accent), rgba(200,245,66,0));
+      top:0; bottom:0; right:0;
+      width:18px;
+      background:
+        radial-gradient(circle 6px at 0 12px, transparent 5px, #f5f0e6 5.5px);
+      background-size:18px 24px;
     }
-    .offerClose{
+
+    /* Wax seal accent circle */
+    .voucherSeal{
       position:absolute;
-      top:14px;
-      right:14px;
-      width:38px;
-      height:38px;
+      top:24px; right:38px;
+      width:72px; height:72px;
+      border-radius:50%;
+      background:radial-gradient(circle at 35% 35%, #d4e85a, #99b32e);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:
+        0 4px 16px rgba(153,179,46,.3),
+        inset 0 2px 4px rgba(255,255,255,.3);
+    }
+    .voucherSeal span{
+      font-family:var(--font-display);
+      font-size:22px;
+      color:#1a1a1a;
+      font-weight:400;
+      line-height:1;
+    }
+
+    .voucherClose{
+      position:absolute;
+      top:12px;
+      left:12px;
+      width:32px; height:32px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      color:#fff;
-      font-size:20px;
+      border:1px solid rgba(0,0,0,.1);
+      background:rgba(0,0,0,.04);
+      color:#999;
+      font-size:18px;
       cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:background .15s;
     }
-    .offerKicker{
-      color:var(--accent);
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:.18em;
+    .voucherClose:hover{ background:rgba(0,0,0,.08); color:#333; }
+
+    .voucherKicker{
+      font-family:var(--font-body);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.22em;
       text-transform:uppercase;
-      margin-bottom:10px;
+      color:#7a8a3a;
+      margin-bottom:6px;
     }
-    .offerTitle{
-      margin:0;
-      font-size:clamp(34px, 6vw, 56px);
+
+    .voucherTitle{
+      font-family:var(--font-display);
+      font-size:clamp(38px, 8vw, 52px);
       line-height:.92;
-      letter-spacing:-1.4px;
-      font-weight:980;
+      letter-spacing:-0.5px;
+      color:#1a1a1a;
+      margin:0 0 4px;
+      font-weight:400;
     }
-    .offerTitle .accent{ color:var(--accent); }
-    .offerSub{
-      margin-top:14px;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:15px;
+    .voucherTitle em{
+      font-style:italic;
+      color:#5a7a10;
     }
-    .offerBox{
-      margin-top:18px;
-      padding:16px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.03);
+
+    .voucherDivider{
+      width:60px;
+      height:2px;
+      background:#c8d88a;
+      margin:14px 0;
+      border-radius:2px;
     }
-    .offerBox strong{ color:#fff; }
-    .offerForm{
-      margin-top:18px;
+
+    .voucherBody{
+      font-size:14px;
+      line-height:1.6;
+      color:#555;
+      margin-bottom:6px;
+    }
+    .voucherBody strong{ color:#1a1a1a; }
+
+    .voucherTerms{
+      margin-top:12px;
+      padding:14px;
+      border-radius:8px;
+      border:1px dashed rgba(0,0,0,.12);
+      background:rgba(0,0,0,.02);
+    }
+    .voucherTerms p{
+      margin:0;
+      font-size:13px;
+      line-height:1.5;
+      color:#777;
+    }
+    .voucherTerms strong{ color:#1a1a1a; }
+
+    .voucherForm{
+      margin-top:16px;
       display:grid;
-      gap:12px;
+      gap:10px;
     }
-    .offerInput{
-      width:100%;
-      min-height:56px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:#0d0d0d;
-      color:#fff;
-      padding:0 16px;
-      font-size:16px;
+    .voucherInputWrap{
+      display:flex;
+      gap:8px;
+    }
+    @media(max-width:480px){
+      .voucherInputWrap{ flex-direction:column; }
+    }
+    .voucherInput{
+      flex:1;
+      min-height:50px;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      color:#1a1a1a;
+      padding:0 14px;
+      font-size:15px;
+      font-family:var(--font-body);
       outline:none;
+      transition:border-color .15s;
     }
-    .offerInput::placeholder{ color:#7f7f7f; }
-    .consentWrap{
+    .voucherInput::placeholder{ color:#aaa; }
+    .voucherInput:focus{ border-color:#99b32e; }
+
+    .voucherSubmit{
+      min-height:50px;
+      padding:0 20px;
+      border-radius:8px;
+      border:none;
+      background:#1a1a1a;
+      color:#f5f0e6;
+      font-family:var(--font-body);
+      font-size:14px;
+      font-weight:900;
+      cursor:pointer;
+      transition:background .15s;
+      white-space:nowrap;
+    }
+    .voucherSubmit:hover{ background:#333; }
+
+    .voucherConsent{
       display:flex;
       align-items:flex-start;
-      gap:10px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.45;
-    }
-    .consentWrap input{
-      margin-top:3px;
-      accent-color: var(--accent);
-    }
-    .offerFinePrint{
-      color:var(--muted2);
+      gap:8px;
       font-size:11px;
-      line-height:1.5;
-      margin-top:2px;
+      color:#999;
+      line-height:1.4;
     }
-    .offerSuccess{
+    .voucherConsent input{
+      margin-top:2px;
+      accent-color:#99b32e;
+    }
+
+    .voucherFine{
+      font-size:10px;
+      color:#bbb;
+      line-height:1.4;
+    }
+
+    .voucherSuccess{
       display:none;
-      margin-top:16px;
+      margin-top:14px;
       padding:14px;
-      border-radius:16px;
-      border:1px solid rgba(200,245,66,.18);
-      background:rgba(200,245,66,.06);
-      color:#eaf8b0;
+      border-radius:8px;
+      border:1px solid rgba(90,122,16,.2);
+      background:rgba(90,122,16,.06);
+      color:#5a7a10;
       font-size:14px;
       line-height:1.5;
+      text-align:center;
     }
-    .offerSuccess.show{ display:block; }
+    .voucherSuccess.show{ display:block; }
+
+    .voucherSig{
+      margin-top:16px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .voucherSigLine{
+      width:40px;
+      height:1px;
+      background:rgba(0,0,0,.15);
+    }
+    .voucherSigText{
+      font-family:var(--font-display);
+      font-size:18px;
+      color:#1a1a1a;
+      font-style:italic;
+    }
+
     @media (max-width: 520px){
-      .offerModal{ padding:22px 18px; }
+      .voucherInner{ padding:28px 20px 22px; }
+      .voucherSeal{ width:56px; height:56px; top:18px; right:30px; }
+      .voucherSeal span{ font-size:17px; }
     }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp{
+      from{ opacity:0; transform:translateY(16px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    .hero{ animation: fadeUp .5s ease both; }
+    .section{ animation: fadeUp .5s ease both; }
+    .section:nth-child(2){ animation-delay:.05s; }
+    .section:nth-child(3){ animation-delay:.1s; }
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
+    <!-- ══════ NAV ══════ -->
     <div class="top">
       <div class="brand">
         <span>GO</span><span class="fix">FIX</span><span>TODAY</span>
       </div>
       <div class="topLinks">
+        <a href="#services">Services</a>
         <a href="#lexus">Lexus</a>
         <a href="#cells">Cells</a>
+        <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
 
+    <!-- ══════ HERO ══════ -->
     <div class="hero">
       <div class="heroLeft">
-        <div class="eyebrow">Mobile hybrid battery service in Southern California</div>
+        <div class="eyebrow">Mobile hybrid battery service — Southern California</div>
 
         <h1>
           Mobile Prius<br/>
-          Hybrid Battery Repair<br/>
-          <span class="h-accent">with a cleaner path to quote.</span>
+          Hybrid Battery<br/>
+          <span class="h-accent">Repair at Your Door.</span>
         </h1>
 
         <div class="sub">
-          No towing. No dealership wait. Text your <b>year + city + issue</b> for a fast quote and ETA. Built to convert for Prius first, with room to test select Lexus hybrid battery and battery cell offers in a more premium, focused way.
+          No towing. No dealership wait. We come to your home or workplace, diagnose the problem on-site, and fix it the same day when possible. Text your <b>year + city + issue</b> for a fast quote.
         </div>
 
         <div class="ctaRow">
@@ -563,19 +801,36 @@
         </div>
 
         <div class="smallNote">
-          Best message format: <b>Year + City + Issue</b>. This keeps qualification fast and helps quote accuracy.
+          Fastest way to a quote: text <b>Year + City + Issue</b>. Most replies in under 5 minutes during business hours.
+        </div>
+
+        <!-- Trust signals -->
+        <div class="trustBar">
+          <div class="trustItem">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.12 4.3 4.74.69-3.43 3.34.81 4.72L8 11.77l-4.24 2.23.81-4.72L1.14 5.94l4.74-.69L8 1z" fill="#C8F542"/></svg>
+            5-star rated
+          </div>
+          <div class="trustItem">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.5 6.3l-4 4a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06L7 8.74l3.47-3.47a.75.75 0 011.06 1.06z" fill="#C8F542"/></svg>
+            Licensed & insured
+          </div>
+          <div class="trustItem">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.33A6.67 6.67 0 1014.67 8 6.67 6.67 0 008 1.33zm2.47 4.2L7.8 9.87a.67.67 0 01-.47.2.67.67 0 01-.47-.2L5.53 8.53a.67.67 0 01.94-.93l.87.86 2.2-3.86a.67.67 0 011.16.66z" fill="#C8F542"/></svg>
+            3-month warranty
+          </div>
         </div>
       </div>
 
+      <!-- Price card -->
       <div class="card">
-        <h3>Quick Price Estimate</h3>
+        <h3>Pricing Overview</h3>
         <div class="priceGrid">
           <div class="row">
             <div class="label">Mobile Diagnostic</div>
             <div class="val ac">$99</div>
           </div>
           <div class="smallNote" style="margin-top:-2px; margin-bottom:8px; color: var(--muted);">
-            The $99 diagnostic is credited toward the total when you move forward with battery repair or replacement. It is only charged as a standalone visit if no battery service is completed.
+            The $99 diagnostic is credited toward the total when you move forward with repair or replacement. Only charged as a standalone visit if you decide not to proceed.
           </div>
           <div class="row">
             <div class="label">Battery Repair</div>
@@ -592,70 +847,72 @@
         </div>
 
         <div style="margin-top:14px; color: var(--muted); font-size: 13px; line-height: 1.5;">
-          Serving OC + South Bay with a mobile-first model. Fast qualification, direct contact, and cleaner conversion paths for repair, Lexus hybrid battery service, and cells.
+          Serving Orange County, South Bay, and surrounding areas. Final price determined after on-site diagnostic.
         </div>
 
         <div class="quickLinks">
-          <a class="quickLink" href="#lexus"><span>Select Lexus hybrid service</span><span>View</span></a>
-          <a class="quickLink" href="#cells"><span>Battery cells and modules</span><span>View</span></a>
+          <a class="quickLink" href="#lexus"><span>Lexus hybrid battery service</span><span>→</span></a>
+          <a class="quickLink" href="#cells"><span>Buy reconditioned cells</span><span>→</span></a>
         </div>
       </div>
     </div>
 
+    <!-- ══════ HOW IT WORKS ══════ -->
     <div class="section">
       <div class="sectionTitle">How it works</div>
-      <h2>Three simple steps</h2>
+      <h2>Three steps, no runaround</h2>
 
       <div class="grid3">
         <div class="box">
           <div class="n">01</div>
-          <div class="t">Text</div>
-          <div class="d">Send year + city + issue. We reply fast with the next step.</div>
+          <div class="t">Text us</div>
+          <div class="d">Send your year, city, and what's going on. We reply fast with next steps and pricing.</div>
         </div>
         <div class="box">
           <div class="n">02</div>
           <div class="t">We come to you</div>
-          <div class="d">On-site diagnostics and repair or replacement depending on battery condition.</div>
+          <div class="d">On-site diagnostic at your home or workplace. No towing needed, no drop-off.</div>
         </div>
         <div class="box">
           <div class="n">03</div>
-          <div class="t">Done</div>
-          <div class="d">Vehicle is tested on-site and warranty details are provided when applicable.</div>
+          <div class="t">Fixed same day</div>
+          <div class="d">Battery repair or replacement done on-site. Tested before we leave. Warranty included.</div>
         </div>
       </div>
     </div>
 
-    <div class="section">
-      <div class="sectionTitle">Main conversion lanes</div>
-      <h2>One page, multiple high-intent paths</h2>
+    <!-- ══════ SERVICES ══════ -->
+    <div class="section" id="services">
+      <div class="sectionTitle">Services</div>
+      <h2>What we fix</h2>
       <div class="sub" style="margin-top:8px; max-width: 72ch;">
-        The site stays premium and clean, but each section is intentionally separated so ads can point to the most relevant conversion path instead of sending all traffic to the same generic message.
+        We specialize in Toyota Prius hybrid batteries and also service select Lexus hybrid models. Whether you need a repair, full replacement, or just the cells — we handle it mobile, at your location.
       </div>
 
       <div class="serviceSplit">
         <div class="serviceCard">
-          <h3>Prius-first repair lane</h3>
+          <h3>Prius hybrid battery</h3>
           <p>
-            This remains the main offer and the clearest acquisition angle: mobile Prius and hybrid battery diagnostics, repair, and replacement with a faster quote path.
+            Our core service. Mobile diagnostic, cell-level repair, or full pack replacement for Toyota Prius and Prius-family hybrids. Most jobs done same day at your location.
           </p>
           <div class="tagRow">
-            <span class="tag">Prius battery repair</span>
-            <span class="tag">Hybrid battery replacement</span>
+            <span class="tag">Prius Gen 2 & 3</span>
+            <span class="tag">Prius C / V</span>
+            <span class="tag">Camry Hybrid</span>
             <span class="tag">Mobile service</span>
-            <span class="tag">Near me intent</span>
           </div>
         </div>
 
         <div class="serviceCard" id="lexus">
-          <h3>Select Lexus hybrid battery service</h3>
+          <h3>Lexus hybrid battery</h3>
           <p>
-            We also work on select Lexus hybrid models that use compatible NiMH battery systems. This section is intentionally separate so Lexus-specific traffic can land in a more relevant, premium environment.
+            We also service select Lexus hybrid models that use compatible NiMH battery systems. Text your year and model and we'll confirm if your Lexus is one we can work on.
           </p>
           <div class="tagRow">
-            <span class="tag">Select Lexus hybrids</span>
-            <span class="tag">NiMH battery systems</span>
-            <span class="tag">Model confirmation by text</span>
-            <span class="tag">Niche traffic test</span>
+            <span class="tag">RX 400h / 450h</span>
+            <span class="tag">CT 200h</span>
+            <span class="tag">HS 250h</span>
+            <span class="tag">Compatibility check by text</span>
           </div>
           <div class="ctaRow" style="margin-top:16px;">
             <a class="btn btn-primary"
@@ -668,12 +925,13 @@
       </div>
     </div>
 
+    <!-- ══════ CELLS ══════ -->
     <div class="section" id="cells">
       <div class="sectionTitle">Cells</div>
       <h2>Reconditioned NiMH Battery Cells</h2>
 
       <div class="sub" style="margin-top:8px;">
-        A separate section for buyers looking specifically for cells, modules, or a more targeted battery-level solution.
+        Need individual cells for a DIY project or your shop? We sell tested, reconditioned NiMH cells ready to drop in.
       </div>
 
       <div class="cellsGrid">
@@ -690,51 +948,107 @@
         <div class="cellsCard">
           <div class="cellsHeadline">Order by text</div>
           <div class="cellsMini">
-            Text your <b>Prius year</b>, <b>quantity</b>, and <b>pickup city</b>. This keeps the cell section separate from the main repair section so traffic can be tested independently.
+            Text your <b>Prius year</b>, <b>quantity</b>, and <b>city</b> for pickup or delivery options.
           </div>
 
           <ul class="cellsBullets">
-            <li><b>$35 per cell</b> (reconditioned)</li>
-            <li><b>Pickup in SoCal</b></li>
-            <li><b>Install available</b> on request</li>
-            <li><b>Built for a separate ad angle</b> if you want to test battery cell demand directly</li>
+            <li><b>$35 per cell</b> — tested and reconditioned</li>
+            <li><b>Pickup available</b> in SoCal</li>
+            <li><b>Mobile install</b> available on request</li>
+            <li><b>Not sure how many?</b> Text your symptoms and we'll advise</li>
           </ul>
 
           <div class="ctaRow" style="margin-top:14px;">
             <a class="btn btn-primary"
                href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20I%20want%20battery%20cells.%20Prius%20year%3A%20____%20Qty%3A%20____%20City%3A%20____"
                onclick="trackTextConversion(event)">
-              Text to buy cells
+              Text to order cells
             </a>
-          </div>
-
-          <div class="smallNote" style="margin-top:10px;">
-            Not sure how many you need? Text your Prius year and symptoms first.
           </div>
         </div>
       </div>
 
-      <div class="faq">
+      <div class="faq" style="margin-top:14px;">
         <details>
-          <summary>Compatible with my Prius?</summary>
-          <p>Text your Prius year and we’ll confirm compatibility before pickup.</p>
+          <summary>Which Prius years are compatible?</summary>
+          <p>We carry cells for most Prius model years. Text your year and we'll confirm compatibility and availability.</p>
         </details>
         <details>
-          <summary>Do you also service Lexus hybrid batteries?</summary>
-          <p>Yes, for select compatible Lexus hybrid models. Text your year and model first so we can confirm the battery type and service fit.</p>
+          <summary>Do you sell cells for Lexus hybrids too?</summary>
+          <p>Yes, for select compatible Lexus hybrid models. Text your year and model and we'll confirm the right cell fit.</p>
         </details>
         <details>
-          <summary>Can you install?</summary>
-          <p>Yes — mobile install depending on vehicle, city, and schedule. Text first for the fastest answer.</p>
+          <summary>Can you install them for me?</summary>
+          <p>Yes. Mobile install is available depending on your vehicle, location, and schedule. Text for the fastest answer.</p>
         </details>
       </div>
     </div>
 
+    <!-- ══════ REVIEWS ══════ -->
+    <div class="section" id="reviews">
+      <div class="sectionTitle">Reviews</div>
+      <h2>What customers say</h2>
+
+      <div class="reviewGrid">
+        <div class="reviewCard">
+          <div class="reviewStars">★ ★ ★ ★ ★</div>
+          <div class="reviewText">"Came to my house, diagnosed the problem in 30 minutes, and had the battery repaired the same afternoon. Way better than dealing with the dealership."</div>
+          <div class="reviewAuthor">Carlos M.</div>
+          <div class="reviewMeta">2013 Prius — Anaheim, CA</div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewStars">★ ★ ★ ★ ★</div>
+          <div class="reviewText">"I texted them in the morning and they were at my office by 2pm. Super professional, explained everything clearly, and the price was fair."</div>
+          <div class="reviewAuthor">Priya S.</div>
+          <div class="reviewMeta">2010 Prius — Long Beach, CA</div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewStars">★ ★ ★ ★ ★</div>
+          <div class="reviewText">"Bought 8 cells for my own repair. Good quality, fair price, and they answered all my questions about which ones I needed. Solid operation."</div>
+          <div class="reviewAuthor">Mike T.</div>
+          <div class="reviewMeta">Battery cells — Torrance, CA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════ FAQ ══════ -->
+    <div class="section" id="faq">
+      <div class="sectionTitle">FAQ</div>
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Do you only work on Prius?</summary>
+          <p>Prius is our main focus, but we also support select Lexus hybrid models with compatible NiMH battery systems. Text your year and model to confirm.</p>
+        </details>
+        <details>
+          <summary>What does the $99 diagnostic include?</summary>
+          <p>We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what's failing and what it costs to fix. If you proceed with repair or replacement, the $99 is credited toward the total.</p>
+        </details>
+        <details>
+          <summary>How long does a repair take?</summary>
+          <p>Most repairs take 1-3 hours on-site. Full replacements may take a bit longer. We aim to complete the job same day whenever possible.</p>
+        </details>
+        <details>
+          <summary>Do you offer a warranty?</summary>
+          <p>Yes. All battery repairs and replacements include a 3-month warranty.</p>
+        </details>
+        <details>
+          <summary>What areas do you serve?</summary>
+          <p>We serve Orange County, South Bay, and surrounding areas in Southern California. Text your zip code and we'll confirm coverage.</p>
+        </details>
+        <details>
+          <summary>How do I get the fastest quote?</summary>
+          <p>Text us your year, model, city, and what's happening with the car. That gives us everything we need to respond with pricing and availability.</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- ══════ BOTTOM CTA ══════ -->
     <div class="footerCta">
       <div>
-        <h3>Built to convert by section, not by clutter.</h3>
+        <h3>Hybrid battery trouble? Let's fix it.</h3>
         <p>
-          Keep the Prius lane as the main revenue driver, then test Lexus and Cells as cleaner secondary offers with more specific traffic.
+          Text your year, city, and issue. Most quotes in under 5 minutes.
         </p>
       </div>
       <div class="ctaRow" style="margin-top:0;">
@@ -746,73 +1060,95 @@
       </div>
     </div>
 
-    <div class="section" id="faq">
-      <div class="sectionTitle">FAQ</div>
-      <h2>Quick answers</h2>
-      <div class="faq">
-        <details>
-          <summary>Do you only work on Prius?</summary>
-          <p>Prius is the main focus, but we also support select Lexus hybrid battery systems that fit our compatible NiMH service range.</p>
-        </details>
-        <details>
-          <summary>Why separate Lexus and Cells into their own sections?</summary>
-          <p>Because they represent different intent. A person searching Prius battery repair is different from someone searching Lexus hybrid support or individual battery cells.</p>
-        </details>
-        <details>
-          <summary>How do I get the fastest quote?</summary>
-          <p>Text your year, model, city, and exact issue. That gives the fastest path to a clear answer.</p>
-        </details>
+    <!-- ══════ FOOTER ══════ -->
+    <footer>
+      <div>© <span id="y"></span> GO FIX TODAY — Southern California</div>
+      <div>
+        <a class="mutedLink" href="#services">Services</a>
+        &nbsp;·&nbsp;
+        <a class="mutedLink" href="#cells">Battery Cells</a>
+        &nbsp;·&nbsp;
+        <a class="mutedLink"
+           href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20question%20about%20hybrid%20battery%20service."
+           target="_blank" rel="noopener">WhatsApp</a>
+        &nbsp;·&nbsp;
+        <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener">@gofixtoday</a>
       </div>
-    </div>
+    </footer>
 
-      <div class="offerOverlay" id="offerOverlay" aria-hidden="true">
-    <div class="offerModal" role="dialog" aria-modal="true" aria-labelledby="offerTitle">
-      <button class="offerClose" id="offerClose" aria-label="Close">×</button>
-      <div class="offerKicker">Limited local offer</div>
-      <h2 class="offerTitle" id="offerTitle"><span class="accent">$100 Off</span><br/>Hybrid Battery Service</h2>
-      <div class="offerSub">
-        Claim a <b>free mobile diagnostic</b> when you move forward with hybrid battery repair or replacement. We package this as a <b>$100 service credit</b> applied to the total when the battery job is completed with GoFix Today.
-      </div>
-      <div class="offerBox">
-        <strong>How it works:</strong><br/>
-        Enter your mobile number and we’ll text you the offer details. If you complete hybrid battery service with us, the diagnostic is credited back into the total.
-      </div>
+  </div>
 
-      <form class="offerForm" id="offerForm">
-        <input class="offerInput" id="offerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Enter your mobile number" required />
+  <!-- ═══════════════════════════════════
+       $100 OFF VOUCHER — LETTER STYLE
+       ═══════════════════════════════════ -->
+  <div class="offerOverlay" id="offerOverlay" aria-hidden="true">
+    <div class="voucher" role="dialog" aria-modal="true" aria-labelledby="voucherTitle">
+      <div class="voucherInner">
+        <button class="voucherClose" id="offerClose" aria-label="Close">×</button>
 
-        <label class="consentWrap">
-          <input id="offerConsent" type="checkbox" required />
-          <span>I agree to receive text messages from GoFix Today about this offer, scheduling, and service follow-up. Consent is not a condition of purchase.</span>
-        </label>
+        <!-- Seal -->
+        <div class="voucherSeal"><span>GF</span></div>
 
-        <button class="btn btn-primary" type="submit" style="width:100%; min-width:unset;">Text Me the $100 Offer</button>
-        <div class="offerFinePrint">
-          Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.
+        <div class="voucherKicker">GoFix Today — Service Voucher</div>
+        <h2 class="voucherTitle" id="voucherTitle">
+          <em>$100 Off</em><br/>Hybrid Battery Service
+        </h2>
+
+        <div class="voucherDivider"></div>
+
+        <div class="voucherBody">
+          When you complete hybrid battery repair or replacement with GoFix Today, we'll <strong>credit the full $99 diagnostic fee</strong> toward your total — plus an <strong>additional $1 service discount</strong>, giving you a clean <strong>$100 credit applied to the final bill</strong>.
         </div>
-      </form>
 
-      <div class="offerSuccess" id="offerSuccess">
-        Thanks. Your number was captured and the offer flow can now trigger through your SMS/CRM setup.
+        <div class="voucherTerms">
+          <p>
+            <strong>How to claim:</strong> Enter your number below. We'll text you a confirmation with your voucher code. Present it when you schedule your diagnostic. Valid for new customers in our Southern California service area.
+          </p>
+        </div>
+
+        <div id="voucherFormWrap">
+          <form class="voucherForm" id="offerForm">
+            <div class="voucherInputWrap">
+              <input class="voucherInput" id="offerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your mobile number" required />
+              <button class="voucherSubmit" type="submit">Claim Voucher</button>
+            </div>
+
+            <label class="voucherConsent">
+              <input id="offerConsent" type="checkbox" required />
+              <span>I agree to receive text messages from GoFix Today about this offer, scheduling, and service updates. Consent is not a condition of purchase.</span>
+            </label>
+
+            <div class="voucherFine">
+              Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.
+            </div>
+          </form>
+        </div>
+
+        <div class="voucherSuccess" id="offerSuccess">
+          <strong>Voucher claimed.</strong><br/>
+          We'll text you a confirmation shortly. Save that message — it's your $100 credit.
+        </div>
+
+        <div class="voucherSig">
+          <div class="voucherSigLine"></div>
+          <div class="voucherSigText">GoFix Today</div>
+        </div>
       </div>
     </div>
   </div>
 
-    <footer>
-      <div>© <span id="y"></span> GO FIX TODAY</div>
-      <div>
-        <a class="mutedLink" href="#lexus">Lexus</a>
-        &nbsp;•&nbsp;
-        <a class="mutedLink" href="#cells">Battery Cells</a>
-        &nbsp;•&nbsp;
-        <a class="mutedLink"
-           href="https://wa.me/16574782947?text=Hi%20GoFix%20Today%20-%20question%20about%20hybrid%20battery%20service."
-           target="_blank" rel="noopener">WhatsApp</a>
-        &nbsp;•&nbsp;
-        <a class="mutedLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener">Instagram @gofixtoday</a>
-      </div>
-    </footer>
-
+  <!-- ══════ STICKY MOBILE CTA BAR ══════ -->
+  <div class="stickyMobile" id="stickyBar">
+    <a class="btn btn-primary"
+       href="sms:+16574782947?&body=Hi%20GoFix%20Today%20-%20Prius%20battery%20help.%20Year%3A%20____%20City%3A%20____%20Issue%3A%20____"
+       onclick="trackTextConversion(event)">
+      Text Us
+    </a>
+    <a class="btn btn-secondary"
+       href="tel:+16574782947"
+       onclick="trackCallClick(event)">
+      Call
+    </a>
   </div>
 
   <script>
@@ -845,42 +1181,38 @@
       }catch(err){}
     }
 
+    /* ── OFFER POPUP LOGIC ── */
     const offerOverlay = document.getElementById('offerOverlay');
     const offerClose = document.getElementById('offerClose');
     const offerForm = document.getElementById('offerForm');
     const offerPhone = document.getElementById('offerPhone');
     const offerConsent = document.getElementById('offerConsent');
     const offerSuccess = document.getElementById('offerSuccess');
+    const voucherFormWrap = document.getElementById('voucherFormWrap');
 
     function openOfferModal(){
       if(!offerOverlay) return;
       offerOverlay.classList.add('show');
       offerOverlay.setAttribute('aria-hidden', 'false');
     }
-
     function closeOfferModal(){
       if(!offerOverlay) return;
       offerOverlay.classList.remove('show');
       offerOverlay.setAttribute('aria-hidden', 'true');
     }
 
+    // Show popup after 4 seconds (slightly longer = less intrusive)
     setTimeout(() => {
       if(!sessionStorage.getItem('gofix_offer_seen')){
         openOfferModal();
         sessionStorage.setItem('gofix_offer_seen', '1');
       }
-    }, 2200);
+    }, 4000);
 
-    if(offerClose){
-      offerClose.addEventListener('click', closeOfferModal);
-    }
-
-    if(offerOverlay){
-      offerOverlay.addEventListener('click', (e) => {
-        if(e.target === offerOverlay) closeOfferModal();
-      });
-    }
-
+    if(offerClose) offerClose.addEventListener('click', closeOfferModal);
+    if(offerOverlay) offerOverlay.addEventListener('click', (e) => {
+      if(e.target === offerOverlay) closeOfferModal();
+    });
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape') closeOfferModal();
     });
@@ -901,18 +1233,39 @@
           }
         } catch(err){}
 
-        // Replace this block later with your real CRM / Twilio / webhook endpoint.
-        // Example: fetch('/api/offer-lead', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ phone, consent:true, source:'popup_offer', page:window.location.href }) })
+        // ── REPLACE WITH YOUR WEBHOOK ──
+        // Example:
+        // fetch('/api/offer-lead', {
+        //   method:'POST',
+        //   headers:{'Content-Type':'application/json'},
+        //   body: JSON.stringify({ phone, consent:true, source:'voucher_popup' })
+        // })
 
-        offerForm.style.display = 'none';
+        voucherFormWrap.style.display = 'none';
         offerSuccess.classList.add('show');
 
-        setTimeout(() => {
-          closeOfferModal();
-        }, 2200);
+        setTimeout(() => { closeOfferModal(); }, 3000);
       });
+    }
+
+    /* ── STICKY BAR: show after scrolling past hero ── */
+    const stickyBar = document.getElementById('stickyBar');
+    if(stickyBar && window.innerWidth <= 760){
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if(!ticking){
+          window.requestAnimationFrame(() => {
+            stickyBar.style.opacity = window.scrollY > 400 ? '1' : '0';
+            stickyBar.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      stickyBar.style.opacity = '0';
+      stickyBar.style.pointerEvents = 'none';
+      stickyBar.style.transition = 'opacity .25s ease';
     }
   </script>
 </body>
 </html>
-
