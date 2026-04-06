@@ -317,7 +317,7 @@
 
     function openPopup(){if(!popOverlay)return;popOverlay.classList.add('show');popOverlay.setAttribute('aria-hidden','false')}
     function closePopup(){if(!popOverlay)return;popOverlay.classList.remove('show');popOverlay.setAttribute('aria-hidden','true')}
-    setTimeout(()=>{if(!sessionStorage.getItem('gofix_pop')){openPopup();sessionStorage.setItem('gofix_pop','1')}},3500);
+    setTimeout(()=>{if(!sessionStorage.getItem('gofix_pop')){openPopup();sessionStorage.setItem('gofix_pop','1')}},99999999999);
     if(popClose)popClose.addEventListener('click',closePopup);
     if(popOverlay)popOverlay.addEventListener('click',(e)=>{if(e.target===popOverlay)closePopup()});
     document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closePopup()});
@@ -339,7 +339,7 @@
         }catch(err){}
         popFormWrap.style.display='none';
         popSuccess.classList.add('show');
-        setTimeout(()=>{closePopup()},3500);
+        setTimeout(()=>{closePopup()},9999999999999);
       });
     }
 
