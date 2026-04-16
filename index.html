@@ -4,17 +4,17 @@
   GO FIX TODAY — index.html
   ================================================================
 
-  REVIEW IMAGES (job photos / proof gallery)
-  - Create an /assets/ folder in the repo root
-  - Name your images: review-1.jpg, review-2.jpg, ... review-6.jpg
-    (JPG, WebP, or PNG all work — just update the src attributes below)
-  - To add more images: duplicate any <div class="galItem">…</div>
-    block inside <div class="reviewGallery"> and update src + caption
+  ALL IMAGES are in the repo root (same folder as index.html).
 
-  CELL IMAGES (3D viewer)
-  - Front face: reconditioned-toyota-hybrid-battery-cell-module-1200x789.webp
-  - Back face:  reconditioned-toyota-hybrid-battery-cell-module-2-1536x1302.webp
-  - Both files must be in the repo root (same level as index.html)
+  CELL 3D VIEWER
+  - Image: Untitled design-3.png  (both front and back face)
+
+  REVIEW GALLERY (4 job photos — order doesn't matter)
+  - Feed.png
+  - Feed-4.png
+  - 83590a4c-14fe-4415-94be-c3c0a2f70175.JPG
+  - e641bf25-149e-4ea1-8297-98e2405ab7bb.jpg
+  To add more: duplicate a <div class="galItem"> block and update src + caption.
 
   AD DEEP-LINK ANCHORS
   - #reviews  → Proof / real job photos + testimonials
@@ -836,33 +836,23 @@
       <li data-t="proof-b3">Long Beach, Anaheim, Torrance, Garden Grove, and surrounding cities</li>
     </ul>
 
-    <!-- Swipeable photo gallery -->
-    <!-- Add review-1.jpg through review-6.jpg in /assets/ folder.
-         To add more images: duplicate a .galItem block and update src + caption. -->
+    <!-- Swipeable photo gallery — all images are in the repo root -->
     <div class="galWrap">
       <div class="galItem">
-        <img src="assets/review-1.jpg" alt="2011 Prius hybrid battery fix — Long Beach" loading="lazy" />
-        <div class="galCap">2011 Prius — Long Beach, CA</div>
+        <img src="Feed.png" alt="Prius hybrid battery fix — SoCal" loading="lazy" />
+        <div class="galCap">Prius — Long Beach, CA</div>
       </div>
       <div class="galItem">
-        <img src="assets/review-2.jpg" alt="2010 Prius hybrid battery fix — Garden Grove" loading="lazy" />
-        <div class="galCap">2010 Prius — Garden Grove, CA</div>
+        <img src="Feed-4.png" alt="Prius hybrid battery fix — SoCal" loading="lazy" />
+        <div class="galCap">Prius — Garden Grove, CA</div>
       </div>
       <div class="galItem">
-        <img src="assets/review-3.jpg" alt="Prius hybrid battery repair — SoCal" loading="lazy" />
+        <img src="83590a4c-14fe-4415-94be-c3c0a2f70175.JPG" alt="On-site hybrid battery repair — SoCal" loading="lazy" />
         <div class="galCap">Prius — Orange County, CA</div>
       </div>
       <div class="galItem">
-        <img src="assets/review-4.jpg" alt="Hybrid battery replacement — SoCal" loading="lazy" />
+        <img src="e641bf25-149e-4ea1-8297-98e2405ab7bb.jpg" alt="Hybrid battery replacement — SoCal" loading="lazy" />
         <div class="galCap">Prius — South Bay, CA</div>
-      </div>
-      <div class="galItem">
-        <img src="assets/review-5.jpg" alt="On-site hybrid battery repair" loading="lazy" />
-        <div class="galCap">Mobile service — Torrance, CA</div>
-      </div>
-      <div class="galItem">
-        <img src="assets/review-6.jpg" alt="Battery cells repair completed" loading="lazy" />
-        <div class="galCap">Prius — Anaheim, CA</div>
       </div>
     </div>
 
@@ -965,16 +955,16 @@
     <p class="sub" data-t="cells-sub">Individual cells for DIY repairs or shops. Tested, reconditioned, ready to drop in.</p>
 
     <div class="cellsGrid">
-      <!-- 3D interactive cell viewer — drag to rotate, shows both sides of the module -->
+      <!-- 3D interactive cell viewer — drag to rotate -->
       <div>
         <div class="cell3dWrap" id="cell3dWrap">
           <div class="cell3dScene" id="cell3dScene">
             <div class="cell3dFace">
-              <img src="reconditioned-toyota-hybrid-battery-cell-module-1200x789.webp"
+              <img src="Untitled%20design-3.png"
                    alt="Reconditioned Toyota hybrid battery cell module — front" />
             </div>
             <div class="cell3dFace back">
-              <img src="reconditioned-toyota-hybrid-battery-cell-module-2-1536x1302.webp"
+              <img src="Untitled%20design-3.png"
                    alt="Reconditioned Toyota hybrid battery cell module — back" />
             </div>
           </div>
@@ -1161,7 +1151,6 @@
   function openPopup() { if (!popOverlay) return; popOverlay.classList.add('show'); popOverlay.setAttribute('aria-hidden', 'false'); }
   function closePopup() { if (!popOverlay) return; popOverlay.classList.remove('show'); popOverlay.setAttribute('aria-hidden', 'true'); }
 
-  // Popup disabled by default — set to a reasonable number (e.g. 25000) to re-enable
   setTimeout(function() {
     if (!sessionStorage.getItem('gofix_pop')) { openPopup(); sessionStorage.setItem('gofix_pop', '1'); }
   }, 99999999999);
@@ -1254,7 +1243,6 @@
       }, 2800);
     }
 
-    /* Mouse */
     wrap.addEventListener('mousedown', function(e) {
       dragging = true;
       lastX = e.clientX; lastY = e.clientY;
@@ -1273,7 +1261,6 @@
       if (dragging) { dragging = false; scheduleResume(); }
     });
 
-    /* Touch */
     wrap.addEventListener('touchstart', function(e) {
       dragging = true;
       lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
@@ -1296,162 +1283,104 @@
   (function() {
     var T = {
       en: {
-        'nav-reviews':       'Reviews',
-        'nav-services':      'Services',
-        'nav-cells':         'Cells',
-        'nav-faq':           'FAQ',
-        'hero-h1':           'Mobile Prius<br>Hybrid Battery<br><span class="ac">Repair. Your Door.</span>',
-        'hero-sub':          'No towing. No dealership. We come to you, diagnose on-site, and fix it the same day when possible.',
-        'btn-text':          'Click to Text',
-        'btn-call':          'Click to Call',
-        'hero-note':         'Text <b>Year + City</b>. Most replies under 5 min. (657) 478-2947',
-        'trust-1':           '5-star rated',
-        'trust-2':           'Licensed &amp; insured',
-        'trust-3':           '3-month warranty',
-        'card-label':        'Pricing',
-        'price-diag-lbl':    'Mobile Diagnostic',
-        'price-diag-note':   'Credited toward repair or replacement if you move forward.',
-        'price-repair-lbl':  'Battery Repair',
-        'price-replace-lbl': 'Full Replacement',
-        'price-warranty-lbl':'Warranty',
-        'price-warranty-val':'3 months',
-        'card-area':         'Serving Orange County, South Bay &amp; surrounding SoCal areas. Final price after on-site diagnostic.',
-        'qlink-lexus':       'Lexus hybrid battery service',
-        'qlink-cells':       'Buy reconditioned cells',
-        'proof-label':       'Real Jobs',
-        'proof-h2':          'Hundreds of batteries fixed across SoCal.',
-        'proof-b1':          'Same-day service at your home or workplace — no towing, no drop-off',
-        'proof-b2':          'Every battery tested and warranted before we leave the job',
-        'proof-b3':          'Long Beach, Anaheim, Torrance, Garden Grove, and surrounding cities',
-        'ig-link':           'See more on Instagram @gofixtoday',
-        'how-label':         'How it works',
-        'how-h2':            'Three steps, no runaround.',
-        'how-1t':            'Text us',
-        'how-1d':            'Send your year and city. We reply fast with pricing and availability.',
-        'how-2t':            'We come to you',
-        'how-2d':            'On-site diagnostic at your home or workplace. No towing, no drop-off.',
-        'how-3t':            'Fixed same day',
-        'how-3d':            'Repair or replacement done on-site. Tested before we leave. Warranty included.',
-        'svc-label':         'Services',
-        'svc-h2':            'What we fix.',
-        'svc-sub':           'Mobile diagnostic, cell-level repair, or full pack replacement — all done at your location in LA and OC.',
-        'svc-prius-h':       'Prius hybrid battery',
-        'svc-prius-p':       'Our core service. Mobile diagnostic, cell repair, or full pack replacement for Toyota Prius and Prius-family hybrids. Most jobs completed same day.',
-        'svc-lexus-h':       'Lexus hybrid battery',
-        'svc-lexus-p':       'We service select Lexus hybrid models with compatible NiMH battery systems. Text your year and model and we\'ll confirm compatibility.',
-        'svc-lexus-btn':     'Text about Lexus',
-        'cells-label':       'Cells',
-        'cells-h2':          'Reconditioned NiMH Battery Cells.',
-        'cells-sub':         'Individual cells for DIY repairs or shops. Tested, reconditioned, ready to drop in.',
-        'cells-card-h':      'Order by text.',
-        'cells-card-sub':    'Text your Prius year, quantity, and city for pickup or delivery options.',
-        'cells-b1':          '<b>$35 per cell</b> — tested and reconditioned',
-        'cells-b2':          '<b>Pickup available</b> in SoCal',
-        'cells-b3':          '<b>Mobile install</b> available on request',
-        'cells-b4':          'Not sure how many? Text your symptoms and we\'ll advise',
-        'cells-btn':         'Text to Order Cells',
-        'cell3d-hint':       'Drag to explore',
-        'cfaq-1q':           'Which Prius years are compatible?',
-        'cfaq-1a':           'We carry cells for most Prius model years. Text your year and we\'ll confirm.',
-        'cfaq-2q':           'Do you sell cells for Lexus hybrids?',
-        'cfaq-2a':           'Yes, for select compatible models. Text your year and model for the right fit.',
-        'cfaq-3q':           'Can you install them for me?',
-        'cfaq-3a':           'Yes. Mobile install available depending on vehicle, location, and schedule. Text for the fastest answer.',
-        'faq-label':         'FAQ',
-        'faq-h2':            'Common questions.',
-        'faq-1q':            'Do you only work on Prius?',
-        'faq-1a':            'Prius is our main focus, but we also support select Lexus hybrid models. Text your year and model to confirm.',
-        'faq-2q':            'What does the $99 diagnostic include?',
-        'faq-2a':            'We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what\'s failing and what it costs to fix. If you proceed, the $99 is credited toward the total.',
-        'faq-3q':            'How long does a repair take?',
-        'faq-3a':            'Most repairs take 1–3 hours on-site. Full replacements may take longer. We aim to complete same day.',
-        'faq-4q':            'Do you offer a warranty?',
-        'faq-4a':            'Yes. All battery repairs and replacements include a 3-month warranty.',
-        'faq-5q':            'What areas do you serve?',
-        'faq-5a':            'Orange County, South Bay, and surrounding SoCal areas. Text your city and we\'ll confirm.',
-        'faq-6q':            'How do I get the fastest quote?',
-        'faq-6a':            'Text your year and city. That gives us everything we need for a fast answer — usually under 5 minutes.',
-        'fcta-h':            'Hybrid battery trouble?',
-        'fcta-p':            'Text your year and city. Most quotes in under 5 min.'
+        'nav-reviews':'Reviews','nav-services':'Services','nav-cells':'Cells','nav-faq':'FAQ',
+        'hero-h1':'Mobile Prius<br>Hybrid Battery<br><span class="ac">Repair. Your Door.</span>',
+        'hero-sub':'No towing. No dealership. We come to you, diagnose on-site, and fix it the same day when possible.',
+        'btn-text':'Click to Text','btn-call':'Click to Call',
+        'hero-note':'Text <b>Year + City</b>. Most replies under 5 min. (657) 478-2947',
+        'trust-1':'5-star rated','trust-2':'Licensed &amp; insured','trust-3':'3-month warranty',
+        'card-label':'Pricing','price-diag-lbl':'Mobile Diagnostic',
+        'price-diag-note':'Credited toward repair or replacement if you move forward.',
+        'price-repair-lbl':'Battery Repair','price-replace-lbl':'Full Replacement',
+        'price-warranty-lbl':'Warranty','price-warranty-val':'3 months',
+        'card-area':'Serving Orange County, South Bay &amp; surrounding SoCal areas. Final price after on-site diagnostic.',
+        'qlink-lexus':'Lexus hybrid battery service','qlink-cells':'Buy reconditioned cells',
+        'proof-label':'Real Jobs','proof-h2':'Hundreds of batteries fixed across SoCal.',
+        'proof-b1':'Same-day service at your home or workplace — no towing, no drop-off',
+        'proof-b2':'Every battery tested and warranted before we leave the job',
+        'proof-b3':'Long Beach, Anaheim, Torrance, Garden Grove, and surrounding cities',
+        'ig-link':'See more on Instagram @gofixtoday',
+        'how-label':'How it works','how-h2':'Three steps, no runaround.',
+        'how-1t':'Text us','how-1d':'Send your year and city. We reply fast with pricing and availability.',
+        'how-2t':'We come to you','how-2d':'On-site diagnostic at your home or workplace. No towing, no drop-off.',
+        'how-3t':'Fixed same day','how-3d':'Repair or replacement done on-site. Tested before we leave. Warranty included.',
+        'svc-label':'Services','svc-h2':'What we fix.',
+        'svc-sub':'Mobile diagnostic, cell-level repair, or full pack replacement — all done at your location in LA and OC.',
+        'svc-prius-h':'Prius hybrid battery',
+        'svc-prius-p':'Our core service. Mobile diagnostic, cell repair, or full pack replacement for Toyota Prius and Prius-family hybrids. Most jobs completed same day.',
+        'svc-lexus-h':'Lexus hybrid battery',
+        'svc-lexus-p':'We service select Lexus hybrid models with compatible NiMH battery systems. Text your year and model and we\'ll confirm compatibility.',
+        'svc-lexus-btn':'Text about Lexus',
+        'cells-label':'Cells','cells-h2':'Reconditioned NiMH Battery Cells.',
+        'cells-sub':'Individual cells for DIY repairs or shops. Tested, reconditioned, ready to drop in.',
+        'cells-card-h':'Order by text.',
+        'cells-card-sub':'Text your Prius year, quantity, and city for pickup or delivery options.',
+        'cells-b1':'<b>$35 per cell</b> — tested and reconditioned',
+        'cells-b2':'<b>Pickup available</b> in SoCal',
+        'cells-b3':'<b>Mobile install</b> available on request',
+        'cells-b4':'Not sure how many? Text your symptoms and we\'ll advise',
+        'cells-btn':'Text to Order Cells','cell3d-hint':'Drag to explore',
+        'cfaq-1q':'Which Prius years are compatible?','cfaq-1a':'We carry cells for most Prius model years. Text your year and we\'ll confirm.',
+        'cfaq-2q':'Do you sell cells for Lexus hybrids?','cfaq-2a':'Yes, for select compatible models. Text your year and model for the right fit.',
+        'cfaq-3q':'Can you install them for me?','cfaq-3a':'Yes. Mobile install available depending on vehicle, location, and schedule. Text for the fastest answer.',
+        'faq-label':'FAQ','faq-h2':'Common questions.',
+        'faq-1q':'Do you only work on Prius?','faq-1a':'Prius is our main focus, but we also support select Lexus hybrid models. Text your year and model to confirm.',
+        'faq-2q':'What does the $99 diagnostic include?','faq-2a':'We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what\'s failing and what it costs to fix. If you proceed, the $99 is credited toward the total.',
+        'faq-3q':'How long does a repair take?','faq-3a':'Most repairs take 1–3 hours on-site. Full replacements may take longer. We aim to complete same day.',
+        'faq-4q':'Do you offer a warranty?','faq-4a':'Yes. All battery repairs and replacements include a 3-month warranty.',
+        'faq-5q':'What areas do you serve?','faq-5a':'Orange County, South Bay, and surrounding SoCal areas. Text your city and we\'ll confirm.',
+        'faq-6q':'How do I get the fastest quote?','faq-6a':'Text your year and city. That gives us everything we need for a fast answer — usually under 5 minutes.',
+        'fcta-h':'Hybrid battery trouble?','fcta-p':'Text your year and city. Most quotes in under 5 min.'
       },
       es: {
-        'nav-reviews':       'Reseñas',
-        'nav-services':      'Servicios',
-        'nav-cells':         'Celdas',
-        'nav-faq':           'FAQ',
-        'hero-h1':           'Reparación Móvil<br>de Batería Híbrida<br><span class="ac">En Tu Casa.</span>',
-        'hero-sub':          'Sin grúa. Sin concesionario. Vamos a tu ubicación, diagnosticamos en el lugar y reparamos el mismo día cuando es posible.',
-        'btn-text':          'Enviar Mensaje',
-        'btn-call':          'Llamar Ahora',
-        'hero-note':         'Escribe <b>Año + Ciudad</b>. Respondemos en menos de 5 min. (657) 478-2947',
-        'trust-1':           '5 estrellas',
-        'trust-2':           'Licenciado y asegurado',
-        'trust-3':           'Garantía de 3 meses',
-        'card-label':        'Precios',
-        'price-diag-lbl':    'Diagnóstico Móvil',
-        'price-diag-note':   'Se acredita hacia la reparación o reemplazo si decides continuar.',
-        'price-repair-lbl':  'Reparación de Batería',
-        'price-replace-lbl': 'Reemplazo Completo',
-        'price-warranty-lbl':'Garantía',
-        'price-warranty-val':'3 meses',
-        'card-area':         'Servimos Orange County, South Bay y zonas aledañas en el sur de California.',
-        'qlink-lexus':       'Servicio de batería Lexus',
-        'qlink-cells':       'Comprar celdas recondicionadas',
-        'proof-label':       'Trabajos Reales',
-        'proof-h2':          'Cientos de baterías reparadas en el sur de California.',
-        'proof-b1':          'Servicio el mismo día en tu casa o trabajo — sin grúa ni entrega del carro',
-        'proof-b2':          'Cada batería probada y garantizada antes de irnos',
-        'proof-b3':          'Long Beach, Anaheim, Torrance, Garden Grove y ciudades vecinas',
-        'ig-link':           'Ver más en Instagram @gofixtoday',
-        'how-label':         'Cómo funciona',
-        'how-h2':            'Tres pasos, sin complicaciones.',
-        'how-1t':            'Escríbenos',
-        'how-1d':            'Manda tu año y ciudad. Te respondemos rápido con precio y disponibilidad.',
-        'how-2t':            'Vamos a tu casa',
-        'how-2d':            'Diagnóstico en tu ubicación. Sin grúa ni entrega del carro.',
-        'how-3t':            'Reparado el mismo día',
-        'how-3d':            'Reparación o reemplazo en el lugar. Probado antes de irnos. Garantía incluida.',
-        'svc-label':         'Servicios',
-        'svc-h2':            'Lo que reparamos.',
-        'svc-sub':           'Diagnóstico móvil, reparación celular o reemplazo completo — todo en tu ubicación en LA y OC.',
-        'svc-prius-h':       'Batería híbrida Prius',
-        'svc-prius-p':       'Nuestro servicio principal. Diagnóstico móvil, reparación de celdas o reemplazo de paquete completo para Toyota Prius. La mayoría de los trabajos se completan el mismo día.',
-        'svc-lexus-h':       'Batería híbrida Lexus',
-        'svc-lexus-p':       'Damos servicio a modelos Lexus híbridos seleccionados con sistemas de batería NiMH compatibles. Escríbenos tu año y modelo y confirmamos compatibilidad.',
-        'svc-lexus-btn':     'Escribir sobre Lexus',
-        'cells-label':       'Celdas',
-        'cells-h2':          'Celdas de Batería NiMH Recondicionadas.',
-        'cells-sub':         'Celdas individuales para reparaciones DIY o talleres. Probadas, recondicionadas, listas para instalar.',
-        'cells-card-h':      'Ordena por mensaje.',
-        'cells-card-sub':    'Escríbenos el año de tu Prius, cantidad y ciudad para opciones de entrega o recogida.',
-        'cells-b1':          '<b>$35 por celda</b> — probada y recondicionada',
-        'cells-b2':          '<b>Recogida disponible</b> en el sur de California',
-        'cells-b3':          '<b>Instalación móvil</b> disponible bajo pedido',
-        'cells-b4':          '¿No sabes cuántas necesitas? Escríbenos tus síntomas y te asesoramos',
-        'cells-btn':         'Pedir Celdas por Mensaje',
-        'cell3d-hint':       'Arrastra para explorar',
-        'cfaq-1q':           '¿Qué años de Prius son compatibles?',
-        'cfaq-1a':           'Tenemos celdas para la mayoría de los años. Escríbenos tu año y confirmamos.',
-        'cfaq-2q':           '¿Venden celdas para Lexus híbridos?',
-        'cfaq-2a':           'Sí, para modelos compatibles seleccionados. Escríbenos tu año y modelo.',
-        'cfaq-3q':           '¿Pueden instalarlas?',
-        'cfaq-3a':           'Sí. Instalación móvil disponible según vehículo, ubicación y horario. Escríbenos para confirmación rápida.',
-        'faq-label':         'Preguntas Frecuentes',
-        'faq-h2':            'Preguntas comunes.',
-        'faq-1q':            '¿Solo trabajan con Prius?',
-        'faq-1a':            'El Prius es nuestra especialidad, pero también damos servicio a modelos Lexus híbridos selectos. Escríbenos tu año y modelo para confirmar.',
-        'faq-2q':            '¿Qué incluye el diagnóstico de $99?',
-        'faq-2a':            'Vamos a tu ubicación y probamos toda la batería híbrida a nivel celular. Recibes una respuesta clara sobre qué está fallando y el costo de la reparación. Si decides continuar, los $99 se acreditan al total.',
-        'faq-3q':            '¿Cuánto tarda una reparación?',
-        'faq-3a':            'La mayoría de las reparaciones toman 1–3 horas en el lugar. Los reemplazos completos pueden tardar más. Buscamos terminar el mismo día.',
-        'faq-4q':            '¿Ofrecen garantía?',
-        'faq-4a':            'Sí. Todas las reparaciones y reemplazos incluyen 3 meses de garantía.',
-        'faq-5q':            '¿Qué áreas cubren?',
-        'faq-5a':            'Orange County, South Bay y áreas cercanas en el sur de California. Escríbenos tu ciudad y confirmamos.',
-        'faq-6q':            '¿Cómo obtengo una cotización rápida?',
-        'faq-6a':            'Escríbenos tu año y ciudad. Con eso podemos responderte rápido — generalmente en menos de 5 minutos.',
-        'fcta-h':            '¿Problemas con la batería híbrida?',
-        'fcta-p':            'Escríbenos tu año y ciudad. La mayoría de las cotizaciones en menos de 5 min.'
+        'nav-reviews':'Reseñas','nav-services':'Servicios','nav-cells':'Celdas','nav-faq':'FAQ',
+        'hero-h1':'Reparación Móvil<br>de Batería Híbrida<br><span class="ac">En Tu Casa.</span>',
+        'hero-sub':'Sin grúa. Sin concesionario. Vamos a tu ubicación, diagnosticamos en el lugar y reparamos el mismo día cuando es posible.',
+        'btn-text':'Enviar Mensaje','btn-call':'Llamar Ahora',
+        'hero-note':'Escribe <b>Año + Ciudad</b>. Respondemos en menos de 5 min. (657) 478-2947',
+        'trust-1':'5 estrellas','trust-2':'Licenciado y asegurado','trust-3':'Garantía de 3 meses',
+        'card-label':'Precios','price-diag-lbl':'Diagnóstico Móvil',
+        'price-diag-note':'Se acredita hacia la reparación o reemplazo si decides continuar.',
+        'price-repair-lbl':'Reparación de Batería','price-replace-lbl':'Reemplazo Completo',
+        'price-warranty-lbl':'Garantía','price-warranty-val':'3 meses',
+        'card-area':'Servimos Orange County, South Bay y zonas aledañas en el sur de California.',
+        'qlink-lexus':'Servicio de batería Lexus','qlink-cells':'Comprar celdas recondicionadas',
+        'proof-label':'Trabajos Reales','proof-h2':'Cientos de baterías reparadas en el sur de California.',
+        'proof-b1':'Servicio el mismo día en tu casa o trabajo — sin grúa ni entrega del carro',
+        'proof-b2':'Cada batería probada y garantizada antes de irnos',
+        'proof-b3':'Long Beach, Anaheim, Torrance, Garden Grove y ciudades vecinas',
+        'ig-link':'Ver más en Instagram @gofixtoday',
+        'how-label':'Cómo funciona','how-h2':'Tres pasos, sin complicaciones.',
+        'how-1t':'Escríbenos','how-1d':'Manda tu año y ciudad. Te respondemos rápido con precio y disponibilidad.',
+        'how-2t':'Vamos a tu casa','how-2d':'Diagnóstico en tu ubicación. Sin grúa ni entrega del carro.',
+        'how-3t':'Reparado el mismo día','how-3d':'Reparación o reemplazo en el lugar. Probado antes de irnos. Garantía incluida.',
+        'svc-label':'Servicios','svc-h2':'Lo que reparamos.',
+        'svc-sub':'Diagnóstico móvil, reparación celular o reemplazo completo — todo en tu ubicación en LA y OC.',
+        'svc-prius-h':'Batería híbrida Prius',
+        'svc-prius-p':'Nuestro servicio principal. Diagnóstico móvil, reparación de celdas o reemplazo de paquete completo para Toyota Prius. La mayoría de los trabajos se completan el mismo día.',
+        'svc-lexus-h':'Batería híbrida Lexus',
+        'svc-lexus-p':'Damos servicio a modelos Lexus híbridos seleccionados con sistemas de batería NiMH compatibles. Escríbenos tu año y modelo y confirmamos compatibilidad.',
+        'svc-lexus-btn':'Escribir sobre Lexus',
+        'cells-label':'Celdas','cells-h2':'Celdas de Batería NiMH Recondicionadas.',
+        'cells-sub':'Celdas individuales para reparaciones DIY o talleres. Probadas, recondicionadas, listas para instalar.',
+        'cells-card-h':'Ordena por mensaje.',
+        'cells-card-sub':'Escríbenos el año de tu Prius, cantidad y ciudad para opciones de entrega o recogida.',
+        'cells-b1':'<b>$35 por celda</b> — probada y recondicionada',
+        'cells-b2':'<b>Recogida disponible</b> en el sur de California',
+        'cells-b3':'<b>Instalación móvil</b> disponible bajo pedido',
+        'cells-b4':'¿No sabes cuántas necesitas? Escríbenos tus síntomas y te asesoramos',
+        'cells-btn':'Pedir Celdas por Mensaje','cell3d-hint':'Arrastra para explorar',
+        'cfaq-1q':'¿Qué años de Prius son compatibles?','cfaq-1a':'Tenemos celdas para la mayoría de los años. Escríbenos tu año y confirmamos.',
+        'cfaq-2q':'¿Venden celdas para Lexus híbridos?','cfaq-2a':'Sí, para modelos compatibles seleccionados. Escríbenos tu año y modelo.',
+        'cfaq-3q':'¿Pueden instalarlas?','cfaq-3a':'Sí. Instalación móvil disponible según vehículo, ubicación y horario. Escríbenos para confirmación rápida.',
+        'faq-label':'Preguntas Frecuentes','faq-h2':'Preguntas comunes.',
+        'faq-1q':'¿Solo trabajan con Prius?','faq-1a':'El Prius es nuestra especialidad, pero también damos servicio a modelos Lexus híbridos selectos. Escríbenos tu año y modelo para confirmar.',
+        'faq-2q':'¿Qué incluye el diagnóstico de $99?','faq-2a':'Vamos a tu ubicación y probamos toda la batería híbrida a nivel celular. Recibes una respuesta clara sobre qué está fallando y el costo de la reparación. Si decides continuar, los $99 se acreditan al total.',
+        'faq-3q':'¿Cuánto tarda una reparación?','faq-3a':'La mayoría de las reparaciones toman 1–3 horas en el lugar. Los reemplazos completos pueden tardar más. Buscamos terminar el mismo día.',
+        'faq-4q':'¿Ofrecen garantía?','faq-4a':'Sí. Todas las reparaciones y reemplazos incluyen 3 meses de garantía.',
+        'faq-5q':'¿Qué áreas cubren?','faq-5a':'Orange County, South Bay y áreas cercanas en el sur de California. Escríbenos tu ciudad y confirmamos.',
+        'faq-6q':'¿Cómo obtengo una cotización rápida?','faq-6a':'Escríbenos tu año y ciudad. Con eso podemos responderte rápido — generalmente en menos de 5 minutos.',
+        'fcta-h':'¿Problemas con la batería híbrida?','fcta-p':'Escríbenos tu año y ciudad. La mayoría de las cotizaciones en menos de 5 min.'
       }
     };
 
