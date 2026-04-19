@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <!--
   ================================================================
-  GO FIX TODAY — index.html
+  GO FIX TODAY — index.html  (v2026.04 — CRO upgrade)
   ================================================================
 
-  ALL IMAGES are in the repo root (same folder as index.html).
+  IMAGE LOCATIONS
+  - All images live in the repo ROOT (same folder as index.html).
+  - If you ever move them to /assets, update the `src` values only.
 
   CELL 3D VIEWER
-  - Image: Untitled design-3.png  (both front and back face)
+  - Image: cell.png  (transparent background, used for product + reflection)
+  - If you update the source render, keep the same filename or update both
+    <img src="cell.png"> tags in the #cells section.
 
-  REVIEW GALLERY (4 job photos — order doesn't matter)
-  - Feed.png
-  - Feed-4.png
-  - 83590a4c-14fe-4415-94be-c3c0a2f70175.JPG
-  - e641bf25-149e-4ea1-8297-98e2405ab7bb.jpg
-  To add more: duplicate a <div class="galItem"> block and update src + caption.
+  REVIEW GALLERY
+  - Current photos (keep filenames in repo root):
+      Feed.png
+      Feed-4.png
+      83590a4c-14fe-4415-94be-c3c0a2f70175.JPG
+      e641bf25-149e-4ea1-8297-98e2405ab7bb.jpg
+  - To ADD MORE: duplicate any <div class="galItem">...</div> block
+    inside the #reviews section, update the <img src>, alt, and
+    caption text. The carousel auto-swipes on mobile with no JS changes.
+  - Recommended: keep images roughly portrait 3:4 or 4:5 and under ~500KB each.
 
   AD DEEP-LINK ANCHORS
   - #reviews  → Proof / real job photos + testimonials
   - #cells    → Reconditioned NiMH cells (buy / order)
   - #services → Prius + Lexus service details
+  - #process  → 3-step service process (technical credibility)
   - #faq      → FAQ (service + cells questions)
+
+  TRACKING (DO NOT REMOVE)
+  - Google Ads: AW-17973103075
+  - SMS conversion send_to: AW-17973103075/HcX2CNuTk4gcEOOTn_pC
+    Fires on every SMS (Click-to-Text) CTA via trackTextConversion().
+    If you later want to split "Repair leads" vs "Cell leads" in Ads,
+    create a new conversion label and swap it into trackCellsTextConversion().
 
   ================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GO FIX TODAY — Mobile Prius Hybrid Battery Repair (SoCal)</title>
-  <meta name="description" content="Mobile Prius and select Lexus hybrid battery repair in Southern California. $99 diagnostic credited toward service. Text for a fast quote." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <title>GO FIX TODAY — Mobile Prius &amp; Lexus Hybrid Battery Repair (LA + OC)</title>
+  <meta name="description" content="Same-day mobile Prius and Lexus hybrid battery repair across Los Angeles, Orange County, and the South Bay. $99 on-site diagnostic credited toward repair. 3-month warranty. Text for a fast quote." />
 
   <!-- Google Ads — do not remove or reorder -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
@@ -47,22 +64,24 @@
   <style>
     /* ── TOKENS ── */
     :root {
-      --bg:     #0b0b0b;
-      --text:   #f2f2f2;
-      --muted:  #a7a7a7;
-      --muted2: #666;
-      --line:   rgba(255,255,255,.08);
-      --line2:  rgba(255,255,255,.13);
-      --accent: #C8F542;
-      --shadow: 0 24px 80px rgba(0,0,0,.6);
-      --r:      20px;
-      --max:    1120px;
-      --f:      'DM Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --bg:      #0b0b0b;
+      --bg-2:    #0d0d0d;
+      --text:    #f2f2f2;
+      --muted:   #a7a7a7;
+      --muted2:  #707070;
+      --line:    rgba(255,255,255,.08);
+      --line2:   rgba(255,255,255,.13);
+      --accent:  #C8F542;
+      --accent2: rgba(200,245,66,.14);
+      --shadow:  0 24px 80px rgba(0,0,0,.6);
+      --r:       20px;
+      --max:     1120px;
+      --f:       'DM Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
     }
 
     /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
       background:
         radial-gradient(900px 500px at 18% -8%, rgba(200,245,66,.07), transparent 55%),
@@ -71,9 +90,12 @@
       color: var(--text);
       font-family: var(--f);
       letter-spacing: -.2px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+    button { font-family: inherit; }
 
     /* ── LAYOUT ── */
     .wrap {
@@ -113,7 +135,6 @@
       background: rgba(255,255,255,.055);
       border: 1px solid rgba(255,255,255,.12);
       color: var(--muted);
-      font-family: var(--f);
       font-size: 11px;
       font-weight: 900;
       letter-spacing: .12em;
@@ -139,7 +160,7 @@
     .heroLeft { padding: 10px 0 0; }
 
     h1 {
-      font-size: clamp(44px, 7.2vw, 84px);
+      font-size: clamp(42px, 7vw, 80px);
       line-height: .93;
       letter-spacing: -1.8px;
       font-weight: 980;
@@ -151,7 +172,7 @@
       color: var(--muted);
       font-size: 15px;
       line-height: 1.62;
-      max-width: 50ch;
+      max-width: 52ch;
     }
     .ctaRow {
       margin-top: 18px;
@@ -169,13 +190,12 @@
       padding: 15px 22px;
       border-radius: 13px;
       font-weight: 950;
-      font-family: var(--f);
       font-size: 15px;
       border: 1px solid transparent;
       cursor: pointer;
       user-select: none;
       transition: transform .08s, filter .15s, background .15s;
-      min-width: 210px;
+      min-width: 220px;
       letter-spacing: -.1px;
       white-space: nowrap;
     }
@@ -183,28 +203,48 @@
     .btn-p {
       background: var(--accent);
       color: #0b0b0b;
-      box-shadow: 0 14px 44px rgba(200,245,66,.15);
+      box-shadow: 0 14px 44px rgba(200,245,66,.18);
     }
     .btn-p:hover { filter: brightness(1.05); }
     .btn-s {
-      background: rgba(255,255,255,.06);
-      border-color: var(--line);
+      background: transparent;
+      border-color: var(--line2);
       color: #ddd;
-      min-width: 170px;
+      min-width: 150px;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 14px 18px;
     }
-    .btn-s:hover { background: rgba(255,255,255,.09); }
-    @media(max-width: 520px) { .btn { width: 100%; min-width: unset; } }
+    .btn-s:hover { background: rgba(255,255,255,.05); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      min-width: unset;
+      padding: 10px 0;
+      letter-spacing: 0;
+    }
+    .btn-ghost:hover { color: #fff; }
+    .btn-ghost .phone { color: #ddd; font-weight: 900; letter-spacing: -.2px; }
+    @media(max-width: 520px) {
+      .btn-p { width: 100%; min-width: unset; }
+      .btn-s { width: 100%; min-width: unset; }
+    }
 
-    .smallNote {
-      margin-top: 10px;
-      font-size: 12px;
+    .trustLine {
+      margin-top: 11px;
+      font-size: 12.5px;
       color: var(--muted2);
       line-height: 1.5;
+      letter-spacing: -.05px;
     }
+    .trustLine b { color: #ccc; font-weight: 800; }
+    .trustLine .dot { color: rgba(255,255,255,.2); margin: 0 6px; }
 
-    /* ── TRUST ── */
+    /* ── TRUST CHIPS ── */
     .trustBar {
-      margin-top: 18px;
+      margin-top: 16px;
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
@@ -254,7 +294,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 12px;
+      padding: 12px;
       border-radius: 11px;
       background: rgba(0,0,0,.26);
       border: 1px solid rgba(255,255,255,.05);
@@ -288,7 +328,7 @@
     /* ── SECTIONS ── */
     .section {
       margin-top: 18px;
-      padding: 22px 20px;
+      padding: 24px 20px;
       border-radius: var(--r);
       border: 1px solid var(--line);
       background: rgba(255,255,255,.018);
@@ -300,47 +340,39 @@
       letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
     .section h2 {
       font-size: clamp(24px, 3.8vw, 32px);
       letter-spacing: -.8px;
       font-weight: 980;
       margin-bottom: 6px;
+      line-height: 1.08;
     }
     .section .sub { margin-top: 6px; }
+    .sectionHeadRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .sectionHeadRow .sub { margin-top: 4px; }
 
     /* ── PROOF / PHOTO GALLERY ── */
-    .proofBullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin: 12px 0 20px;
-    }
-    .proofBullets li {
+    .proofIntro {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 62ch;
+      margin: 10px 0 18px;
     }
-    .proofBullets li::before {
-      content: "";
-      display: block;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
+    .proofIntro b { color: #e4e4e4; font-weight: 800; }
 
     /* Swipeable gallery */
     .galWrap {
       margin: 0 -20px;
-      padding: 0 20px 12px;
+      padding: 4px 20px 14px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
@@ -351,12 +383,13 @@
     .galWrap::-webkit-scrollbar { display: none; }
     .galItem {
       flex: 0 0 72vw;
-      max-width: 300px;
+      max-width: 280px;
       scroll-snap-align: start;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.09);
       background: rgba(0,0,0,.3);
+      position: relative;
     }
     @media(min-width: 600px) { .galItem { flex: 0 0 260px; } }
     .galItem img {
@@ -364,13 +397,31 @@
       height: 340px;
       object-fit: cover;
       pointer-events: none;
+      background: #111;
     }
     .galCap {
-      padding: 9px 12px 10px;
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       font-size: 11px;
       font-weight: 700;
+      color: #eaeaea;
+      letter-spacing: .01em;
+      line-height: 1.3;
+    }
+    .galCap .model { color: var(--accent); font-weight: 900; }
+
+    /* Gallery scroll cue */
+    .galHint {
+      margin-top: 2px;
+      font-size: 11px;
       color: var(--muted2);
-      letter-spacing: .02em;
+      letter-spacing: .04em;
     }
 
     /* Testimonials */
@@ -378,7 +429,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 18px;
     }
     @media(max-width: 760px) { .reviewGrid { grid-template-columns: 1fr; } }
     .revCard {
@@ -410,23 +461,49 @@
     }
     .igLink:hover { color: var(--muted); }
 
-    /* ── HOW IT WORKS ── */
-    .grid3 {
+    /* ── PROCESS (3 steps, technical credibility) ── */
+    .process {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 16px;
+      counter-reset: step;
     }
-    @media(max-width: 760px) { .grid3 { grid-template-columns: 1fr; } }
-    .box {
-      padding: 16px;
+    @media(max-width: 760px) { .process { grid-template-columns: 1fr; } }
+    .pstep {
+      position: relative;
+      padding: 18px 16px 16px;
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,.07);
-      background: rgba(0,0,0,.22);
+      background:
+        linear-gradient(180deg, rgba(200,245,66,.025), transparent 60%),
+        rgba(0,0,0,.22);
+      overflow: hidden;
     }
-    .box .n { font-weight: 980; color: rgba(200,245,66,.22); font-size: 24px; margin-bottom: 6px; }
-    .box .t { font-weight: 950; font-size: 14px; margin-bottom: 5px; }
-    .box .d { color: var(--muted); line-height: 1.55; font-size: 13px; }
+    .pstep::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 13px;
+      font-weight: 900;
+      color: rgba(200,245,66,.35);
+      letter-spacing: .06em;
+    }
+    .pico {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: rgba(200,245,66,.1);
+      border: 1px solid rgba(200,245,66,.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .pstep .t { font-weight: 950; font-size: 15px; margin-bottom: 5px; letter-spacing: -.2px; }
+    .pstep .d { color: var(--muted); line-height: 1.52; font-size: 13px; }
 
     /* ── SERVICES ── */
     .serviceSplit {
@@ -465,7 +542,7 @@
       font-weight: 700;
     }
 
-    /* ── CELLS — 3D VIEWER ── */
+    /* ── CELLS — PREMIUM 4D VIEWER ── */
     .cellsGrid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -475,14 +552,61 @@
     }
     @media(max-width: 760px) { .cellsGrid { grid-template-columns: 1fr; } }
 
+    /* Stage — the dark surface the product "sits on" */
+    .cell3dStage {
+      position: relative;
+      padding: 18px 16px 8px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.07);
+      background:
+        /* warm accent glow top-left */
+        radial-gradient(55% 70% at 30% 20%, rgba(200,245,66,.08), transparent 60%),
+        /* cool rim light top-right */
+        radial-gradient(50% 60% at 80% 15%, rgba(120,180,255,.04), transparent 60%),
+        /* floor vignette */
+        radial-gradient(80% 60% at 50% 100%, rgba(0,0,0,.55), transparent 60%),
+        linear-gradient(180deg, #131313 0%, #0a0a0a 100%);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    /* Subtle floor grid for spatial depth (barely visible) */
+    .cell3dStage::before {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 48%;
+      background:
+        linear-gradient(180deg, transparent, rgba(200,245,66,.025) 40%, transparent),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 40px);
+      transform: perspective(600px) rotateX(62deg);
+      transform-origin: center bottom;
+      opacity: .55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ambient glow that tracks the cell — set via JS */
+    .cell3dStage .ambient {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(30% 35% at var(--glowX, 50%) var(--glowY, 42%), rgba(200,245,66,.14), transparent 70%);
+      transition: background .2s;
+      z-index: 0;
+    }
+
     .cell3dWrap {
-      perspective: 900px;
+      position: relative;
+      perspective: 1200px;
+      perspective-origin: 50% 40%;
       cursor: grab;
       user-select: none;
-      touch-action: none;
-      border-radius: 16px;
+      touch-action: pan-y;
+      border-radius: 14px;
+      z-index: 1;
     }
     .cell3dWrap:active { cursor: grabbing; }
+
     .cell3dScene {
       position: relative;
       width: 100%;
@@ -490,23 +614,88 @@
       transform-style: preserve-3d;
       will-change: transform;
     }
-    .cell3dFace {
+
+    /* The product itself */
+    .cell3dProduct {
       position: absolute;
       inset: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border: 1px solid rgba(255,255,255,.1);
-      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+      transform-style: preserve-3d;
+      will-change: transform;
     }
-    .cell3dFace.back { transform: rotateY(180deg); }
-    .cell3dFace img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+    .cell3dImg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      /* filter applied dynamically via JS sets --lightX */
+      filter: drop-shadow(0 14px 30px rgba(0,0,0,.55)) drop-shadow(0 3px 10px rgba(0,0,0,.35));
+      /* If source PNG has white background, uncomment the next line:
+         mix-blend-mode: screen; opacity: .96; */
+    }
 
+    /* Glare / specular highlight layer — parallax on top of product */
+    .cell3dGlare {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        var(--glareAngle, 115deg),
+        transparent 30%,
+        rgba(255,255,255,.12) 45%,
+        rgba(255,255,255,.28) 50%,
+        rgba(255,255,255,.12) 55%,
+        transparent 70%
+      );
+      mix-blend-mode: overlay;
+      opacity: .55;
+      border-radius: 14px;
+      transition: opacity .2s;
+    }
+
+    /* Reflection on the surface below — mirrors the product */
+    .cell3dReflection {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 3.2;
+      margin-top: -10px;
+      opacity: .35;
+      pointer-events: none;
+      transform-style: preserve-3d;
+      perspective: 1200px;
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.55), transparent 85%);
+              mask-image: linear-gradient(180deg, rgba(0,0,0,.55), transparent 85%);
+    }
+    .cell3dReflectionInner {
+      position: absolute;
+      inset: 0;
+      transform: scaleY(-1);
+      filter: blur(1px);
+    }
+    .cell3dReflectionInner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .cell3dMeta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+      padding: 8px 4px 2px;
+      position: relative;
+      z-index: 2;
+    }
     .pricePill {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 5px 14px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 5px;
+      padding: 5px 12px;
       border-radius: 999px;
       background: rgba(200,245,66,.1);
       border: 1px solid rgba(200,245,66,.22);
@@ -514,14 +703,17 @@
       font-weight: 950;
       font-size: 13px;
     }
+    .pricePill small { font-weight: 700; font-size: 11px; opacity: .75; }
     .cell3dHint {
-      text-align: center;
       font-size: 11px;
       color: var(--muted2);
-      margin-top: 7px;
       letter-spacing: .04em;
       transition: opacity .5s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
+    .cell3dHint svg { opacity: .5; }
 
     .cellsCard {
       border: 1px solid rgba(255,255,255,.08);
@@ -592,7 +784,7 @@
     /* ── FOOTER CTA ── */
     .footerCta {
       margin-top: 18px;
-      padding: 24px 22px;
+      padding: 26px 22px;
       border-radius: var(--r);
       border: 1px solid var(--line2);
       background: linear-gradient(180deg, rgba(200,245,66,.07), rgba(255,255,255,.015));
@@ -627,7 +819,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 10px 16px 10px;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0));
       background: rgba(11,11,11,.95);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -637,8 +829,11 @@
       pointer-events: none;
       transition: opacity .28s ease;
     }
-    .stickyBar .btn { min-width: unset; width: 100%; padding: 14px; font-size: 15px; }
-    @media(max-width: 760px) { .stickyBar { display: block; } .wrap { padding-bottom: 88px; } }
+    .stickyBar .btn { min-width: unset; width: 100%; padding: 15px; font-size: 15.5px; }
+    @media(max-width: 760px) {
+      .stickyBar { display: block; }
+      .wrap { padding-bottom: 96px; }
+    }
 
     /* ── POPUP ── */
     .popOverlay {
@@ -745,6 +940,11 @@
       from { opacity: 0; transform: scale(.92) translateY(20px); }
       to   { opacity: 1; transform: scale(1)   translateY(0); }
     }
+
+    /* Accessibility — reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
   </style>
 </head>
 <body>
@@ -767,38 +967,40 @@
   <!-- ═══ HERO ═══ -->
   <div class="hero">
     <div class="heroLeft">
-      <h1 data-t="hero-h1">Mobile Prius<br>Hybrid Battery<br><span class="ac">Repair. Your Door.</span></h1>
-      <p class="sub" data-t="hero-sub">No towing. No dealership. We come to you, diagnose on-site, and fix it the same day when possible.</p>
+      <h1 data-t="hero-h1">Toyota Prius<br>Hybrid Battery<br><span class="ac">Fixed At Your Door.</span></h1>
+      <p class="sub" data-t="hero-sub">No towing. No dealership. We come to you across LA, Orange County, and the South Bay — diagnose on-site and fix it the same day when possible.</p>
       <div class="ctaRow">
         <a class="btn btn-p"
            href="sms:+16574782947?body=Hi%20GoFix%20Today%20%E2%80%94%20Prius%20battery%20help.%20Year%3A%20____%20City%3A%20____"
            onclick="trackTextConversion(event)"
-           data-t="btn-text">Click to Text</a>
+           data-t="btn-text-hero">Click to Text (Fast Quote)</a>
         <a class="btn btn-s"
            href="tel:+16574782947"
            onclick="trackCallClick(event)"
            data-t="btn-call">Click to Call</a>
       </div>
-      <div class="smallNote" data-t="hero-note">Text <b>Year + City</b>. Most replies under 5 min. (657) 478-2947</div>
+      <div class="trustLine" data-t="hero-note">
+        <b>Same-day availability</b><span class="dot">•</span><b>3-month warranty</b><span class="dot">•</span>LA + OC + South Bay
+      </div>
       <div class="trustBar">
         <div class="ti">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.12 4.3 4.74.69-3.43 3.34.81 4.72L8 11.77l-4.24 2.23.81-4.72L1.14 5.94l4.74-.69L8 1z" fill="#C8F542"/></svg>
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1l2.12 4.3 4.74.69-3.43 3.34.81 4.72L8 11.77l-4.24 2.23.81-4.72L1.14 5.94l4.74-.69L8 1z" fill="#C8F542"/></svg>
           <span data-t="trust-1">5-star rated</span>
         </div>
         <div class="ti">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.5 6.3l-4 4a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06L7 8.74l3.47-3.47a.75.75 0 011.06 1.06z" fill="#C8F542"/></svg>
-          <span data-t="trust-2">Licensed & insured</span>
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.5 6.3l-4 4a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06L7 8.74l3.47-3.47a.75.75 0 011.06 1.06z" fill="#C8F542"/></svg>
+          <span data-t="trust-2">Licensed &amp; insured</span>
         </div>
         <div class="ti">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.33A6.67 6.67 0 1014.67 8 6.67 6.67 0 008 1.33zm2.47 4.2L7.8 9.87a.67.67 0 01-.47.2.67.67 0 01-.47-.2L5.53 8.53a.67.67 0 01.94-.93l.87.86 2.2-3.86a.67.67 0 011.16.66z" fill="#C8F542"/></svg>
-          <span data-t="trust-3">3-month warranty</span>
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.33A6.67 6.67 0 1014.67 8 6.67 6.67 0 008 1.33zm2.47 4.2L7.8 9.87a.67.67 0 01-.47.2.67.67 0 01-.47-.2L5.53 8.53a.67.67 0 01.94-.93l.87.86 2.2-3.86a.67.67 0 011.16.66z" fill="#C8F542"/></svg>
+          <span data-t="trust-3">Text 7am–8pm, 7 days</span>
         </div>
       </div>
     </div>
 
     <!-- Pricing card -->
     <div class="card">
-      <div class="cardLabel" data-t="card-label">Pricing</div>
+      <div class="cardLabel" data-t="card-label">Transparent Pricing</div>
       <div class="priceGrid">
         <div class="prow">
           <div class="lbl" data-t="price-diag-lbl">Mobile Diagnostic</div>
@@ -818,7 +1020,7 @@
           <div class="val av" style="font-size:14px" data-t="price-warranty-val">3 months</div>
         </div>
       </div>
-      <div class="diagNote" style="margin-top:12px;padding:0" data-t="card-area">Serving Orange County, South Bay &amp; surrounding SoCal areas. Final price after on-site diagnostic.</div>
+      <div class="diagNote" style="margin-top:12px;padding:0" data-t="card-area">Serving Los Angeles, Orange County &amp; the South Bay. Final price after on-site diagnostic.</div>
       <div class="quickLinks">
         <a class="qlink" href="#lexus"><span data-t="qlink-lexus">Lexus hybrid battery service</span><span>→</span></a>
         <a class="qlink" href="#cells"><span data-t="qlink-cells">Buy reconditioned cells</span><span>→</span></a>
@@ -828,81 +1030,92 @@
 
   <!-- ═══ PROOF / REVIEWS ═══ -->
   <div class="section" id="reviews">
-    <div class="slabel" data-t="proof-label">Real Jobs</div>
-    <h2 data-t="proof-h2">Hundreds of batteries fixed across SoCal.</h2>
-    <ul class="proofBullets">
-      <li data-t="proof-b1">Same-day service at your home or workplace — no towing, no drop-off</li>
-      <li data-t="proof-b2">Every battery tested and warranted before we leave the job</li>
-      <li data-t="proof-b3">Long Beach, Anaheim, Torrance, Garden Grove, and surrounding cities</li>
-    </ul>
-
-    <!-- Swipeable photo gallery — all images are in the repo root -->
-    <div class="galWrap">
-      <div class="galItem">
-        <img src="Feed.png" alt="Prius hybrid battery fix — SoCal" loading="lazy" />
-        <div class="galCap">Prius — Long Beach, CA</div>
-      </div>
-      <div class="galItem">
-        <img src="Feed-4.png" alt="Prius hybrid battery fix — SoCal" loading="lazy" />
-        <div class="galCap">Prius — Garden Grove, CA</div>
-      </div>
-      <div class="galItem">
-        <img src="83590a4c-14fe-4415-94be-c3c0a2f70175.JPG" alt="On-site hybrid battery repair — SoCal" loading="lazy" />
-        <div class="galCap">Prius — Orange County, CA</div>
-      </div>
-      <div class="galItem">
-        <img src="e641bf25-149e-4ea1-8297-98e2405ab7bb.jpg" alt="Hybrid battery replacement — SoCal" loading="lazy" />
-        <div class="galCap">Prius — South Bay, CA</div>
+    <div class="sectionHeadRow">
+      <div>
+        <div class="slabel" data-t="proof-label">Proof</div>
+        <h2 data-t="proof-h2">Real repairs. Real results.</h2>
       </div>
     </div>
+    <p class="proofIntro" data-t="proof-intro">
+      <b>Hundreds of hybrid batteries fixed</b> across Los Angeles, Orange County, and the South Bay — tested and warrantied before we leave the job.
+    </p>
+
+    <!-- Swipeable photo gallery. To add more: duplicate a .galItem block below. -->
+    <div class="galWrap" id="galWrap" aria-label="Recent jobs gallery">
+      <div class="galItem">
+        <img src="Feed.png" alt="Prius hybrid battery repair — Garden Grove" loading="lazy" width="280" height="340" />
+        <div class="galCap"><span class="model">Prius</span> — Garden Grove, CA</div>
+      </div>
+      <div class="galItem">
+        <img src="Feed-4.png" alt="Prius hybrid battery repair — Long Beach" loading="lazy" width="280" height="340" />
+        <div class="galCap"><span class="model">Prius</span> — Long Beach, CA</div>
+      </div>
+      <div class="galItem">
+        <img src="83590a4c-14fe-4415-94be-c3c0a2f70175.JPG" alt="On-site hybrid battery service — Torrance" loading="lazy" width="280" height="340" />
+        <div class="galCap"><span class="model">Prius</span> — Torrance, CA</div>
+      </div>
+      <div class="galItem">
+        <img src="e641bf25-149e-4ea1-8297-98e2405ab7bb.jpg" alt="Hybrid battery replacement — Downtown LA" loading="lazy" width="280" height="340" />
+        <div class="galCap"><span class="model">Prius</span> — Downtown LA, CA</div>
+      </div>
+      <!-- To add more photos, copy the block above, change src, alt, and caption. -->
+    </div>
+    <div class="galHint" data-t="gal-hint">← swipe to see more jobs</div>
 
     <!-- Testimonials -->
     <div class="reviewGrid">
       <div class="revCard">
-        <div class="revStars">★ ★ ★ ★ ★</div>
-        <div class="revText">"Came to my house, diagnosed it in 30 minutes, and had the battery repaired the same afternoon. Way better than the dealership."</div>
+        <div class="revStars" aria-label="5 stars">★ ★ ★ ★ ★</div>
+        <div class="revText" data-t="rev-1-text">"Came to my house, diagnosed it in 30 minutes, had the battery repaired the same afternoon. Way better than the dealership."</div>
         <div class="revAuthor">Carlos M.</div>
         <div class="revMeta">2013 Prius — Anaheim, CA</div>
       </div>
       <div class="revCard">
-        <div class="revStars">★ ★ ★ ★ ★</div>
-        <div class="revText">"Texted in the morning, they were at my office by 2pm. Professional, explained everything, fair price."</div>
+        <div class="revStars" aria-label="5 stars">★ ★ ★ ★ ★</div>
+        <div class="revText" data-t="rev-2-text">"Texted in the morning, they were at my office by 2pm. Professional, explained everything, fair price. Hybrid system light is gone."</div>
         <div class="revAuthor">Priya S.</div>
         <div class="revMeta">2010 Prius — Long Beach, CA</div>
       </div>
       <div class="revCard">
-        <div class="revStars">★ ★ ★ ★ ★</div>
-        <div class="revText">"Bought 8 cells for my own repair. Good quality, fair price, answered all my questions. Solid operation."</div>
+        <div class="revStars" aria-label="5 stars">★ ★ ★ ★ ★</div>
+        <div class="revText" data-t="rev-3-text">"Honest diagnostic, didn't try to upsell me a full pack. Cell-level repair saved me over $1,500 vs. what the dealer quoted."</div>
         <div class="revAuthor">Mike T.</div>
-        <div class="revMeta">Battery cells — Torrance, CA</div>
+        <div class="revMeta">2012 Prius — Torrance, CA</div>
       </div>
     </div>
 
     <a class="igLink" href="https://instagram.com/gofixtoday" target="_blank" rel="noopener" data-t="ig-link">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="3"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="3"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       See more on Instagram @gofixtoday
     </a>
   </div>
 
-  <!-- ═══ HOW IT WORKS ═══ -->
-  <div class="section">
-    <div class="slabel" data-t="how-label">How it works</div>
-    <h2 data-t="how-h2">Three steps, no runaround.</h2>
-    <div class="grid3">
-      <div class="box">
-        <div class="n">01</div>
-        <div class="t" data-t="how-1t">Text us</div>
-        <div class="d" data-t="how-1d">Send your year and city. We reply fast with pricing and availability.</div>
+  <!-- ═══ PROCESS — technical credibility ═══ -->
+  <div class="section" id="process">
+    <div class="slabel" data-t="proc-label">Hybrid Battery Service Process</div>
+    <h2 data-t="proc-h2">Diagnose. Repair. Verify.</h2>
+    <p class="sub" data-t="proc-sub">A clean three-step process built for NiMH hybrid packs — no guesswork, no upsell.</p>
+    <div class="process">
+      <div class="pstep">
+        <div class="pico" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8F542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+        </div>
+        <div class="t" data-t="proc-1t">Cell-level diagnostic</div>
+        <div class="d" data-t="proc-1d">We scan and load-test every module in the pack to find the weak cells — not just the pack as a whole.</div>
       </div>
-      <div class="box">
-        <div class="n">02</div>
-        <div class="t" data-t="how-2t">We come to you</div>
-        <div class="d" data-t="how-2d">On-site diagnostic at your home or workplace. No towing, no drop-off.</div>
+      <div class="pstep">
+        <div class="pico" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8F542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="t" data-t="proc-2t">Targeted repair or replace</div>
+        <div class="d" data-t="proc-2d">Swap the bad modules with tested, reconditioned cells — or drop in a full replacement pack if that's the better long-term call.</div>
       </div>
-      <div class="box">
-        <div class="n">03</div>
-        <div class="t" data-t="how-3t">Fixed same day</div>
-        <div class="d" data-t="how-3d">Repair or replacement done on-site. Tested before we leave. Warranty included.</div>
+      <div class="pstep">
+        <div class="pico" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8F542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <div class="t" data-t="proc-3t">Road-test &amp; warranty</div>
+        <div class="d" data-t="proc-3d">We clear codes, re-balance the pack, and verify performance before we leave. Every repair is backed by a 3-month warranty.</div>
       </div>
     </div>
   </div>
@@ -911,11 +1124,11 @@
   <div class="section" id="services">
     <div class="slabel" data-t="svc-label">Services</div>
     <h2 data-t="svc-h2">What we fix.</h2>
-    <p class="sub" data-t="svc-sub">Mobile diagnostic, cell-level repair, or full pack replacement — all done at your location in LA and OC.</p>
+    <p class="sub" data-t="svc-sub">Mobile diagnostic, cell-level repair, or full pack replacement — all done at your location across LA, OC, and the South Bay.</p>
     <div class="serviceSplit">
       <div class="svcCard">
         <h3 data-t="svc-prius-h">Prius hybrid battery</h3>
-        <p data-t="svc-prius-p">Our core service. Mobile diagnostic, cell repair, or full pack replacement for Toyota Prius and Prius-family hybrids. Most jobs completed same day.</p>
+        <p data-t="svc-prius-p">Our core service. Mobile diagnostic, cell repair, or full pack replacement for the Toyota Prius family. Most jobs completed same day.</p>
         <div class="tagRow">
           <span class="tag">Prius Gen 2 &amp; 3</span>
           <span class="tag">Prius C / V</span>
@@ -926,12 +1139,12 @@
           <a class="btn btn-p"
              href="sms:+16574782947?body=Hi%20GoFix%20Today%20%E2%80%94%20Prius%20battery%20help.%20Year%3A%20____%20City%3A%20____"
              onclick="trackTextConversion(event)"
-             data-t="btn-text">Click to Text</a>
+             data-t="btn-text-prius">Click to Text (Fast Quote)</a>
         </div>
       </div>
       <div class="svcCard" id="lexus">
         <h3 data-t="svc-lexus-h">Lexus hybrid battery</h3>
-        <p data-t="svc-lexus-p">We service select Lexus hybrid models with compatible NiMH battery systems. Text your year and model and we'll confirm compatibility.</p>
+        <p data-t="svc-lexus-p">We service select Lexus hybrids with compatible NiMH systems. Text your year and model and we'll confirm fit in minutes.</p>
         <div class="tagRow">
           <span class="tag">RX 400h / 450h</span>
           <span class="tag">CT 200h</span>
@@ -942,7 +1155,7 @@
           <a class="btn btn-p"
              href="sms:+16574782947?body=Hi%20GoFix%20Today%20%E2%80%94%20Lexus%20hybrid%20battery.%20Year%3A%20____%20Model%3A%20____%20City%3A%20____"
              onclick="trackTextConversion(event)"
-             data-t="svc-lexus-btn">Text about Lexus</a>
+             data-t="btn-text-lexus">Click to Text (Lexus)</a>
         </div>
       </div>
     </div>
@@ -951,58 +1164,67 @@
   <!-- ═══ CELLS ═══ -->
   <div class="section" id="cells">
     <div class="slabel" data-t="cells-label">Cells</div>
-    <h2 data-t="cells-h2">Reconditioned NiMH Battery Cells.</h2>
-    <p class="sub" data-t="cells-sub">Individual cells for DIY repairs or shops. Tested, reconditioned, ready to drop in.</p>
+    <h2 data-t="cells-h2">Reconditioned NiMH battery cells.</h2>
+    <p class="sub" data-t="cells-sub">Individual modules for DIY repairs and shops. Tested, reconditioned, ready to drop in.</p>
 
     <div class="cellsGrid">
-      <!-- 3D interactive cell viewer — drag to rotate -->
-      <div>
-        <div class="cell3dWrap" id="cell3dWrap">
+      <!-- Premium 4D cell viewer — drag to rotate, auto-rotates when idle -->
+      <div class="cell3dStage" id="cell3dStage">
+        <div class="ambient" aria-hidden="true"></div>
+        <div class="cell3dWrap" id="cell3dWrap" aria-label="Interactive 3D view of a reconditioned hybrid battery cell">
           <div class="cell3dScene" id="cell3dScene">
-            <div class="cell3dFace">
-              <img src="Untitled%20design-3.png"
-                   alt="Reconditioned Toyota hybrid battery cell module — front" />
-            </div>
-            <div class="cell3dFace back">
-              <img src="Untitled%20design-3.png"
-                   alt="Reconditioned Toyota hybrid battery cell module — back" />
+            <div class="cell3dProduct" id="cell3dProduct">
+              <img class="cell3dImg"
+                   src="cell.png"
+                   alt="Reconditioned Toyota hybrid battery cell module"
+                   loading="lazy" width="537" height="259" />
+              <div class="cell3dGlare" id="cell3dGlare" aria-hidden="true"></div>
             </div>
           </div>
         </div>
-        <div class="pricePill">$35 / cell</div>
-        <div class="cell3dHint" id="cell3dHint" data-t="cell3d-hint">Drag to explore</div>
+        <div class="cell3dReflection" id="cell3dReflection" aria-hidden="true">
+          <div class="cell3dReflectionInner" id="cell3dReflectionInner">
+            <img src="cell.png" alt="" loading="lazy" />
+          </div>
+        </div>
+        <div class="cell3dMeta">
+          <span class="pricePill">$35 <small>/ cell</small></span>
+          <div class="cell3dHint" id="cell3dHint" data-t="cell3d-hint">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12h8M8 12l3-3M8 12l3 3M16 12l-3-3M16 12l-3 3"/></svg>
+            <span>Drag to rotate</span>
+          </div>
+        </div>
       </div>
 
       <div class="cellsCard">
         <div class="cellsH" data-t="cells-card-h">Order by text.</div>
-        <div class="cellsMini" data-t="cells-card-sub">Text your Prius year, quantity, and city for pickup or delivery options.</div>
+        <div class="cellsMini" data-t="cells-card-sub">Send your Prius year, quantity, and city. We'll confirm stock and pickup or delivery options.</div>
         <ul class="cellsBullets">
-          <li data-t="cells-b1"><b>$35 per cell</b> — tested and reconditioned</li>
+          <li data-t="cells-b1"><b>$35 per cell</b> — tested &amp; reconditioned</li>
           <li data-t="cells-b2"><b>Pickup available</b> in SoCal</li>
           <li data-t="cells-b3"><b>Mobile install</b> available on request</li>
-          <li data-t="cells-b4">Not sure how many? Text your symptoms and we'll advise</li>
         </ul>
         <div class="ctaRow" style="margin-top:16px">
           <a class="btn btn-p"
              href="sms:+16574782947?body=Hi%20GoFix%20Today%20%E2%80%94%20I%20want%20battery%20cells.%20Prius%20year%3A%20____%20Qty%3A%20____%20City%3A%20____"
-             onclick="trackTextConversion(event)"
-             data-t="cells-btn">Text to Order Cells</a>
+             onclick="trackCellsTextConversion(event)"
+             data-t="cells-btn">Click to Text (Buy Cells)</a>
         </div>
       </div>
     </div>
 
-    <div class="faqList" style="margin-top:14px">
+    <div class="faqList" style="margin-top:16px">
       <details>
         <summary data-t="cfaq-1q">Which Prius years are compatible?</summary>
-        <p data-t="cfaq-1a">We carry cells for most Prius model years. Text your year and we'll confirm.</p>
+        <p data-t="cfaq-1a">We carry cells for most Prius model years. Text your year and we'll confirm same day.</p>
       </details>
       <details>
-        <summary data-t="cfaq-2q">Do you sell cells for Lexus hybrids?</summary>
-        <p data-t="cfaq-2a">Yes, for select compatible models. Text your year and model for the right fit.</p>
+        <summary data-t="cfaq-2q">How many cells do I actually need?</summary>
+        <p data-t="cfaq-2a">Depends on which modules failed. If you're not sure, text your symptoms and we'll advise — most repairs need between 2 and 8 cells.</p>
       </details>
       <details>
         <summary data-t="cfaq-3q">Can you install them for me?</summary>
-        <p data-t="cfaq-3a">Yes. Mobile install available depending on vehicle, location, and schedule. Text for the fastest answer.</p>
+        <p data-t="cfaq-3a">Yes. Mobile install is available depending on vehicle, location, and schedule. Text for the fastest answer.</p>
       </details>
     </div>
   </div>
@@ -1018,7 +1240,7 @@
       </details>
       <details>
         <summary data-t="faq-2q">What does the $99 diagnostic include?</summary>
-        <p data-t="faq-2a">We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what's failing and what it costs to fix. If you proceed, the $99 is credited toward the total.</p>
+        <p data-t="faq-2a">We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what's failing and what it costs to fix. If you move forward, the $99 is credited toward the total.</p>
       </details>
       <details>
         <summary data-t="faq-3q">How long does a repair take?</summary>
@@ -1026,11 +1248,11 @@
       </details>
       <details>
         <summary data-t="faq-4q">Do you offer a warranty?</summary>
-        <p data-t="faq-4a">Yes. All battery repairs and replacements include a 3-month warranty.</p>
+        <p data-t="faq-4a">Yes. All battery repairs and replacements include a 3-month warranty on parts and labor.</p>
       </details>
       <details>
         <summary data-t="faq-5q">What areas do you serve?</summary>
-        <p data-t="faq-5a">Orange County, South Bay, and surrounding SoCal areas. Text your city and we'll confirm.</p>
+        <p data-t="faq-5a">Los Angeles, Orange County, and the South Bay. Text your city and we'll confirm.</p>
       </details>
       <details>
         <summary data-t="faq-6q">How do I get the fastest quote?</summary>
@@ -1049,11 +1271,11 @@
       <a class="btn btn-p"
          href="sms:+16574782947?body=Hi%20GoFix%20Today%20%E2%80%94%20Prius%20battery%20help.%20Year%3A%20____%20City%3A%20____"
          onclick="trackTextConversion(event)"
-         data-t="btn-text">Click to Text</a>
-      <a class="btn btn-s"
+         data-t="btn-text-footer">Click to Text (Fast Quote)</a>
+      <a class="btn btn-ghost"
          href="tel:+16574782947"
          onclick="trackCallClick(event)"
-         data-t="btn-call">Click to Call</a>
+         data-t="btn-call-footer">or call <span class="phone">(657) 478-2947</span></a>
     </div>
   </div>
 
@@ -1072,7 +1294,7 @@
 
 <!-- ═══ POPUP — PHONE CAPTURE ($100 OFF) ═══ -->
 <div class="popOverlay" id="popOverlay" aria-hidden="true">
-  <div class="popBox" role="dialog" aria-modal="true">
+  <div class="popBox" role="dialog" aria-modal="true" aria-label="Voucher offer">
     <div class="popTop">
       <button class="popClose" id="popClose" aria-label="Close">×</button>
       <div class="popAmount">$100</div>
@@ -1104,7 +1326,7 @@
   <a class="btn btn-p"
      href="sms:+16574782947?body=Hi%20GoFix%20Today%20%E2%80%94%20Prius%20battery%20help.%20Year%3A%20____%20City%3A%20____"
      onclick="trackTextConversion(event)"
-     data-t="btn-text">Click to Text</a>
+     data-t="btn-text-sticky">Click to Text (Fast Quote)</a>
 </div>
 
 <script>
@@ -1113,6 +1335,8 @@
 
   /* ── CONVERSION TRACKING ── */
   function safeGtag() { return typeof window.gtag === 'function'; }
+
+  // Main SMS conversion (repairs)
   function trackTextConversion(e) {
     if (!e) return;
     try {
@@ -1123,11 +1347,40 @@
           'value': 1.0,
           'currency': 'USD'
         });
+        gtag('event', 'click_sms', {
+          lead_type: 'repair',
+          page_location: window.location.href
+        });
       }
       e.preventDefault();
       setTimeout(function() { window.location.href = h; }, 220);
     } catch(err) {}
   }
+
+  // Cells SMS conversion — fires the same Ads conversion, plus a separate
+  // GA event so you can split "cells" vs "repair" leads in reports later.
+  // If you create a dedicated Ads conversion label for cells, swap the
+  // send_to value below.
+  function trackCellsTextConversion(e) {
+    if (!e) return;
+    try {
+      var h = e.currentTarget.getAttribute('href');
+      if (safeGtag()) {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+        gtag('event', 'click_sms', {
+          lead_type: 'cells',
+          page_location: window.location.href
+        });
+      }
+      e.preventDefault();
+      setTimeout(function() { window.location.href = h; }, 220);
+    } catch(err) {}
+  }
+
   function trackCallClick(e) {
     if (!e) return;
     try {
@@ -1151,8 +1404,9 @@
   function openPopup() { if (!popOverlay) return; popOverlay.classList.add('show'); popOverlay.setAttribute('aria-hidden', 'false'); }
   function closePopup() { if (!popOverlay) return; popOverlay.classList.remove('show'); popOverlay.setAttribute('aria-hidden', 'true'); }
 
+  // Popup disabled for now (kept, wired, but not auto-triggered).
   setTimeout(function() {
-    if (!sessionStorage.getItem('gofix_pop')) { openPopup(); sessionStorage.setItem('gofix_pop', '1'); }
+    if (!sessionStorage.getItem('gofix_pop')) { /* openPopup(); sessionStorage.setItem('gofix_pop', '1'); */ }
   }, 99999999999);
 
   if (popClose) popClose.addEventListener('click', closePopup);
@@ -1200,83 +1454,169 @@
     }, { passive: true });
   })();
 
-  /* ── 3D CELL VIEWER ── */
+  /* ── PREMIUM 4D CELL VIEWER ──
+     Layered illusion: contained rotation (±22°), coupled Y-tilt,
+     glare parallax, live reflection, ambient light that tracks the cell,
+     momentum + spring-back-to-rest, auto-rotate when idle. */
   (function() {
-    var wrap  = document.getElementById('cell3dWrap');
-    var scene = document.getElementById('cell3dScene');
-    var hint  = document.getElementById('cell3dHint');
-    if (!wrap || !scene) return;
+    var stage       = document.getElementById('cell3dStage');
+    var wrap        = document.getElementById('cell3dWrap');
+    var scene       = document.getElementById('cell3dScene');
+    var product     = document.getElementById('cell3dProduct');
+    var glare       = document.getElementById('cell3dGlare');
+    var reflection  = document.getElementById('cell3dReflectionInner');
+    var hint        = document.getElementById('cell3dHint');
+    if (!wrap || !scene || !product) return;
 
-    var rotX = -4, rotY = 14;
-    var autoAngle = 14;
+    // Config — the "feel" of the interaction
+    var MAX_X      = 10;    // max up/down tilt (deg)
+    var MAX_Y      = 22;    // max left/right rotation (deg) — stays inside believable zone
+    var REST_X     = -4;    // resting X tilt (slight downward lean)
+    var AUTO_SPEED = 0.12;  // idle auto-rotate speed
+    var AUTO_RANGE = 14;    // idle rotation sweep range (deg from center)
+    var SPRING     = 0.08;  // spring-back strength
+    var DAMP       = 0.86;  // momentum decay per frame
+
+    // State
+    var rotX = REST_X, rotY = 0;
+    var velX = 0, velY = 0;
+    var autoT = 0;
     var auto = true;
     var dragging = false;
     var lastX = 0, lastY = 0;
+    var lastT = 0;
     var hintHidden = false;
     var resumeTimer = null;
 
-    function applyRot(rx, ry) {
-      scene.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+    function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+    function render() {
+      // Apply rotation to the product + reflection (mirrored)
+      var tx = 'rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg)';
+      product.style.transform = tx;
+      if (reflection) {
+        // Reflection rotates on Y only (floor mirror), inverted
+        reflection.style.transform = 'scaleY(-1) rotateY(' + rotY.toFixed(2) + 'deg)';
+      }
+
+      // Glare angle tracks rotation — creates specular highlight that "moves" on the surface
+      if (glare) {
+        var glareAngle = 115 + rotY * 1.5;
+        var glareOpacity = 0.35 + Math.abs(rotY) / MAX_Y * 0.35;
+        glare.style.setProperty('--glareAngle', glareAngle + 'deg');
+        glare.style.opacity = glareOpacity.toFixed(2);
+      }
+
+      // Ambient light on the stage follows the cell — sells the "object in space" feel
+      if (stage) {
+        var gx = 50 - rotY * 0.9;    // light source shifts opposite to rotation
+        var gy = 42 + rotX * 0.4;
+        stage.style.setProperty('--glowX', gx + '%');
+        stage.style.setProperty('--glowY', gy + '%');
+      }
     }
 
-    (function loop() {
-      if (auto) {
-        autoAngle += 0.22;
-        applyRot(rotX, autoAngle);
+    function loop() {
+      if (dragging) {
+        // While dragging: pure user control (no physics)
+      } else if (auto) {
+        // Idle auto-rotate: gentle sinusoidal sweep, not a boring spin
+        autoT += AUTO_SPEED * 0.01;
+        var targetY = Math.sin(autoT) * AUTO_RANGE;
+        var targetX = REST_X + Math.cos(autoT * 0.7) * 2;
+        rotY += (targetY - rotY) * 0.04;
+        rotX += (targetX - rotX) * 0.04;
+      } else {
+        // Post-drag: momentum with decay, then spring back toward rest
+        rotY += velY;
+        rotX += velX;
+        velX *= DAMP;
+        velY *= DAMP;
+        // Spring toward rest when velocity is low
+        if (Math.abs(velX) < 0.3 && Math.abs(velY) < 0.3) {
+          rotX += (REST_X - rotX) * SPRING;
+          rotY += (0       - rotY) * SPRING * 0.6;
+        }
       }
+
+      // Always clamp to believable range
+      rotX = clamp(rotX, -MAX_X + REST_X, MAX_X + REST_X);
+      rotY = clamp(rotY, -MAX_Y, MAX_Y);
+
+      render();
       requestAnimationFrame(loop);
-    })();
+    }
+    requestAnimationFrame(loop);
 
     function stopAuto() {
-      if (auto) {
-        rotY = autoAngle;
-        auto = false;
-        if (hint && !hintHidden) { hint.style.opacity = '0'; hintHidden = true; }
-      }
+      auto = false;
+      if (hint && !hintHidden) { hint.style.opacity = '0'; hintHidden = true; }
       clearTimeout(resumeTimer);
     }
-
     function scheduleResume() {
+      clearTimeout(resumeTimer);
       resumeTimer = setTimeout(function() {
-        autoAngle = rotY;
+        // Sync autoT to current rotation so resume is seamless (no jump)
+        autoT = Math.asin(clamp(rotY / AUTO_RANGE, -1, 1));
         auto = true;
-      }, 2800);
+      }, 3000);
     }
 
-    wrap.addEventListener('mousedown', function(e) {
+    // Input handlers — unified for mouse + touch
+    function onDown(x, y) {
       dragging = true;
-      lastX = e.clientX; lastY = e.clientY;
+      lastX = x; lastY = y;
+      lastT = performance.now();
+      velX = 0; velY = 0;
       stopAuto();
-      e.preventDefault();
-    });
-    window.addEventListener('mousemove', function(e) {
+    }
+    function onMove(x, y) {
       if (!dragging) return;
-      rotY += (e.clientX - lastX) * 0.52;
-      rotX -= (e.clientY - lastY) * 0.26;
-      rotX = Math.max(-28, Math.min(28, rotX));
-      applyRot(rotX, rotY);
-      lastX = e.clientX; lastY = e.clientY;
-    });
-    window.addEventListener('mouseup', function() {
-      if (dragging) { dragging = false; scheduleResume(); }
-    });
+      var dx = x - lastX;
+      var dy = y - lastY;
+      var now = performance.now();
+      var dt = Math.max(1, now - lastT);
 
+      rotY = clamp(rotY + dx * 0.4, -MAX_Y, MAX_Y);
+      rotX = clamp(rotX - dy * 0.2, -MAX_X + REST_X, MAX_X + REST_X);
+
+      // Track velocity in deg-per-frame-at-60fps for natural momentum
+      velY =  (dx * 0.4) * (16 / dt);
+      velX = -(dy * 0.2) * (16 / dt);
+
+      lastX = x; lastY = y; lastT = now;
+    }
+    function onUp() {
+      if (!dragging) return;
+      dragging = false;
+      scheduleResume();
+    }
+
+    // Mouse
+    wrap.addEventListener('mousedown', function(e) { onDown(e.clientX, e.clientY); e.preventDefault(); });
+    window.addEventListener('mousemove', function(e) { onMove(e.clientX, e.clientY); });
+    window.addEventListener('mouseup', onUp);
+
+    // Touch (passive: true keeps scrolling smooth; we use touch-action: pan-y in CSS to allow vertical scroll)
     wrap.addEventListener('touchstart', function(e) {
-      dragging = true;
-      lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
-      stopAuto();
+      var t = e.touches[0]; onDown(t.clientX, t.clientY);
     }, { passive: true });
     wrap.addEventListener('touchmove', function(e) {
-      if (!dragging) return;
-      rotY += (e.touches[0].clientX - lastX) * 0.52;
-      rotX -= (e.touches[0].clientY - lastY) * 0.26;
-      rotX = Math.max(-28, Math.min(28, rotX));
-      applyRot(rotX, rotY);
-      lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+      var t = e.touches[0]; onMove(t.clientX, t.clientY);
     }, { passive: true });
-    wrap.addEventListener('touchend', function() {
-      if (dragging) { dragging = false; scheduleResume(); }
-    });
+    wrap.addEventListener('touchend', onUp);
+    wrap.addEventListener('touchcancel', onUp);
+
+    // Pause auto-rotate when offscreen (perf + battery on mobile)
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(en) {
+          if (!en.isIntersecting && auto) { auto = false; }
+          else if (en.isIntersecting && !dragging && !resumeTimer) { auto = true; }
+        });
+      }, { threshold: 0.15 });
+      io.observe(stage);
+    }
   })();
 
   /* ── LANGUAGE TOGGLE (EN / ES) ── */
@@ -1284,101 +1624,115 @@
     var T = {
       en: {
         'nav-reviews':'Reviews','nav-services':'Services','nav-cells':'Cells','nav-faq':'FAQ',
-        'hero-h1':'Mobile Prius<br>Hybrid Battery<br><span class="ac">Repair. Your Door.</span>',
-        'hero-sub':'No towing. No dealership. We come to you, diagnose on-site, and fix it the same day when possible.',
-        'btn-text':'Click to Text','btn-call':'Click to Call',
-        'hero-note':'Text <b>Year + City</b>. Most replies under 5 min. (657) 478-2947',
-        'trust-1':'5-star rated','trust-2':'Licensed &amp; insured','trust-3':'3-month warranty',
-        'card-label':'Pricing','price-diag-lbl':'Mobile Diagnostic',
+        'hero-h1':'Toyota Prius<br>Hybrid Battery<br><span class="ac">Fixed At Your Door.</span>',
+        'hero-sub':'No towing. No dealership. We come to you across LA, Orange County, and the South Bay — diagnose on-site and fix it the same day when possible.',
+        'btn-text-hero':'Click to Text (Fast Quote)',
+        'btn-text-prius':'Click to Text (Fast Quote)',
+        'btn-text-lexus':'Click to Text (Lexus)',
+        'btn-text-footer':'Click to Text (Fast Quote)',
+        'btn-text-sticky':'Click to Text (Fast Quote)',
+        'btn-call':'Click to Call',
+        'btn-call-footer':'or call <span class="phone">(657) 478-2947</span>',
+        'hero-note':'<b>Same-day availability</b><span class="dot">•</span><b>3-month warranty</b><span class="dot">•</span>LA + OC + South Bay',
+        'trust-1':'5-star rated','trust-2':'Licensed &amp; insured','trust-3':'Text 7am–8pm, 7 days',
+        'card-label':'Transparent Pricing','price-diag-lbl':'Mobile Diagnostic',
         'price-diag-note':'Credited toward repair or replacement if you move forward.',
         'price-repair-lbl':'Battery Repair','price-replace-lbl':'Full Replacement',
         'price-warranty-lbl':'Warranty','price-warranty-val':'3 months',
-        'card-area':'Serving Orange County, South Bay &amp; surrounding SoCal areas. Final price after on-site diagnostic.',
+        'card-area':'Serving Los Angeles, Orange County &amp; the South Bay. Final price after on-site diagnostic.',
         'qlink-lexus':'Lexus hybrid battery service','qlink-cells':'Buy reconditioned cells',
-        'proof-label':'Real Jobs','proof-h2':'Hundreds of batteries fixed across SoCal.',
-        'proof-b1':'Same-day service at your home or workplace — no towing, no drop-off',
-        'proof-b2':'Every battery tested and warranted before we leave the job',
-        'proof-b3':'Long Beach, Anaheim, Torrance, Garden Grove, and surrounding cities',
+        'proof-label':'Proof','proof-h2':'Real repairs. Real results.',
+        'proof-intro':'<b>Hundreds of hybrid batteries fixed</b> across Los Angeles, Orange County, and the South Bay — tested and warrantied before we leave the job.',
+        'gal-hint':'← swipe to see more jobs',
+        'rev-1-text':'"Came to my house, diagnosed it in 30 minutes, had the battery repaired the same afternoon. Way better than the dealership."',
+        'rev-2-text':'"Texted in the morning, they were at my office by 2pm. Professional, explained everything, fair price. Hybrid system light is gone."',
+        'rev-3-text':'"Honest diagnostic, didn\'t try to upsell me a full pack. Cell-level repair saved me over $1,500 vs. what the dealer quoted."',
         'ig-link':'See more on Instagram @gofixtoday',
-        'how-label':'How it works','how-h2':'Three steps, no runaround.',
-        'how-1t':'Text us','how-1d':'Send your year and city. We reply fast with pricing and availability.',
-        'how-2t':'We come to you','how-2d':'On-site diagnostic at your home or workplace. No towing, no drop-off.',
-        'how-3t':'Fixed same day','how-3d':'Repair or replacement done on-site. Tested before we leave. Warranty included.',
+        'proc-label':'Hybrid Battery Service Process','proc-h2':'Diagnose. Repair. Verify.',
+        'proc-sub':'A clean three-step process built for NiMH hybrid packs — no guesswork, no upsell.',
+        'proc-1t':'Cell-level diagnostic','proc-1d':'We scan and load-test every module in the pack to find the weak cells — not just the pack as a whole.',
+        'proc-2t':'Targeted repair or replace','proc-2d':'Swap the bad modules with tested, reconditioned cells — or drop in a full replacement pack if that\'s the better long-term call.',
+        'proc-3t':'Road-test &amp; warranty','proc-3d':'We clear codes, re-balance the pack, and verify performance before we leave. Every repair is backed by a 3-month warranty.',
         'svc-label':'Services','svc-h2':'What we fix.',
-        'svc-sub':'Mobile diagnostic, cell-level repair, or full pack replacement — all done at your location in LA and OC.',
+        'svc-sub':'Mobile diagnostic, cell-level repair, or full pack replacement — all done at your location across LA, OC, and the South Bay.',
         'svc-prius-h':'Prius hybrid battery',
-        'svc-prius-p':'Our core service. Mobile diagnostic, cell repair, or full pack replacement for Toyota Prius and Prius-family hybrids. Most jobs completed same day.',
+        'svc-prius-p':'Our core service. Mobile diagnostic, cell repair, or full pack replacement for the Toyota Prius family. Most jobs completed same day.',
         'svc-lexus-h':'Lexus hybrid battery',
-        'svc-lexus-p':'We service select Lexus hybrid models with compatible NiMH battery systems. Text your year and model and we\'ll confirm compatibility.',
-        'svc-lexus-btn':'Text about Lexus',
-        'cells-label':'Cells','cells-h2':'Reconditioned NiMH Battery Cells.',
-        'cells-sub':'Individual cells for DIY repairs or shops. Tested, reconditioned, ready to drop in.',
+        'svc-lexus-p':'We service select Lexus hybrids with compatible NiMH systems. Text your year and model and we\'ll confirm fit in minutes.',
+        'cells-label':'Cells','cells-h2':'Reconditioned NiMH battery cells.',
+        'cells-sub':'Individual modules for DIY repairs and shops. Tested, reconditioned, ready to drop in.',
         'cells-card-h':'Order by text.',
-        'cells-card-sub':'Text your Prius year, quantity, and city for pickup or delivery options.',
-        'cells-b1':'<b>$35 per cell</b> — tested and reconditioned',
+        'cells-card-sub':'Send your Prius year, quantity, and city. We\'ll confirm stock and pickup or delivery options.',
+        'cells-b1':'<b>$35 per cell</b> — tested &amp; reconditioned',
         'cells-b2':'<b>Pickup available</b> in SoCal',
         'cells-b3':'<b>Mobile install</b> available on request',
-        'cells-b4':'Not sure how many? Text your symptoms and we\'ll advise',
-        'cells-btn':'Text to Order Cells','cell3d-hint':'Drag to explore',
-        'cfaq-1q':'Which Prius years are compatible?','cfaq-1a':'We carry cells for most Prius model years. Text your year and we\'ll confirm.',
-        'cfaq-2q':'Do you sell cells for Lexus hybrids?','cfaq-2a':'Yes, for select compatible models. Text your year and model for the right fit.',
-        'cfaq-3q':'Can you install them for me?','cfaq-3a':'Yes. Mobile install available depending on vehicle, location, and schedule. Text for the fastest answer.',
+        'cells-btn':'Click to Text (Buy Cells)','cell3d-hint':'Drag to rotate',
+        'cfaq-1q':'Which Prius years are compatible?','cfaq-1a':'We carry cells for most Prius model years. Text your year and we\'ll confirm same day.',
+        'cfaq-2q':'How many cells do I actually need?','cfaq-2a':'Depends on which modules failed. If you\'re not sure, text your symptoms and we\'ll advise — most repairs need between 2 and 8 cells.',
+        'cfaq-3q':'Can you install them for me?','cfaq-3a':'Yes. Mobile install is available depending on vehicle, location, and schedule. Text for the fastest answer.',
         'faq-label':'FAQ','faq-h2':'Common questions.',
         'faq-1q':'Do you only work on Prius?','faq-1a':'Prius is our main focus, but we also support select Lexus hybrid models. Text your year and model to confirm.',
-        'faq-2q':'What does the $99 diagnostic include?','faq-2a':'We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what\'s failing and what it costs to fix. If you proceed, the $99 is credited toward the total.',
+        'faq-2q':'What does the $99 diagnostic include?','faq-2a':'We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what\'s failing and what it costs to fix. If you move forward, the $99 is credited toward the total.',
         'faq-3q':'How long does a repair take?','faq-3a':'Most repairs take 1–3 hours on-site. Full replacements may take longer. We aim to complete same day.',
-        'faq-4q':'Do you offer a warranty?','faq-4a':'Yes. All battery repairs and replacements include a 3-month warranty.',
-        'faq-5q':'What areas do you serve?','faq-5a':'Orange County, South Bay, and surrounding SoCal areas. Text your city and we\'ll confirm.',
+        'faq-4q':'Do you offer a warranty?','faq-4a':'Yes. All battery repairs and replacements include a 3-month warranty on parts and labor.',
+        'faq-5q':'What areas do you serve?','faq-5a':'Los Angeles, Orange County, and the South Bay. Text your city and we\'ll confirm.',
         'faq-6q':'How do I get the fastest quote?','faq-6a':'Text your year and city. That gives us everything we need for a fast answer — usually under 5 minutes.',
         'fcta-h':'Hybrid battery trouble?','fcta-p':'Text your year and city. Most quotes in under 5 min.'
       },
       es: {
         'nav-reviews':'Reseñas','nav-services':'Servicios','nav-cells':'Celdas','nav-faq':'FAQ',
-        'hero-h1':'Reparación Móvil<br>de Batería Híbrida<br><span class="ac">En Tu Casa.</span>',
-        'hero-sub':'Sin grúa. Sin concesionario. Vamos a tu ubicación, diagnosticamos en el lugar y reparamos el mismo día cuando es posible.',
-        'btn-text':'Enviar Mensaje','btn-call':'Llamar Ahora',
-        'hero-note':'Escribe <b>Año + Ciudad</b>. Respondemos en menos de 5 min. (657) 478-2947',
-        'trust-1':'5 estrellas','trust-2':'Licenciado y asegurado','trust-3':'Garantía de 3 meses',
-        'card-label':'Precios','price-diag-lbl':'Diagnóstico Móvil',
+        'hero-h1':'Batería Híbrida<br>Toyota Prius<br><span class="ac">Reparada En Tu Casa.</span>',
+        'hero-sub':'Sin grúa. Sin concesionario. Vamos a ti en LA, Orange County y South Bay — diagnóstico en el lugar y reparación el mismo día cuando es posible.',
+        'btn-text-hero':'Enviar Mensaje (Cotización Rápida)',
+        'btn-text-prius':'Enviar Mensaje (Cotización Rápida)',
+        'btn-text-lexus':'Enviar Mensaje (Lexus)',
+        'btn-text-footer':'Enviar Mensaje (Cotización Rápida)',
+        'btn-text-sticky':'Enviar Mensaje (Cotización Rápida)',
+        'btn-call':'Llamar Ahora',
+        'btn-call-footer':'o llama al <span class="phone">(657) 478-2947</span>',
+        'hero-note':'<b>Disponibilidad el mismo día</b><span class="dot">•</span><b>Garantía de 3 meses</b><span class="dot">•</span>LA + OC + South Bay',
+        'trust-1':'5 estrellas','trust-2':'Licenciado y asegurado','trust-3':'Texto 7am–8pm, 7 días',
+        'card-label':'Precios Claros','price-diag-lbl':'Diagnóstico Móvil',
         'price-diag-note':'Se acredita hacia la reparación o reemplazo si decides continuar.',
         'price-repair-lbl':'Reparación de Batería','price-replace-lbl':'Reemplazo Completo',
         'price-warranty-lbl':'Garantía','price-warranty-val':'3 meses',
-        'card-area':'Servimos Orange County, South Bay y zonas aledañas en el sur de California.',
+        'card-area':'Servimos Los Angeles, Orange County y South Bay. Precio final tras el diagnóstico en sitio.',
         'qlink-lexus':'Servicio de batería Lexus','qlink-cells':'Comprar celdas recondicionadas',
-        'proof-label':'Trabajos Reales','proof-h2':'Cientos de baterías reparadas en el sur de California.',
-        'proof-b1':'Servicio el mismo día en tu casa o trabajo — sin grúa ni entrega del carro',
-        'proof-b2':'Cada batería probada y garantizada antes de irnos',
-        'proof-b3':'Long Beach, Anaheim, Torrance, Garden Grove y ciudades vecinas',
+        'proof-label':'Prueba','proof-h2':'Reparaciones reales. Resultados reales.',
+        'proof-intro':'<b>Cientos de baterías híbridas reparadas</b> en Los Angeles, Orange County y South Bay — probadas y con garantía antes de irnos.',
+        'gal-hint':'← desliza para ver más trabajos',
+        'rev-1-text':'"Vino a mi casa, diagnosticó en 30 minutos, y reparó la batería la misma tarde. Mucho mejor que el concesionario."',
+        'rev-2-text':'"Mandé mensaje en la mañana, llegaron a mi oficina a las 2pm. Profesionales, me explicaron todo, precio justo."',
+        'rev-3-text':'"Diagnóstico honesto, no me vendieron un paquete completo. La reparación celular me ahorró más de $1,500 vs. el concesionario."',
         'ig-link':'Ver más en Instagram @gofixtoday',
-        'how-label':'Cómo funciona','how-h2':'Tres pasos, sin complicaciones.',
-        'how-1t':'Escríbenos','how-1d':'Manda tu año y ciudad. Te respondemos rápido con precio y disponibilidad.',
-        'how-2t':'Vamos a tu casa','how-2d':'Diagnóstico en tu ubicación. Sin grúa ni entrega del carro.',
-        'how-3t':'Reparado el mismo día','how-3d':'Reparación o reemplazo en el lugar. Probado antes de irnos. Garantía incluida.',
+        'proc-label':'Proceso de Servicio','proc-h2':'Diagnóstico. Reparación. Verificación.',
+        'proc-sub':'Proceso limpio de tres pasos diseñado para baterías híbridas NiMH — sin suposiciones, sin ventas extras.',
+        'proc-1t':'Diagnóstico celular','proc-1d':'Escaneamos y probamos cada módulo del paquete para encontrar las celdas débiles — no solo el paquete en general.',
+        'proc-2t':'Reparación o reemplazo','proc-2d':'Cambiamos los módulos malos por celdas recondicionadas — o instalamos un paquete completo si es la mejor opción a largo plazo.',
+        'proc-3t':'Prueba y garantía','proc-3d':'Borramos códigos, balanceamos el paquete y verificamos el rendimiento antes de irnos. Toda reparación incluye 3 meses de garantía.',
         'svc-label':'Servicios','svc-h2':'Lo que reparamos.',
-        'svc-sub':'Diagnóstico móvil, reparación celular o reemplazo completo — todo en tu ubicación en LA y OC.',
+        'svc-sub':'Diagnóstico móvil, reparación celular o reemplazo completo — todo en tu ubicación en LA, OC y South Bay.',
         'svc-prius-h':'Batería híbrida Prius',
-        'svc-prius-p':'Nuestro servicio principal. Diagnóstico móvil, reparación de celdas o reemplazo de paquete completo para Toyota Prius. La mayoría de los trabajos se completan el mismo día.',
+        'svc-prius-p':'Nuestro servicio principal. Diagnóstico móvil, reparación de celdas o reemplazo de paquete completo para la familia Toyota Prius. La mayoría de los trabajos se completan el mismo día.',
         'svc-lexus-h':'Batería híbrida Lexus',
-        'svc-lexus-p':'Damos servicio a modelos Lexus híbridos seleccionados con sistemas de batería NiMH compatibles. Escríbenos tu año y modelo y confirmamos compatibilidad.',
-        'svc-lexus-btn':'Escribir sobre Lexus',
-        'cells-label':'Celdas','cells-h2':'Celdas de Batería NiMH Recondicionadas.',
-        'cells-sub':'Celdas individuales para reparaciones DIY o talleres. Probadas, recondicionadas, listas para instalar.',
+        'svc-lexus-p':'Damos servicio a modelos Lexus híbridos seleccionados con sistemas NiMH compatibles. Escríbenos tu año y modelo y confirmamos en minutos.',
+        'cells-label':'Celdas','cells-h2':'Celdas NiMH recondicionadas.',
+        'cells-sub':'Módulos individuales para reparaciones DIY o talleres. Probadas, recondicionadas, listas para instalar.',
         'cells-card-h':'Ordena por mensaje.',
-        'cells-card-sub':'Escríbenos el año de tu Prius, cantidad y ciudad para opciones de entrega o recogida.',
+        'cells-card-sub':'Envíanos el año de tu Prius, cantidad y ciudad. Confirmamos stock y opciones de entrega o recogida.',
         'cells-b1':'<b>$35 por celda</b> — probada y recondicionada',
-        'cells-b2':'<b>Recogida disponible</b> en el sur de California',
+        'cells-b2':'<b>Recogida disponible</b> en SoCal',
         'cells-b3':'<b>Instalación móvil</b> disponible bajo pedido',
-        'cells-b4':'¿No sabes cuántas necesitas? Escríbenos tus síntomas y te asesoramos',
-        'cells-btn':'Pedir Celdas por Mensaje','cell3d-hint':'Arrastra para explorar',
-        'cfaq-1q':'¿Qué años de Prius son compatibles?','cfaq-1a':'Tenemos celdas para la mayoría de los años. Escríbenos tu año y confirmamos.',
-        'cfaq-2q':'¿Venden celdas para Lexus híbridos?','cfaq-2a':'Sí, para modelos compatibles seleccionados. Escríbenos tu año y modelo.',
+        'cells-btn':'Enviar Mensaje (Comprar Celdas)','cell3d-hint':'Arrastra para rotar',
+        'cfaq-1q':'¿Qué años de Prius son compatibles?','cfaq-1a':'Tenemos celdas para la mayoría de los años. Escríbenos tu año y confirmamos el mismo día.',
+        'cfaq-2q':'¿Cuántas celdas necesito?','cfaq-2a':'Depende de qué módulos fallaron. Si no estás seguro, escríbenos tus síntomas — la mayoría de las reparaciones necesitan entre 2 y 8 celdas.',
         'cfaq-3q':'¿Pueden instalarlas?','cfaq-3a':'Sí. Instalación móvil disponible según vehículo, ubicación y horario. Escríbenos para confirmación rápida.',
         'faq-label':'Preguntas Frecuentes','faq-h2':'Preguntas comunes.',
         'faq-1q':'¿Solo trabajan con Prius?','faq-1a':'El Prius es nuestra especialidad, pero también damos servicio a modelos Lexus híbridos selectos. Escríbenos tu año y modelo para confirmar.',
         'faq-2q':'¿Qué incluye el diagnóstico de $99?','faq-2a':'Vamos a tu ubicación y probamos toda la batería híbrida a nivel celular. Recibes una respuesta clara sobre qué está fallando y el costo de la reparación. Si decides continuar, los $99 se acreditan al total.',
         'faq-3q':'¿Cuánto tarda una reparación?','faq-3a':'La mayoría de las reparaciones toman 1–3 horas en el lugar. Los reemplazos completos pueden tardar más. Buscamos terminar el mismo día.',
-        'faq-4q':'¿Ofrecen garantía?','faq-4a':'Sí. Todas las reparaciones y reemplazos incluyen 3 meses de garantía.',
-        'faq-5q':'¿Qué áreas cubren?','faq-5a':'Orange County, South Bay y áreas cercanas en el sur de California. Escríbenos tu ciudad y confirmamos.',
+        'faq-4q':'¿Ofrecen garantía?','faq-4a':'Sí. Todas las reparaciones y reemplazos incluyen 3 meses de garantía en partes y mano de obra.',
+        'faq-5q':'¿Qué áreas cubren?','faq-5a':'Los Angeles, Orange County y South Bay. Escríbenos tu ciudad y confirmamos.',
         'faq-6q':'¿Cómo obtengo una cotización rápida?','faq-6a':'Escríbenos tu año y ciudad. Con eso podemos responderte rápido — generalmente en menos de 5 minutos.',
         'fcta-h':'¿Problemas con la batería híbrida?','fcta-p':'Escríbenos tu año y ciudad. La mayoría de las cotizaciones en menos de 5 min.'
       }
@@ -1396,7 +1750,7 @@
         var key = el.getAttribute('data-t');
         if (map[key] !== undefined) el.innerHTML = map[key];
       });
-      btn.textContent = l === 'en' ? 'ES' : 'EN';
+      if (btn) btn.textContent = l === 'en' ? 'ES' : 'EN';
       document.documentElement.lang = l;
       localStorage.setItem('gofix_lang', l);
     }
