@@ -45,8 +45,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0b0b" />
-  <title>GO FIX TODAY — Mobile Prius &amp; Lexus Hybrid Battery Repair (LA + OC)</title>
-  <meta name="description" content="Same-day mobile Prius and Lexus hybrid battery repair across Los Angeles, Orange County, and the South Bay. $99 on-site diagnostic credited toward repair. 3-month warranty. Text for a fast quote." />
+  <title>GO FIX TODAY — Mobile Prius Hybrid Battery Replacement &amp; Repair (LA + OC)</title>
+  <meta name="description" content="Same-day mobile Prius hybrid battery replacement and repair across Los Angeles, Orange County, and the South Bay. From $399 repair, from $999 full replacement, $99 diagnostic credited toward service, and 1-year warranty on full replacement." />
 
   <!-- Google Ads — do not remove or reorder -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17973103075"></script>
@@ -559,17 +559,13 @@
       border-radius: 20px;
       border: 1px solid rgba(255,255,255,.07);
       background:
-        /* warm accent glow top-left */
         radial-gradient(55% 70% at 30% 20%, rgba(200,245,66,.08), transparent 60%),
-        /* cool rim light top-right */
         radial-gradient(50% 60% at 80% 15%, rgba(120,180,255,.04), transparent 60%),
-        /* floor vignette */
         radial-gradient(80% 60% at 50% 100%, rgba(0,0,0,.55), transparent 60%),
         linear-gradient(180deg, #131313 0%, #0a0a0a 100%);
       overflow: hidden;
       isolation: isolate;
     }
-    /* Subtle floor grid for spatial depth (barely visible) */
     .cell3dStage::before {
       content: "";
       position: absolute;
@@ -585,7 +581,6 @@
       z-index: 0;
     }
 
-    /* Ambient glow that tracks the cell — set via JS */
     .cell3dStage .ambient {
       position: absolute;
       inset: 0;
@@ -615,7 +610,6 @@
       will-change: transform;
     }
 
-    /* The product itself */
     .cell3dProduct {
       position: absolute;
       inset: 0;
@@ -629,13 +623,9 @@
       height: 100%;
       object-fit: contain;
       pointer-events: none;
-      /* filter applied dynamically via JS sets --lightX */
       filter: drop-shadow(0 14px 30px rgba(0,0,0,.55)) drop-shadow(0 3px 10px rgba(0,0,0,.35));
-      /* If source PNG has white background, uncomment the next line:
-         mix-blend-mode: screen; opacity: .96; */
     }
 
-    /* Glare / specular highlight layer — parallax on top of product */
     .cell3dGlare {
       position: absolute;
       inset: 0;
@@ -654,7 +644,6 @@
       transition: opacity .2s;
     }
 
-    /* Reflection on the surface below — mirrors the product */
     .cell3dReflection {
       position: relative;
       width: 100%;
@@ -967,20 +956,20 @@
   <!-- ═══ HERO ═══ -->
   <div class="hero">
     <div class="heroLeft">
-      <h1 data-t="hero-h1">Toyota Prius<br>Hybrid Battery<br><span class="ac">Fixed At Your Door.</span></h1>
-      <p class="sub" data-t="hero-sub">No towing. No dealership. We come to you across LA, Orange County, and the South Bay — diagnose on-site and fix it the same day when possible.</p>
+      <h1 data-t="hero-h1">Prius Hybrid Battery<br><span class="ac">Replacement At Your Door.</span></h1>
+      <p class="sub" data-t="hero-sub">Mobile hybrid battery replacement and repair across LA, Orange County, and the South Bay. From $399 repair, from $999 full replacement, and 1-year warranty on full replacement.</p>
       <div class="ctaRow">
         <a class="btn btn-p"
            href="sms:+16574782947?body=Hi%20GoFix%20Today%20%E2%80%94%20Prius%20battery%20help.%20Year%3A%20____%20City%3A%20____"
            onclick="trackTextConversion(event)"
-           data-t="btn-text-hero">Click to Text (Fast Quote)</a>
+           data-t="btn-text-hero">Text My Year &amp; City for a Quote</a>
         <a class="btn btn-s"
            href="tel:+16574782947"
            onclick="trackCallClick(event)"
            data-t="btn-call">Click to Call</a>
       </div>
       <div class="trustLine" data-t="hero-note">
-        <b>Same-day availability</b><span class="dot">•</span><b>3-month warranty</b><span class="dot">•</span>LA + OC + South Bay
+        <b>Same-day availability</b><span class="dot">•</span><b>1-year warranty on full replacement</b><span class="dot">•</span>LA + OC + South Bay
       </div>
       <div class="trustBar">
         <div class="ti">
@@ -989,7 +978,7 @@
         </div>
         <div class="ti">
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.5 6.3l-4 4a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06L7 8.74l3.47-3.47a.75.75 0 011.06 1.06z" fill="#C8F542"/></svg>
-          <span data-t="trust-2">Licensed &amp; insured</span>
+          <span data-t="trust-2">Local hybrid battery specialists</span>
         </div>
         <div class="ti">
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.33A6.67 6.67 0 1014.67 8 6.67 6.67 0 008 1.33zm2.47 4.2L7.8 9.87a.67.67 0 01-.47.2.67.67 0 01-.47-.2L5.53 8.53a.67.67 0 01.94-.93l.87.86 2.2-3.86a.67.67 0 011.16.66z" fill="#C8F542"/></svg>
@@ -1007,20 +996,25 @@
           <div class="val av">$99</div>
         </div>
         <div class="diagNote" data-t="price-diag-note">Credited toward repair or replacement if you move forward.</div>
+
         <div class="prow">
-          <div class="lbl" data-t="price-repair-lbl">Battery Repair</div>
+          <div class="lbl" data-t="price-repair-lbl">Repair Option</div>
           <div class="val">from <span class="av">$399</span></div>
         </div>
+        <div class="diagNote" data-t="price-repair-note">Best when only a few weak modules are failing.</div>
+
         <div class="prow">
           <div class="lbl" data-t="price-replace-lbl">Full Replacement</div>
           <div class="val">from <span class="av">$999</span></div>
         </div>
+        <div class="diagNote" data-t="price-replace-note">Best long-term option. Includes 1-year warranty.</div>
+
         <div class="prow">
-          <div class="lbl" data-t="price-warranty-lbl">Warranty</div>
-          <div class="val av" style="font-size:14px" data-t="price-warranty-val">3 months</div>
+          <div class="lbl" data-t="price-warranty-lbl">Full Replacement Warranty</div>
+          <div class="val av" style="font-size:14px" data-t="price-warranty-val">1 year</div>
         </div>
       </div>
-      <div class="diagNote" style="margin-top:12px;padding:0" data-t="card-area">Serving Los Angeles, Orange County &amp; the South Bay. Final price after on-site diagnostic.</div>
+      <div class="diagNote" style="margin-top:12px;padding:0" data-t="card-area">Serving LA, Orange County &amp; the South Bay. Recent jobs: Garden Grove • Long Beach • Torrance • Downtown LA. Final price after diagnostic.</div>
       <div class="quickLinks">
         <a class="qlink" href="#lexus"><span data-t="qlink-lexus">Lexus hybrid battery service</span><span>→</span></a>
         <a class="qlink" href="#cells"><span data-t="qlink-cells">Buy reconditioned cells</span><span>→</span></a>
@@ -1037,7 +1031,7 @@
       </div>
     </div>
     <p class="proofIntro" data-t="proof-intro">
-      <b>Hundreds of hybrid batteries fixed</b> across Los Angeles, Orange County, and the South Bay — tested and warrantied before we leave the job.
+      <b>Real mobile hybrid battery jobs across SoCal.</b> We diagnose the pack, explain whether repair or full replacement makes more sense, and verify performance before we leave.
     </p>
 
     <!-- Swipeable photo gallery. To add more: duplicate a .galItem block below. -->
@@ -1058,7 +1052,6 @@
         <img src="e641bf25-149e-4ea1-8297-98e2405ab7bb.jpg" alt="Toyota Prius 2014 hybrid battery replacement — Downtown LA" loading="lazy" width="280" height="340" />
         <div class="galCap"><span class="model">Prius 2014</span> — Downtown LA, CA</div>
       </div>
-      <!-- To add more photos, copy the block above, change src, alt, and caption. -->
     </div>
     <div class="galHint" data-t="gal-hint">← swipe to see more jobs</div>
 
@@ -1094,7 +1087,7 @@
   <div class="section" id="process">
     <div class="slabel" data-t="proc-label">Hybrid Battery Service Process</div>
     <h2 data-t="proc-h2">Diagnose. Repair. Verify.</h2>
-    <p class="sub" data-t="proc-sub">A clean three-step process built for NiMH hybrid packs — no guesswork, no upsell.</p>
+    <p class="sub" data-t="proc-sub">A simple three-step process built for Prius and Toyota/Lexus NiMH hybrid packs — diagnose first, then choose repair or replacement.</p>
     <div class="process">
       <div class="pstep">
         <div class="pico" aria-hidden="true">
@@ -1107,15 +1100,15 @@
         <div class="pico" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8F542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
-        <div class="t" data-t="proc-2t">Targeted repair or replace</div>
-        <div class="d" data-t="proc-2d">Swap the bad modules with tested, reconditioned cells — or drop in a full replacement pack if that's the better long-term call.</div>
+        <div class="t" data-t="proc-2t">Repair or full replacement</div>
+        <div class="d" data-t="proc-2d">If only a few modules are weak, repair may save money. If the pack is too degraded, full replacement is the safer long-term option.</div>
       </div>
       <div class="pstep">
         <div class="pico" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8F542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         </div>
-        <div class="t" data-t="proc-3t">Road-test &amp; warranty</div>
-        <div class="d" data-t="proc-3d">We clear codes, re-balance the pack, and verify performance before we leave. Every repair is backed by a 3-month warranty.</div>
+        <div class="t" data-t="proc-3t">Road-test &amp; verification</div>
+        <div class="d" data-t="proc-3d">We clear codes, verify the hybrid system, and confirm the car is ready. Full replacements include a 1-year warranty.</div>
       </div>
     </div>
   </div>
@@ -1123,12 +1116,12 @@
   <!-- ═══ SERVICES ═══ -->
   <div class="section" id="services">
     <div class="slabel" data-t="svc-label">Services</div>
-    <h2 data-t="svc-h2">What we fix.</h2>
-    <p class="sub" data-t="svc-sub">Mobile diagnostic, cell-level repair, or full pack replacement — all done at your location across LA, OC, and the South Bay.</p>
+    <h2 data-t="svc-h2">Repair or replacement, at your location.</h2>
+    <p class="sub" data-t="svc-sub">We help Prius and select Lexus hybrid owners choose the most cost-effective option: targeted repair or full battery replacement.</p>
     <div class="serviceSplit">
       <div class="svcCard">
         <h3 data-t="svc-prius-h">Prius hybrid battery</h3>
-        <p data-t="svc-prius-p">Our core service. Mobile diagnostic, cell repair, or full pack replacement for the Toyota Prius family. Most jobs completed same day.</p>
+        <p data-t="svc-prius-p">Our core service. Mobile diagnostic, repair option from $399, or full replacement from $999 with 1-year warranty. Most jobs completed same day when parts are available.</p>
         <div class="tagRow">
           <span class="tag">Prius Gen 2 &amp; 3</span>
           <span class="tag">Prius C / V</span>
@@ -1248,7 +1241,7 @@
       </details>
       <details>
         <summary data-t="faq-4q">Do you offer a warranty?</summary>
-        <p data-t="faq-4a">Yes. All battery repairs and replacements include a 3-month warranty on parts and labor.</p>
+        <p data-t="faq-4a">Yes. Full hybrid battery replacements include a 1-year warranty. Repair warranty terms depend on the diagnostic result and the condition of the existing battery pack.</p>
       </details>
       <details>
         <summary data-t="faq-5q">What areas do you serve?</summary>
@@ -1264,8 +1257,8 @@
   <!-- ═══ FOOTER CTA ═══ -->
   <div class="footerCta">
     <div>
-      <h3 data-t="fcta-h">Hybrid battery trouble?</h3>
-      <p data-t="fcta-p">Text your year and city. Most quotes in under 5 min.</p>
+      <h3 data-t="fcta-h">Need Prius battery replacement or repair?</h3>
+      <p data-t="fcta-p">Text your year and city. We’ll confirm repair vs replacement options fast.</p>
     </div>
     <div class="ctaRow" style="margin-top:0">
       <a class="btn btn-p"
@@ -1314,7 +1307,7 @@
           </label>
         </form>
         <div class="popOrCall"><a href="tel:+16574782947" onclick="trackCallClick(event)">or call (657) 478-2947</a></div>
-        <div class="popTerms">$99 diagnostic credited toward repair. New customers. SoCal only.<br>Msg &amp; data rates may apply.</div>
+        <div class="popTerms">$99 diagnostic credited toward repair or full replacement. 1-year warranty applies to full replacement only. New customers. SoCal only.<br>Msg &amp; data rates may apply.</div>
       </div>
       <div class="popSuccess" id="popSuccess">Check your phone — we'll text you the voucher shortly.</div>
     </div>
@@ -1404,10 +1397,13 @@
   function openPopup() { if (!popOverlay) return; popOverlay.classList.add('show'); popOverlay.setAttribute('aria-hidden', 'false'); }
   function closePopup() { if (!popOverlay) return; popOverlay.classList.remove('show'); popOverlay.setAttribute('aria-hidden', 'true'); }
 
-  // Popup disabled for now (kept, wired, but not auto-triggered).
+  // Popup enabled with 15s delay.
   setTimeout(function() {
-    if (!sessionStorage.getItem('gofix_pop')) { /* openPopup(); sessionStorage.setItem('gofix_pop', '1'); */ }
-  }, 99999999999);
+    if (!sessionStorage.getItem('gofix_pop')) {
+      openPopup();
+      sessionStorage.setItem('gofix_pop', '1');
+    }
+  }, 15000);
 
   if (popClose) popClose.addEventListener('click', closePopup);
   if (popOverlay) popOverlay.addEventListener('click', function(e) { if (e.target === popOverlay) closePopup(); });
@@ -1469,13 +1465,13 @@
     if (!wrap || !scene || !product) return;
 
     // Config — the "feel" of the interaction
-    var MAX_X      = 10;    // max up/down tilt (deg)
-    var MAX_Y      = 22;    // max left/right rotation (deg) — stays inside believable zone
-    var REST_X     = -4;    // resting X tilt (slight downward lean)
-    var AUTO_SPEED = 0.12;  // idle auto-rotate speed
-    var AUTO_RANGE = 14;    // idle rotation sweep range (deg from center)
-    var SPRING     = 0.08;  // spring-back strength
-    var DAMP       = 0.86;  // momentum decay per frame
+    var MAX_X      = 10;
+    var MAX_Y      = 22;
+    var REST_X     = -4;
+    var AUTO_SPEED = 0.12;
+    var AUTO_RANGE = 14;
+    var SPRING     = 0.08;
+    var DAMP       = 0.86;
 
     // State
     var rotX = REST_X, rotY = 0;
@@ -1491,15 +1487,12 @@
     function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
     function render() {
-      // Apply rotation to the product + reflection (mirrored)
       var tx = 'rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg)';
       product.style.transform = tx;
       if (reflection) {
-        // Reflection rotates on Y only (floor mirror), inverted
         reflection.style.transform = 'scaleY(-1) rotateY(' + rotY.toFixed(2) + 'deg)';
       }
 
-      // Glare angle tracks rotation — creates specular highlight that "moves" on the surface
       if (glare) {
         var glareAngle = 115 + rotY * 1.5;
         var glareOpacity = 0.35 + Math.abs(rotY) / MAX_Y * 0.35;
@@ -1507,9 +1500,8 @@
         glare.style.opacity = glareOpacity.toFixed(2);
       }
 
-      // Ambient light on the stage follows the cell — sells the "object in space" feel
       if (stage) {
-        var gx = 50 - rotY * 0.9;    // light source shifts opposite to rotation
+        var gx = 50 - rotY * 0.9;
         var gy = 42 + rotX * 0.4;
         stage.style.setProperty('--glowX', gx + '%');
         stage.style.setProperty('--glowY', gy + '%');
@@ -1518,28 +1510,25 @@
 
     function loop() {
       if (dragging) {
-        // While dragging: pure user control (no physics)
+        // While dragging: pure user control.
       } else if (auto) {
-        // Idle auto-rotate: gentle sinusoidal sweep, not a boring spin
         autoT += AUTO_SPEED * 0.01;
         var targetY = Math.sin(autoT) * AUTO_RANGE;
         var targetX = REST_X + Math.cos(autoT * 0.7) * 2;
         rotY += (targetY - rotY) * 0.04;
         rotX += (targetX - rotX) * 0.04;
       } else {
-        // Post-drag: momentum with decay, then spring back toward rest
         rotY += velY;
         rotX += velX;
         velX *= DAMP;
         velY *= DAMP;
-        // Spring toward rest when velocity is low
+
         if (Math.abs(velX) < 0.3 && Math.abs(velY) < 0.3) {
           rotX += (REST_X - rotX) * SPRING;
           rotY += (0       - rotY) * SPRING * 0.6;
         }
       }
 
-      // Always clamp to believable range
       rotX = clamp(rotX, -MAX_X + REST_X, MAX_X + REST_X);
       rotY = clamp(rotY, -MAX_Y, MAX_Y);
 
@@ -1556,13 +1545,11 @@
     function scheduleResume() {
       clearTimeout(resumeTimer);
       resumeTimer = setTimeout(function() {
-        // Sync autoT to current rotation so resume is seamless (no jump)
         autoT = Math.asin(clamp(rotY / AUTO_RANGE, -1, 1));
         auto = true;
       }, 3000);
     }
 
-    // Input handlers — unified for mouse + touch
     function onDown(x, y) {
       dragging = true;
       lastX = x; lastY = y;
@@ -1580,7 +1567,6 @@
       rotY = clamp(rotY + dx * 0.4, -MAX_Y, MAX_Y);
       rotX = clamp(rotX - dy * 0.2, -MAX_X + REST_X, MAX_X + REST_X);
 
-      // Track velocity in deg-per-frame-at-60fps for natural momentum
       velY =  (dx * 0.4) * (16 / dt);
       velX = -(dy * 0.2) * (16 / dt);
 
@@ -1592,12 +1578,10 @@
       scheduleResume();
     }
 
-    // Mouse
     wrap.addEventListener('mousedown', function(e) { onDown(e.clientX, e.clientY); e.preventDefault(); });
     window.addEventListener('mousemove', function(e) { onMove(e.clientX, e.clientY); });
     window.addEventListener('mouseup', onUp);
 
-    // Touch (passive: true keeps scrolling smooth; we use touch-action: pan-y in CSS to allow vertical scroll)
     wrap.addEventListener('touchstart', function(e) {
       var t = e.touches[0]; onDown(t.clientX, t.clientY);
     }, { passive: true });
@@ -1607,7 +1591,6 @@
     wrap.addEventListener('touchend', onUp);
     wrap.addEventListener('touchcancel', onUp);
 
-    // Pause auto-rotate when offscreen (perf + battery on mobile)
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function(entries) {
         entries.forEach(function(en) {
@@ -1624,39 +1607,41 @@
     var T = {
       en: {
         'nav-reviews':'Reviews','nav-services':'Services','nav-cells':'Cells','nav-faq':'FAQ',
-        'hero-h1':'Toyota Prius<br>Hybrid Battery<br><span class="ac">Fixed At Your Door.</span>',
-        'hero-sub':'No towing. No dealership. We come to you across LA, Orange County, and the South Bay — diagnose on-site and fix it the same day when possible.',
-        'btn-text-hero':'Click to Text (Fast Quote)',
+        'hero-h1':'Prius Hybrid Battery<br><span class="ac">Replacement At Your Door.</span>',
+        'hero-sub':'Mobile hybrid battery replacement and repair across LA, Orange County, and the South Bay. From $399 repair, from $999 full replacement, and 1-year warranty on full replacement.',
+        'btn-text-hero':'Text My Year & City for a Quote',
         'btn-text-prius':'Click to Text (Fast Quote)',
         'btn-text-lexus':'Click to Text (Lexus)',
         'btn-text-footer':'Click to Text (Fast Quote)',
         'btn-text-sticky':'Click to Text (Fast Quote)',
         'btn-call':'Click to Call',
         'btn-call-footer':'or call <span class="phone">(657) 478-2947</span>',
-        'hero-note':'<b>Same-day availability</b><span class="dot">•</span><b>3-month warranty</b><span class="dot">•</span>LA + OC + South Bay',
-        'trust-1':'5-star rated','trust-2':'Licensed &amp; insured','trust-3':'Text 7am–8pm, 7 days',
+        'hero-note':'<b>Same-day availability</b><span class="dot">•</span><b>1-year warranty on full replacement</b><span class="dot">•</span>LA + OC + South Bay',
+        'trust-1':'5-star rated','trust-2':'Local hybrid battery specialists','trust-3':'Text 7am–8pm, 7 days',
         'card-label':'Transparent Pricing','price-diag-lbl':'Mobile Diagnostic',
         'price-diag-note':'Credited toward repair or replacement if you move forward.',
-        'price-repair-lbl':'Battery Repair','price-replace-lbl':'Full Replacement',
-        'price-warranty-lbl':'Warranty','price-warranty-val':'3 months',
-        'card-area':'Serving Los Angeles, Orange County &amp; the South Bay. Final price after on-site diagnostic.',
+        'price-repair-lbl':'Repair Option','price-replace-lbl':'Full Replacement',
+        'price-repair-note':'Best when only a few weak modules are failing.',
+        'price-replace-note':'Best long-term option. Includes 1-year warranty.',
+        'price-warranty-lbl':'Full Replacement Warranty','price-warranty-val':'1 year',
+        'card-area':'Serving LA, Orange County &amp; the South Bay. Recent jobs: Garden Grove • Long Beach • Torrance • Downtown LA. Final price after diagnostic.',
         'qlink-lexus':'Lexus hybrid battery service','qlink-cells':'Buy reconditioned cells',
         'proof-label':'Proof','proof-h2':'Real repairs. Real results.',
-        'proof-intro':'<b>Hundreds of hybrid batteries fixed</b> across Los Angeles, Orange County, and the South Bay — tested and warrantied before we leave the job.',
+        'proof-intro':'<b>Real mobile hybrid battery jobs across SoCal.</b> We diagnose the pack, explain whether repair or full replacement makes more sense, and verify performance before we leave.',
         'gal-hint':'← swipe to see more jobs',
         'rev-1-text':'"Came to my house, diagnosed it in 30 minutes, had the battery repaired the same afternoon. Way better than the dealership."',
         'rev-2-text':'"Texted in the morning, they were at my office by 2pm. Professional, explained everything, fair price. Hybrid system light is gone."',
         'rev-3-text':'"Honest diagnostic, didn\'t try to upsell me a full pack. Cell-level repair saved me over $1,500 vs. what the dealer quoted."',
         'ig-link':'See more on Instagram @gofixtoday',
         'proc-label':'Hybrid Battery Service Process','proc-h2':'Diagnose. Repair. Verify.',
-        'proc-sub':'A clean three-step process built for NiMH hybrid packs — no guesswork, no upsell.',
+        'proc-sub':'A simple three-step process built for Prius and Toyota/Lexus NiMH hybrid packs — diagnose first, then choose repair or replacement.',
         'proc-1t':'Cell-level diagnostic','proc-1d':'We scan and load-test every module in the pack to find the weak cells — not just the pack as a whole.',
-        'proc-2t':'Targeted repair or replace','proc-2d':'Swap the bad modules with tested, reconditioned cells — or drop in a full replacement pack if that\'s the better long-term call.',
-        'proc-3t':'Road-test &amp; warranty','proc-3d':'We clear codes, re-balance the pack, and verify performance before we leave. Every repair is backed by a 3-month warranty.',
-        'svc-label':'Services','svc-h2':'What we fix.',
-        'svc-sub':'Mobile diagnostic, cell-level repair, or full pack replacement — all done at your location across LA, OC, and the South Bay.',
+        'proc-2t':'Repair or full replacement','proc-2d':'If only a few modules are weak, repair may save money. If the pack is too degraded, full replacement is the safer long-term option.',
+        'proc-3t':'Road-test &amp; verification','proc-3d':'We clear codes, verify the hybrid system, and confirm the car is ready. Full replacements include a 1-year warranty.',
+        'svc-label':'Services','svc-h2':'Repair or replacement, at your location.',
+        'svc-sub':'We help Prius and select Lexus hybrid owners choose the most cost-effective option: targeted repair or full battery replacement.',
         'svc-prius-h':'Prius hybrid battery',
-        'svc-prius-p':'Our core service. Mobile diagnostic, cell repair, or full pack replacement for the Toyota Prius family. Most jobs completed same day.',
+        'svc-prius-p':'Our core service. Mobile diagnostic, repair option from $399, or full replacement from $999 with 1-year warranty. Most jobs completed same day when parts are available.',
         'svc-lexus-h':'Lexus hybrid battery',
         'svc-lexus-p':'We service select Lexus hybrids with compatible NiMH systems. Text your year and model and we\'ll confirm fit in minutes.',
         'cells-label':'Cells','cells-h2':'Reconditioned NiMH battery cells.',
@@ -1674,46 +1659,48 @@
         'faq-1q':'Do you only work on Prius?','faq-1a':'Prius is our main focus, but we also support select Lexus hybrid models. Text your year and model to confirm.',
         'faq-2q':'What does the $99 diagnostic include?','faq-2a':'We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what\'s failing and what it costs to fix. If you move forward, the $99 is credited toward the total.',
         'faq-3q':'How long does a repair take?','faq-3a':'Most repairs take 1–3 hours on-site. Full replacements may take longer. We aim to complete same day.',
-        'faq-4q':'Do you offer a warranty?','faq-4a':'Yes. All battery repairs and replacements include a 3-month warranty on parts and labor.',
+        'faq-4q':'Do you offer a warranty?','faq-4a':'Yes. Full hybrid battery replacements include a 1-year warranty. Repair warranty terms depend on the diagnostic result and the condition of the existing battery pack.',
         'faq-5q':'What areas do you serve?','faq-5a':'Los Angeles, Orange County, and the South Bay. Text your city and we\'ll confirm.',
         'faq-6q':'How do I get the fastest quote?','faq-6a':'Text your year and city. That gives us everything we need for a fast answer — usually under 5 minutes.',
-        'fcta-h':'Hybrid battery trouble?','fcta-p':'Text your year and city. Most quotes in under 5 min.'
+        'fcta-h':'Need Prius battery replacement or repair?','fcta-p':'Text your year and city. We’ll confirm repair vs replacement options fast.'
       },
       es: {
         'nav-reviews':'Reseñas','nav-services':'Servicios','nav-cells':'Celdas','nav-faq':'FAQ',
-        'hero-h1':'Batería Híbrida<br>Toyota Prius<br><span class="ac">Reparada En Tu Casa.</span>',
-        'hero-sub':'Sin grúa. Sin concesionario. Vamos a ti en LA, Orange County y South Bay — diagnóstico en el lugar y reparación el mismo día cuando es posible.',
-        'btn-text-hero':'Enviar Mensaje (Cotización Rápida)',
+        'hero-h1':'Batería Híbrida Prius<br><span class="ac">Reemplazada En Tu Casa.</span>',
+        'hero-sub':'Reemplazo y reparación móvil de batería híbrida en LA, Orange County y South Bay. Reparación desde $399, reemplazo completo desde $999 y garantía de 1 año en reemplazo completo.',
+        'btn-text-hero':'Enviar Año y Ciudad Para Cotización',
         'btn-text-prius':'Enviar Mensaje (Cotización Rápida)',
         'btn-text-lexus':'Enviar Mensaje (Lexus)',
         'btn-text-footer':'Enviar Mensaje (Cotización Rápida)',
         'btn-text-sticky':'Enviar Mensaje (Cotización Rápida)',
         'btn-call':'Llamar Ahora',
         'btn-call-footer':'o llama al <span class="phone">(657) 478-2947</span>',
-        'hero-note':'<b>Disponibilidad el mismo día</b><span class="dot">•</span><b>Garantía de 3 meses</b><span class="dot">•</span>LA + OC + South Bay',
-        'trust-1':'5 estrellas','trust-2':'Licenciado y asegurado','trust-3':'Texto 7am–8pm, 7 días',
+        'hero-note':'<b>Disponibilidad el mismo día</b><span class="dot">•</span><b>Garantía de 1 año en reemplazo completo</b><span class="dot">•</span>LA + OC + South Bay',
+        'trust-1':'5 estrellas','trust-2':'Especialistas locales en baterías híbridas','trust-3':'Texto 7am–8pm, 7 días',
         'card-label':'Precios Claros','price-diag-lbl':'Diagnóstico Móvil',
         'price-diag-note':'Se acredita hacia la reparación o reemplazo si decides continuar.',
-        'price-repair-lbl':'Reparación de Batería','price-replace-lbl':'Reemplazo Completo',
-        'price-warranty-lbl':'Garantía','price-warranty-val':'3 meses',
-        'card-area':'Servimos Los Angeles, Orange County y South Bay. Precio final tras el diagnóstico en sitio.',
+        'price-repair-lbl':'Opción de reparación','price-replace-lbl':'Reemplazo completo',
+        'price-repair-note':'Mejor cuando solo algunos módulos están débiles.',
+        'price-replace-note':'Mejor opción a largo plazo. Incluye garantía de 1 año.',
+        'price-warranty-lbl':'Garantía en reemplazo completo','price-warranty-val':'1 año',
+        'card-area':'Servimos LA, Orange County y South Bay. Trabajos recientes: Garden Grove • Long Beach • Torrance • Downtown LA. Precio final tras diagnóstico.',
         'qlink-lexus':'Servicio de batería Lexus','qlink-cells':'Comprar celdas recondicionadas',
         'proof-label':'Prueba','proof-h2':'Reparaciones reales. Resultados reales.',
-        'proof-intro':'<b>Cientos de baterías híbridas reparadas</b> en Los Angeles, Orange County y South Bay — probadas y con garantía antes de irnos.',
+        'proof-intro':'<b>Trabajos reales de batería híbrida móvil en SoCal.</b> Diagnosticamos el paquete, explicamos si conviene reparación o reemplazo completo, y verificamos el rendimiento antes de irnos.',
         'gal-hint':'← desliza para ver más trabajos',
         'rev-1-text':'"Vino a mi casa, diagnosticó en 30 minutos, y reparó la batería la misma tarde. Mucho mejor que el concesionario."',
         'rev-2-text':'"Mandé mensaje en la mañana, llegaron a mi oficina a las 2pm. Profesionales, me explicaron todo, precio justo."',
         'rev-3-text':'"Diagnóstico honesto, no me vendieron un paquete completo. La reparación celular me ahorró más de $1,500 vs. el concesionario."',
         'ig-link':'Ver más en Instagram @gofixtoday',
         'proc-label':'Proceso de Servicio','proc-h2':'Diagnóstico. Reparación. Verificación.',
-        'proc-sub':'Proceso limpio de tres pasos diseñado para baterías híbridas NiMH — sin suposiciones, sin ventas extras.',
+        'proc-sub':'Proceso simple de tres pasos para baterías híbridas NiMH Prius y Toyota/Lexus — primero diagnosticamos, luego elegimos reparación o reemplazo.',
         'proc-1t':'Diagnóstico celular','proc-1d':'Escaneamos y probamos cada módulo del paquete para encontrar las celdas débiles — no solo el paquete en general.',
-        'proc-2t':'Reparación o reemplazo','proc-2d':'Cambiamos los módulos malos por celdas recondicionadas — o instalamos un paquete completo si es la mejor opción a largo plazo.',
-        'proc-3t':'Prueba y garantía','proc-3d':'Borramos códigos, balanceamos el paquete y verificamos el rendimiento antes de irnos. Toda reparación incluye 3 meses de garantía.',
-        'svc-label':'Servicios','svc-h2':'Lo que reparamos.',
-        'svc-sub':'Diagnóstico móvil, reparación celular o reemplazo completo — todo en tu ubicación en LA, OC y South Bay.',
+        'proc-2t':'Reparación o reemplazo completo','proc-2d':'Si solo algunos módulos están débiles, la reparación puede ahorrar dinero. Si el paquete está muy degradado, el reemplazo completo es la opción más segura.',
+        'proc-3t':'Prueba y verificación','proc-3d':'Borramos códigos, verificamos el sistema híbrido y confirmamos que el carro está listo. Los reemplazos completos incluyen garantía de 1 año.',
+        'svc-label':'Servicios','svc-h2':'Reparación o reemplazo, en tu ubicación.',
+        'svc-sub':'Ayudamos a dueños de Prius y algunos Lexus híbridos a elegir la opción más conveniente: reparación específica o reemplazo completo.',
         'svc-prius-h':'Batería híbrida Prius',
-        'svc-prius-p':'Nuestro servicio principal. Diagnóstico móvil, reparación de celdas o reemplazo de paquete completo para la familia Toyota Prius. La mayoría de los trabajos se completan el mismo día.',
+        'svc-prius-p':'Nuestro servicio principal. Diagnóstico móvil, reparación desde $399 o reemplazo completo desde $999 con garantía de 1 año. La mayoría de los trabajos se completan el mismo día cuando hay partes disponibles.',
         'svc-lexus-h':'Batería híbrida Lexus',
         'svc-lexus-p':'Damos servicio a modelos Lexus híbridos seleccionados con sistemas NiMH compatibles. Escríbenos tu año y modelo y confirmamos en minutos.',
         'cells-label':'Celdas','cells-h2':'Celdas NiMH recondicionadas.',
@@ -1731,10 +1718,10 @@
         'faq-1q':'¿Solo trabajan con Prius?','faq-1a':'El Prius es nuestra especialidad, pero también damos servicio a modelos Lexus híbridos selectos. Escríbenos tu año y modelo para confirmar.',
         'faq-2q':'¿Qué incluye el diagnóstico de $99?','faq-2a':'Vamos a tu ubicación y probamos toda la batería híbrida a nivel celular. Recibes una respuesta clara sobre qué está fallando y el costo de la reparación. Si decides continuar, los $99 se acreditan al total.',
         'faq-3q':'¿Cuánto tarda una reparación?','faq-3a':'La mayoría de las reparaciones toman 1–3 horas en el lugar. Los reemplazos completos pueden tardar más. Buscamos terminar el mismo día.',
-        'faq-4q':'¿Ofrecen garantía?','faq-4a':'Sí. Todas las reparaciones y reemplazos incluyen 3 meses de garantía en partes y mano de obra.',
+        'faq-4q':'¿Ofrecen garantía?','faq-4a':'Sí. Los reemplazos completos de batería híbrida incluyen garantía de 1 año. Los términos de garantía para reparaciones dependen del diagnóstico y la condición del paquete existente.',
         'faq-5q':'¿Qué áreas cubren?','faq-5a':'Los Angeles, Orange County y South Bay. Escríbenos tu ciudad y confirmamos.',
         'faq-6q':'¿Cómo obtengo una cotización rápida?','faq-6a':'Escríbenos tu año y ciudad. Con eso podemos responderte rápido — generalmente en menos de 5 minutos.',
-        'fcta-h':'¿Problemas con la batería híbrida?','fcta-p':'Escríbenos tu año y ciudad. La mayoría de las cotizaciones en menos de 5 min.'
+        'fcta-h':'¿Necesitas reemplazo o reparación de batería Prius?','fcta-p':'Envíanos tu año y ciudad. Confirmamos rápido las opciones de reparación o reemplazo.'
       }
     };
 
