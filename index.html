@@ -1323,9 +1323,319 @@
 </div>
 
 <script>
+  <script>
   /* ── YEAR ── */
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  /* ══════════════════════════════════════════════════════════
+     CONVERSION TRACKING — v2026.05
+     Changes vs v2026.04:
+     ✓ event_callback: waits for gtag before redirect (was 220ms blind)
+     ✓ transaction_id: unique per click (prevents deduplication)
+     ✓ normalizePhone + gtag user_data: fixes Enhanced Conversions warning
+     ✓ Fallback timeout: 1000ms (was 220ms — too fast on slow connections)
+  ══════════════════════════════════════════════════════════ */
+  var CONV_LABEL = 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC';
+
+  function safeGtag() { return typeof window.gtag === 'function'; }
+
+  /* Normalize phone to E.164 for Enhanced Conversions (e.g. +16574782947) */
+  function normalizePhone(p) {
+    var d = p.replace(/\D/g, '');
+    if (d.length === 10) return '+1' + d;
+    if (d.length === 11 && d[0] === '1') return '+' + d;
+    return '+' + d;
+  }
+
+  /* SMS CTA — repair leads */
+  function trackTextConversion(e) {
+    if (!e) return;
+    e.preventDefault();
+    var h = e.currentTarget.getAttribute('href');
+    var fired = false;
+    function go() { if (fired) return; fired = true; window.location.href = h; }
+    if (safeGtag()) {
+      gtag('event', 'conversion', {
+        'send_to': CONV_LABEL,
+        'value': 1.0,
+        'currency': 'USD',
+        'transaction_id': 'sms_repair_' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
+        'event_callback': go
+      });
+      gtag('event', 'click_sms', { lead_type: 'repair', page_location: window.location.href });
+      setTimeout(go, 1000); /* fallback */
+    } else { go(); }
+  }
+
+  /* SMS CTA — cell leads */
+  function trackCellsTextConversion(e) {
+    if (!e) return;
+    e.preventDefault();
+    var h = e.currentTarget.getAttribute('href');
+    var fired = false;
+    function go() { if (fired) return; fired = true; window.location.href = h; }
+    if (safeGtag()) {
+      gtag('event', 'conversion', {
+        'send_to': CONV_LABEL,
+        'value': 1.0,
+        'currency': 'USD',
+        'transaction_id': 'sms_cells_' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
+        'event_callback': go
+      });
+      gtag('event', 'click_sms', { lead_type: 'cells', page_location: window.location.href });
+      setTimeout(go, 1000);
+    } else { go(); }
+  }
+
+  /* Call click */
+  function trackCallClick(e) {
+    if (!e) return;
+    try {
+      if (safeGtag()) {
+        gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
+      }
+    } catch(err) {}
+  }
+
+  /* ── POPUP ── */
+  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyWGuSL-XWm2PuVJCoBil5kOFaW7PuKraVoyG3SvVwkmL1pNgztANX59xQunMf9CVJi/exec';
+  var popOverlay   = document.getElementById('popOverlay');
+  var popClose     = document.getElementById('popClose');
+  var popForm      = document.getElementById('popForm');
+  var popPhone     = document.getElementById('popPhone');
+  var popConsent   = document.getElementById('popConsent');
+  var popSubmitBtn = document.getElementById('popSubmitBtn');
+  var popFormWrap  = document.getElementById('popFormWrap');
+  var popSuccess   = document.getElementById('popSuccess');
+
+  function openPopup()  { if (!popOverlay) return; popOverlay.classList.add('show');    popOverlay.setAttribute('aria-hidden','false'); }
+  function closePopup() { if (!popOverlay) return; popOverlay.classList.remove('show'); popOverlay.setAttribute('aria-hidden','true');  }
+
+  setTimeout(function() {
+    if (!sessionStorage.getItem('gofix_pop')) { openPopup(); sessionStorage.setItem('gofix_pop','1'); }
+  }, 15000);
+
+  if (popClose)   popClose.addEventListener('click', closePopup);
+  if (popOverlay) popOverlay.addEventListener('click', function(e) { if (e.target === popOverlay) closePopup(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
+
+  if (popForm) {
+    popForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var phone = popPhone.value.trim();
+      if (!phone || !popConsent.checked) return;
+      popSubmitBtn.disabled = true;
+      popSubmitBtn.textContent = 'Sending\u2026';
+
+      /* Enhanced Conversions: send hashed phone BEFORE conversion fires */
+      if (safeGtag()) {
+        gtag('set', 'user_data', { 'phone_number': normalizePhone(phone) });
+        gtag('event', 'conversion', {
+          'send_to': CONV_LABEL,
+          'value': 1.0,
+          'currency': 'USD',
+          'transaction_id': 'voucher_' + Date.now() + '_' + Math.random().toString(36).slice(2,7)
+        });
+        gtag('event', 'offer_lead_submit', { offer_type: '$100_off_popup', page_location: window.location.href });
+      }
+
+      /* Google Sheets webhook */
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone: phone, source: 'voucher_popup', timestamp: new Date().toISOString() })
+        });
+      } catch(err) {}
+
+      popFormWrap.style.display = 'none';
+      popSuccess.classList.add('show');
+    });
+  }
+
+  /* ── STICKY BAR ── */
+  (function() {
+    var bar = document.getElementById('stickyBar');
+    if (!bar || window.innerWidth > 760) return;
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          var show = window.scrollY > 360;
+          bar.style.opacity = show ? '1' : '0';
+          bar.style.pointerEvents = show ? 'auto' : 'none';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+  /* ── PREMIUM 4D CELL VIEWER ── */
+  (function() {
+    var stage=document.getElementById('cell3dStage'),wrap=document.getElementById('cell3dWrap'),scene=document.getElementById('cell3dScene'),product=document.getElementById('cell3dProduct'),glare=document.getElementById('cell3dGlare'),reflection=document.getElementById('cell3dReflectionInner'),hint=document.getElementById('cell3dHint');
+    if(!wrap||!scene||!product)return;
+    var MAX_X=10,MAX_Y=22,REST_X=-4,AUTO_SPEED=0.12,AUTO_RANGE=14,SPRING=0.08,DAMP=0.86;
+    var rotX=REST_X,rotY=0,velX=0,velY=0,autoT=0,auto=true,dragging=false,lastX=0,lastY=0,lastT=0,hintHidden=false,resumeTimer=null;
+    function clamp(v,mn,mx){return Math.max(mn,Math.min(mx,v));}
+    function render(){var tx='rotateX('+rotX.toFixed(2)+'deg) rotateY('+rotY.toFixed(2)+'deg)';product.style.transform=tx;if(reflection)reflection.style.transform='scaleY(-1) rotateY('+rotY.toFixed(2)+'deg)';if(glare){glare.style.setProperty('--glareAngle',(115+rotY*1.5)+'deg');glare.style.opacity=(0.35+Math.abs(rotY)/MAX_Y*0.35).toFixed(2);}if(stage){stage.style.setProperty('--glowX',(50-rotY*0.9)+'%');stage.style.setProperty('--glowY',(42+rotX*0.4)+'%');}}
+    function loop(){if(!dragging){if(auto){autoT+=AUTO_SPEED*0.01;rotY+=(Math.sin(autoT)*AUTO_RANGE-rotY)*0.04;rotX+=(REST_X+Math.cos(autoT*0.7)*2-rotX)*0.04;}else{rotY+=velY;rotX+=velX;velX*=DAMP;velY*=DAMP;if(Math.abs(velX)<0.3&&Math.abs(velY)<0.3){rotX+=(REST_X-rotX)*SPRING;rotY+=(0-rotY)*SPRING*0.6;}}}rotX=clamp(rotX,-MAX_X+REST_X,MAX_X+REST_X);rotY=clamp(rotY,-MAX_Y,MAX_Y);render();requestAnimationFrame(loop);}
+    requestAnimationFrame(loop);
+    function stopAuto(){auto=false;if(hint&&!hintHidden){hint.style.opacity='0';hintHidden=true;}clearTimeout(resumeTimer);}
+    function scheduleResume(){clearTimeout(resumeTimer);resumeTimer=setTimeout(function(){autoT=Math.asin(clamp(rotY/AUTO_RANGE,-1,1));auto=true;},3000);}
+    function onDown(x,y){dragging=true;lastX=x;lastY=y;lastT=performance.now();velX=0;velY=0;stopAuto();}
+    function onMove(x,y){if(!dragging)return;var dx=x-lastX,dy=y-lastY,now=performance.now(),dt=Math.max(1,now-lastT);rotY=clamp(rotY+dx*0.4,-MAX_Y,MAX_Y);rotX=clamp(rotX-dy*0.2,-MAX_X+REST_X,MAX_X+REST_X);velY=(dx*0.4)*(16/dt);velX=-(dy*0.2)*(16/dt);lastX=x;lastY=y;lastT=now;}
+    function onUp(){if(!dragging)return;dragging=false;scheduleResume();}
+    wrap.addEventListener('mousedown',function(e){onDown(e.clientX,e.clientY);e.preventDefault();});
+    window.addEventListener('mousemove',function(e){onMove(e.clientX,e.clientY);});
+    window.addEventListener('mouseup',onUp);
+    wrap.addEventListener('touchstart',function(e){var t=e.touches[0];onDown(t.clientX,t.clientY);},{passive:true});
+    wrap.addEventListener('touchmove',function(e){var t=e.touches[0];onMove(t.clientX,t.clientY);},{passive:true});
+    wrap.addEventListener('touchend',onUp);wrap.addEventListener('touchcancel',onUp);
+    if('IntersectionObserver'in window){new IntersectionObserver(function(entries){entries.forEach(function(en){if(!en.isIntersecting&&auto){auto=false;}else if(en.isIntersecting&&!dragging&&!resumeTimer){auto=true;}});},{threshold:0.15}).observe(stage);}
+  })();
+
+  /* ── LANGUAGE TOGGLE (EN / ES) ── */
+  (function() {
+    var T = {
+      en: {
+        'nav-reviews':'Reviews','nav-services':'Services','nav-cells':'Cells','nav-faq':'FAQ',
+        'hero-h1':'Prius Hybrid Battery<br><span class="ac">Replacement At Your Door.</span>',
+        'hero-sub':'Mobile hybrid battery replacement and repair across LA, Orange County, and the South Bay. From $399 repair, from $999 full replacement, and 1-year warranty on full replacement.',
+        'btn-text-hero':'Text My Year & City for a Quote',
+        'btn-text-prius':'Click to Text (Fast Quote)',
+        'btn-text-lexus':'Click to Text (Lexus)',
+        'btn-text-footer':'Click to Text (Fast Quote)',
+        'btn-text-sticky':'Click to Text (Fast Quote)',
+        'btn-call':'Click to Call',
+        'btn-call-footer':'or call <span class="phone">(657) 478-2947</span>',
+        'hero-note':'<b>Same-day availability</b><span class="dot">&bull;</span><b>1-year warranty on full replacement</b><span class="dot">&bull;</span>LA + OC + South Bay',
+        'trust-1':'5-star rated','trust-2':'Local hybrid battery specialists','trust-3':'Text 7am&ndash;8pm, 7 days',
+        'card-label':'Transparent Pricing','price-diag-lbl':'Mobile Diagnostic',
+        'price-diag-note':'Credited toward repair or replacement if you move forward.',
+        'price-repair-lbl':'Repair Option','price-replace-lbl':'Full Replacement',
+        'price-repair-note':'Best when only a few weak modules are failing.',
+        'price-replace-note':'Best long-term option. Includes 1-year warranty.',
+        'price-warranty-lbl':'Full Replacement Warranty','price-warranty-val':'1 year',
+        'card-area':'Serving LA, Orange County &amp; the South Bay. Recent jobs: Garden Grove &bull; Long Beach &bull; Torrance &bull; Downtown LA. Final price after diagnostic.',
+        'qlink-lexus':'Lexus hybrid battery service','qlink-cells':'Buy reconditioned cells',
+        'proof-label':'Proof','proof-h2':'Real repairs. Real results.',
+        'proof-intro':'<b>Real mobile hybrid battery jobs across SoCal.</b> We diagnose the pack, explain whether repair or full replacement makes more sense, and verify performance before we leave.',
+        'gal-hint':'&larr; swipe to see more jobs',
+        'rev-1-text':'"Came to my house, diagnosed it in 30 minutes, had the battery repaired the same afternoon. Way better than the dealership."',
+        'rev-2-text':'"Texted in the morning, they were at my office by 2pm. Professional, explained everything, fair price. Hybrid system light is gone."',
+        'rev-3-text':'"Honest diagnostic, didn\'t try to upsell me a full pack. Cell-level repair saved me over $1,500 vs. what the dealer quoted."',
+        'ig-link':'See more on Instagram @gofixtoday',
+        'proc-label':'Hybrid Battery Service Process','proc-h2':'Diagnose. Repair. Verify.',
+        'proc-sub':'A simple three-step process built for Prius and Toyota/Lexus NiMH hybrid packs &mdash; diagnose first, then choose repair or replacement.',
+        'proc-1t':'Cell-level diagnostic','proc-1d':'We scan and load-test every module in the pack to find the weak cells &mdash; not just the pack as a whole.',
+        'proc-2t':'Repair or full replacement','proc-2d':'If only a few modules are weak, repair may save money. If the pack is too degraded, full replacement is the safer long-term option.',
+        'proc-3t':'Road-test &amp; verification','proc-3d':'We clear codes, verify the hybrid system, and confirm the car is ready. Full replacements include a 1-year warranty.',
+        'svc-label':'Services','svc-h2':'Repair or replacement, at your location.',
+        'svc-sub':'We help Prius and select Lexus hybrid owners choose the most cost-effective option: targeted repair or full battery replacement.',
+        'svc-prius-h':'Prius hybrid battery',
+        'svc-prius-p':'Our core service. Mobile diagnostic, repair option from $399, or full replacement from $999 with 1-year warranty. Most jobs completed same day when parts are available.',
+        'svc-lexus-h':'Lexus hybrid battery',
+        'svc-lexus-p':'We service select Lexus hybrids with compatible NiMH systems. Text your year and model and we\'ll confirm fit in minutes.',
+        'cells-label':'Cells','cells-h2':'Reconditioned NiMH battery cells.',
+        'cells-sub':'Individual modules for DIY repairs and shops. Tested, reconditioned, ready to drop in.',
+        'cells-card-h':'Order by text.',
+        'cells-card-sub':'Send your Prius year, quantity, and city. We\'ll confirm stock and pickup or delivery options.',
+        'cells-b1':'<b>$35 per cell</b> &mdash; tested &amp; reconditioned',
+        'cells-b2':'<b>Pickup available</b> in SoCal',
+        'cells-b3':'<b>Mobile install</b> available on request',
+        'cells-btn':'Click to Text (Buy Cells)','cell3d-hint':'Drag to rotate',
+        'cfaq-1q':'Which Prius years are compatible?','cfaq-1a':'We carry cells for most Prius model years. Text your year and we\'ll confirm same day.',
+        'cfaq-2q':'How many cells do I actually need?','cfaq-2a':'Depends on which modules failed. If you\'re not sure, text your symptoms and we\'ll advise &mdash; most repairs need between 2 and 8 cells.',
+        'cfaq-3q':'Can you install them for me?','cfaq-3a':'Yes. Mobile install is available depending on vehicle, location, and schedule. Text for the fastest answer.',
+        'faq-label':'FAQ','faq-h2':'Common questions.',
+        'faq-1q':'Do you only work on Prius?','faq-1a':'Prius is our main focus, but we also support select Lexus hybrid models. Text your year and model to confirm.',
+        'faq-2q':'What does the $99 diagnostic include?','faq-2a':'We come to your location and test the entire hybrid battery pack at the cell level. You get a clear answer on what\'s failing and what it costs to fix. If you move forward, the $99 is credited toward the total.',
+        'faq-3q':'How long does a repair take?','faq-3a':'Most repairs take 1&ndash;3 hours on-site. Full replacements may take longer. We aim to complete same day.',
+        'faq-4q':'Do you offer a warranty?','faq-4a':'Yes. Full hybrid battery replacements include a 1-year warranty. Repair warranty terms depend on the diagnostic result and the condition of the existing battery pack.',
+        'faq-5q':'What areas do you serve?','faq-5a':'Los Angeles, Orange County, and the South Bay. Text your city and we\'ll confirm.',
+        'faq-6q':'How do I get the fastest quote?','faq-6a':'Text your year and city. That gives us everything we need for a fast answer &mdash; usually under 5 minutes.',
+        'fcta-h':'Need Prius battery replacement or repair?','fcta-p':'Text your year and city. We\'ll confirm repair vs replacement options fast.'
+      },
+      es: {
+        'nav-reviews':'Rese\u00f1as','nav-services':'Servicios','nav-cells':'Celdas','nav-faq':'FAQ',
+        'hero-h1':'Bater\u00eda H\u00edbrida Prius<br><span class="ac">Reemplazada En Tu Casa.</span>',
+        'hero-sub':'Reemplazo y reparaci\u00f3n m\u00f3vil de bater\u00eda h\u00edbrida en LA, Orange County y South Bay. Reparaci\u00f3n desde $399, reemplazo completo desde $999 y garant\u00eda de 1 a\u00f1o en reemplazo completo.',
+        'btn-text-hero':'Enviar A\u00f1o y Ciudad Para Cotizaci\u00f3n',
+        'btn-text-prius':'Enviar Mensaje (Cotizaci\u00f3n R\u00e1pida)',
+        'btn-text-lexus':'Enviar Mensaje (Lexus)',
+        'btn-text-footer':'Enviar Mensaje (Cotizaci\u00f3n R\u00e1pida)',
+        'btn-text-sticky':'Enviar Mensaje (Cotizaci\u00f3n R\u00e1pida)',
+        'btn-call':'Llamar Ahora',
+        'btn-call-footer':'o llama al <span class="phone">(657) 478-2947</span>',
+        'hero-note':'<b>Disponibilidad el mismo d\u00eda</b><span class="dot">&bull;</span><b>Garant\u00eda de 1 a\u00f1o en reemplazo completo</b><span class="dot">&bull;</span>LA + OC + South Bay',
+        'trust-1':'5 estrellas','trust-2':'Especialistas locales en bater\u00edas h\u00edbridas','trust-3':'Texto 7am&ndash;8pm, 7 d\u00edas',
+        'card-label':'Precios Claros','price-diag-lbl':'Diagn\u00f3stico M\u00f3vil',
+        'price-diag-note':'Se acredita hacia la reparaci\u00f3n o reemplazo si decides continuar.',
+        'price-repair-lbl':'Opci\u00f3n de reparaci\u00f3n','price-replace-lbl':'Reemplazo completo',
+        'price-repair-note':'Mejor cuando solo algunos m\u00f3dulos est\u00e1n d\u00e9biles.',
+        'price-replace-note':'Mejor opci\u00f3n a largo plazo. Incluye garant\u00eda de 1 a\u00f1o.',
+        'price-warranty-lbl':'Garant\u00eda en reemplazo completo','price-warranty-val':'1 a\u00f1o',
+        'card-area':'Servimos LA, Orange County y South Bay. Trabajos recientes: Garden Grove &bull; Long Beach &bull; Torrance &bull; Downtown LA. Precio final tras diagn\u00f3stico.',
+        'qlink-lexus':'Servicio de bater\u00eda Lexus','qlink-cells':'Comprar celdas recondicionadas',
+        'proof-label':'Prueba','proof-h2':'Reparaciones reales. Resultados reales.',
+        'proof-intro':'<b>Trabajos reales de bater\u00eda h\u00edbrida m\u00f3vil en SoCal.</b> Diagnosticamos el paquete, explicamos si conviene reparaci\u00f3n o reemplazo completo, y verificamos el rendimiento antes de irnos.',
+        'gal-hint':'&larr; desliza para ver m\u00e1s trabajos',
+        'rev-1-text':'"Vino a mi casa, diagnostic\u00f3 en 30 minutos, y repar\u00f3 la bater\u00eda la misma tarde. Mucho mejor que el concesionario."',
+        'rev-2-text':'"Mand\u00e9 mensaje en la ma\u00f1ana, llegaron a mi oficina a las 2pm. Profesionales, me explicaron todo, precio justo."',
+        'rev-3-text':'"Diagn\u00f3stico honesto, no me vendieron un paquete completo. La reparaci\u00f3n celular me ahorr\u00f3 m\u00e1s de $1,500 vs. el concesionario."',
+        'ig-link':'Ver m\u00e1s en Instagram @gofixtoday',
+        'proc-label':'Proceso de Servicio','proc-h2':'Diagn\u00f3stico. Reparaci\u00f3n. Verificaci\u00f3n.',
+        'proc-sub':'Proceso simple de tres pasos para bater\u00edas h\u00edbridas NiMH Prius y Toyota/Lexus &mdash; primero diagnosticamos, luego elegimos reparaci\u00f3n o reemplazo.',
+        'proc-1t':'Diagn\u00f3stico celular','proc-1d':'Escaneamos y probamos cada m\u00f3dulo del paquete para encontrar las celdas d\u00e9biles &mdash; no solo el paquete en general.',
+        'proc-2t':'Reparaci\u00f3n o reemplazo completo','proc-2d':'Si solo algunos m\u00f3dulos est\u00e1n d\u00e9biles, la reparaci\u00f3n puede ahorrar dinero. Si el paquete est\u00e1 muy degradado, el reemplazo completo es la opci\u00f3n m\u00e1s segura.',
+        'proc-3t':'Prueba y verificaci\u00f3n','proc-3d':'Borramos c\u00f3digos, verificamos el sistema h\u00edbrido y confirmamos que el carro est\u00e1 listo. Los reemplazos completos incluyen garant\u00eda de 1 a\u00f1o.',
+        'svc-label':'Servicios','svc-h2':'Reparaci\u00f3n o reemplazo, en tu ubicaci\u00f3n.',
+        'svc-sub':'Ayudamos a due\u00f1os de Prius y algunos Lexus h\u00edbridos a elegir la opci\u00f3n m\u00e1s conveniente: reparaci\u00f3n espec\u00edfica o reemplazo completo.',
+        'svc-prius-h':'Bater\u00eda h\u00edbrida Prius',
+        'svc-prius-p':'Nuestro servicio principal. Diagn\u00f3stico m\u00f3vil, reparaci\u00f3n desde $399 o reemplazo completo desde $999 con garant\u00eda de 1 a\u00f1o. La mayor\u00eda de los trabajos se completan el mismo d\u00eda cuando hay partes disponibles.',
+        'svc-lexus-h':'Bater\u00eda h\u00edbrida Lexus',
+        'svc-lexus-p':'Damos servicio a modelos Lexus h\u00edbridos seleccionados con sistemas NiMH compatibles. Esc\u00edbenos tu a\u00f1o y modelo y confirmamos en minutos.',
+        'cells-label':'Celdas','cells-h2':'Celdas NiMH recondicionadas.',
+        'cells-sub':'M\u00f3dulos individuales para reparaciones DIY o talleres. Probadas, recondicionadas, listas para instalar.',
+        'cells-card-h':'Ordena por mensaje.',
+        'cells-card-sub':'Env\u00edanos el a\u00f1o de tu Prius, cantidad y ciudad. Confirmamos stock y opciones de entrega o recogida.',
+        'cells-b1':'<b>$35 por celda</b> &mdash; probada y recondicionada',
+        'cells-b2':'<b>Recogida disponible</b> en SoCal',
+        'cells-b3':'<b>Instalaci\u00f3n m\u00f3vil</b> disponible bajo pedido',
+        'cells-btn':'Enviar Mensaje (Comprar Celdas)','cell3d-hint':'Arrastra para rotar',
+        'cfaq-1q':'\u00bfQu\u00e9 a\u00f1os de Prius son compatibles?','cfaq-1a':'Tenemos celdas para la mayor\u00eda de los a\u00f1os. Esc\u00edbenos tu a\u00f1o y confirmamos el mismo d\u00eda.',
+        'cfaq-2q':'\u00bfCu\u00e1ntas celdas necesito?','cfaq-2a':'Depende de qu\u00e9 m\u00f3dulos fallaron. Si no est\u00e1s seguro, esc\u00edbenos tus s\u00edntomas &mdash; la mayor\u00eda de las reparaciones necesitan entre 2 y 8 celdas.',
+        'cfaq-3q':'\u00bfPueden instalarlas?','cfaq-3a':'S\u00ed. Instalaci\u00f3n m\u00f3vil disponible seg\u00fan veh\u00edculo, ubicaci\u00f3n y horario. Esc\u00edbenos para confirmaci\u00f3n r\u00e1pida.',
+        'faq-label':'Preguntas Frecuentes','faq-h2':'Preguntas comunes.',
+        'faq-1q':'\u00bfSolo trabajan con Prius?','faq-1a':'El Prius es nuestra especialidad, pero tambi\u00e9n damos servicio a modelos Lexus h\u00edbridos selectos. Esc\u00edbenos tu a\u00f1o y modelo para confirmar.',
+        'faq-2q':'\u00bfQu\u00e9 incluye el diagn\u00f3stico de $99?','faq-2a':'Vamos a tu ubicaci\u00f3n y probamos toda la bater\u00eda h\u00edbrida a nivel celular. Recibes una respuesta clara sobre qu\u00e9 est\u00e1 fallando y el costo de la reparaci\u00f3n. Si decides continuar, los $99 se acreditan al total.',
+        'faq-3q':'\u00bfCu\u00e1nto tarda una reparaci\u00f3n?','faq-3a':'La mayor\u00eda de las reparaciones toman 1&ndash;3 horas en el lugar. Los reemplazos completos pueden tardar m\u00e1s. Buscamos terminar el mismo d\u00eda.',
+        'faq-4q':'\u00bfOfrecen garant\u00eda?','faq-4a':'S\u00ed. Los reemplazos completos de bater\u00eda h\u00edbrida incluyen garant\u00eda de 1 a\u00f1o. Los t\u00e9rminos de garant\u00eda para reparaciones dependen del diagn\u00f3stico y la condici\u00f3n del paquete existente.',
+        'faq-5q':'\u00bfQu\u00e9 \u00e1reas cubren?','faq-5a':'Los Angeles, Orange County y South Bay. Esc\u00edbenos tu ciudad y confirmamos.',
+        'faq-6q':'\u00bfC\u00f3mo obtengo una cotizaci\u00f3n r\u00e1pida?','faq-6a':'Esc\u00edbenos tu a\u00f1o y ciudad. Con eso podemos responderte r\u00e1pido &mdash; generalmente en menos de 5 minutos.',
+        'fcta-h':'\u00bfNecesitas reemplazo o reparaci\u00f3n de bater\u00eda Prius?','fcta-p':'Env\u00edanos tu a\u00f1o y ciudad. Confirmamos r\u00e1pido las opciones de reparaci\u00f3n o reemplazo.'
+      }
+    };
+    var stored = localStorage.getItem('gofix_lang');
+    var browserEs = navigator.language && navigator.language.toLowerCase().startsWith('es');
+    var lang = stored || (browserEs ? 'es' : 'en');
+    var btn = document.getElementById('langToggle');
+    function setLang(l) {
+      lang = l;
+      var map = T[l] || T['en'];
+      document.querySelectorAll('[data-t]').forEach(function(el) {
+        var key = el.getAttribute('data-t');
+        if (map[key] !== undefined) el.innerHTML = map[key];
+      });
+      if (btn) btn.textContent = l === 'en' ? 'ES' : 'EN';
+      document.documentElement.lang = l;
+      localStorage.setItem('gofix_lang', l);
+    }
+    setLang(lang);
+    if (btn) btn.addEventListener('click', function() { setLang(lang === 'en' ? 'es' : 'en'); });
+  })();
+</script>
   /* ── CONVERSION TRACKING ── */
   function safeGtag() { return typeof window.gtag === 'function'; }
 
