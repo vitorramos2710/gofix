@@ -772,7 +772,7 @@
      ✓ Fallback timeout: 1000ms (was 220ms — too fast on slow connections)
   ══════════════════════════════════════════════════════════ */
   var CONV_LABEL = 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC';
-
+  var QUIZ_LABEL = 'AW-17973103075/2Y4pCOWTlrEcEOOTn_pC';
   function safeGtag() { return typeof window.gtag === 'function'; }
 
   /* Normalize phone to E.164 for Enhanced Conversions (e.g. +16574782947) */
@@ -1180,7 +1180,7 @@
         if (typeof window.gtag === 'function') {
           try {
             gtag('event', 'conversion', {
-              'send_to': 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC',
+             'send_to': 'AW-17973103075/2Y4pCOWTlrEcEOOTn_pC',
               'value': 5.0,
               'currency': 'USD',
               'transaction_id': 'quiz_complete_' + Date.now() + '_' + Math.random().toString(36).slice(2,7)
