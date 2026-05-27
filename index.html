@@ -727,39 +727,7 @@
 
 </div>
 
-<div class="popOverlay" id="popOverlay" aria-hidden="true">
-  <div class="popBox" role="dialog" aria-modal="true" aria-label="Voucher offer">
-    <div class="popTop">
-      <button class="popClose" id="popClose" aria-label="Close">&times;</button>
-      <div class="popAmount">$100</div>
-      <div class="popOff">OFF your battery service</div>
-      <div class="popDesc">Enter your number and we'll text you the voucher code.</div>
-    </div>
-    <div class="popBottom">
-      <div id="popFormWrap">
-        <form class="popForm" id="popForm">
-          <div class="popInputRow">
-            <input class="popInput" id="popPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your phone number" required />
-            <button class="popSubmit" id="popSubmitBtn" type="submit">Get Voucher</button>
-          </div>
-          <label class="popConsent">
-            <input id="popConsent" type="checkbox" required />
-            <span>I agree to receive texts from GoFix Today. Not required to purchase. Reply STOP to opt out.</span>
-          </label>
-        </form>
-        <div class="popOrCall"><a href="tel:+16574782947" onclick="trackCallClick(event)">or call (657) 478-2947</a></div>
-        <div class="popTerms">$99 diagnostic credited toward repair or full replacement. 1-year warranty applies to full replacement only. New customers. SoCal only.<br>Msg &amp; data rates may apply.</div>
-      </div>
-      <div class="popSuccess" id="popSuccess">Check your phone &mdash; we'll text you the voucher shortly.</div>
-    </div>
-  </div>
-</div>
 
-<div class="stickyBar" id="stickyBar">
-  <a class="btn btn-p" href="sms:+16574782947?&body=Hi%20GoFix%20Today%20%E2%80%94%20I%27d%20like%20help%20with%20my%20hybrid%20battery.%20Can%20you%20review%20my%20vehicle%20details%20and%20help%20me%20schedule%20a%20diagnostic%3F" onclick="trackTextConversion(event)" data-t="btn-text-sticky">Text Battery Details</a>
-</div>
-
-<script>
   /* ── YEAR ── */
   document.getElementById('yr').textContent = new Date().getFullYear();
 
