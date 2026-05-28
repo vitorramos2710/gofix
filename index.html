@@ -343,36 +343,7 @@
     .stickyBar { display:none; position:fixed; bottom:0; left:0; right:0; padding:10px 16px calc(10px + env(safe-area-inset-bottom, 0)); background:rgba(11,11,11,.95); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border-top:1px solid rgba(200,245,66,.12); z-index:999; opacity:0; pointer-events:none; transition:opacity .28s ease; }
     .stickyBar .btn { min-width:unset; width:100%; padding:15px; font-size:15.5px; }
     @media(max-width:760px) { .stickyBar { display:block; } .wrap { padding-bottom:96px; } }
-    .popOverlay { position:fixed; inset:0; background:rgba(0,0,0,.72); backdrop-filter:blur(10px); display:none; align-items:center; justify-content:center; z-index:9999; padding:16px; }
-    .popOverlay.show { display:flex; }
-    .popBox { width:min(100%, 420px); border-radius:24px; overflow:hidden; box-shadow:0 50px 140px rgba(0,0,0,.7), 0 0 0 1px rgba(200,245,66,.12); animation:popIn .3s cubic-bezier(.22,1,.36,1) both; }
-    .popTop { background:radial-gradient(circle at 30% 40%, rgba(200,245,66,.22), transparent 60%), linear-gradient(160deg, #1a2200, #0d0d0d); padding:34px 28px 26px; text-align:center; position:relative; }
-    .popClose { position:absolute; top:14px; right:14px; width:34px; height:34px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06); color:rgba(255,255,255,.5); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .15s, color .15s; }
-    .popClose:hover { background:rgba(255,255,255,.12); color:#fff; }
-    .popAmount { font-size:clamp(68px, 17vw, 88px); font-weight:980; line-height:.85; letter-spacing:-3px; color:var(--accent); }
-    .popOff { font-size:clamp(24px, 6vw, 32px); font-weight:980; color:#fff; letter-spacing:-.5px; margin:4px 0 0; }
-    .popDesc { margin-top:10px; color:rgba(255,255,255,.5); font-size:13px; line-height:1.5; }
-    .popBottom { background:#0d0d0d; padding:20px 28px 26px; }
-    .popForm { display:grid; gap:10px; }
-    .popInputRow { display:flex; gap:8px; }
-    .popInput { flex:1; min-height:50px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06); color:#fff; padding:0 14px; font-size:16px; font-family:var(--f); outline:none; transition:border-color .15s; }
-    .popInput::placeholder { color:rgba(255,255,255,.3); }
-    .popInput:focus { border-color:var(--accent); }
-    .popSubmit { min-height:50px; padding:0 18px; border-radius:12px; border:none; background:var(--accent); color:#0b0b0b; font-family:var(--f); font-size:14px; font-weight:950; cursor:pointer; transition:filter .12s, transform .08s; white-space:nowrap; }
-    .popSubmit:hover { filter:brightness(1.05); }
-    .popSubmit:active { transform:translateY(1px); }
-    .popSubmit:disabled { opacity:.6; cursor:not-allowed; }
-    .popConsent { display:flex; align-items:flex-start; gap:8px; font-size:11px; color:rgba(255,255,255,.3); line-height:1.4; }
-    .popConsent input { margin-top:2px; accent-color:var(--accent); }
-    .popOrCall { text-align:center; margin-top:10px; }
-    .popOrCall a { color:var(--muted); font-size:13px; font-weight:700; text-decoration:underline; text-underline-offset:3px; }
-    .popOrCall a:hover { color:#fff; }
-    .popTerms { text-align:center; margin-top:12px; font-size:11px; color:var(--muted2); line-height:1.4; }
-    .popSuccess { display:none; text-align:center; padding:16px; color:var(--accent); font-weight:800; font-size:14px; line-height:1.5; }
-    .popSuccess.show { display:block; }
-    @media(max-width:520px) { .popTop { padding:26px 18px 20px; } .popBottom { padding:16px 18px 22px; } .popInputRow { flex-direction:column; } }
     @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes popIn { from { opacity:0; transform:scale(.92) translateY(20px); } to { opacity:1; transform:scale(1) translateY(0); } }
     @media (prefers-reduced-motion:reduce) { * { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; } }
   </style>
 </head>
@@ -678,34 +649,6 @@
 
 </div>
 
-<div class="popOverlay" id="popOverlay" aria-hidden="true">
-  <div class="popBox" role="dialog" aria-modal="true" aria-label="Voucher offer">
-    <div class="popTop">
-      <button class="popClose" id="popClose" aria-label="Close">&times;</button>
-      <div class="popAmount">$100</div>
-      <div class="popOff">OFF your battery service</div>
-      <div class="popDesc">Enter your number and we'll text you the voucher code.</div>
-    </div>
-    <div class="popBottom">
-      <div id="popFormWrap">
-        <form class="popForm" id="popForm">
-          <div class="popInputRow">
-            <input class="popInput" id="popPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your phone number" required />
-            <button class="popSubmit" id="popSubmitBtn" type="submit">Get Voucher</button>
-          </div>
-          <label class="popConsent">
-            <input id="popConsent" type="checkbox" required />
-            <span>I agree to receive texts from GoFix Today. Not required to purchase. Reply STOP to opt out.</span>
-          </label>
-        </form>
-        <div class="popOrCall"><a href="tel:+16574782947" onclick="trackCallClick(event)">or call (657) 478-2947</a></div>
-        <div class="popTerms">$99 diagnostic credited toward repair or full replacement. 1-year warranty applies to full replacement only. New customers. SoCal only.<br>Msg &amp; data rates may apply.</div>
-      </div>
-      <div class="popSuccess" id="popSuccess">Check your phone &mdash; we'll text you the voucher shortly.</div>
-    </div>
-  </div>
-</div>
-
 <div class="stickyBar" id="stickyBar">
   <a class="btn btn-p" href="sms:+16574782947?&body=Hi%20GoFix%20Today%20%E2%80%94%20I%27d%20like%20help%20with%20my%20hybrid%20battery.%20Can%20you%20review%20my%20vehicle%20details%20and%20help%20me%20schedule%20a%20diagnostic%3F" onclick="trackTextConversion(event)" data-t="btn-text-sticky">Text Battery Details</a>
 </div>
@@ -719,20 +662,11 @@
      Changes vs v2026.04:
      ✓ event_callback: waits for gtag before redirect (was 220ms blind)
      ✓ transaction_id: unique per click (prevents deduplication)
-     ✓ normalizePhone + gtag user_data: fixes Enhanced Conversions warning
      ✓ Fallback timeout: 1000ms (was 220ms — too fast on slow connections)
   ══════════════════════════════════════════════════════════ */
   var CONV_LABEL = 'AW-17973103075/HcX2CNuTk4gcEOOTn_pC';
 
   function safeGtag() { return typeof window.gtag === 'function'; }
-
-  /* Normalize phone to E.164 for Enhanced Conversions (e.g. +16574782947) */
-  function normalizePhone(p) {
-    var d = p.replace(/\D/g, '');
-    if (d.length === 10) return '+1' + d;
-    if (d.length === 11 && d[0] === '1') return '+' + d;
-    return '+' + d;
-  }
 
   /* SMS CTA — repair leads */
   function trackTextConversion(e) {
@@ -782,62 +716,6 @@
         gtag('event', 'click_call', { method: 'tel', page_location: window.location.href });
       }
     } catch(err) {}
-  }
-
-  /* ── POPUP ── */
-  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyWGuSL-XWm2PuVJCoBil5kOFaW7PuKraVoyG3SvVwkmL1pNgztANX59xQunMf9CVJi/exec';
-  var popOverlay   = document.getElementById('popOverlay');
-  var popClose     = document.getElementById('popClose');
-  var popForm      = document.getElementById('popForm');
-  var popPhone     = document.getElementById('popPhone');
-  var popConsent   = document.getElementById('popConsent');
-  var popSubmitBtn = document.getElementById('popSubmitBtn');
-  var popFormWrap  = document.getElementById('popFormWrap');
-  var popSuccess   = document.getElementById('popSuccess');
-
-  function openPopup()  { if (!popOverlay) return; popOverlay.classList.add('show');    popOverlay.setAttribute('aria-hidden','false'); }
-  function closePopup() { if (!popOverlay) return; popOverlay.classList.remove('show'); popOverlay.setAttribute('aria-hidden','true');  }
-
-  setTimeout(function() {
-    if (!sessionStorage.getItem('gofix_pop')) { openPopup(); sessionStorage.setItem('gofix_pop','1'); }
-  }, 15000);
-
-  if (popClose)   popClose.addEventListener('click', closePopup);
-  if (popOverlay) popOverlay.addEventListener('click', function(e) { if (e.target === popOverlay) closePopup(); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
-
-  if (popForm) {
-    popForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      var phone = popPhone.value.trim();
-      if (!phone || !popConsent.checked) return;
-      popSubmitBtn.disabled = true;
-      popSubmitBtn.textContent = 'Sending\u2026';
-
-      /* Enhanced Conversions: send hashed phone BEFORE conversion fires */
-      if (safeGtag()) {
-        gtag('set', 'user_data', { 'phone_number': normalizePhone(phone) });
-        gtag('event', 'conversion', {
-          'send_to': CONV_LABEL,
-          'value': 1.0,
-          'currency': 'USD',
-          'transaction_id': 'voucher_' + Date.now() + '_' + Math.random().toString(36).slice(2,7)
-        });
-        gtag('event', 'offer_lead_submit', { offer_type: '$100_off_popup', page_location: window.location.href });
-      }
-
-      /* Google Sheets webhook */
-      try {
-        await fetch(WEBHOOK_URL, {
-          method: 'POST', mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ phone: phone, source: 'voucher_popup', timestamp: new Date().toISOString() })
-        });
-      } catch(err) {}
-
-      popFormWrap.style.display = 'none';
-      popSuccess.classList.add('show');
-    });
   }
 
   /* ── STICKY BAR ── */
