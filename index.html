@@ -820,6 +820,26 @@
       font-size:13.5px;
       margin-bottom:2px;
     }
+    .srOnly {
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0, 0, 0, 0);
+      white-space:nowrap;
+      border:0;
+    }
+    .btn:focus-visible,
+    .qBtn:focus-visible,
+    .qOpt:focus-visible,
+    .qChip:focus-visible,
+    .qInput:focus-visible,
+    summary:focus-visible {
+      outline:3px solid rgba(63,191,115,.55);
+      outline-offset:3px;
+    }
 
     .pricingGrid {
       display:grid;
@@ -1303,43 +1323,46 @@
       <div class="heroTrustRow" aria-label="Service trust points">
         <span data-t="hero-trust-1">Same-day availability</span>
         <span data-t="hero-trust-2">Text 24 hours</span>
-        <span data-t="hero-trust-3">1-year warranty on full replacement</span>
+        <span data-t="hero-trust-3">Repair from $399 or replacement from $1,200</span>
       </div>
     </div>
 
     <div class="quoteCard">
       <div class="quoteCardHead">
         <span data-t="quote-card-kicker">Fast service request</span>
-        <strong data-t="quote-card-title">Find your repair path.</strong>
+        <strong data-t="quote-card-title">Text the right details first.</strong>
         <p data-t="quote-card-sub">Tell us your vehicle, year, and city. We&rsquo;ll confirm if repair or full replacement makes sense.</p>
       </div>
 
       <div class="quizBox" id="quizBox">
-        <div class="qProgress"><div class="qProgressFill" id="qProgressFill"></div></div>
+        <div class="qProgress" aria-hidden="true"><div class="qProgressFill" id="qProgressFill"></div></div>
+        <div class="srOnly" id="quizStatus" aria-live="polite">Step 1 of 4: Vehicle</div>
 
         <div class="qStepsWrap">
 
           <div class="qStep active" data-step="1">
             <div class="qStepLabel">
               <span class="left" data-t="q-step1-label">Vehicle</span>
-              <span class="qStepCount"><b>1</b>/5</span>
+              <span class="qStepCount"><b>1</b>/4</span>
             </div>
             <div class="qStepTitle" data-t="q-step1-title">Select your <span class="ac">vehicle</span></div>
-            <div class="qOpts" id="modelOpts">
-              <button class="qOpt" data-val="Prius">Prius</button>
-              <button class="qOpt" data-val="Prius C">Prius C</button>
-              <button class="qOpt" data-val="Prius V">Prius V</button>
-              <button class="qOpt" data-val="Camry Hybrid">Camry Hybrid</button>
-              <button class="qOpt" data-val="Lexus CT 200h">Lexus CT 200h</button>
+            <div class="qOpts" id="modelOpts" role="radiogroup" aria-label="Vehicle model">
+              <button type="button" class="qOpt" data-val="Prius" role="radio" aria-checked="false">Prius</button>
+              <button type="button" class="qOpt" data-val="Prius C" role="radio" aria-checked="false">Prius C</button>
+              <button type="button" class="qOpt" data-val="Prius V" role="radio" aria-checked="false">Prius V</button>
+              <button type="button" class="qOpt" data-val="Camry Hybrid" role="radio" aria-checked="false">Camry Hybrid</button>
+              <button type="button" class="qOpt" data-val="Lexus CT 200h" role="radio" aria-checked="false">Lexus CT 200h</button>
+              <button type="button" class="qOpt" data-val="Other Toyota/Lexus Hybrid" role="radio" aria-checked="false">Other hybrid</button>
             </div>
           </div>
 
           <div class="qStep" data-step="2">
             <div class="qStepLabel">
               <span class="left" data-t="q-step2-label">Year</span>
-              <span class="qStepCount"><b>2</b>/5</span>
+              <span class="qStepCount"><b>2</b>/4</span>
             </div>
             <div class="qStepTitle" data-t="q-step2-title">What <span class="ac">year</span> is it?</div>
+            <label class="srOnly" for="inputYear">Vehicle year</label>
             <input type="text" class="qInput" id="inputYear"
                    placeholder="e.g. 2010" data-t-ph="q-year-ph"
                    inputmode="numeric" maxlength="4" pattern="[0-9]*" />
@@ -1348,9 +1371,10 @@
           <div class="qStep" data-step="3">
             <div class="qStepLabel">
               <span class="left" data-t="q-step3-label">Location</span>
-              <span class="qStepCount"><b>3</b>/5</span>
+              <span class="qStepCount"><b>3</b>/4</span>
             </div>
             <div class="qStepTitle" data-t="q-step3-title">Your <span class="ac">city or ZIP?</span></div>
+            <label class="srOnly" for="inputCity">City or ZIP code</label>
             <input type="text" class="qInput" id="inputCity"
                    placeholder="e.g. Long Beach or 90802" data-t-ph="q-city-ph"
                    autocomplete="address-level2" autocapitalize="words" />
@@ -1359,32 +1383,18 @@
           <div class="qStep" data-step="4">
             <div class="qStepLabel">
               <span class="left" data-t="q-step4-label">Symptoms</span>
-              <span class="qStepCount"><b>4</b>/5 <span class="optTag" data-t="q-optional">OPTIONAL</span></span>
+              <span class="qStepCount"><b>4</b>/4 <span class="optTag" data-t="q-optional">OPTIONAL</span></span>
             </div>
             <div class="qStepTitle" data-t="q-step4-title">Any <span class="ac">warning lights?</span></div>
-            <div class="qStepHint" data-t="q-step4-hint">Tap any that apply, or continue.</div>
+            <div class="qStepHint" data-t="q-step4-hint">Tap any that apply, or text us without symptoms.</div>
             <div class="qChips" id="symptomChips">
-              <div class="qChip" data-val="Red triangle of death" data-t="q-sym-1">Red triangle</div>
-              <div class="qChip" data-val="Check hybrid system light" data-t="q-sym-2">Check hybrid light</div>
-              <div class="qChip" data-val="Loss of MPG" data-t="q-sym-3">Loss of MPG</div>
-              <div class="qChip" data-val="Won't accelerate / limp mode" data-t="q-sym-4">Won't accelerate</div>
-              <div class="qChip" data-val="P0A80 code" data-t="q-sym-5">P0A80 code</div>
-              <div class="qChip" data-val="Just need a diagnostic" data-t="q-sym-6">Just need diagnostic</div>
+              <button type="button" class="qChip" data-val="Red triangle of death" data-t="q-sym-1" aria-pressed="false">Red triangle</button>
+              <button type="button" class="qChip" data-val="Check hybrid system light" data-t="q-sym-2" aria-pressed="false">Check hybrid light</button>
+              <button type="button" class="qChip" data-val="Loss of MPG" data-t="q-sym-3" aria-pressed="false">Loss of MPG</button>
+              <button type="button" class="qChip" data-val="Won't accelerate / limp mode" data-t="q-sym-4" aria-pressed="false">Won't accelerate</button>
+              <button type="button" class="qChip" data-val="P0A80 code" data-t="q-sym-5" aria-pressed="false">P0A80 code</button>
+              <button type="button" class="qChip" data-val="Just need a diagnostic" data-t="q-sym-6" aria-pressed="false">Just need diagnostic</button>
             </div>
-          </div>
-
-          <div class="qStep" data-step="5">
-            <div class="qStepLabel">
-              <span class="left" data-t="q-step5-label">Contact</span>
-              <span class="qStepCount"><b>5</b>/5</span>
-            </div>
-            <div class="qStepTitle" data-t="q-step5-title">Who should we <span class="ac">text back?</span></div>
-            <input type="text" class="qInput" id="inputName"
-                   placeholder="Your name" data-t-ph="q-name-ph"
-                   autocomplete="given-name" autocapitalize="words" />
-            <input type="tel" class="qInput qInputStacked" id="inputPhone"
-                   placeholder="Phone number (optional)" data-t-ph="q-phone-ph"
-                   autocomplete="tel" inputmode="tel" />
           </div>
 
         </div>
@@ -1393,7 +1403,12 @@
           <button class="qBtn qBtn-back" id="qBackBtn" data-t="q-back" style="display:none;">Back</button>
           <a href="#" class="qBtn qBtn-primary" id="qPrimaryBtn" data-t="q-continue">Continue</a>
         </div>
-        <div class="qSubmitNote" data-t="q-submit-note">No deposit. No pressure. Final quote after diagnostic.</div>
+        <div class="qSubmitNote" data-t="q-submit-note">No deposit. No pressure. We reply by text with the next step.</div>
+      </div>
+
+      <div class="quoteReassurance">
+        <b>Not sure it is the hybrid battery?</b>
+        Text the warning light, code, or symptom. We will help separate hybrid battery, 12V battery, and other issues before scheduling.
       </div>
 
       <div class="quoteCardLinks">
@@ -1781,12 +1796,12 @@
   /* ═════════ INLINE QUIZ LOGIC (v4) ═════════ */
   (function(){
     var PHONE = '+16574782947';
-    var TOTAL_STEPS = 5;
-    var FINAL_STEP = 5;
+    var TOTAL_STEPS = 4;
+    var FINAL_STEP = 4;
 
     var state = {
       step: 1,
-      name: '', phone: '', model: '', year: '', city: '',
+      model: '', year: '', city: '',
       symptoms: [], gclid: ''
     };
 
@@ -1809,6 +1824,7 @@
     var progressFill = document.getElementById('qProgressFill');
     var primaryBtn = document.getElementById('qPrimaryBtn');
     var backBtn = document.getElementById('qBackBtn');
+    var quizStatus = document.getElementById('quizStatus');
     if (!primaryBtn) return; /* safety: quiz not in DOM */
 
     function buildVehicle() {
@@ -1816,15 +1832,14 @@
     }
     function buildMessage() {
       var lines = [
-        'Hi GoFix Today — this is ' + state.name + '.',
+        'Hi GoFix Today — my hybrid battery needs help.',
         'Vehicle: ' + buildVehicle(),
         'Location: ' + state.city
       ];
-      if (state.phone) {
-        lines.push('Phone: ' + state.phone);
-      }
       if (state.symptoms.length) {
         lines.push('Symptoms: ' + state.symptoms.join(', ') + '.');
+      } else {
+        lines.push('Symptoms: Not sure yet.');
       }
       lines.push('I would like help reviewing the hybrid battery issue and scheduling a diagnostic. Please let me know the next steps.');
       if (state.gclid) {
@@ -1842,7 +1857,7 @@
       var es = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('es');
       var labels = {
         continue: es ? 'Continuar' : 'Continue',
-        final: es ? 'Enviar datos de mi batería' : 'Text My Battery Details'
+        final: es ? 'Enviar datos de mi batería' : 'Text Battery Details'
       };
       return labels[key];
     }
@@ -1863,7 +1878,7 @@
       } else {
         var smsHref = 'sms:' + PHONE + '?&body=' + encodeURIComponent(buildMessage());
         setPrimary(smsHref, quizLabel('final'));
-        disablePrimary(state.name.length < 2);
+        disablePrimary(false);
       }
     }
 
@@ -1875,6 +1890,10 @@
       });
       progressFill.style.width = ((n / TOTAL_STEPS) * 100) + '%';
       backBtn.style.display = n > 1 ? 'inline-flex' : 'none';
+      if (quizStatus) {
+        var activeLabel = document.querySelector('.qStep.active .qStepLabel .left');
+        quizStatus.textContent = 'Step ' + n + ' of ' + TOTAL_STEPS + ': ' + (activeLabel ? activeLabel.textContent : '');
+      }
       refreshPrimary();
 
       setTimeout(function(){
@@ -1899,7 +1918,6 @@
               'transaction_id': 'quiz_complete_' + Date.now() + '_' + Math.random().toString(36).slice(2,7)
             });
             gtag('event', 'quiz_complete', {
-              quiz_name: state.name,
               quiz_model: buildVehicle(),
               quiz_city: state.city,
               quiz_symptoms_count: state.symptoms.length,
@@ -1917,8 +1935,12 @@
     var modelOpts = document.getElementById('modelOpts');
     modelOpts.querySelectorAll('.qOpt').forEach(function(btn){
       btn.addEventListener('click', function(){
-        modelOpts.querySelectorAll('.qOpt').forEach(function(b){ b.classList.remove('selected'); });
+        modelOpts.querySelectorAll('.qOpt').forEach(function(b){
+          b.classList.remove('selected');
+          b.setAttribute('aria-checked', 'false');
+        });
         btn.classList.add('selected');
+        btn.setAttribute('aria-checked', 'true');
         state.model = btn.getAttribute('data-val');
         setTimeout(function(){ goToStep(2); }, 280);
         refreshPrimary();
@@ -1951,31 +1973,12 @@
     chipContainer.querySelectorAll('.qChip').forEach(function(chip){
       chip.addEventListener('click', function(){
         chip.classList.toggle('selected');
+        chip.setAttribute('aria-pressed', chip.classList.contains('selected') ? 'true' : 'false');
         state.symptoms = Array.from(chipContainer.querySelectorAll('.qChip.selected'))
                               .map(function(c){ return c.getAttribute('data-val'); });
         refreshPrimary();
       });
     });
-
-    /* step 5: contact */
-    var inputName = document.getElementById('inputName');
-    var inputPhone = document.getElementById('inputPhone');
-    inputName.addEventListener('input', function(){
-      state.name = inputName.value.trim();
-      refreshPrimary();
-    });
-    inputName.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' && state.name.length >= 2) { e.preventDefault(); primaryBtn.click(); }
-    });
-    if (inputPhone) {
-      inputPhone.addEventListener('input', function(){
-        state.phone = inputPhone.value.trim();
-        refreshPrimary();
-      });
-      inputPhone.addEventListener('keydown', function(e){
-        if (e.key === 'Enter' && state.name.length >= 2) { e.preventDefault(); primaryBtn.click(); }
-      });
-    }
 
     goToStep(1);
   })();
